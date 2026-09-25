@@ -24,29 +24,26 @@ export default function EditorialImage({
           }}
         ></div>
 
-        {/* Technical Top Markings */}
-        <div className="relative z-10 flex items-center justify-between text-[10px] font-mono text-earth tracking-widest uppercase">
-          <span>ENVERT // SPEC 2.0</span>
+        {/* Clean Top Branding */}
+        <div className="relative z-10 flex items-center justify-between text-xs font-mono text-earth tracking-wider uppercase">
+          <span>EnVERT GROUP</span>
           <span>{domain}</span>
         </div>
 
-        {/* Center Isometric / Editorial Geometric Motif */}
+        {/* Center Editorial Motif */}
         <div className="relative z-10 my-auto text-center py-4">
-          <svg className="w-16 h-16 mx-auto text-earth/40 stroke-current mb-2" fill="none" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          <svg className="w-12 h-12 mx-auto text-earth/50 stroke-current mb-2" fill="none" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
           </svg>
-          <p className="text-xs font-heading font-semibold text-paper/90 tracking-wide uppercase">
+          <p className="text-sm font-heading font-semibold text-paper tracking-wide uppercase">
             {alt}
-          </p>
-          <p className="text-[10px] font-mono text-paper/50 mt-1 uppercase">
-            Multidisciplinary Systems Infrastructure
           </p>
         </div>
 
-        {/* Bottom Coordinates */}
-        <div className="relative z-10 flex items-center justify-between text-[10px] font-mono text-paper/40">
-          <span>22.5726° N, 88.3639° E</span>
-          <span>KOLKATA HQ</span>
+        {/* Bottom Location */}
+        <div className="relative z-10 flex items-center justify-between text-xs font-mono text-paper/60">
+          <span>EnVERT Group</span>
+          <span>Kolkata, India</span>
         </div>
       </div>
 

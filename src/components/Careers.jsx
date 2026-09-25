@@ -5,14 +5,7 @@ import { careersData, siteMetadata } from '../data/siteData';
 export default function Careers({ onApplyJob }) {
   const [selectedDept, setSelectedDept] = useState('ALL');
 
-  const departments = [
-    'ALL',
-    'Energy Engineering',
-    'Energy Audits (Consortium)',
-    'Business Development',
-    'Publishing & Media',
-    'Manufacturing & Operations'
-  ];
+  const departments = ['ALL', ...Array.from(new Set(careersData.map(j => j.department)))];
 
   const filteredJobs =
     selectedDept === 'ALL'

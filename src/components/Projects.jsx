@@ -1,24 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ArrowRight, MapPin, Calendar, CheckSquare } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { projectsData } from '../data/siteData';
 import EditorialImage from './EditorialImage';
 
 export default function Projects({ onOpenContact }) {
-  const [selectedFilter, setSelectedFilter] = useState('ALL');
-
-  const filteredProjects =
-    selectedFilter === 'ALL'
-      ? projectsData
-      : projectsData.filter((p) => p.industry.toUpperCase() === selectedFilter);
-
-  const filterOptions = ['ALL', 'ENERGY', 'MOBILITY', 'ENVIRONMENT'];
-
   return (
     <section id="projects" className="py-20 lg:py-28 bg-paper-warm border-b border-charcoal/15">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
         
-        {/* Header with Editorial Headline & Category Filters */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 mb-12 border-b border-charcoal/10 gap-6">
+        {/* Header with Editorial Headline & Direct Link */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-6 mb-12 border-b border-charcoal/10 gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="w-1.5 h-1.5 bg-earth inline-block rounded-xs"></span>
@@ -33,28 +25,11 @@ export default function Projects({ onOpenContact }) {
               Demonstrating what EnVERT has engineered and delivered across industrial and urban geographies.
             </p>
           </div>
-
-          {/* Filter Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0">
-            {filterOptions.map((opt) => (
-              <button
-                key={opt}
-                onClick={() => setSelectedFilter(opt)}
-                className={`px-3.5 py-1.5 text-xs font-mono tracking-wider uppercase transition-colors border ${
-                  selectedFilter === opt
-                    ? 'bg-forest text-paper border-forest'
-                    : 'bg-paper text-charcoal/70 border-charcoal/15 hover:border-charcoal/40'
-                }`}
-              >
-                {opt}
-              </button>
-            ))}
-          </div>
         </div>
 
-        {/* Project Grid */}
+        {/* Project Grid (1 Row: 3 Projects) */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
+          {projectsData.slice(0, 3).map((project) => (
             <div
               key={project.id}
               className="bg-paper border border-charcoal/15 flex flex-col justify-between group hover:border-forest-deep transition-all duration-300"
@@ -124,11 +99,18 @@ export default function Projects({ onOpenContact }) {
           ))}
         </div>
 
-        {/* Note on Data Integrity as required by PRD */}
-        <div className="mt-12 p-4 bg-paper border border-charcoal/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-charcoal/60">
-          <span>* EnVERT policy mandates non-disclosure of proprietary client names without express authorization.</span>
-          <span className="text-forest font-semibold">ALL METRICS VERIFIED BY ENGINEERING AUDITS</span>
+        {/* View More Button opening dedicated /projects page */}
+        <div className="mt-12 flex justify-center">
+          <Link
+            to="/projects"
+            className="px-6 py-3 bg-forest hover:bg-forest-deep text-paper font-heading text-xs uppercase tracking-wider font-semibold rounded-xs transition-all duration-200 inline-flex items-center gap-2 shadow-xs hover:shadow-md hover:translate-x-0.5"
+          >
+            <span>View More Projects</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
+
+
 
       </div>
     </section>

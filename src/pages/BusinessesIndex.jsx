@@ -11,18 +11,15 @@ export default function BusinessesIndex({ onOpenContact }) {
         
         {/* Header */}
         <div className="pb-8 mb-16 border-b border-charcoal/15">
-          <span className="font-mono text-xs uppercase tracking-widest text-earth font-semibold">
-            GROUP ARCHITECTURE // 07 OPERATIONAL DOMAINS
-          </span>
-          <h1 className="font-heading text-4xl sm:text-6xl font-bold uppercase tracking-tight-editorial text-forest-deep mt-2">
+          <h1 className="font-heading text-4xl sm:text-6xl font-bold uppercase tracking-tight-editorial text-forest-deep">
             Our Businesses
           </h1>
           <p className="mt-4 text-base sm:text-lg text-charcoal/80 max-w-2xl">
-            Each operating company and practice under EnVERT Group functions as a specialized technical unit while sharing common engineering ethics, corporate governance, and sustainability principles.
+            Each operating company and practice under EnVERT Group functions as a specialized technical unit within our organized categories, sharing common engineering ethics, corporate governance, and sustainability principles.
           </p>
         </div>
 
-        {/* List of 7 Dedicated Businesses */}
+        {/* List of Categorized Businesses */}
         <div className="space-y-16">
           {businessesData.map((biz) => (
             <div
@@ -32,17 +29,15 @@ export default function BusinessesIndex({ onOpenContact }) {
               {/* Left Details (7 cols) */}
               <div className="lg:col-span-7 flex flex-col justify-between">
                 <div>
-                  {biz.logo && (
-                    <div className="mb-3 h-12 bg-white p-2 border border-charcoal/10 inline-flex items-center rounded-xs shadow-xs">
-                      <img src={biz.logo} alt={biz.name} className="max-h-full max-w-[160px] object-contain" />
-                    </div>
-                  )}
-
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="font-mono text-sm font-bold text-earth">{biz.num}</span>
+                  <div className="flex flex-wrap items-center gap-2 mb-2 font-mono text-xs">
+                    <span className="font-bold text-earth text-sm">{biz.num}</span>
                     <span className="text-charcoal/30">|</span>
-                    <span className="font-mono text-xs uppercase tracking-wider text-charcoal/60 font-semibold">
-                      {biz.brandRef || 'CORPORATE PRACTICE'}
+                    <span className="uppercase text-charcoal/60 font-semibold tracking-wider">
+                      CATEGORY: {biz.name}
+                    </span>
+                    <span className="text-charcoal/30">•</span>
+                    <span className="uppercase text-forest font-bold tracking-wider">
+                      {biz.companyName}
                     </span>
                   </div>
 
@@ -54,12 +49,38 @@ export default function BusinessesIndex({ onOpenContact }) {
                     {biz.tagline}
                   </p>
 
-                  <p className="mt-4 text-xs sm:text-sm text-charcoal/70 leading-relaxed">
+                  <p className="mt-3 text-xs sm:text-sm text-charcoal/70 leading-relaxed">
                     {biz.summary}
                   </p>
 
+                  {/* Operating Businesses Under this Category */}
+                  {biz.businessesUnderCategory && biz.businessesUnderCategory.length > 0 && (
+                    <div className="mt-5 p-3.5 bg-paper-warm border border-charcoal/10 rounded-xs">
+                      <div className="text-[10.5px] font-mono uppercase tracking-wider text-charcoal/60 font-semibold mb-2">
+                        Operating Businesses Under {biz.name}:
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {biz.businessesUnderCategory.map((sub, sIdx) => (
+                          <div key={sIdx} className="flex items-center gap-2.5 p-2 bg-white border border-charcoal/10 rounded-xs">
+                            {sub.logo ? (
+                              <div className="w-8 h-8 bg-white flex items-center justify-center shrink-0">
+                                <img src={sub.logo} alt={sub.name} className="max-h-full max-w-full object-contain" />
+                              </div>
+                            ) : (
+                              <span className="w-2 h-2 rounded-full bg-leaf shrink-0"></span>
+                            )}
+                            <div className="min-w-0">
+                              <span className="font-heading text-xs font-bold text-forest-deep block truncate">{sub.name}</span>
+                              <span className="text-[10px] text-charcoal/60 block truncate">{sub.role}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   {/* Capabilities Preview */}
-                  <div className="mt-6 pt-4 border-t border-charcoal/10 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div className="mt-5 pt-3 border-t border-charcoal/10 grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {biz.capabilities.slice(0, 4).map((c, i) => (
                       <div key={i} className="text-xs text-charcoal/80 flex items-center gap-2">
                         <span className="w-1.5 h-1.5 bg-leaf rounded-full shrink-0"></span>
@@ -75,7 +96,7 @@ export default function BusinessesIndex({ onOpenContact }) {
                     to={`/businesses/${biz.id}`}
                     className="inline-flex items-center gap-2 px-5 py-2.5 bg-forest hover:bg-forest-deep text-paper font-heading text-xs uppercase tracking-wider font-semibold rounded-xs transition-colors"
                   >
-                    <span>View Dedicated Page</span>
+                    <span>View Page</span>
                     <ArrowRight className="w-3.5 h-3.5 text-earth-light" />
                   </Link>
 
@@ -94,7 +115,7 @@ export default function BusinessesIndex({ onOpenContact }) {
                   <EditorialImage
                     src={biz.image}
                     alt={biz.name}
-                    domain={`DOMAIN REF: ${biz.num}`}
+                    domain={biz.name}
                     caption={biz.imageCaption}
                     aspectRatio="aspect-[16/10]"
                   />

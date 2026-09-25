@@ -10,13 +10,18 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
   const business = businessesData.find((b) => 
     b.id.toLowerCase() === targetSlug?.toLowerCase() || 
     b.urlSlug?.toLowerCase() === targetSlug?.toLowerCase() ||
+    b.aliases?.includes(targetSlug?.toLowerCase()) ||
+    (targetSlug?.toLowerCase() === 'touriosity' && b.id === 'publication') ||
+    (targetSlug?.toLowerCase() === 'thetouriosity' && b.id === 'publication') ||
     (targetSlug?.toLowerCase() === 'mobility' && b.id === 'transport-electric') ||
     (targetSlug?.toLowerCase() === 'corporate-training' && b.id === 'icst') ||
     (targetSlug?.toLowerCase() === 'training' && b.id === 'icst') ||
     (targetSlug?.toLowerCase() === 'publishing' && b.id === 'publication') ||
+    (targetSlug?.toLowerCase() === 'pen-ink' && b.id === 'publication') ||
     (targetSlug?.toLowerCase() === 'foundation' && b.id === 'envert-foundation') ||
     (targetSlug?.toLowerCase() === 'atmaja' && b.id === 'fashion-lifestyle') ||
     (targetSlug?.toLowerCase() === 'glare-post' && b.id === 'glarepost') ||
+    (targetSlug?.toLowerCase() === 'glarepost' && b.id === 'publication') ||
     (targetSlug?.toLowerCase() === 'agro-food' && b.id === 'envert-agro-food')
   );
 
@@ -75,40 +80,13 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
             <div className="lg:col-span-6 flex flex-col justify-between">
               <div>
                 
-                {/* Official Brand Logo Banner */}
-                {business.logo && (
-                  <div className="mb-6 flex flex-wrap items-center gap-3">
-                    <div className="bg-white p-3.5 border border-charcoal/15 shadow-xs inline-flex items-center rounded-xs">
-                      <img
-                        src={business.logo}
-                        alt={`${business.name} official logo`}
-                        className="h-12 sm:h-14 w-auto object-contain max-w-[260px]"
-                      />
-                    </div>
-                    {business.secondaryLogo && (
-                      <div className="bg-white p-3 border border-charcoal/15 shadow-xs inline-flex items-center rounded-xs">
-                        <img
-                          src={business.secondaryLogo}
-                          alt={`${business.name} secondary logo`}
-                          className="h-12 sm:h-14 w-auto object-contain max-w-[120px]"
-                        />
-                      </div>
-                    )}
-                    {business.symbolLogo && (
-                      <div className="bg-white p-3 border border-charcoal/15 shadow-xs inline-flex items-center rounded-xs">
-                        <img
-                          src={business.symbolLogo}
-                          alt={`${business.name} symbol`}
-                          className="h-12 sm:h-14 w-auto object-contain max-w-[120px]"
-                        />
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="font-mono text-xs uppercase tracking-widest text-earth font-semibold">
-                    DOMAIN {business.num} // {business.brandRef || 'CORPORATE PRACTICE'}
+                <div className="flex flex-wrap items-center gap-2 mb-2 font-mono text-xs">
+                  <span className="text-earth font-semibold uppercase tracking-wider">
+                    SECTOR: {business.category}
+                  </span>
+                  <span className="text-charcoal/30">•</span>
+                  <span className="text-forest font-bold uppercase tracking-wider">
+                    OPERATED BY {business.companyName}
                   </span>
                 </div>
 
@@ -175,14 +153,10 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
               <EditorialImage
                 src={business.image}
                 alt={business.name}
-                domain={`DOMAIN ${business.num} SPECIFICATION`}
+                domain={business.name}
                 caption={business.imageCaption}
                 aspectRatio="aspect-[16/11]"
               />
-              <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-charcoal/50 px-1">
-                <span>VERIFIED OPERATIONAL VERTICAL</span>
-                <span>ENVERT GROUP • KOLKATA HQ</span>
-              </div>
             </div>
 
           </div>
@@ -190,36 +164,65 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
         </div>
       </section>
 
-      {/* Publications / Titles Section (for Publication or Glarepost) */}
-      {business.publications && (
+      {/* Operating Businesses & Brands Under This Category */}
+      {business.businessesUnderCategory && business.businessesUnderCategory.length > 0 && (
         <section className="py-14 bg-paper border-b border-charcoal/15">
           <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
-            <div className="pb-4 mb-8 border-b border-charcoal/10">
-              <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
-                EDITORIAL IMPRINTS & TITLES
+            <div className="pb-4 mb-8 border-b border-charcoal/10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div>
+                <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
+                  OPERATING ENTERPRISES & BRANDS
+                </span>
+                <h2 className="font-heading text-2xl sm:text-3xl font-bold uppercase text-forest-deep mt-1">
+                  Businesses Under {business.name}
+                </h2>
+              </div>
+              <span className="text-xs font-mono text-charcoal/50">
+                {business.businessesUnderCategory.length} ACTIVE OPERATING {business.businessesUnderCategory.length === 1 ? 'UNIT' : 'UNITS'}
               </span>
-              <h2 className="font-heading text-2xl sm:text-3xl font-bold uppercase text-forest-deep mt-1">
-                Official Publications & Media Channels
-              </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {business.publications.map((pub) => (
-                <div key={pub.name} className="p-6 bg-paper-warm border border-charcoal/15 rounded-xs flex flex-col justify-between">
+            <div className={`grid grid-cols-1 ${business.businessesUnderCategory.length > 1 ? 'md:grid-cols-2 lg:grid-cols-3' : 'max-w-xl'} gap-6`}>
+              {business.businessesUnderCategory.map((sub, sIdx) => (
+                <div key={sIdx} className="p-6 bg-paper-warm border border-charcoal/15 rounded-xs flex flex-col justify-between hover:border-forest-deep transition-all duration-200 shadow-xs">
                   <div>
-                    {pub.logo && (
-                      <div className="mb-4 bg-white p-2.5 border border-charcoal/10 inline-flex items-center rounded-xs h-14">
-                        <img src={pub.logo} alt={pub.name} className="max-h-full max-w-[160px] object-contain" />
+                    {sub.logo && (
+                      <div className="mb-4 bg-white p-3 border border-charcoal/10 inline-flex items-center justify-center rounded-xs h-16 w-auto max-w-[200px]">
+                        <img src={sub.logo} alt={sub.name} className="max-h-full max-w-full object-contain" />
                       </div>
                     )}
-                    <h3 className="font-heading text-lg font-bold text-forest-deep">{pub.name}</h3>
-                    <p className="text-xs text-charcoal/70 mt-2 leading-relaxed">
-                      {pub.desc}
+                    <h3 className="font-heading text-xl font-bold text-forest-deep uppercase tracking-tight">
+                      {sub.name}
+                    </h3>
+                    <p className="text-xs font-mono text-earth font-semibold uppercase mt-1">
+                      {sub.role}
+                    </p>
+                    <p className="text-xs sm:text-sm text-charcoal/75 mt-3 leading-relaxed">
+                      {sub.desc}
                     </p>
                   </div>
-                  <div className="mt-4 pt-3 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono text-earth font-semibold">
-                    <span>Active Publication</span>
-                    <BookOpen className="w-3.5 h-3.5" />
+                  
+                  <div className="mt-6 pt-4 border-t border-charcoal/10 flex items-center justify-between">
+                    {sub.url ? (
+                      <a
+                        href={sub.url}
+                        target={sub.url.startsWith('http') ? '_blank' : '_self'}
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase text-forest hover:text-earth transition-colors"
+                      >
+                        <span>Official Platform</span>
+                        <ExternalLink className="w-3.5 h-3.5 text-earth" />
+                      </a>
+                    ) : (
+                      <span className="text-[11px] font-mono text-charcoal/50">Operating Division</span>
+                    )}
+
+                    <button
+                      onClick={() => onOpenContact(`Inquiry: ${sub.name} (${business.name})`)}
+                      className="text-xs font-mono text-forest-deep hover:text-earth underline decoration-dotted"
+                    >
+                      Inquire →
+                    </button>
                   </div>
                 </div>
               ))}
@@ -258,46 +261,55 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
       )}
 
       {/* Authentic Scraped Project Photography Gallery (e.g. EnVERT Foundation) */}
-      {business.galleryImages && business.galleryImages.length > 0 && (
-        <section className="py-16 bg-paper-warm border-b border-charcoal/15">
-          <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
-            <div className="pb-4 mb-8 border-b border-charcoal/10">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="w-1.5 h-1.5 bg-earth rounded-full"></span>
-                <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
-                  AUTHENTIC FIELD DOCUMENTATION
-                </span>
-              </div>
-              <h2 className="font-heading text-2xl sm:text-3xl font-bold uppercase text-forest-deep">
-                Grassroots Project & Stewardship Photography
-              </h2>
-              <p className="text-xs text-charcoal/70 mt-1 font-mono">
-                Archival documentation of EnVERT Foundation tree plantation drives, rural literacy campaigns, and youth awards.
-              </p>
-            </div>
+      {(() => {
+        const uniqueGallery = (business.galleryImages || []).filter(
+          (item, idx, self) =>
+            item.src !== business.image &&
+            self.findIndex((s) => s.src === item.src) === idx
+        );
+        if (uniqueGallery.length === 0) return null;
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {business.galleryImages.map((item, idx) => (
-                <div key={idx} className="group bg-paper border border-charcoal/15 overflow-hidden rounded-xs flex flex-col justify-between">
-                  <div className="aspect-[4/3] bg-charcoal/5 overflow-hidden">
-                    <img
-                      src={item.src}
-                      alt={item.caption}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-3 bg-paper">
-                    <p className="text-[11px] font-mono text-charcoal/80 leading-snug">
-                      {item.caption}
-                    </p>
-                  </div>
+        return (
+          <section className="py-16 bg-paper-warm border-b border-charcoal/15">
+            <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
+              <div className="pb-4 mb-8 border-b border-charcoal/10">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-1.5 h-1.5 bg-earth rounded-full"></span>
+                  <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
+                    AUTHENTIC FIELD DOCUMENTATION
+                  </span>
                 </div>
-              ))}
+                <h2 className="font-heading text-2xl sm:text-3xl font-bold uppercase text-forest-deep">
+                  Grassroots Project & Stewardship Photography
+                </h2>
+                <p className="text-xs text-charcoal/70 mt-1 font-mono">
+                  Archival documentation of EnVERT Foundation tree plantation drives, rural literacy campaigns, and youth awards.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {uniqueGallery.map((item, idx) => (
+                  <div key={idx} className="group bg-paper border border-charcoal/15 overflow-hidden rounded-xs flex flex-col justify-between">
+                    <div className="aspect-[4/3] bg-charcoal/5 overflow-hidden">
+                      <img
+                        src={item.src}
+                        alt={item.caption}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="p-3 bg-paper">
+                      <p className="text-[11px] font-mono text-charcoal/80 leading-snug">
+                        {item.caption}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          </section>
+        );
+      })()}
 
       {/* Capabilities Section */}
       <section className="py-16 bg-paper border-b border-charcoal/15">

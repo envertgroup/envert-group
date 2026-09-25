@@ -6,7 +6,7 @@
   html {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
-  
+
   body {
     background-color: #FAFAF7;
     color: #1C211E;
@@ -58,4 +58,26 @@
 .num-tag {
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
+}
+
+/* Continuous sliding ticker marquee for company logos and names */
+@keyframes marquee-slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-slide {
+  display: flex;
+  width: max-content;
+  animation: marquee-slide 60s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-slide:hover {
+  animation-play-state: paused;
 }

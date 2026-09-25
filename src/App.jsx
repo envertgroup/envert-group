@@ -63,22 +63,29 @@ export default function App() {
               element={<BusinessDetail onOpenContact={handleOpenContact} />}
             />
 
-            {/* Direct Top-Level Business Slugs (matching original site URLs) */}
+            {/* Direct Top-Level Business & Company Slugs */}
             <Route path="/energy" element={<BusinessDetail forcedSlug="energy" onOpenContact={handleOpenContact} />} />
+            <Route path="/nrg-india" element={<BusinessDetail forcedSlug="energy" onOpenContact={handleOpenContact} />} />
             <Route path="/publication" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
+            <Route path="/publishing" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
+            <Route path="/touriosity" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
+            <Route path="/thetouriosity" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
             <Route path="/transport-electric" element={<BusinessDetail forcedSlug="transport-electric" onOpenContact={handleOpenContact} />} />
             <Route path="/mobility" element={<BusinessDetail forcedSlug="transport-electric" onOpenContact={handleOpenContact} />} />
             <Route path="/icst" element={<BusinessDetail forcedSlug="icst" onOpenContact={handleOpenContact} />} />
             <Route path="/corporate-training" element={<BusinessDetail forcedSlug="icst" onOpenContact={handleOpenContact} />} />
-            <Route path="/glarepost" element={<BusinessDetail forcedSlug="glarepost" onOpenContact={handleOpenContact} />} />
-            <Route path="/pen-ink" element={<BusinessDetail forcedSlug="pen-ink" onOpenContact={handleOpenContact} />} />
+            <Route path="/glarepost" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
+            <Route path="/pen-ink" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
             <Route path="/fashion-lifestyle" element={<BusinessDetail forcedSlug="fashion-lifestyle" onOpenContact={handleOpenContact} />} />
             <Route path="/atmaja" element={<BusinessDetail forcedSlug="fashion-lifestyle" onOpenContact={handleOpenContact} />} />
             <Route path="/afield-gallery" element={<BusinessDetail forcedSlug="afield-gallery" onOpenContact={handleOpenContact} />} />
             <Route path="/envert-foundation" element={<BusinessDetail forcedSlug="envert-foundation" onOpenContact={handleOpenContact} />} />
+            <Route path="/foundation" element={<BusinessDetail forcedSlug="envert-foundation" onOpenContact={handleOpenContact} />} />
             <Route path="/envert-agro-food" element={<BusinessDetail forcedSlug="envert-agro-food" onOpenContact={handleOpenContact} />} />
+            <Route path="/agro-food" element={<BusinessDetail forcedSlug="envert-agro-food" onOpenContact={handleOpenContact} />} />
             <Route path="/eipr" element={<BusinessDetail forcedSlug="eipr" onOpenContact={handleOpenContact} />} />
             <Route path="/startup-idea-envert-wellness" element={<BusinessDetail forcedSlug="startup-idea-envert-wellness" onOpenContact={handleOpenContact} />} />
+            <Route path="/wellness" element={<BusinessDetail forcedSlug="startup-idea-envert-wellness" onOpenContact={handleOpenContact} />} />
             <Route path="/career" element={<CareersPage onApplyJob={handleApplyJob} />} />
 
             {/* Other Dedicated Routes */}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, ExternalLink, Phone, Mail } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { businessesData } from '../data/siteData';
 import EditorialImage from './EditorialImage';
@@ -19,7 +19,7 @@ export default function Businesses({ onSelectBusiness }) {
             <div className="flex items-center gap-2 mb-2">
               <span className="w-1.5 h-1.5 bg-earth inline-block rounded-xs"></span>
               <span className="font-mono text-xs uppercase tracking-widest text-earth font-semibold">
-                OPERATIONAL DOMAINS & COMPANIES
+                BUSINESS CATEGORIES & ENTERPRISES
               </span>
             </div>
             <h2 className="font-heading text-3xl sm:text-5xl font-bold uppercase tracking-tight-editorial text-paper">
@@ -30,7 +30,7 @@ export default function Businesses({ onSelectBusiness }) {
             to="/businesses"
             className="mt-4 sm:mt-0 font-mono text-xs text-earth hover:text-earth-light uppercase tracking-wider flex items-center gap-1.5"
           >
-            <span>Explore All 07 Dedicated Pages</span>
+            <span>Explore All 10 Categories & Operating Entities</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
@@ -38,7 +38,7 @@ export default function Businesses({ onSelectBusiness }) {
         {/* Desktop Split View: Left List with Hover Interaction, Right Large Photographic & Detail Frame */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
           
-          {/* Left Column: Businesses Index (7 items) */}
+          {/* Left Column: Categories Index (Clean Monospace Numbering, No Logos) */}
           <div className="lg:col-span-6 flex flex-col justify-between divide-y divide-paper/10 border-t border-b border-paper/10">
             {businessesData.map((biz) => {
               const isActive = biz.id === activeBusinessId;
@@ -57,37 +57,32 @@ export default function Businesses({ onSelectBusiness }) {
                   }`}
                 >
                   <div className="flex items-start gap-3 sm:gap-4 flex-1 min-w-0">
-                    {biz.logo ? (
-                      <div className="w-8 h-8 rounded-xs bg-white/95 p-1 border border-paper/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <img src={biz.logo} alt={biz.name} className="max-w-full max-h-full object-contain" />
-                      </div>
-                    ) : (
-                      <span
-                        className={`font-mono text-sm tracking-wider pt-0.5 ${
-                          isActive ? 'text-earth font-semibold' : 'text-paper/40 group-hover:text-paper/70'
-                        }`}
-                      >
-                        {biz.num}
-                      </span>
-                    )}
+                    <span
+                      className={`font-mono text-xs sm:text-sm tracking-wider pt-0.5 shrink-0 w-6 font-bold ${
+                        isActive ? 'text-earth' : 'text-paper/40 group-hover:text-paper/70'
+                      }`}
+                    >
+                      {biz.num}
+                    </span>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
                         <h3
-                          className={`font-heading text-lg sm:text-xl font-bold tracking-tight uppercase transition-colors truncate ${
+                          className={`font-heading text-base sm:text-lg font-bold tracking-tight uppercase transition-colors truncate ${
                             isActive ? 'text-paper' : 'text-paper/75 group-hover:text-paper'
                           }`}
                         >
                           {biz.name}
                         </h3>
-                        {biz.brandRef && (
-                          <span className="text-[9px] font-mono uppercase px-1.5 py-0.2 bg-paper/10 text-earth-light rounded-xs border border-paper/15 hidden sm:inline shrink-0">
-                            {biz.brandRef}
-                          </span>
-                        )}
                       </div>
-                      <p className="text-xs text-paper/60 mt-0.5 truncate max-w-md">
-                        {biz.tagline}
-                      </p>
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <span className="text-[10px] font-mono font-semibold text-earth-light uppercase shrink-0">
+                          {biz.companyName}
+                        </span>
+                        <span className="text-[10px] text-paper/30">•</span>
+                        <p className="text-xs text-paper/60 truncate max-w-xs">
+                          {biz.tagline}
+                        </p>
+                      </div>
                     </div>
                   </div>
 
@@ -103,42 +98,35 @@ export default function Businesses({ onSelectBusiness }) {
             })}
           </div>
 
-          {/* Right Column: Dynamic Editorial Showcase of Active Domain */}
-          <div className="lg:col-span-6 bg-forest/40 border border-paper/15 p-6 sm:p-8 flex flex-col justify-between rounded-xs">
-            <div>
+          {/* Right Column: Dynamic Editorial Showcase of Active Domain (No Logo Icon) */}
+          <div className="lg:col-span-6 bg-forest/40 border border-paper/15 p-6 sm:p-8 flex flex-col justify-between rounded-xs transition-all duration-300">
+            <div key={activeBusiness.id} className="animate-fadeIn">
               {/* Image Frame with Editorial Fallback */}
               <div className="mb-6">
                 <EditorialImage
-                  key={activeBusiness.id}
                   src={activeBusiness.image}
                   alt={activeBusiness.name}
-                  domain={`DOMAIN REF: ${activeBusiness.num} // ${activeBusiness.brandRef || 'ENVERT'}`}
+                  domain={activeBusiness.name}
                   caption={activeBusiness.imageCaption}
                   aspectRatio="aspect-[16/10]"
                 />
               </div>
 
-              {/* Title & Tagline with Official Brand Logo */}
+              {/* Title & Tagline without individual logo */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-paper/10 mb-4 gap-3">
-                <div className="flex items-center gap-3">
-                  {activeBusiness.logo && (
-                    <div className="h-12 bg-white p-2 border border-paper/20 rounded-xs inline-flex items-center shrink-0">
-                      <img src={activeBusiness.logo} alt={activeBusiness.name} className="max-h-full max-w-[130px] object-contain" />
-                    </div>
-                  )}
-                  <div>
-                    <h4 className="font-heading text-2xl font-bold tracking-tight text-paper">
-                      {activeBusiness.name}
-                    </h4>
-                    {activeBusiness.brandRef && (
-                      <p className="text-xs font-mono text-earth mt-0.5">
-                        Division: {activeBusiness.brandRef}
-                      </p>
-                    )}
-                  </div>
+                <div>
+                  <span className="text-[11px] font-mono text-earth uppercase font-semibold block">
+                    {activeBusiness.name}
+                  </span>
+                  <h4 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-paper">
+                    {activeBusiness.companyName}
+                  </h4>
+                  <p className="text-xs font-mono text-leaf mt-0.5 font-semibold">
+                    {activeBusiness.tagline}
+                  </p>
                 </div>
                 <span className="font-mono text-xs text-earth uppercase font-semibold shrink-0">
-                  CORE PRACTICE
+                  ACTIVE SECTOR
                 </span>
               </div>
 
@@ -180,33 +168,15 @@ export default function Businesses({ onSelectBusiness }) {
               </div>
             </div>
 
-            {/* Bottom Action & Direct Division Line */}
-            <div className="mt-8 pt-6 border-t border-paper/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="text-xs font-mono text-paper/60">
-                {activeBusiness.directPhone && (
-                  <span className="flex items-center gap-1.5 text-paper/90">
-                    <Phone className="w-3 h-3 text-earth" /> {activeBusiness.directPhone}
-                  </span>
-                )}
-                {activeBusiness.directEmail && (
-                  <span className="flex items-center gap-1.5 text-paper/90">
-                    <Mail className="w-3 h-3 text-earth" /> {activeBusiness.directEmail}
-                  </span>
-                )}
-                {!activeBusiness.directPhone && !activeBusiness.directEmail && (
-                  <span>Kolkata Corporate HQ • admin@envertgroup.com</span>
-                )}
-              </div>
-
-              <div className="flex items-center gap-3">
-                <Link
-                  to={`/businesses/${activeBusiness.id}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-earth hover:bg-earth-light text-forest-deep text-xs font-heading font-bold uppercase tracking-wider transition-colors rounded-xs"
-                >
-                  <span>Open Dedicated Page</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
+            {/* Bottom Action */}
+            <div className="mt-8 pt-6 border-t border-paper/10 flex justify-end">
+              <Link
+                to={`/businesses/${activeBusiness.id}`}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-earth hover:bg-earth-light text-forest-deep text-xs font-heading font-bold uppercase tracking-wider transition-all duration-200 rounded-xs shadow-sm hover:shadow-md hover:translate-x-0.5"
+              >
+                <span>Open Dedicated Page</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
 
           </div>
@@ -217,3 +187,4 @@ export default function Businesses({ onSelectBusiness }) {
     </section>
   );
 }
+

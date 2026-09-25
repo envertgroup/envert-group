@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight, ChevronDown, Menu, X, Bell, ExternalLink } from 'lucide-react';
 import { businessesData, siteMetadata } from '../data/siteData';
 
+
 export default function Navbar({ onOpenContact }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [businessesDropdownOpen, setBusinessesDropdownOpen] = useState(false);
@@ -38,38 +39,12 @@ export default function Navbar({ onOpenContact }) {
 
   return (
     <>
-      {/* Top Editorial Ticker Bar */}
-      <div className="bg-forest-deep text-paper/80 text-[11px] py-1.5 px-6 sm:px-12 border-b border-paper/10 tracking-wider uppercase font-mono hidden md:flex justify-between items-center z-50">
-        <div className="flex items-center space-x-5">
-          <span className="flex items-center gap-1.5 text-earth-light">
-            <span className="w-1.5 h-1.5 rounded-full bg-leaf animate-pulse"></span>
-            EnVERT Group Corporate
-          </span>
-          <span className="text-paper/30">|</span>
-          <span className="text-paper/70">Kolkata, WB, India (HQ)</span>
-          <span className="text-paper/30">|</span>
-          <Link to="/careers" className="text-earth-light hover:underline flex items-center gap-1">
-            <Bell className="w-3 h-3 text-leaf" />
-            <span>We are hiring Engineers & Executives</span>
-          </Link>
-        </div>
-        <div className="flex items-center space-x-5">
-          <a href={`tel:${siteMetadata.phone}`} className="hover:text-paper transition-colors">
-            HQ: {siteMetadata.phone}
-          </a>
-          <span className="text-paper/30">|</span>
-          <a href={`mailto:${siteMetadata.email}`} className="hover:text-paper transition-colors">
-            {siteMetadata.email}
-          </a>
-        </div>
-      </div>
-
       {/* Main Navigation Bar */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           scrolled
             ? 'bg-paper-warm/95 backdrop-blur-md shadow-sm border-b border-charcoal/10 py-3.5'
-            : 'bg-paper-warm border-b border-charcoal/10 py-5'
+            : 'bg-paper-warm border-b border-charcoal/10 py-4 sm:py-5'
         }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 flex items-center justify-between">
@@ -83,7 +58,7 @@ export default function Navbar({ onOpenContact }) {
             />
             <div className="flex flex-col">
               <span className="font-heading font-extrabold text-xl tracking-tight text-forest-deep leading-none">
-                ENVERT
+                EnVERT
               </span>
               <span className="text-[10px] font-mono tracking-widest uppercase text-earth font-semibold mt-0.5">
                 GROUP
@@ -94,68 +69,82 @@ export default function Navbar({ onOpenContact }) {
           {/* Desktop Navigation Links with Dropdown */}
           <nav className="hidden lg:flex items-center space-x-7 text-[13.5px] font-medium tracking-normal text-charcoal/80">
             
-            {/* Businesses Dropdown */}
+            {/* Businesses: Clicking opens index page /businesses, hovering/clicking chevron opens dropdown */}
             <div
               className="relative"
               ref={dropdownRef}
               onMouseEnter={() => setBusinessesDropdownOpen(true)}
               onMouseLeave={() => setBusinessesDropdownOpen(false)}
             >
-              <button
-                onClick={() => setBusinessesDropdownOpen(!businessesDropdownOpen)}
-                className={`flex items-center gap-1 py-1 hover:text-forest-deep transition-colors ${
-                  location.pathname.startsWith('/businesses') ? 'text-forest-deep font-bold' : ''
-                }`}
-              >
-                <span>Businesses</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${businessesDropdownOpen ? 'rotate-180 text-earth' : 'text-charcoal/40'}`} />
-              </button>
+              <div className="flex items-center">
+                <Link
+                  to="/businesses"
+                  className={`py-1 hover:text-forest-deep transition-colors ${
+                    location.pathname.startsWith('/businesses') ? 'text-forest-deep font-bold' : ''
+                  }`}
+                >
+                  Businesses
+                </Link>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setBusinessesDropdownOpen(!businessesDropdownOpen);
+                  }}
+                  className="p-1 hover:text-forest-deep text-charcoal/40 hover:text-charcoal transition-colors ml-0.5"
+                  aria-label="Toggle businesses dropdown"
+                >
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${businessesDropdownOpen ? 'rotate-180 text-earth' : 'text-charcoal/40'}`} />
+                </button>
+              </div>
 
-              {/* Mega Dropdown Panel */}
+              {/* Mega Dropdown Panel - Clean Categorization without Logos */}
               {businessesDropdownOpen && (
-                <div className="absolute top-full left-0 w-[460px] bg-paper-warm border border-charcoal/15 shadow-xl p-4 pt-3 mt-1 rounded-xs animate-fadeIn z-50 max-h-[82vh] overflow-y-auto">
-                  <div className="flex items-center justify-between pb-2 mb-2 border-b border-charcoal/10 text-[10px] font-mono uppercase tracking-widest text-charcoal/50">
-                    <span>Corporate Verticals & Brands</span>
-                    <Link to="/businesses" className="text-earth hover:underline">View Index →</Link>
+                <div className="absolute top-full left-[-40px] w-[760px] bg-paper-warm border border-charcoal/20 shadow-2xl p-5 pt-4 mt-1 rounded-xs animate-fadeIn z-50">
+                  <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-charcoal/15 text-[10px] font-mono uppercase tracking-widest text-charcoal/60">
+                    <span className="font-semibold text-forest-deep">SECTOR CATEGORIES & OPERATING BUSINESSES</span>
+                    <Link to="/businesses" className="text-earth hover:underline font-semibold">View All Categories →</Link>
                   </div>
 
-                  <div className="divide-y divide-charcoal/5">
+                  {/* 3-Column Categorization Grid without Logos */}
+                  <div className="grid grid-cols-3 gap-x-6 gap-y-4">
                     {businessesData.map((biz) => (
-                      <Link
-                        key={biz.id}
-                        to={`/businesses/${biz.id}`}
-                        className="py-2 px-2 flex items-center gap-3 hover:bg-paper transition-colors group rounded-xs"
-                      >
-                        {biz.logo ? (
-                          <div className="w-8 h-8 rounded-xs bg-white p-1 border border-charcoal/10 flex items-center justify-center shrink-0">
-                            <img src={biz.logo} alt={biz.name} className="max-w-full max-h-full object-contain" />
+                      <div key={biz.id} className="flex flex-col group/cat">
+                        <Link
+                          to={`/businesses/${biz.id}`}
+                          className="flex items-center gap-1.5 py-1 text-forest-deep group-hover/cat:text-earth transition-colors"
+                        >
+                          <span className="font-mono text-[10.5px] font-bold text-earth/80 shrink-0">{biz.num}</span>
+                          <span className="font-heading text-xs font-bold uppercase tracking-tight truncate">
+                            {biz.name}
+                          </span>
+                        </Link>
+                        
+                        {/* List of Businesses Under this Category */}
+                        {biz.businessesUnderCategory && biz.businessesUnderCategory.length > 0 && (
+                          <div className="mt-1 space-y-1 pl-2.5 border-l-2 border-charcoal/10 group-hover/cat:border-earth/40 transition-colors">
+                            {biz.businessesUnderCategory.map((subBiz, subIdx) => (
+                              <Link
+                                key={subIdx}
+                                to={`/businesses/${biz.id}`}
+                                className="block text-[11.5px] font-sans text-charcoal/70 hover:text-forest-deep hover:font-medium transition-colors leading-snug truncate"
+                              >
+                                {subBiz.name}
+                              </Link>
+                            ))}
                           </div>
-                        ) : (
-                          <span className="font-mono text-xs text-earth font-bold w-6 shrink-0">{biz.num}</span>
                         )}
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span className="font-heading text-xs font-bold text-forest-deep uppercase group-hover:text-earth transition-colors truncate">
-                              {biz.name}
-                            </span>
-                            {biz.brandRef && (
-                              <span className="text-[9px] font-mono px-1.5 py-0.2 bg-paper text-charcoal/60 border border-charcoal/10 shrink-0">
-                                {biz.brandRef}
-                              </span>
-                            )}
-                          </div>
-                          <p className="text-[11px] text-charcoal/65 truncate mt-0.5 font-sans">
-                            {biz.tagline}
-                          </p>
-                        </div>
-                        <ArrowRight className="w-3.5 h-3.5 text-charcoal/30 group-hover:text-forest-deep group-hover:translate-x-0.5 transition-transform shrink-0" />
-                      </Link>
+                      </div>
                     ))}
                   </div>
 
-                  <div className="mt-3 pt-2.5 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono">
-                    <span className="text-charcoal/50 text-[11px]">Need statutory audits or fleet plans?</span>
-                    <Link to="/contact" className="text-forest font-bold hover:text-earth">Inquire →</Link>
+                  {/* Bottom Footer Bar */}
+                  <div className="mt-4 pt-3 border-t border-charcoal/10 flex items-center justify-end text-xs font-mono">
+                    <div className="flex items-center gap-4">
+                      <Link to="/companies" className="text-forest font-semibold hover:text-earth text-[11.5px]">Our Companies (14 Entities) →</Link>
+                      <Link to="/contact" className="text-earth font-bold hover:underline text-[11.5px]">Inquire →</Link>
+                    </div>
                   </div>
                 </div>
               )}
@@ -191,10 +180,9 @@ export default function Navbar({ onOpenContact }) {
 
             <Link
               to="/careers"
-              className={`hover:text-forest-deep transition-colors py-1 relative ${location.pathname === '/careers' ? 'text-forest-deep font-bold' : ''}`}
+              className={`hover:text-forest-deep transition-colors py-1 ${location.pathname === '/careers' ? 'text-forest-deep font-bold' : ''}`}
             >
-              <span>Careers</span>
-              <span className="absolute -top-1.5 -right-2 w-1.5 h-1.5 bg-earth rounded-full"></span>
+              Careers
             </Link>
           </nav>
 
@@ -249,16 +237,31 @@ export default function Navbar({ onOpenContact }) {
                 </div>
 
                 {mobileBusinessesOpen && (
-                  <div className="pl-3 py-2 space-y-2 border-l border-earth/30 my-1 bg-paper/60">
+                  <div className="pl-3 py-2 space-y-3 border-l-2 border-earth/40 my-1 bg-paper/60">
                     {businessesData.map((b) => (
-                      <Link
-                        key={b.id}
-                        to={`/businesses/${b.id}`}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="block text-xs font-mono uppercase text-charcoal/80 hover:text-forest-deep py-1"
-                      >
-                        {b.num}. {b.name}
-                      </Link>
+                      <div key={b.id} className="space-y-1">
+                        <Link
+                          to={`/businesses/${b.id}`}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block text-xs font-mono font-bold uppercase text-forest-deep hover:text-earth py-0.5"
+                        >
+                          {b.num}. {b.name}
+                        </Link>
+                        {b.businessesUnderCategory && b.businessesUnderCategory.length > 0 && (
+                          <div className="pl-3 space-y-0.5 border-l border-charcoal/15">
+                            {b.businessesUnderCategory.map((sub, sIdx) => (
+                              <Link
+                                key={sIdx}
+                                to={`/businesses/${b.id}`}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="block text-[11px] font-sans text-charcoal/70 hover:text-forest-deep py-0.5"
+                              >
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </div>
                 )}

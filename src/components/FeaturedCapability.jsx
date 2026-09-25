@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { ArrowRight, Phone, Mail, ExternalLink } from 'lucide-react';
 import EditorialImage from './EditorialImage';
+import { images } from '../data/images';
 
 export default function FeaturedCapability({ onInquire }) {
   const [activeTab, setActiveTab] = useState('mobility');
 
   const capabilities = {
     mobility: {
-      tag: 'FEATURED DIVISION // 02',
+      tag: 'Commercial Electric Mobility',
       title: 'ENVERT E-VEHICLES PVT. LTD.',
       subheading: 'Future of Transportation is Electric Vehicle.',
       description: 'Under the national FAME India framework, EnVERT E-Vehicles Private Limited engineers commercial and transit fleet solutions. We focus on electric vehicle weight reduction, powertrain cost reduction, battery technology integration, and robust charging depot infrastructure connected with regional DISCOMs.',
-      image: 'https://images.unsplash.com/photo-1558441719-8b489c63b77a?q=80&w=1600&auto=format&fit=crop',
+      image: images.transport_hero,
       stats: [
         { label: 'Fleet Viability Assessment', val: '100% Data-Driven' },
         { label: 'Vehicle Series', val: 'Mono, Duex, Trois' },
@@ -27,11 +28,11 @@ export default function FeaturedCapability({ onInquire }) {
       contactEmail: 'envertev@gmail.com'
     },
     energy: {
-      tag: 'FEATURED DIVISION // 01',
-      title: 'NRG INDIA — ENERGY & BEE AUDITS',
+      tag: 'Clean Energy & Industrial Audits',
+      title: 'NRG INDIA',
       subheading: 'Statutory energy management & turnkey clean power systems.',
       description: 'NRG India leads EnVERT Group’s clean power engineering and statutory Bureau of Energy Efficiency (BEE) audits. Serving heavy industries—including steel plants, foundries, iron complexes, and pharmaceuticals—alongside NAAC university green audits and USGBC/IGBC certifications.',
-      image: 'https://images.unsplash.com/photo-1509391365360-2e959784a276?q=80&w=1600&auto=format&fit=crop',
+      image: images.energy_hero,
       stats: [
         { label: 'Statutory Audits', val: 'BEE Certified' },
         { label: 'Industrial Verticals', val: 'Steel, Iron, Pharma' },

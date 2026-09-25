@@ -57,6 +57,19 @@ export default function CompaniesPage({ onOpenContact }) {
       domains: ['Environmental Journalism', 'Public Policy Analysis', 'Clean Energy Markets', 'Corporate ESG Reporting']
     },
     {
+      name: 'The Touriosity',
+      category: 'Global Travel, Heritage & Eco-Tourism Magazine',
+      logo: '/assets/scraped_images/home/touriosity_logo.png',
+      portalUrl: 'http://www.thetouriosity.com',
+      internalSlug: 'publication',
+      status: 'Flagship International Magazine',
+      headquarters: 'Global Circulation & Kolkata Desk',
+      phone: '+91 9836511995',
+      email: 'thetouriosity@gmail.com',
+      summary: "One of EnVERT Group's premier international publications. The Touriosity explores global heritage, conscious eco-tourism, cultural geography, responsible hospitality, and sustainable travel narratives with contributors worldwide.",
+      domains: ['World Heritage Narratives', 'Eco-Tourism & Conservation', 'Travel Journalism', 'Global Space Partnerships', 'Cultural Geography']
+    },
+    {
       name: 'Pen & Ink Publishers',
       category: 'Publishing House & Editorial Media',
       logo: '/assets/scraped_images/home/pen_and_ink_logo.png',

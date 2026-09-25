@@ -1,9 +1,99 @@
 import React from 'react';
-import { ArrowUpRight, ExternalLink } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ecosystemData } from '../data/siteData';
 
 export default function Ecosystem() {
+
+  // 14 Official Registered Group Entities & Trademarks
+  const allBrands = [
+    {
+      name: "EnVERT Group",
+      sector: "Parent Corporate",
+      logo: "/assets/logos/envert_group_logo.png",
+      url: "/about"
+    },
+    {
+      name: "The Touriosity",
+      sector: "Travel & Heritage Magazine",
+      logo: "/assets/scraped_images/home/touriosity_logo.png",
+      url: "/businesses/publication"
+    },
+    {
+      name: "NRG India",
+      sector: "Energy & BEE Audits",
+      logo: "/assets/scraped_images/energy/NRGINDIA-logo.png",
+      url: "/businesses/energy"
+    },
+    {
+      name: "ICST Global",
+      sector: "Corporate Training",
+      logo: "/assets/scraped_images/home/ICST-logo.png",
+      url: "/businesses/icst"
+    },
+    {
+      name: "Glare Post",
+      sector: "Digital Journalism",
+      logo: "/assets/scraped_images/home/glarepost_logo.png",
+      url: "/glarepost"
+    },
+    {
+      name: "EnVERT E-Vehicles",
+      sector: "Commercial EV Systems",
+      logo: "/assets/logos/envert_group_logo.png",
+      url: "/businesses/transport-electric"
+    },
+    {
+      name: "Pen & Ink Publishers",
+      sector: "Publishing & Awards",
+      logo: "/assets/scraped_images/home/pen_and_ink_logo.png",
+      url: "/businesses/pen-ink"
+    },
+    {
+      name: "Curiosity Kids",
+      sector: "Children's Magazine",
+      logo: "/assets/scraped_images/home/curiosity_logo.png",
+      url: "/businesses/publication"
+    },
+    {
+      name: "Sustainable Energy Review",
+      sector: "Trade Journal",
+      logo: "/assets/scraped_images/home/sustainable_energy_review_logo.png",
+      url: "/businesses/publication"
+    },
+    {
+      name: "EnVERT Foundation",
+      sector: "Social Stewardship",
+      logo: "/assets/scraped_images/home/envert_foundation_logo.png",
+      url: "/businesses/envert-foundation"
+    },
+    {
+      name: "Atmaja",
+      sector: "Sustainable Fashion",
+      logo: "/assets/scraped_images/fashion-lifestyle/atmaja_logo.png",
+      url: "/businesses/fashion-lifestyle"
+    },
+    {
+      name: "Afield Gallery",
+      sector: "Contemporary Art",
+      logo: "/assets/scraped_images/home/afield_logo.png",
+      url: "/businesses/afield-gallery"
+    },
+    {
+      name: "EnVERT Agro Food",
+      sector: "Agro & Food Processing",
+      logo: "/assets/scraped_images/home/envert_agro_food_logo.png",
+      url: "/businesses/envert-agro-food"
+    },
+    {
+      name: "EIPR",
+      sector: "Applied Research",
+      logo: "/assets/scraped_images/home/eipr_logo.png",
+      url: "/businesses/eipr"
+    }
+  ];
+
+  // In-Depth Company Profiles
   const brandProfiles = [
     {
       name: 'NRG India',
@@ -43,6 +133,16 @@ export default function Ecosystem() {
       internalUrl: '/businesses/glarepost',
       externalUrl: 'https://www.glarepost.com',
       tags: ['Perspectives', 'Policy Analysis', 'ESG Journalism']
+    },
+    {
+      name: 'The Touriosity',
+      category: 'Travel, Heritage & Eco-Tourism Magazine',
+      logo: '/assets/scraped_images/home/touriosity_logo.png',
+      summary: 'Premier international travel magazine exploring world heritage, sustainable eco-tourism, cultural geography, and conscious hospitality worldwide.',
+      status: 'Flagship Publication',
+      internalUrl: '/businesses/publication',
+      externalUrl: 'http://www.thetouriosity.com',
+      tags: ['Eco-Tourism', 'World Heritage', 'Global Distribution', 'Hospitality']
     },
     {
       name: 'Pen & Ink Publishers',
@@ -86,71 +186,102 @@ export default function Ecosystem() {
     <section id="ecosystem" className="py-20 lg:py-28 bg-paper border-b border-charcoal/15">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
         
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-6 mb-12 border-b border-charcoal/10">
+        {/* Unified Section Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-6 mb-12 border-b border-charcoal/10 gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="w-1.5 h-1.5 bg-earth inline-block rounded-xs"></span>
               <span className="font-mono text-xs uppercase tracking-widest text-charcoal/60 font-semibold">
-                GROUP ARCHITECTURE
+                GROUP ARCHITECTURE & PORTFOLIO
               </span>
             </div>
             <h2 className="font-heading text-3xl sm:text-5xl font-bold uppercase tracking-tight-editorial text-forest-deep">
-              The EnVERT Ecosystem
+              The EnVERT Ecosystem & Brands
             </h2>
+            <p className="mt-3 font-sans text-xs sm:text-sm text-charcoal/70 max-w-2xl leading-relaxed">
+              Not a disjointed catalogue, but an interdependent matrix of engineering, corporate advisory, published knowledge, and community stewardship.
+            </p>
           </div>
-          <p className="mt-4 sm:mt-0 font-mono text-xs text-charcoal/60 max-w-sm">
-            Not a disjointed catalogue, but an interdependent matrix of engineering, corporate advisory, published knowledge, and community stewardship.
-          </p>
         </div>
 
-        {/* Authentic Group Brand Ticker / Logos Row */}
-        <div className="mb-14 p-6 bg-paper-warm border border-charcoal/10 rounded-xs">
-          <p className="text-[10.5px] font-mono uppercase tracking-widest text-charcoal/50 mb-4 font-semibold text-center sm:text-left">
-            OFFICIAL GROUP ENTITIES & REGISTERED TRADEMARKS
-          </p>
-          <div className="flex flex-wrap items-center justify-between gap-6 sm:gap-8">
-            <img src="/assets/logos/envert_group_logo.png" alt="EnVERT Group" className="h-9 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-85 hover:opacity-100" />
-            <img src="/assets/scraped_images/energy/NRGINDIA-logo.png" alt="NRG India" className="h-9 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-85 hover:opacity-100" />
-            <img src="/assets/scraped_images/home/ICST-logo.png" alt="ICST Global" className="h-9 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-85 hover:opacity-100" />
-            <img src="/assets/scraped_images/home/glarepost_logo.png" alt="Glare Post" className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-85 hover:opacity-100" />
-            <img src="/assets/scraped_images/home/pen_and_ink_logo.png" alt="Pen & Ink" className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-85 hover:opacity-100" />
-            <img src="/assets/scraped_images/home/curiosity_logo.png" alt="Curiosity Kids" className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-85 hover:opacity-100" />
-            <img src="/assets/scraped_images/home/envert_foundation_logo.png" alt="EnVERT Foundation" className="h-9 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-85 hover:opacity-100" />
-            <img src="/assets/scraped_images/fashion-lifestyle/atmaja_logo.png" alt="Atmaja" className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-85 hover:opacity-100" />
+        {/* 14 Official Group Entities & Registered Trademarks Grid */}
+        <div className="mb-16 p-6 sm:p-8 bg-paper-warm border border-charcoal/15 rounded-xs">
+          <div className="flex items-center justify-between pb-4 mb-6 border-b border-charcoal/10">
+            <span className="font-mono text-xs uppercase tracking-widest text-charcoal/70 font-semibold flex items-center gap-2">
+              <span className="w-2 h-0.5 bg-earth inline-block"></span>
+              OFFICIAL GROUP ENTITIES & REGISTERED TRADEMARKS
+            </span>
+            <span className="hidden sm:inline font-mono text-[11px] text-charcoal/50">
+              14 Operating Subsidiaries & Publications
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3.5">
+            {allBrands.map((brand, idx) => (
+              <Link
+                key={idx}
+                to={brand.url}
+                className="group p-3 sm:p-3.5 bg-white hover:bg-forest-warm border border-charcoal/15 hover:border-forest-deep rounded-xs flex flex-col items-center justify-between transition-all duration-300 text-center hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="w-full h-14 bg-white p-2 rounded-xs border border-charcoal/10 flex items-center justify-center mb-2.5 shadow-xs transition-transform duration-300 group-hover:scale-105">
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <span className="font-heading text-xs font-bold text-forest-deep group-hover:text-forest uppercase tracking-tight block truncate w-full transition-colors">
+                  {brand.name}
+                </span>
+                <span className="text-[10px] font-mono text-charcoal/60 block truncate w-full mt-0.5">
+                  {brand.sector}
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
 
         {/* 4 Core Architectural Pillars (Editorial Grid) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-16 border-b border-charcoal/10">
-          {ecosystemData.pillars.map((pillar) => (
-            <div key={pillar.category} className="p-6 bg-paper-warm border border-charcoal/15 space-y-4 rounded-xs">
-              <div className="pb-3 border-b border-charcoal/15">
-                <span className="font-mono text-[10px] text-earth uppercase font-semibold tracking-wider">
-                  PILLAR DOMAIN
-                </span>
-                <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-forest-deep mt-1">
-                  {pillar.category}
-                </h3>
-              </div>
-              <p className="text-xs text-charcoal/75 leading-relaxed font-sans">
-                {pillar.description}
-              </p>
-              <div className="pt-2">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-charcoal/50 mb-2 font-medium">
-                  Operating Competencies
+        <div className="pb-16 border-b border-charcoal/10">
+          <div className="flex items-center justify-between mb-6">
+            <span className="font-mono text-xs uppercase tracking-widest text-earth font-semibold">
+              INTERDEPENDENT MATRIX
+            </span>
+            <span className="font-mono text-[11px] text-charcoal/50">
+              4 Strategic Operational Pillars
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {ecosystemData.pillars.map((pillar) => (
+              <div key={pillar.category} className="p-6 bg-paper-warm border border-charcoal/15 space-y-4 rounded-xs">
+                <div className="pb-3 border-b border-charcoal/15">
+                  <span className="font-mono text-[10px] text-earth uppercase font-semibold tracking-wider">
+                    CORE SECTOR
+                  </span>
+                  <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-forest-deep mt-1">
+                    {pillar.category}
+                  </h3>
+                </div>
+                <p className="text-xs text-charcoal/75 leading-relaxed font-sans">
+                  {pillar.description}
                 </p>
-                <div className="space-y-1">
-                  {pillar.domains.map((dom) => (
-                    <div key={dom} className="text-xs text-charcoal/80 flex items-center gap-2 font-mono">
-                      <span className="text-leaf">•</span>
-                      <span>{dom}</span>
-                    </div>
-                  ))}
+                <div className="pt-2">
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-charcoal/50 mb-2 font-medium">
+                    Operating Competencies
+                  </p>
+                  <div className="space-y-1">
+                    {pillar.domains.map((dom) => (
+                      <div key={dom} className="text-xs text-charcoal/80 flex items-center gap-2 font-mono">
+                        <span className="text-leaf">•</span>
+                        <span>{dom}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Dedicated Company Cards (Authentic Entities Scraped from Live Site) */}
@@ -158,7 +289,7 @@ export default function Ecosystem() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <p className="font-mono text-xs uppercase tracking-widest text-earth font-semibold">
-                OPERATING BRANDS & PLATFORMS
+                DETAILED OPERATING PROFILES
               </p>
               <h4 className="font-heading text-xl sm:text-2xl font-bold text-forest-deep tracking-tight mt-1">
                 Affiliated Operating Companies & Publications
@@ -169,8 +300,9 @@ export default function Ecosystem() {
             </span>
           </div>
 
+          {/* 1 Row Grid (4 cards on desktop) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {brandProfiles.map((brand) => (
+            {brandProfiles.slice(0, 4).map((brand) => (
               <div
                 key={brand.name}
                 className="bg-paper-warm border border-charcoal/15 p-6 flex flex-col justify-between hover:border-forest-deep transition-all duration-200 group rounded-xs shadow-xs"
@@ -237,6 +369,17 @@ export default function Ecosystem() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* View More Button opening dedicated /companies page */}
+          <div className="mt-10 flex justify-center">
+            <Link
+              to="/companies"
+              className="px-6 py-3 bg-forest hover:bg-forest-deep text-paper font-heading text-xs uppercase tracking-wider font-semibold rounded-xs transition-all duration-200 inline-flex items-center gap-2 shadow-xs hover:shadow-md hover:translate-x-0.5"
+            >
+              <span>View More Companies</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
 

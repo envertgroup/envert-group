@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, BookOpen, Clock } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { insightsData } from '../data/siteData';
 
 export default function Insights() {
@@ -8,7 +9,7 @@ export default function Insights() {
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
         
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-6 mb-12 border-b border-charcoal/10">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-6 mb-12 border-b border-charcoal/10 gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="w-1.5 h-1.5 bg-earth inline-block rounded-xs"></span>
@@ -20,9 +21,14 @@ export default function Insights() {
               From The Group
             </h2>
           </div>
-          <p className="mt-4 sm:mt-0 font-mono text-xs text-charcoal/60 max-w-sm">
-            Technical perspectives, engineering whitepapers, and editorial monographs published by EnVERT institutions.
-          </p>
+
+          <Link
+            to="/insights"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-paper hover:bg-forest text-forest-deep hover:text-paper border border-charcoal/20 hover:border-forest text-xs font-heading font-bold uppercase tracking-wider transition-all duration-200 rounded-xs shadow-xs group shrink-0"
+          >
+            <span>Explore All Insights</span>
+            <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+          </Link>
         </div>
 
         {/* 3 Editorial Articles */}
@@ -61,27 +67,6 @@ export default function Insights() {
               </div>
             </article>
           ))}
-        </div>
-
-        {/* Publishing House Note */}
-        <div className="mt-14 p-6 bg-forest-deep text-paper flex flex-col md:flex-row md:items-center justify-between gap-6 border border-paper/10">
-          <div className="flex items-start gap-4">
-            <BookOpen className="w-6 h-6 text-earth shrink-0 mt-1" />
-            <div>
-              <h4 className="font-heading text-lg font-bold text-paper">
-                Pen & Ink Publishing House
-              </h4>
-              <p className="text-xs text-paper/70 mt-1 max-w-xl">
-                An active division of EnVERT Group publishing academic monographs, conference proceedings, and cultural literature. Accepting peer submissions for upcoming volumes.
-              </p>
-            </div>
-          </div>
-          <a
-            href="#contact"
-            className="shrink-0 px-4 py-2 border border-earth text-earth-light hover:bg-earth hover:text-forest-dark font-heading text-xs uppercase tracking-wider font-semibold transition-colors"
-          >
-            Submit Research / Manuscript
-          </a>
         </div>
 
       </div>
