@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  body {
+    background-color: #FAFAF7;
+    color: #1C211E;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #12372A;
+    color: #F4F3EE;
+  }
+}
+
+/* Custom Editorial Micro-interactions & Styles */
+.editorial-border-b {
+  border-bottom: 1px solid rgba(28, 33, 30, 0.14);
+}
+
+.editorial-border-t {
+  border-top: 1px solid rgba(28, 33, 30, 0.14);
+}
+
+.editorial-border-l {
+  border-left: 1px solid rgba(28, 33, 30, 0.14);
+}
+
+.editorial-border-r {
+  border-right: 1px solid rgba(28, 33, 30, 0.14);
+}
+
+.editorial-border-dark-b {
+  border-bottom: 1px solid rgba(244, 243, 238, 0.14);
+}
+
+.editorial-border-dark-t {
+  border-top: 1px solid rgba(244, 243, 238, 0.14);
+}
+
+/* Image treatment for editorial engineering look: crisp, rich tonal depth, no oversaturated AI look */
+.editorial-img {
+  filter: contrast(102%) brightness(98%) saturate(95%);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.editorial-img:hover {
+  transform: scale(1.02);
+}
+
+/* Monospace / Editorial Index numbers */
+.num-tag {
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
