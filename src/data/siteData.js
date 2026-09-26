@@ -1,5 +1,5 @@
-import { images } from './images/index.js';
-export { images } from './images/index.js';
+import { images } from './image.js';
+export { images } from './image.js';
 
 export const siteMetadata = {
   companyName: "EnVERT Group",

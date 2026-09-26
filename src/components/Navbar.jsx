@@ -54,16 +54,8 @@ export default function Navbar({ onOpenContact }) {
             <img
               src="/assets/logos/envert_group_logo.png"
               alt="EnVERT Group"
-              className="h-9 sm:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+              className="h-20 sm:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             />
-            <div className="flex flex-col">
-              <span className="font-heading font-extrabold text-xl tracking-tight text-forest-deep leading-none">
-                EnVERT
-              </span>
-              <span className="text-[10px] font-mono tracking-widest uppercase text-earth font-semibold mt-0.5">
-                GROUP
-              </span>
-            </div>
           </Link>
 
           {/* Desktop Navigation Links with Dropdown */}

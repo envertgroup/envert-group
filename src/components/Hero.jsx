@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, ArrowDownRight } from 'lucide-react';
 import EditorialImage from './EditorialImage';
-import { images } from '../data/images';
+import { images } from '../data/image.js';
 
 export default function Hero({ onExploreClick, onAboutClick }) {
   return (
