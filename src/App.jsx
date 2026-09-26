@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import InquiryModal from './components/InquiryModal';
 import ScrollToTop from './components/ScrollToTop';
+import { Analytics } from '@vercel/analytics/react';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -136,6 +137,9 @@ export default function App() {
           onClose={() => setInquiryModalOpen(false)}
           initialSubject={modalSubject}
         />
+
+        {/* Vercel Web Analytics */}
+        <Analytics />
 
       </div>
     </Router>
