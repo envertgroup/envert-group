@@ -50,50 +50,47 @@ export default function Navbar({ onOpenContact }) {
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 flex items-center justify-between">
           
           {/* Official Registered Logo & Typography */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <img
-              src="/assets/logos/envert_group_logo.png"
-              alt="EnVERT Group"
-              className="h-20 sm:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
-            />
-          </Link>
+          <div className="flex items-center min-w-[180px] xl:min-w-[210px]">
+            <Link to="/" className="flex items-center space-x-3 group">
+              <img
+                src="/assets/logos/envert_group_logo.png"
+                alt="EnVERT Group"
+                className="h-10 sm:h-11 lg:h-12 xl:h-[3.25rem] w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+              />
+            </Link>
+          </div>
 
-          {/* Desktop Navigation Links with Dropdown */}
-          <nav className="hidden lg:flex items-center space-x-7 text-[13.5px] font-medium tracking-normal text-charcoal/80">
+          {/* Desktop Navigation Links with Dropdown: Perfectly Equidistant with uniform gap */}
+          <nav className="hidden lg:flex items-center justify-center gap-8 xl:gap-9 text-[13.5px] font-medium tracking-normal text-charcoal/80 flex-1">
             
-            {/* Businesses: Clicking opens index page /businesses, hovering/clicking chevron opens dropdown */}
+            {/* About: First link */}
+            <Link
+              to="/about"
+              className={`hover:text-forest-deep transition-colors py-1 ${location.pathname === '/about' ? 'text-forest-deep font-bold' : ''}`}
+            >
+              About
+            </Link>
+
+            {/* Businesses: Second link with Mega Dropdown (Integrated inline chevron for exact equidistance) */}
             <div
-              className="relative"
+              className="relative flex items-center"
               ref={dropdownRef}
               onMouseEnter={() => setBusinessesDropdownOpen(true)}
               onMouseLeave={() => setBusinessesDropdownOpen(false)}
             >
-              <div className="flex items-center">
-                <Link
-                  to="/businesses"
-                  className={`py-1 hover:text-forest-deep transition-colors ${
-                    location.pathname.startsWith('/businesses') ? 'text-forest-deep font-bold' : ''
-                  }`}
-                >
-                  Businesses
-                </Link>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setBusinessesDropdownOpen(!businessesDropdownOpen);
-                  }}
-                  className="p-1 hover:text-forest-deep text-charcoal/40 hover:text-charcoal transition-colors ml-0.5"
-                  aria-label="Toggle businesses dropdown"
-                >
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${businessesDropdownOpen ? 'rotate-180 text-earth' : 'text-charcoal/40'}`} />
-                </button>
-              </div>
+              <Link
+                to="/businesses"
+                className={`inline-flex items-center gap-1.5 py-1 hover:text-forest-deep transition-colors ${
+                  location.pathname.startsWith('/businesses') ? 'text-forest-deep font-bold' : ''
+                }`}
+              >
+                <span>Businesses</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 text-charcoal/50 ${businessesDropdownOpen ? 'rotate-180 text-earth' : ''}`} />
+              </Link>
 
               {/* Mega Dropdown Panel - Clean Categorization without Logos */}
               {businessesDropdownOpen && (
-                <div className="absolute top-full left-[-40px] w-[760px] bg-paper-warm border border-charcoal/20 shadow-2xl p-5 pt-4 mt-1 rounded-xs animate-fadeIn z-50">
+                <div className="absolute top-full left-[-60px] w-[760px] bg-paper-warm border border-charcoal/20 shadow-2xl p-5 pt-4 mt-1 rounded-xs animate-fadeIn z-50">
                   <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-charcoal/15 text-[10px] font-mono uppercase tracking-widest text-charcoal/60">
                     <span className="font-semibold text-forest-deep">SECTOR CATEGORIES & OPERATING BUSINESSES</span>
                     <Link to="/businesses" className="text-earth hover:underline font-semibold">View All Categories →</Link>
@@ -143,13 +140,6 @@ export default function Navbar({ onOpenContact }) {
             </div>
 
             <Link
-              to="/about"
-              className={`hover:text-forest-deep transition-colors py-1 ${location.pathname === '/about' ? 'text-forest-deep font-bold' : ''}`}
-            >
-              About
-            </Link>
-
-            <Link
               to="/companies"
               className={`hover:text-forest-deep transition-colors py-1 ${location.pathname === '/companies' ? 'text-forest-deep font-bold' : ''}`}
             >
@@ -179,7 +169,7 @@ export default function Navbar({ onOpenContact }) {
           </nav>
 
           {/* Contact Action */}
-          <div className="hidden lg:flex items-center space-x-5">
+          <div className="hidden lg:flex items-center justify-end min-w-[180px] xl:min-w-[210px]">
             <Link
               to="/contact"
               className="group inline-flex items-center gap-2 px-4 py-2 text-xs font-heading font-semibold tracking-wide uppercase bg-forest hover:bg-forest-deep text-paper transition-all duration-150 rounded-xs shadow-sm"
@@ -210,7 +200,16 @@ export default function Navbar({ onOpenContact }) {
             
             <nav className="flex flex-col space-y-3">
               
-              {/* Mobile Businesses Accordion */}
+              {/* Mobile About EnVERT - First Link */}
+              <Link
+                to="/about"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-xl font-heading font-semibold text-forest-deep hover:text-earth transition-colors border-b border-charcoal/5 pb-2"
+              >
+                About EnVERT
+              </Link>
+
+              {/* Mobile Businesses Accordion - Second Item */}
               <div className="border-b border-charcoal/5 pb-2">
                 <div className="flex items-center justify-between py-2">
                   <Link
@@ -258,14 +257,6 @@ export default function Navbar({ onOpenContact }) {
                   </div>
                 )}
               </div>
-
-              <Link
-                to="/about"
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-xl font-heading font-semibold text-forest-deep hover:text-earth transition-colors border-b border-charcoal/5 pb-2"
-              >
-                About EnVERT
-              </Link>
 
               <Link
                 to="/companies"

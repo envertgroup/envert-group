@@ -659,3 +659,240 @@ export const insightsData = [
     author: "Glare Post Editorial Desk"
   }
 ];
+
+// Official 11 Markets Services Charter Data (Imported images from ./image.js)
+export const elevenMarketsData = [
+  {
+    id: "energy",
+    num: "01",
+    name: "Energy",
+    tagline: "Biogas, biomass, clean power, and industrial efficiency engineering.",
+    summary: "Comprehensive clean power infrastructure, biomass combined heat & power (CHP) installations, distributed rooftop solar arrays, and certified statutory industrial energy conservation.",
+    image: images.market_energy,
+    imageCaption: "Utility-scale photovoltaic installations, renewable power grids, and industrial energy conversion.",
+    route: "/businesses/energy",
+    services: [
+      "Biogas",
+      "Biomass",
+      "Combined heat and power",
+      "District cooling",
+      "District heating",
+      "Energy and climate",
+      "Energy efficiency",
+      "Engineering Supplies",
+      "Energy strategy and planning",
+      "Geothermal energy",
+      "Hydro, tidal and wave power",
+      "Wind energy",
+      "Power",
+      "Power transmission",
+      "Solar energy",
+      "Waste-to-energy"
+    ]
+  },
+  {
+    id: "environment",
+    num: "02",
+    name: "Environment",
+    tagline: "Environmental due diligence, impact assessments, and ecological rehabilitation.",
+    summary: "Ecological monitoring, air and wastewater compliance, nature rehabilitation, and industrial environmental stewardship matching rigorous statutory mandates.",
+    image: images.market_environment,
+    imageCaption: "Environmental remediation, natural water resource conservation, and ecosystem rehabilitation.",
+    route: "/businesses/energy",
+    services: [
+      "Indoor Air quality",
+      "Climate change",
+      "Environmental Due Diligence",
+      "Environmental impact assessment",
+      "Environmental management",
+      "Health & occupational safety",
+      "Industrial environment",
+      "Landscape architecture",
+      "Nature and rehabilitation",
+      "Waste",
+      "Waste water",
+      "Water resources management",
+      "Water supply"
+    ]
+  },
+  {
+    id: "advisory-services",
+    num: "03",
+    name: "Advisory Services",
+    tagline: "Destination representation, brand consultancy, PR, and corporate communications.",
+    summary: "Strategic institutional representation, global destination profiling, public relations management, media interaction, and cross-border promotional partnerships.",
+    image: images.market_advisory,
+    imageCaption: "Strategic corporate communications, institutional representation, and media partnerships.",
+    route: "/businesses/icst",
+    services: [
+      "Destination Representation",
+      "Tourism Board Representation",
+      "Private Tourism Company Representation",
+      "Brand Consultancy",
+      "PR & Communications",
+      "Media Interaction",
+      "Marketing & Communication Management",
+      "Joint Promotions",
+      "Creative Designing",
+      "Event Management",
+      "Exhibitions",
+      "Corporate Social Responsibility"
+    ]
+  },
+  {
+    id: "buildings",
+    num: "04",
+    name: "Buildings",
+    tagline: "High-performance MEP engineering, acoustics, building physics, and sustainability.",
+    summary: "Integrated architectural physics, building services engineering (MEP), lighting design, facilities management, and sustainable green building rating certifications.",
+    image: images.market_buildings,
+    imageCaption: "Modern high-performance architectural engineering, building physics, and sustainable facades.",
+    route: "/businesses/energy",
+    services: [
+      "Acoustics",
+      "Architecture",
+      "Building Physics",
+      "Building Services",
+      "Facilities Management",
+      "Landscape Architecture",
+      "Lighting design",
+      "Mechanical & Electrical Engineering",
+      "Project Management",
+      "Survey",
+      "Sustainability Services",
+      "Technical due diligence"
+    ]
+  },
+  {
+    id: "publication",
+    num: "05",
+    name: "Publication",
+    tagline: "Periodicals, literature anthologies, and peer-reviewed journals.",
+    summary: "Independent editorial curation, international magazines, scientific and literary periodicals, youth anthologies, and worldwide distribution across print and digital media.",
+    image: images.market_publication,
+    imageCaption: "Editorial archival publishing, international periodicals, and curated literary publications.",
+    route: "/businesses/publication",
+    services: [
+      "Tourism",
+      "Renewable energy",
+      "Life style",
+      "Kids",
+      "Parenting",
+      "Cuisine",
+      "Art & Painting"
+    ]
+  },
+  {
+    id: "travel",
+    num: "06",
+    name: "Travel",
+    tagline: "Sustainable tourism, educational tours, and destination consultancy.",
+    summary: "Conscious itineraries, educational expeditions, sustainable eco-tourism programs, and dedicated travel networks promoting regional heritage.",
+    image: images.market_travel,
+    imageCaption: "Conscious global travel consultancy, cultural heritage expeditions, and sustainable eco-tourism.",
+    route: "/businesses/publication",
+    services: [
+      "Travel consultancy",
+      "Tour Packages",
+      "Educational tours",
+      "Women Travel Network",
+      "Sustainable Tourism"
+    ]
+  },
+  {
+    id: "manufacturing",
+    num: "07",
+    name: "Manufacturing",
+    tagline: "Solar lighting systems, DC converters, LED fixtures, and electrical hardware.",
+    summary: "Precision industrial manufacturing of clean-technology electrical components, solar street lighting assemblies, DC-to-DC converters, and specialized luminaires.",
+    image: images.market_manufacturing,
+    imageCaption: "High-precision electrical manufacturing, power electronics, and solar lighting fabrication.",
+    route: "/businesses/energy",
+    services: [
+      "Solar Street Light",
+      "Solar Home Light",
+      "DC to DC Converter",
+      "Head Light (Twin Beam)",
+      "LED based tail light",
+      "Flasher light",
+      "Tumbler switches",
+      "Electronic Ballast"
+    ]
+  },
+  {
+    id: "management-consulting",
+    num: "08",
+    name: "Management Consulting",
+    tagline: "Business architecture, economic analyses, strategy, and organizational development.",
+    summary: "Corporate restructuring, macroeconomic feasibility analysis, legal advisory, organizational transformation, and executive competence training.",
+    image: images.market_management,
+    imageCaption: "Executive strategy consulting, corporate business architecture, and economic feasibility.",
+    route: "/businesses/eipr",
+    services: [
+      "Business architecture",
+      "Economic analyses",
+      "Management & strategy",
+      "Legal consulting",
+      "Organisational change",
+      "Project and programme management",
+      "Strategy & business development",
+      "Studies & Evaluation",
+      "Training & competence development"
+    ]
+  },
+  {
+    id: "transport",
+    num: "09",
+    name: "Transport",
+    tagline: "Commercial electric mobility, battery integration, and urban transport infrastructure.",
+    summary: "Deployment of zero-emission commercial electric platforms, battery management topologies, high-efficiency transport planning, and depot infrastructure.",
+    image: images.market_transport,
+    imageCaption: "Commercial electric mobility systems, battery powertrains, and urban transit planning.",
+    route: "/businesses/transport-electric",
+    services: [
+      "Transport system",
+      "Ground engineering",
+      "Landscape architecture",
+      "Master planning and urban development",
+      "Ports & marine structures",
+      "Project & construction management",
+      "Transport planning, traffic engineering & traffic safety",
+      "Electric Vehicle"
+    ]
+  },
+  {
+    id: "fashion-lifestyle",
+    num: "10",
+    name: "Fashion & Lifestyle",
+    tagline: "Handloom textiles, women's ethnic wear, and bespoke artisanal accessories.",
+    summary: "Ethical handloom apparel, sustainable organic textiles, botanical dyeing, and handcrafted lifestyle accessories created with artisan communities.",
+    image: images.market_fashion,
+    imageCaption: "Artisanal handloom textiles, natural botanical fabrics, and bespoke ethical lifestyle apparel.",
+    route: "/businesses/fashion-lifestyle",
+    services: [
+      "Women's ethnic wear",
+      "Young girls' ethnic wear",
+      "Fashion accessories",
+      "Handbags",
+      "Artificial jewelry",
+      "Customised jewelry made to order",
+      "Customised designer apparels"
+    ]
+  },
+  {
+    id: "export-import",
+    num: "11",
+    name: "Export Import",
+    tagline: "Cross-border trade of apparel, artisanal handicrafts, jewellery, and tools.",
+    summary: "Global freight facilitation, cross-border trading operations, and supply chain logistics distributing high-value handicrafts, fashion, and technical equipment.",
+    image: images.market_export_import,
+    imageCaption: "Cross-border trade, intermodal freight logistics, and global supply chain fulfillment.",
+    route: "/businesses/envert-agro-food",
+    services: [
+      "Apparel & Fashion",
+      "Handicrafts & Gifts",
+      "Jewelry",
+      "Tools & Equipments"
+    ]
+  }
+];
