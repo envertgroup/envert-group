@@ -84,6 +84,8 @@ export default function App() {
             <Route path="/icst" element={<BusinessDetail forcedSlug="icst" onOpenContact={handleOpenContact} />} />
             <Route path="/corporate-training" element={<BusinessDetail forcedSlug="icst" onOpenContact={handleOpenContact} />} />
             <Route path="/glarepost" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
+            <Route path="/glarepost-films" element={<BusinessDetail forcedSlug="glarepost-films" onOpenContact={handleOpenContact} />} />
+            <Route path="/films" element={<BusinessDetail forcedSlug="glarepost-films" onOpenContact={handleOpenContact} />} />
             <Route path="/pen-ink" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
             <Route path="/fashion-lifestyle" element={<BusinessDetail forcedSlug="fashion-lifestyle" onOpenContact={handleOpenContact} />} />
             <Route path="/atmaja" element={<BusinessDetail forcedSlug="fashion-lifestyle" onOpenContact={handleOpenContact} />} />

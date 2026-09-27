@@ -66,6 +66,9 @@ export const logos = {
   glarepost: resolve('/assets/scraped_images/home/glarepost_logo.png'),
   glare_post: resolve('/assets/scraped_images/home/glarepost_logo.png'),
   
+  glarepost_films: resolve('/assets/scraped_images/home/glarepost_films_logo.png'),
+  glarepostFilms: resolve('/assets/scraped_images/home/glarepost_films_logo.png'),
+  
   atmaja: resolve('/assets/scraped_images/fashion-lifestyle/atmaja_logo.png'),
   fashion_lifestyle: resolve('/assets/scraped_images/fashion-lifestyle/atmaja_logo.png'),
   

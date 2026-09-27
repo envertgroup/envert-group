@@ -131,7 +131,7 @@ export default function Navbar({ onOpenContact }) {
                   {/* Bottom Footer Bar */}
                   <div className="mt-4 pt-3 border-t border-charcoal/10 flex items-center justify-end text-xs font-mono">
                     <div className="flex items-center gap-4">
-                      <Link to="/companies" className="text-forest font-semibold hover:text-earth text-[11.5px]">Our Companies (14 Entities) →</Link>
+                      <Link to="/companies" className="text-forest font-semibold hover:text-earth text-[11.5px]">Our Brands (15 Entities) →</Link>
                       <Link to="/contact" className="text-earth font-bold hover:underline text-[11.5px]">Inquire →</Link>
                     </div>
                   </div>
@@ -143,7 +143,7 @@ export default function Navbar({ onOpenContact }) {
               to="/companies"
               className={`hover:text-forest-deep transition-colors py-1 ${location.pathname === '/companies' ? 'text-forest-deep font-bold' : ''}`}
             >
-              Companies
+              Our Brands
             </Link>
 
             <Link
@@ -256,7 +256,7 @@ export default function Navbar({ onOpenContact }) {
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-xl font-heading font-semibold text-forest-deep hover:text-earth transition-colors border-b border-charcoal/5 pb-2"
               >
-                Our Companies
+                Our Brands
               </Link>
 
               <Link

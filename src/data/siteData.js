@@ -786,6 +786,83 @@ export const businessesData = [
     domainLink: "/businesses/india-corporate-trainers",
     directEmail: "admin@envertgroup.com",
     directPhone: "+91 9836511995"
+  },
+  {
+    id: "glarepost-films",
+    num: "15",
+    name: "Glarepost Films",
+    category: "Film & Content Production",
+    companyName: "Glarepost Films",
+    companyLegalName: "Glarepost Films (EnVERT Media Group)",
+    brandRef: "Glarepost Films",
+    urlSlug: "glarepost-films",
+    aliases: ["glarepost-films", "films", "production-house", "documentary", "corporate-films"],
+    logo: images.glarepost_films,
+    tagline: "A multi-format film and content production company across documentary, fiction, OTT, corporate, travel, and social-impact cinema.",
+    summary: "Glarepost Films is the film and content production arm of EnVERT Group, operating as a serious multi-format production company. It undertakes documentary and factual filmmaking, feature and short fiction films, OTT and web series development, advertising and corporate communication films, travel and heritage cinema, and social-impact productions — supported by full end-to-end production and post-production services.",
+    businessesUnderCategory: [
+      {
+        name: "Documentary & Factual",
+        legalName: "Glarepost Films — Documentary Division",
+        role: "Social, Cultural, Environmental & Corporate Documentaries",
+        logo: images.glarepost_films,
+        desc: "Social, cultural, environmental, corporate, and human-interest documentaries. Factual filmmaking that informs, inspires, and drives public discourse."
+      },
+      {
+        name: "Film & Fiction",
+        legalName: "Glarepost Films — Fiction Division",
+        role: "Feature Films, Short Films & Independent Cinema",
+        logo: images.glarepost_films,
+        desc: "Full-length feature films, independent cinema, short fiction films, and experimental purpose-driven short-form cinema across genres."
+      },
+      {
+        name: "OTT & Digital Content",
+        legalName: "Glarepost Films — Digital Division",
+        role: "Web Series, Original Content & OTT Entertainment",
+        logo: images.glarepost_films,
+        desc: "Original web series, digital entertainment content, and OTT-ready productions developed for streaming platforms and digital-first audiences."
+      },
+      {
+        name: "Advertising & Corporate Films",
+        legalName: "Glarepost Films — Brand Division",
+        role: "TVCs, Corporate Profiles, CSR & Brand Storytelling",
+        logo: images.glarepost_films,
+        desc: "Television commercials (TVCs), digital commercials, product films, corporate profiles, institutional films, CSR films, and branded storytelling for enterprises."
+      },
+      {
+        name: "Culture, Travel & Social Impact",
+        legalName: "Glarepost Films — Culture Division",
+        role: "Destination Films, Heritage & Social Impact Cinema",
+        logo: images.glarepost_films,
+        desc: "Destination stories, tourism films, heritage documentation, cultural films, music videos, and social-impact productions focused on development, sustainability, and communities."
+      },
+      {
+        name: "Production & Post-Production Services",
+        legalName: "Glarepost Films — Production Services",
+        role: "End-to-End Production, Editing, VFX & Sound Design",
+        logo: images.glarepost_films,
+        desc: "Full end-to-end production support including location management, crew, casting, logistics, editing, colour grading, sound design, VFX, and motion graphics."
+      }
+    ],
+    capabilities: [
+      "Documentary & Factual Filmmaking (Social, Environmental, Corporate)",
+      "Feature Films, Short Films & Independent Cinema",
+      "OTT & Web Series Original Content Development",
+      "Advertising Films — TVCs, Digital Commercials & Brand Storytelling",
+      "Corporate Profiles, Institutional & CSR Films",
+      "Travel, Destination & Heritage Films",
+      "Music Videos, Artist & Entertainment Productions",
+      "Social Impact Films & Development Communication",
+      "Original IP & Script Development",
+      "End-to-End Production Services (Location, Crew, Casting)",
+      "Post-Production — Editing, Colour Grading, Sound Design & VFX",
+      "Motion Graphics & Visual Effects"
+    ],
+    image: images.heroes?.media || images.market_publication,
+    imageCaption: "Glarepost Films — Multi-format film and content production company.",
+    domainLink: "https://www.glarepost.com",
+    directEmail: "admin@envertgroup.com",
+    directPhone: "+91 9836511995"
   }
 ];
 

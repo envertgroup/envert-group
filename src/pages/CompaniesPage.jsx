@@ -243,14 +243,35 @@ export default function CompaniesPage({ onOpenContact }) {
       email: 'admin@envertgroup.com',
       summary: 'Delivers corporate training, language curricula, education consultancy, corporate legal compliance, and turnkey corporate relocation. Track record of 200+ assignments across 10 Indian cities for global MNCs including Microsoft, IBM, Coca-Cola, PepsiCo, Johnson & Johnson, Citibank, ING, Cisco, GE, Thermo Fisher, Goldman Sachs and Jaguar Land Rover.',
       domains: ['Corporate Training', 'Language Engineering', 'Education Consultancy', 'Legal Consultancy', 'Corporate Relocation', '200+ MNC Assignments']
-    }
+    },
+    {
+      name: 'Glarepost Films',
+      category: 'Film & Content Production',
+      logo: '/assets/scraped_images/home/glarepost_films_logo.png',
+      portalUrl: 'https://www.glarepost.com',
+      internalSlug: 'glarepost-films',
+      status: 'Film & Production House',
+      headquarters: 'Kolkata, India',
+      phone: '+91 9836511995',
+      email: 'admin@envertgroup.com',
+      summary: 'Glarepost Films is a multi-format film and content production company undertaking documentary films, feature and short fiction films, OTT and web series development, advertising and corporate communication films, travel and heritage cinema, and social-impact productions — supported by full end-to-end production and post-production services.',
+      domains: [
+        'Documentary & Factual Films',
+        'Feature Films, Short Films & Independent Cinema',
+        'OTT & Web Series Original Content',
+        'Advertising Films, TVCs & Brand Storytelling',
+        'Corporate Profiles, CSR & Institutional Films',
+        'Culture, Travel, Heritage & Social Impact Films',
+        'Production & Post-Production Services'
+      ]
+    },
   ];
 
   return (
     <div className="bg-paper-warm min-h-screen py-16 lg:py-24">
       <SEO
-        title="Group Companies & Operating Entities"
-        description="Directory of specialized businesses, operating companies, publishing houses, and social stewardship foundations united under EnVERT Group in Kolkata, India."
+        title="Our Brands & Operating Entities | EnVERT Group"
+        description="Directory of specialized brands, operating companies, publishing houses, film production, and social stewardship entities united under EnVERT Group in Kolkata, India."
         canonical="/companies"
         schema={getCompaniesPageSchema(companies)}
       />
@@ -259,13 +280,13 @@ export default function CompaniesPage({ onOpenContact }) {
         {/* Header */}
         <div className="pb-8 mb-16 border-b border-charcoal/15">
           <span className="font-mono text-xs uppercase tracking-widest text-earth font-semibold">
-            GROUP ENTITIES & INITIATIVES
+            GROUP BRANDS, ENTITIES & INITIATIVES
           </span>
           <h1 className="font-heading text-4xl sm:text-6xl font-bold uppercase tracking-tight-editorial text-forest-deep mt-2">
-            Our Companies
+            Our Brands
           </h1>
           <p className="mt-4 text-base sm:text-lg text-charcoal/80 max-w-2xl">
-            A network of specialized businesses, operating companies, publishing houses, and social stewardship foundations united under EnVERT Group.
+            A network of specialized brands, operating companies, publishing houses, film production, and social stewardship entities united under EnVERT Group.
           </p>
         </div>
 

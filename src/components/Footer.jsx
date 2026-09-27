@@ -114,6 +114,11 @@ export default function Footer() {
                   12. India Corporate Trainers
                 </Link>
               </li>
+              <li>
+                <Link to="/businesses/glarepost-films" className="hover:text-paper hover:text-earth transition-colors">
+                  15. Glarepost Films (Film & Content Production)
+                </Link>
+              </li>
             </ul>
           </div>
 
