@@ -11,7 +11,7 @@ export default function TopBrandTicker() {
       isPrimary: true
     },
     {
-      name: "The Touriosity",
+      name: "Touriosity Travelmag",
       category: "Travel & Heritage Magazine",
       logo: "/assets/scraped_images/home/touriosity_logo.png",
       url: "/businesses/publication"
@@ -23,8 +23,20 @@ export default function TopBrandTicker() {
       url: "/businesses/energy"
     },
     {
-      name: "ICST Global",
-      category: "Corporate Training",
+      name: "REPOXISY",
+      category: "Specialty Chemicals & Epoxy Solutions",
+      logo: "/assets/repoxisy_logo.png",
+      url: "/businesses/repoxisy"
+    },
+    {
+      name: "WAGSOL",
+      category: "Solar, Railway & Sanitation",
+      logo: "/assets/wagsol_logo.png",
+      url: "/businesses/wagsol"
+    },
+    {
+      name: "ICST",
+      category: "Corporate Capability & Sustainable Transition",
       logo: "/assets/scraped_images/home/ICST-logo.png",
       url: "/businesses/icst"
     },
@@ -54,7 +66,7 @@ export default function TopBrandTicker() {
     },
     {
       name: "Sustainable Energy Review",
-      category: "Technical Trade Journal",
+      category: "Clean Energy Trade Magazine",
       logo: "/assets/scraped_images/home/sustainable_energy_review_logo.png",
       url: "/businesses/publication"
     },
@@ -72,19 +84,19 @@ export default function TopBrandTicker() {
     },
     {
       name: "Afield Gallery",
-      category: "Contemporary Art",
-      logo: "/assets/scraped_images/home/afield_logo.png",
+      category: "Visual Arts & Contemporary Culture",
+      logo: "/assets/indian_arts_and_dolls_gallery.png",
       url: "/businesses/afield-gallery"
     },
     {
-      name: "EnVERT Agro Food",
-      category: "Agro & Processing",
-      logo: "/assets/scraped_images/home/envert_agro_food_logo.png",
-      url: "/businesses/envert-agro-food"
+      name: "Afield Advisory",
+      category: "Advisory Department",
+      logo: "/assets/scraped_images/home/afield_logo.png",
+      url: "/businesses/afield-advisory"
     },
     {
       name: "EIPR",
-      category: "Professional Researches",
+      category: "Policy Research",
       logo: "/assets/scraped_images/home/eipr_logo.png",
       url: "/businesses/eipr"
     },

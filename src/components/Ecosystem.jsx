@@ -14,7 +14,7 @@ export default function Ecosystem() {
       url: "/about"
     },
     {
-      name: "The Touriosity",
+      name: "Touriosity Travelmag",
       sector: "Travel & Heritage Magazine",
       logo: "/assets/scraped_images/home/touriosity_logo.png",
       url: "/businesses/publication"
@@ -26,8 +26,20 @@ export default function Ecosystem() {
       url: "/businesses/energy"
     },
     {
-      name: "ICST Global",
-      sector: "Corporate Training",
+      name: "REPOXISY",
+      sector: "Specialty Chemicals & Epoxy Solutions",
+      logo: "/assets/repoxisy_logo.png",
+      url: "/businesses/repoxisy"
+    },
+    {
+      name: "WAGSOL",
+      sector: "Solar, Railway & Sanitation",
+      logo: "/assets/wagsol_logo.png",
+      url: "/businesses/wagsol"
+    },
+    {
+      name: "ICST",
+      sector: "International Conference & Corporate Capability",
       logo: "/assets/scraped_images/home/ICST-logo.png",
       url: "/businesses/icst"
     },
@@ -57,7 +69,7 @@ export default function Ecosystem() {
     },
     {
       name: "Sustainable Energy Review",
-      sector: "Trade Journal",
+      sector: "Clean Energy Trade Magazine",
       logo: "/assets/scraped_images/home/sustainable_energy_review_logo.png",
       url: "/businesses/publication"
     },
@@ -75,19 +87,19 @@ export default function Ecosystem() {
     },
     {
       name: "Afield Gallery",
-      sector: "Contemporary Art",
-      logo: "/assets/scraped_images/home/afield_logo.png",
+      sector: "Visual Arts & Contemporary Culture",
+      logo: "/assets/indian_arts_and_dolls_gallery.png",
       url: "/businesses/afield-gallery"
     },
     {
-      name: "EnVERT Agro Food",
-      sector: "Agro & Food Processing",
-      logo: "/assets/scraped_images/home/envert_agro_food_logo.png",
-      url: "/businesses/envert-agro-food"
+      name: "Afield Advisory",
+      sector: "Advisory Department",
+      logo: "/assets/scraped_images/home/afield_logo.png",
+      url: "/businesses/afield-advisory"
     },
     {
       name: "EIPR",
-      sector: "Applied Research",
+      sector: "Policy Research",
       logo: "/assets/scraped_images/home/eipr_logo.png",
       url: "/businesses/eipr"
     }
@@ -115,14 +127,32 @@ export default function Ecosystem() {
       tags: ['Mono-PN', 'Duex-PM', 'Trois-PP', 'Charging Depots']
     },
     {
-      name: 'ICST Global',
-      category: 'Corporate Training & Language Engineering',
+      name: 'REPOXISY',
+      category: 'Specialty Chemicals & Epoxy Solutions',
+      logo: '/assets/repoxisy_logo.png',
+      summary: 'Advanced materials brand of Nandi Resources delivering industrial & railway epoxy flooring, protective coatings, waterproofing chemical sealants, and single-window turnkey execution.',
+      status: 'Materials Division',
+      internalUrl: '/businesses/repoxisy',
+      tags: ['Epoxy Flooring', 'Railway Flooring', 'Protective Coatings', 'Adhesives & Resins', 'Waterproofing']
+    },
+    {
+      name: 'WAGSOL',
+      category: 'Solar, Railway Systems & Green Sanitation',
+      logo: '/assets/wagsol_logo.png',
+      summary: 'Solar equipment and railway sanitation division under Nandi Resources. Delivers solar street & high-mast lighting, wagon solutions (BVCM/BVZI), railway platform lighting, BLDC ventilation, and railway bio-toilets.',
+      status: 'Engineering & Rail Division',
+      internalUrl: '/businesses/wagsol',
+      tags: ['Solar Lighting', 'High-Mast Lighting', 'BVCM/BVZI Wagons', 'BLDC Fans', 'Railway Bio-Toilets', 'Waterless Urinals']
+    },
+    {
+      name: 'ICST',
+      category: 'Corporate Capability & Sustainable Transition',
       logo: '/assets/scraped_images/home/ICST-logo.png',
-      summary: 'Over 15 years experience training more than 30 Multinational Corporations across 20+ Indian and international languages with measured productivity ROI.',
-      status: 'Training Division',
+      summary: 'ICST (International Conference on Sustainable Transition) convenes international sustainability conferences alongside over 15 years of corporate capability and language engineering for 30+ multinational corporations.',
+      status: 'Conference & Capability Division',
       internalUrl: '/businesses/icst',
       externalUrl: 'http://www.icstglobal.com',
-      tags: ['20+ Languages', 'Voice & Accent', '30+ MNCs', 'Executive Comm']
+      tags: ['Sustainable Transition', '20+ Language Curricula', 'Voice & Accent', 'Executive Capability', '30+ MNC Track Record']
     },
     {
       name: 'Glare Post',
@@ -135,7 +165,7 @@ export default function Ecosystem() {
       tags: ['Perspectives', 'Policy Analysis', 'ESG Journalism']
     },
     {
-      name: 'The Touriosity',
+      name: 'Touriosity Travelmag',
       category: 'Travel, Heritage & Eco-Tourism Magazine',
       logo: '/assets/scraped_images/home/touriosity_logo.png',
       summary: 'Premier international travel magazine exploring world heritage, sustainable eco-tourism, cultural geography, and conscious hospitality worldwide.',
@@ -172,13 +202,13 @@ export default function Ecosystem() {
       tags: ['Slow Fashion', 'Handloom', 'Artisan Livelihood']
     },
     {
-      name: 'EnVERT Agro Food',
-      category: 'Sustainable Agriculture & Food Processing',
-      logo: '/assets/scraped_images/home/envert_agro_food_logo.png',
-      summary: 'Regenerative farming, solar-assisted food processing, and fair-value cooperative models advancing sustainable rural food supply chains.',
-      status: 'Agro Division',
-      internalUrl: '/businesses/envert-agro-food',
-      tags: ['Organic Farming', 'Solar Cold Storage', 'Clean Food']
+      name: 'Afield Advisory',
+      category: 'Strategic Advisory & Brand Consultancy',
+      logo: '/assets/scraped_images/home/afield_logo.png',
+      summary: 'EnVERT Group’s dedicated advisory department delivering destination representation, tourism board advisory, brand architecture, PR communications, and cross-border promotional partnerships.',
+      status: 'Advisory Department',
+      internalUrl: '/businesses/afield-advisory',
+      tags: ['Destination Advisory', 'Tourism Boards', 'Strategic PR', 'Brand Architecture']
     }
   ];
 

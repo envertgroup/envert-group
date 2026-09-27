@@ -71,6 +71,7 @@ export default function App() {
             <Route path="/publishing" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
             <Route path="/touriosity" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
             <Route path="/thetouriosity" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
+            <Route path="/touriosity-travelmag" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
             <Route path="/transport-electric" element={<BusinessDetail forcedSlug="transport-electric" onOpenContact={handleOpenContact} />} />
             <Route path="/mobility" element={<BusinessDetail forcedSlug="transport-electric" onOpenContact={handleOpenContact} />} />
             <Route path="/icst" element={<BusinessDetail forcedSlug="icst" onOpenContact={handleOpenContact} />} />
@@ -80,13 +81,25 @@ export default function App() {
             <Route path="/fashion-lifestyle" element={<BusinessDetail forcedSlug="fashion-lifestyle" onOpenContact={handleOpenContact} />} />
             <Route path="/atmaja" element={<BusinessDetail forcedSlug="fashion-lifestyle" onOpenContact={handleOpenContact} />} />
             <Route path="/afield-gallery" element={<BusinessDetail forcedSlug="afield-gallery" onOpenContact={handleOpenContact} />} />
+            <Route path="/gallery" element={<BusinessDetail forcedSlug="afield-gallery" onOpenContact={handleOpenContact} />} />
+            <Route path="/indian-art-and-dolls-gallery" element={<BusinessDetail forcedSlug="afield-gallery" onOpenContact={handleOpenContact} />} />
+            <Route path="/arts-and-dolls-gallery" element={<BusinessDetail forcedSlug="afield-gallery" onOpenContact={handleOpenContact} />} />
+            <Route path="/art-gallery" element={<BusinessDetail forcedSlug="afield-gallery" onOpenContact={handleOpenContact} />} />
             <Route path="/envert-foundation" element={<BusinessDetail forcedSlug="envert-foundation" onOpenContact={handleOpenContact} />} />
             <Route path="/foundation" element={<BusinessDetail forcedSlug="envert-foundation" onOpenContact={handleOpenContact} />} />
-            <Route path="/envert-agro-food" element={<BusinessDetail forcedSlug="envert-agro-food" onOpenContact={handleOpenContact} />} />
-            <Route path="/agro-food" element={<BusinessDetail forcedSlug="envert-agro-food" onOpenContact={handleOpenContact} />} />
+            <Route path="/afield-advisory" element={<BusinessDetail forcedSlug="afield-advisory" onOpenContact={handleOpenContact} />} />
+            <Route path="/advisory" element={<BusinessDetail forcedSlug="afield-advisory" onOpenContact={handleOpenContact} />} />
+            <Route path="/advisory-services" element={<BusinessDetail forcedSlug="afield-advisory" onOpenContact={handleOpenContact} />} />
             <Route path="/eipr" element={<BusinessDetail forcedSlug="eipr" onOpenContact={handleOpenContact} />} />
             <Route path="/startup-idea-envert-wellness" element={<BusinessDetail forcedSlug="startup-idea-envert-wellness" onOpenContact={handleOpenContact} />} />
             <Route path="/wellness" element={<BusinessDetail forcedSlug="startup-idea-envert-wellness" onOpenContact={handleOpenContact} />} />
+            <Route path="/repoxisy" element={<BusinessDetail forcedSlug="repoxisy" onOpenContact={handleOpenContact} />} />
+            <Route path="/epoxy" element={<BusinessDetail forcedSlug="repoxisy" onOpenContact={handleOpenContact} />} />
+            <Route path="/specialty-chemicals" element={<BusinessDetail forcedSlug="repoxisy" onOpenContact={handleOpenContact} />} />
+            <Route path="/wagsol" element={<BusinessDetail forcedSlug="wagsol" onOpenContact={handleOpenContact} />} />
+            <Route path="/solar-lighting" element={<BusinessDetail forcedSlug="wagsol" onOpenContact={handleOpenContact} />} />
+            <Route path="/railway-lighting" element={<BusinessDetail forcedSlug="wagsol" onOpenContact={handleOpenContact} />} />
+            <Route path="/bio-toilets" element={<BusinessDetail forcedSlug="wagsol" onOpenContact={handleOpenContact} />} />
             <Route path="/career" element={<CareersPage onApplyJob={handleApplyJob} />} />
 
             {/* Other Dedicated Routes */}

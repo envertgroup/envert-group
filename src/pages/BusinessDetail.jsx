@@ -13,6 +13,7 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
     b.aliases?.includes(targetSlug?.toLowerCase()) ||
     (targetSlug?.toLowerCase() === 'touriosity' && b.id === 'publication') ||
     (targetSlug?.toLowerCase() === 'thetouriosity' && b.id === 'publication') ||
+    (targetSlug?.toLowerCase() === 'touriosity-travelmag' && b.id === 'publication') ||
     (targetSlug?.toLowerCase() === 'mobility' && b.id === 'transport-electric') ||
     (targetSlug?.toLowerCase() === 'corporate-training' && b.id === 'icst') ||
     (targetSlug?.toLowerCase() === 'training' && b.id === 'icst') ||
@@ -22,7 +23,23 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
     (targetSlug?.toLowerCase() === 'atmaja' && b.id === 'fashion-lifestyle') ||
     (targetSlug?.toLowerCase() === 'glare-post' && b.id === 'glarepost') ||
     (targetSlug?.toLowerCase() === 'glarepost' && b.id === 'publication') ||
-    (targetSlug?.toLowerCase() === 'agro-food' && b.id === 'envert-agro-food')
+    (targetSlug?.toLowerCase() === 'advisory' && b.id === 'afield-advisory') ||
+    (targetSlug?.toLowerCase() === 'advisory-services' && b.id === 'afield-advisory') ||
+    (targetSlug?.toLowerCase() === 'afield-gallery' && b.id === 'afield-gallery') ||
+    (targetSlug?.toLowerCase() === 'gallery' && b.id === 'afield-gallery') ||
+    (targetSlug?.toLowerCase() === 'art-gallery' && b.id === 'afield-gallery') ||
+    (targetSlug?.toLowerCase() === 'arts-and-dolls-gallery' && b.id === 'afield-gallery') ||
+    (targetSlug?.toLowerCase() === 'indian-art-and-dolls-gallery' && b.id === 'afield-gallery') ||
+    (targetSlug?.toLowerCase() === 'repoxisy' && b.id === 'repoxisy') ||
+    (targetSlug?.toLowerCase() === 'epoxy' && b.id === 'repoxisy') ||
+    (targetSlug?.toLowerCase() === 'specialty-chemicals' && b.id === 'repoxisy') ||
+    (targetSlug?.toLowerCase() === 'specialty-chemicals-and-epoxy-solutions' && b.id === 'repoxisy') ||
+    (targetSlug?.toLowerCase() === 'wagsol' && b.id === 'wagsol') ||
+    (targetSlug?.toLowerCase() === 'solar-lighting' && b.id === 'wagsol') ||
+    (targetSlug?.toLowerCase() === 'railway-lighting' && b.id === 'wagsol') ||
+    (targetSlug?.toLowerCase() === 'bio-toilets' && b.id === 'wagsol') ||
+    (targetSlug?.toLowerCase() === 'railway-sanitation' && b.id === 'wagsol') ||
+    (targetSlug?.toLowerCase() === 'bldc-fans' && b.id === 'wagsol')
   );
 
   if (!business) {
@@ -255,6 +272,180 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Products & Services Matrix (e.g. REPOXISY) */}
+      {business.productsMatrix && (
+        <section className="py-14 bg-paper border-b border-charcoal/15">
+          <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
+            <div className="pb-4 mb-8 border-b border-charcoal/10 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+              <div>
+                <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
+                  IDENTIFIED PRODUCT & SERVICE SCOPE
+                </span>
+                <h2 className="font-heading text-2xl sm:text-3xl font-bold uppercase text-forest-deep mt-1">
+                  Product Lines & System Solutions
+                </h2>
+              </div>
+              <span className="font-mono text-xs text-charcoal/60">
+                Nandi Resources Generation Technology Pvt. Ltd.
+              </span>
+            </div>
+
+            <div className="overflow-x-auto border border-charcoal/15 bg-paper-warm rounded-xs">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-charcoal/15 bg-paper font-mono text-xs uppercase tracking-wider text-charcoal/70">
+                    <th className="py-3.5 px-6 font-semibold w-1/3">Area</th>
+                    <th className="py-3.5 px-6 font-semibold">Products / Services Identified</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-charcoal/10 font-sans text-sm">
+                  {business.productsMatrix.map((row, idx) => (
+                    <tr key={idx} className="hover:bg-paper/70 transition-colors">
+                      <td className="py-3.5 px-6 font-heading font-bold text-forest-deep italic">
+                        {row.area}
+                      </td>
+                      <td className="py-3.5 px-6 text-charcoal/80 font-normal">
+                        {row.products}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Single-Window Epoxy Flooring Execution Workflow (e.g. REPOXISY) */}
+      {business.singleWindowProcess && (
+        <section className="py-14 bg-paper-warm border-b border-charcoal/15">
+          <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
+            <div className="pb-4 mb-8 border-b border-charcoal/10">
+              <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
+                END-TO-END EXECUTION FRAMEWORK
+              </span>
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold uppercase text-forest-deep mt-1">
+                Single-Window Epoxy Flooring Service
+              </h2>
+              <p className="text-sm text-charcoal/75 mt-2 max-w-3xl">
+                Nandi Resources delivers an integrated, turnkey flooring workflow ensuring absolute substrate integrity, precision thickness control, and certified curing.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              {business.singleWindowProcess.map((step, idx) => (
+                <div key={idx} className="p-4 bg-paper border border-charcoal/15 rounded-xs flex flex-col justify-between hover:border-forest-deep transition-all">
+                  <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                    <span className="font-mono text-xs text-earth font-bold">STEP {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}</span>
+                    <CheckCircle2 className="w-3.5 h-3.5 text-forest/50" />
+                  </div>
+                  <h3 className="font-heading text-sm font-bold text-forest-deep mt-3">
+                    {step}
+                  </h3>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* WAGSOL Specialized Engineering Focus: Solar Transit & Green Sanitation */}
+      {business.id === 'wagsol' && (
+        <section className="py-14 bg-paper-warm border-b border-charcoal/15">
+          <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
+            <div className="pb-4 mb-8 border-b border-charcoal/10 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+              <div>
+                <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
+                  NANDI RESOURCES INTEGRATED RAILWAY & CLEAN POWER FRAMEWORK
+                </span>
+                <h2 className="font-heading text-2xl sm:text-3xl font-bold uppercase text-forest-deep mt-1">
+                  Dual Core Engineering Disciplines
+                </h2>
+              </div>
+              <span className="font-mono text-xs text-charcoal/60">
+                WAGSOL™ Division
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Pillar A: Solar & Transit Illumination */}
+              <div className="p-8 bg-paper border border-charcoal/15 rounded-xs space-y-5">
+                <div className="flex items-center justify-between pb-3 border-b border-charcoal/10">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-2.5 h-2.5 bg-earth rounded-full"></span>
+                    <span className="font-mono text-xs uppercase font-bold text-forest-deep tracking-wider">
+                      DISCIPLINE 01
+                    </span>
+                  </div>
+                  <span className="font-mono text-xs text-earth font-semibold">Solar & Electrical Engineering</span>
+                </div>
+                <h3 className="font-heading text-xl font-bold text-forest-deep">
+                  Solar Power, Lighting Systems & Wagon Applications
+                </h3>
+                <p className="text-sm text-charcoal/75 leading-relaxed">
+                  Turnkey engineering for high-mast solar lighting, street lighting arrays, and specialized off-grid DC solar solutions for BVCM/BVZI railway wagon applications. Integrated with charge controller units (CCUs), solar-powered industrial batteries, and GPS/GPRS cloud telemetry alongside MW-scale plant AMC services.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                  <div className="p-3 bg-paper-warm border border-charcoal/10 text-xs font-mono">
+                    <span className="font-bold text-forest-deep block">BVCM / BVZI Solutions</span>
+                    Dedicated DC solar for railway wagons
+                  </div>
+                  <div className="p-3 bg-paper-warm border border-charcoal/10 text-xs font-mono">
+                    <span className="font-bold text-forest-deep block">High-Mast & Street Illumination</span>
+                    Tall-mast luminaires & smart LED arrays
+                  </div>
+                  <div className="p-3 bg-paper-warm border border-charcoal/10 text-xs font-mono">
+                    <span className="font-bold text-forest-deep block">Cloud Monitoring & CCUs</span>
+                    GPS/GPRS telemetry & charge control
+                  </div>
+                  <div className="p-3 bg-paper-warm border border-charcoal/10 text-xs font-mono">
+                    <span className="font-bold text-forest-deep block">BLDC Energy-Saving Fans</span>
+                    Low-wattage ventilation & exhaust
+                  </div>
+                </div>
+              </div>
+
+              {/* Pillar B: Biological Sanitation & Environmental Systems */}
+              <div className="p-8 bg-paper border border-charcoal/15 rounded-xs space-y-5">
+                <div className="flex items-center justify-between pb-3 border-b border-charcoal/10">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-2.5 h-2.5 bg-forest rounded-full"></span>
+                    <span className="font-mono text-xs uppercase font-bold text-forest-deep tracking-wider">
+                      DISCIPLINE 02
+                    </span>
+                  </div>
+                  <span className="font-mono text-xs text-forest font-semibold">Transit Sanitation & Bio-Systems</span>
+                </div>
+                <h3 className="font-heading text-xl font-bold text-forest-deep">
+                  Railway Bio-Toilets, Waterless Urinals & Sanitation
+                </h3>
+                <p className="text-sm text-charcoal/75 leading-relaxed">
+                  Sustainable bio-digestive sanitation systems designed for high-density railway coaches, transit stations, and public institutional infrastructure. Features waterless urinals, water-saving sanitary apparatus, and biological waste decomposition ensuring zero track discharge and environmental compliance.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                  <div className="p-3 bg-paper-warm border border-charcoal/10 text-xs font-mono">
+                    <span className="font-bold text-forest-deep block">Railway Bio-Toilets</span>
+                    Bio-digestive bacterial digestion tanks
+                  </div>
+                  <div className="p-3 bg-paper-warm border border-charcoal/10 text-xs font-mono">
+                    <span className="font-bold text-forest-deep block">Waterless Urinal Systems</span>
+                    100% zero-water sanitary installations
+                  </div>
+                  <div className="p-3 bg-paper-warm border border-charcoal/10 text-xs font-mono">
+                    <span className="font-bold text-forest-deep block">Coach & Station Sanitation</span>
+                    Sanitary installations for transit hubs
+                  </div>
+                  <div className="p-3 bg-paper-warm border border-charcoal/10 text-xs font-mono">
+                    <span className="font-bold text-forest-deep block">Water Conservation</span>
+                    Regulatory water-saving apparatus
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

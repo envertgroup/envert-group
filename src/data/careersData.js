@@ -74,7 +74,7 @@ export const careersData = [
     postedDate: "September 2026",
     deadline: "Immediate Recruitment",
     salaryRange: "Commensurate with experience",
-    description: "Drive strategic brand storytelling, press liaison, ESG reports dissemination, and media narrative for EnVERT Group, The Touriosity, Glare Post, and Pen & Ink Publishers across national and international forums.",
+    description: "Drive strategic brand storytelling, press liaison, ESG reports dissemination, and media narrative for EnVERT Group, Touriosity Travelmag, Glare Post, and Pen & Ink Publishers across national and international forums.",
     keyResponsibilities: [
       "Draft official corporate press releases, executive talking points, and thought leadership monographs.",
       "Cultivate relationships with national media houses, industrial trade journals, and digital publications.",
@@ -92,7 +92,7 @@ export const careersData = [
   },
   {
     id: "c4",
-    title: "Sales Officer / Corporate Ad Manager — 'The Touriosity'",
+    title: "Sales Officer / Corporate Ad Manager — 'Touriosity Travelmag'",
     department: "Publication & Media (EnVERT Media)",
     location: "Kolkata, India (with Regional Travel)",
     type: "Full-time",
@@ -103,7 +103,7 @@ export const careersData = [
     postedDate: "September 2026",
     deadline: "Open until filled",
     salaryRange: "Fixed Base + High Incentive Structure",
-    description: "Drive advertisement sales, tourism board partnerships, corporate brand sponsorships, and conscious hospitality accounts for 'The Touriosity' international travel magazine and 'Sustainable Energy Review' trade journal.",
+    description: "Drive advertisement sales, tourism board partnerships, corporate brand sponsorships, and conscious hospitality accounts for 'Touriosity Travelmag' international travel magazine and 'Sustainable Energy Review' trade magazine.",
     keyResponsibilities: [
       "Engage State Tourism Boards, international tourism authorities, and eco-luxury hospitality chains.",
       "Sell bespoke advertisement spots, sponsored editorial spreads, and digital banners.",

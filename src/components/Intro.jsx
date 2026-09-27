@@ -22,7 +22,7 @@ export default function Intro() {
       num: '03',
       title: 'KNOWLEDGE & LIVING',
       desc: 'International book publishing, intellectual periodicals, social ecology foundations, and cultural platforms.',
-      disciplines: ['Pen & Ink Publishers (Afield Touriosity)', 'Curiosity Kid & Writing Awards', 'The Touriosity & Glare Post Media', 'EnVERT Foundation & Wellness Initiatives'],
+      disciplines: ['Pen & Ink Publishers', 'Curiosity Kid & Writing Awards', 'Touriosity Travelmag & Glare Post Media', 'EnVERT Foundation & Wellness Initiatives'],
       icon: Compass,
     },
   ];
@@ -57,7 +57,7 @@ export default function Intro() {
                 <strong>EnVERT® Group</strong> is an integrated corporate institution operating across the eleven essential markets of modern enterprise: from clean power grids, environmental engineering, and electric mobility to commercial architecture, advisory, manufacturing, and international publishing.
               </p>
               <p className="text-sm sm:text-base text-charcoal/70">
-                Operating directly through focused legal entities and dedicated platforms—including <strong>NRG India</strong> (Nandi Resources Generation Technology Pvt. Ltd.), <strong>EnVERT E-Vehicles Private Limited</strong>, <strong>ICST Global</strong>, and <strong>Pen & Ink Publishers</strong> (Afield Touriosity Pvt. Ltd.)—we bridge rigorous thermodynamic and electrical practice with strategic management and cultural stewardship.
+                Operating directly through focused legal entities and dedicated platforms—including <strong>NRG India</strong> (Nandi Resources Generation Technology Pvt. Ltd.), <strong>EnVERT E-Vehicles Private Limited</strong>, <strong>ICST Global</strong>, and <strong>Pen & Ink Publishers</strong>—we bridge rigorous thermodynamic and electrical practice with strategic management and cultural stewardship.
               </p>
             </div>
           </div>

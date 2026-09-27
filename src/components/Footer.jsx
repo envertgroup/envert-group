@@ -71,7 +71,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/businesses/icst" className="hover:text-paper hover:text-earth transition-colors">
-                  04. ICST Global Capability Training
+                  04. ICST (Corporate Capability & Sustainable Transition)
                 </Link>
               </li>
               <li>
@@ -81,7 +81,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/businesses/afield-gallery" className="hover:text-paper hover:text-earth transition-colors">
-                  06. Afield Contemporary Art
+                  06. Afield Gallery
                 </Link>
               </li>
               <li>
@@ -90,8 +90,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/businesses/envert-agro-food" className="hover:text-paper hover:text-earth transition-colors">
-                  08. EnVERT Agro & Food Processing
+                <Link to="/businesses/afield-advisory" className="hover:text-paper hover:text-earth transition-colors">
+                  08. Afield Advisory Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/businesses/repoxisy" className="hover:text-paper hover:text-earth transition-colors">
+                  09. REPOXISY (Specialty Chemicals & Epoxy Solutions)
+                </Link>
+              </li>
+              <li>
+                <Link to="/businesses/wagsol" className="hover:text-paper hover:text-earth transition-colors">
+                  10. WAGSOL Solar, Rail & Sanitation
                 </Link>
               </li>
             </ul>
@@ -132,7 +142,7 @@ export default function Footer() {
                   rel="noreferrer"
                   className="hover:text-earth transition-colors inline-flex items-center gap-1.5"
                 >
-                  <span>ICST Global (Training Portal)</span>
+                  <span>ICST (Sustainable Transition)</span>
                   <ExternalLink className="w-2.5 h-2.5 text-paper/40" />
                 </a>
               </li>
@@ -143,7 +153,7 @@ export default function Footer() {
                   rel="noreferrer"
                   className="hover:text-earth transition-colors inline-flex items-center gap-1.5"
                 >
-                  <span>The Touriosity (Travel Magazine)</span>
+                  <span>Touriosity Travelmag</span>
                   <ExternalLink className="w-2.5 h-2.5 text-paper/40" />
                 </a>
               </li>

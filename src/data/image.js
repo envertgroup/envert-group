@@ -69,8 +69,13 @@ export const logos = {
   atmaja: resolve('/assets/scraped_images/fashion-lifestyle/atmaja_logo.png'),
   fashion_lifestyle: resolve('/assets/scraped_images/fashion-lifestyle/atmaja_logo.png'),
   
+  afield_advisory: resolve('/assets/scraped_images/home/afield_logo.png'),
   afield: resolve('/assets/scraped_images/home/afield_logo.png'),
-  afield_gallery: resolve('/assets/scraped_images/home/afield_logo.png'),
+  repoxisy: resolve('/assets/repoxisy_logo.png'),
+  wagsol: resolve('/assets/wagsol_logo.png'),
+  afield_gallery: resolve('/assets/indian_arts_and_dolls_gallery.png'),
+  indian_art_and_dolls_gallery: resolve('/assets/indian_arts_and_dolls_gallery.png'),
+  indian_arts_and_dolls: resolve('/assets/indian_arts_and_dolls_gallery.png'),
   
   envert_foundation: resolve('/assets/scraped_images/home/envert_foundation_logo.png'),
   foundation: resolve('/assets/scraped_images/home/envert_foundation_logo.png'),
@@ -106,11 +111,14 @@ export const heroes = {
   training: resolve('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop'),
   icst: resolve('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop'),
   art: resolve('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1600&auto=format&fit=crop'),
-  afield: resolve('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1600&auto=format&fit=crop'),
+  indian_art_and_dolls: resolve('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1600&auto=format&fit=crop'),
+  indian_arts_dolls_stock: resolve('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1600&auto=format&fit=crop'),
   foundation: resolve('/assets/scraped_images/envert-foundation/envert-foundation_img_8_8a67aa84.png'),
   agro: resolve('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1600&auto=format&fit=crop'),
   research: resolve('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop'),
   eipr: resolve('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop'),
+  repoxisy: resolve('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=1600&auto=format&fit=crop'),
+  wagsol: resolve('https://images.unsplash.com/photo-1548337138-e87d889cc369?q=80&w=1600&auto=format&fit=crop'),
   wellness: resolve('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600&auto=format&fit=crop')
 };
 
@@ -216,11 +224,23 @@ const baseRegistry = {
   fashion_hero: heroes.fashion,
   fashionHero: heroes.fashion,
 
-  // Art & Culture
-  afield_logo: logos.afield,
-  afieldLogo: logos.afield,
-  afield_hero: heroes.afield,
-  afieldHero: heroes.afield,
+  // Art & Culture - Afield Gallery (Uses Gallery Artwork Logo + Stock Hero)
+  afield_gallery_logo: logos.afield_gallery,
+  afieldGalleryLogo: logos.afield_gallery,
+  afield_gallery_hero: heroes.art,
+  indian_art_and_dolls_gallery_logo: logos.afield_gallery,
+  indian_arts_and_dolls_logo: logos.afield_gallery,
+  indian_art_and_dolls_gallery_hero: heroes.indian_arts_dolls_stock,
+  indian_arts_and_dolls_hero: heroes.indian_arts_dolls_stock,
+  art_hero: heroes.art,
+
+  // Afield Advisory (The ONLY Afield Entity in EnVERT Group)
+  afield_advisory_logo: logos.afield_advisory,
+  afieldAdvisoryLogo: logos.afield_advisory,
+  afield_logo: logos.afield_advisory,
+  afieldLogo: logos.afield_advisory,
+  touriosity_travelmag_logo: logos.touriosity,
+  touriosityTravelmagLogo: logos.touriosity,
 
   // Stewardship
   envert_foundation_logo: logos.envert_foundation,
@@ -240,6 +260,18 @@ const baseRegistry = {
   eiprLogo: logos.eipr,
   research_hero: heroes.research,
   researchHero: heroes.research,
+
+  // REPOXISY - Specialty Chemicals & Epoxy Solutions
+  repoxisy_logo: logos.repoxisy,
+  repoxisyLogo: logos.repoxisy,
+  repoxisy_hero: heroes.repoxisy,
+  repoxisyHero: heroes.repoxisy,
+
+  // WAGSOL - Solar, Railway Systems & Green Sanitation
+  wagsol_logo: logos.wagsol,
+  wagsolLogo: logos.wagsol,
+  wagsol_hero: heroes.wagsol,
+  wagsolHero: heroes.wagsol,
 
   // Wellness
   wellness_logo: logos.wellness,
@@ -281,6 +313,8 @@ const baseRegistry = {
   'glarepost-logo': logos.glarepost,
   'atmaja-logo': logos.atmaja,
   'afield-logo': logos.afield,
+  'afield-gallery-logo': logos.afield_gallery,
+  'afield-gallery-hero': heroes.art,
   'envert-foundation-logo': logos.envert_foundation,
   'envert-foundation-badge': logos.foundation_badge,
   'envert-agro-food-logo': logos.envert_agro_food,
@@ -295,6 +329,10 @@ const baseRegistry = {
   'foundation-hero': heroes.foundation,
   'agro-hero': heroes.agro,
   'research-hero': heroes.research,
+  'repoxisy-logo': logos.repoxisy,
+  'repoxisy-hero': heroes.repoxisy,
+  'wagsol-logo': logos.wagsol,
+  'wagsol-hero': heroes.wagsol,
   'wellness-hero': heroes.wellness,
   'project-solar-pv': projects.solar_pv,
   'project-ev-fleet': projects.ev_fleet,

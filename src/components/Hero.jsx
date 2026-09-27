@@ -20,8 +20,8 @@ export default function Hero({ onExploreClick, onAboutClick }) {
               {/* Confident Headings as requested in PRD */}
               <h1 className="font-heading text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight-editorial text-forest-deep leading-[0.98] uppercase">
                 Engineering <br className="hidden sm:inline" />
-                For A <br className="hidden sm:inline" />
-                Changing <br className="hidden sm:inline" />
+                Solutions For <br className="hidden sm:inline" />
+                A Changing <br className="hidden sm:inline" />
                 World.
               </h1>
 

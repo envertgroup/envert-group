@@ -54,7 +54,7 @@ export default function AboutPage({ onOpenContact }) {
               EnVERT began with a clear recognition: the transition toward clean power, sustainable transport, and industrial efficiency requires both high-rigor mechanical engineering and executive human capability.
             </p>
             <p>
-              Over the past decade, EnVERT consolidated specialized operating entities—including clean power and BEE audit firm <strong>NRG India</strong>, electric vehicle manufacturer <strong>EnVERT E-Vehicles Private Limited</strong>, multinational language training center <strong>ICST Global</strong> (with 15+ years experience and 30+ MNC clients), and literary publisher <strong>Pen & Ink Publishers</strong>.
+              Over the past decade, EnVERT consolidated specialized operating entities—including clean power and BEE audit firm <strong>NRG India</strong>, electric vehicle manufacturer <strong>EnVERT E-Vehicles Private Limited</strong>, sustainable transition and capability platform <strong>ICST</strong> (International Conference on Sustainable Transition), and literary publisher <strong>Pen & Ink Publishers</strong>.
             </p>
             <p>
               By housing these distinct capabilities under one structured group, we offer clients end-to-end institutional capabilities: from statutory environmental approvals and factory energy audits to customized vehicle electrification and global corporate communication.
@@ -100,7 +100,7 @@ export default function AboutPage({ onOpenContact }) {
               <ul className="mt-6 space-y-2 text-xs font-mono text-charcoal/80">
                 <li className="flex items-center gap-2"><span className="text-leaf">•</span> BEE Industrial Energy Audits</li>
                 <li className="flex items-center gap-2"><span className="text-leaf">•</span> NAAC University Green Audits</li>
-                <li className="flex items-center gap-2"><span className="text-leaf">•</span> Corporate Language Training (ICST)</li>
+                <li className="flex items-center gap-2"><span className="text-leaf">•</span> Sustainable Transition & Training (ICST)</li>
                 <li className="flex items-center gap-2"><span className="text-leaf">•</span> Executive Voice & Accent Coaching</li>
               </ul>
             </div>
@@ -115,7 +115,7 @@ export default function AboutPage({ onOpenContact }) {
               <ul className="mt-6 space-y-2 text-xs font-mono text-charcoal/80">
                 <li className="flex items-center gap-2"><span className="text-leaf">•</span> Pen & Ink Publishing House</li>
                 <li className="flex items-center gap-2"><span className="text-leaf">•</span> Curiosity Kids Magazine (Amazon Global)</li>
-                <li className="flex items-center gap-2"><span className="text-leaf">•</span> Sustainable Energy Review & The Touriosity</li>
+                <li className="flex items-center gap-2"><span className="text-leaf">•</span> Sustainable Energy Review & Touriosity Travelmag</li>
                 <li className="flex items-center gap-2"><span className="text-leaf">•</span> EnVERT Foundation (Applied Ecology)</li>
               </ul>
             </div>

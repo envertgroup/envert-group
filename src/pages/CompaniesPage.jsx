@@ -31,17 +31,58 @@ export default function CompaniesPage({ onOpenContact }) {
       domains: ['EnVERT Mono-PN', 'EnVERT Duex-PM', 'EnVERT Trois-PP', 'Charging Depot Topologies', 'Battery Thermal Diagnostics']
     },
     {
-      name: 'ICST Global',
-      category: 'Corporate Language & Capability Engineering',
+      name: 'REPOXISY',
+      category: 'Specialty Chemicals & Epoxy Solutions',
+      logo: '/assets/repoxisy_logo.png',
+      portalUrl: '/businesses/repoxisy',
+      internalSlug: 'repoxisy',
+      status: 'Advanced Materials Division',
+      headquarters: 'Kolkata, India (Nandi Resources)',
+      phone: '+91 9836511995',
+      email: 'admin@envertgroup.com',
+      summary: 'Advanced materials and construction chemicals brand of Nandi Resources Generation Technology Pvt. Ltd. Delivers industrial & railway epoxy flooring systems, protective resin coatings, waterproofing chemical sealants, and single-window turnkey execution.',
+      domains: [
+        'Industrial & Railway Epoxy Flooring',
+        'Protective & Anti-Corrosion Coatings',
+        'Epoxy Grout & Adhesives',
+        'Waterproofing Chemical Sealants',
+        'Construction Chemicals & Primers',
+        'Single-Window Turnkey Execution'
+      ]
+    },
+    {
+      name: 'WAGSOL',
+      category: 'Solar, Railway Systems & Green Sanitation',
+      logo: '/assets/wagsol_logo.png',
+      portalUrl: '/businesses/wagsol',
+      internalSlug: 'wagsol',
+      status: 'Solar & Rail Sanitation Division',
+      headquarters: 'Kolkata, India (Nandi Resources)',
+      phone: '+91 9836511995',
+      email: 'admin@envertgroup.com',
+      summary: 'Specialized solar equipment, railway solutions, and green sanitation division of Nandi Resources Generation Technology Pvt. Ltd. Delivers solar street & high-mast systems, wagon solar applications (BVCM/BVZI), railway coach & platform lighting, BLDC energy-efficient ventilation, and railway bio-toilets alongside waterless sanitary installations.',
+      domains: [
+        'Solar & High-Mast Lighting Systems',
+        'BVCM/BVZI Railway Wagon Solar Solutions',
+        'Railway Coach & Platform Lighting',
+        'BLDC Energy-Efficient Ventilation',
+        'Railway Bio-Toilets & Bio-Digesters',
+        'Waterless Urinals & Sanitation Systems',
+        'MW-Scale Solar Plant AMC Maintenance'
+      ]
+    },
+    {
+      name: 'ICST',
+      category: 'Corporate Capability & Sustainable Transition',
       logo: '/assets/scraped_images/home/ICST-logo.png',
       portalUrl: 'http://www.icstglobal.com',
       internalSlug: 'icst',
-      status: 'Training Division',
+      status: 'Conference & Capability Division',
       headquarters: 'Kolkata & Pan-India Corporate Campuses',
       phone: '+91 9836511995',
-      email: 'admin@envertgroup.com',
-      summary: 'With over 15 years experience and training delivered to 30+ Multinational Corporations, ICST imparts local and foreign language competencies in 20+ languages alongside voice and accent neutralization.',
-      domains: ['20+ Language Curricula', 'Voice & Accent Neutralization', 'Executive Negotiation', 'Expatriate Cultural Integration', '30+ MNC Track Record']
+      email: 'icst@thetouriosity.com',
+      summary: 'ICST (International Conference on Sustainable Transition) convenes international sustainability conferences alongside over 15 years of corporate capability and language engineering for 30+ multinational corporations.',
+      domains: ['International Conference on Sustainable Transition', '20+ Language Curricula', 'Voice & Accent Neutralization', 'Executive Capability Development', '30+ MNC Track Record']
     },
     {
       name: 'Glare Post',
@@ -57,7 +98,7 @@ export default function CompaniesPage({ onOpenContact }) {
       domains: ['Environmental Journalism', 'Public Policy Analysis', 'Clean Energy Markets', 'Corporate ESG Reporting']
     },
     {
-      name: 'The Touriosity',
+      name: 'Touriosity Travelmag',
       category: 'Global Travel, Heritage & Eco-Tourism Magazine',
       logo: '/assets/scraped_images/home/touriosity_logo.png',
       portalUrl: 'http://www.thetouriosity.com',
@@ -66,7 +107,7 @@ export default function CompaniesPage({ onOpenContact }) {
       headquarters: 'Global Circulation & Kolkata Desk',
       phone: '+91 9836511995',
       email: 'thetouriosity@gmail.com',
-      summary: "One of EnVERT Group's premier international publications. The Touriosity explores global heritage, conscious eco-tourism, cultural geography, responsible hospitality, and sustainable travel narratives with contributors worldwide.",
+      summary: "One of EnVERT Group's premier international publications. Touriosity Travelmag explores global heritage, conscious eco-tourism, cultural geography, responsible hospitality, and sustainable travel narratives with contributors worldwide.",
       domains: ['World Heritage Narratives', 'Eco-Tourism & Conservation', 'Travel Journalism', 'Global Space Partnerships', 'Cultural Geography']
     },
     {
@@ -96,10 +137,10 @@ export default function CompaniesPage({ onOpenContact }) {
     },
     {
       name: 'Sustainable Energy Review',
-      category: 'Clean Energy & Technology Trade Journal',
+      category: 'Clean Energy & Technology Trade Magazine',
       logo: '/assets/scraped_images/home/sustainable_energy_review_logo.png',
       internalSlug: 'publication',
-      status: 'Technical Journal',
+      status: 'Trade Magazine',
       headquarters: 'Kolkata, India',
       phone: '+91 9836511995',
       email: 'admin@envertgroup.com',
@@ -133,39 +174,39 @@ export default function CompaniesPage({ onOpenContact }) {
     {
       name: 'Afield Gallery',
       category: 'Visual Arts & Contemporary Culture',
-      logo: '/assets/scraped_images/home/afield_logo.png',
-      portalUrl: 'https://www.afieldgallery.com',
+      logo: '/assets/indian_arts_and_dolls_gallery.png',
       internalSlug: 'afield-gallery',
-      status: 'Art Initiative',
+      portalUrl: '/businesses/afield-gallery',
+      status: 'Visual Arts Initiative',
       headquarters: 'Kolkata, India',
       phone: '+91 9836511995',
       email: 'admin@envertgroup.com',
-      summary: 'Curatorial initiative showcasing contemporary visual artists, printmakers, and cultural dialogues exploring ecological harmony and modern expression.',
-      domains: ['Contemporary Art', 'Printmaking', 'Curated Exhibitions', 'Art Advisory']
+      summary: 'Curatorial initiative showcasing contemporary visual artists, Indian arts and dolls gallery, printmakers, and cultural dialogues exploring ecological harmony and modern expression.',
+      domains: ['Afield Gallery', 'Contemporary Art', 'Printmaking', 'Curated Exhibitions', 'Cultural Dialogues']
     },
     {
-      name: 'EnVERT Agro Food',
-      category: 'Sustainable Agriculture & Food Processing',
-      logo: '/assets/scraped_images/home/envert_agro_food_logo.png',
-      internalSlug: 'envert-agro-food',
-      status: 'Agro Division',
-      headquarters: 'West Bengal, India',
+      name: 'Afield Advisory',
+      category: 'Strategic Advisory & Brand Consultancy',
+      logo: '/assets/scraped_images/home/afield_logo.png',
+      internalSlug: 'afield-advisory',
+      status: 'Advisory Department',
+      headquarters: 'Kolkata, India',
       phone: '+91 9836511995',
       email: 'admin@envertgroup.com',
-      summary: 'Regenerative farming, solar-assisted food processing, and fair-value cooperative models advancing sustainable rural food supply chains.',
-      domains: ['Organic Farming', 'Solar Cold Storage', 'Farmer Cooperatives', 'Clean Food Processing']
+      summary: 'Dedicated advisory department of EnVERT Group providing institutional destination profiling, tourism board representation, brand architecture, PR communications, and cross-border promotional partnerships.',
+      domains: ['Destination Representation', 'Tourism Board Advisory', 'Brand Consultancy', 'Strategic PR & Media', 'CSR Advisory']
     },
     {
       name: 'EIPR',
-      category: 'EnVERT Institute of Professional Researches',
+      category: 'EnVERT Institute of Policy Research',
       logo: '/assets/scraped_images/home/eipr_logo.png',
       internalSlug: 'eipr',
-      status: 'Applied Research Wing',
+      status: 'Policy Research Wing',
       headquarters: 'Kolkata, India',
       phone: '+91 9836511995',
       email: 'admin@envertgroup.com',
-      summary: 'Bridging heavy industry and technical research with energy modeling, techno-commercial feasibility evaluations, and patent innovation studies.',
-      domains: ['Industrial Research', 'Patent Landscaping', 'Techno-Commercial Feasibility', 'Regulatory Studies']
+      summary: 'Bridging heavy industry and policy research with energy modeling, techno-economic evaluations, decarbonization frameworks, and patent innovation studies.',
+      domains: ['Industrial Policy', 'Patent Landscaping', 'Techno-Economic Feasibility', 'Regulatory Studies']
     }
   ];
 

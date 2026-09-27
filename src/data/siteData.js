@@ -3,7 +3,7 @@ export { images } from './image.js';
 
 export const siteMetadata = {
   companyName: "EnVERT Group",
-  tagline: "Engineering for a changing world.",
+  tagline: "Engineering Solutions for a Changing World.",
   description: "A multidisciplinary corporate group operating across clean energy, industrial BEE audits, electric vehicles, corporate capability training, digital journalism, sustainability, and publishing.",
   headquarters: "Kolkata, West Bengal, India",
   logo: images.envert_group_logo,
@@ -16,10 +16,10 @@ export const siteMetadata = {
   touriosityEmail: "thetouriosity@gmail.com",
   hiringAlert: "Actively hiring Solar PV Engineers, HR Officers, PR Managers, and Travel Magazine Sales Executives. Send CV to hr@envertgroup.com",
   operatingPillars: [
-    { label: "Engineering", count: "02 Categories", desc: "Energy (NRG India), Transport (EnVERT E-Vehicles)" },
-    { label: "Advisory & Capability", count: "02 Categories", desc: "Corporate Training (ICST Global), Research & Advisory (EIPR)" },
-    { label: "Media & Culture", count: "03 Categories", desc: "Publication & Media (The Touriosity, Pen & Ink, Glare Post), Art & Culture (Afield Gallery)" },
-    { label: "Stewardship & Living", count: "03 Categories", desc: "Social Stewardship (EnVERT Foundation), Fashion & Lifestyle (Atmaja), Agro & Food (EnVERT Agro Food)" },
+    { label: "Engineering & Materials", count: "04 Categories", desc: "Energy (NRG India), Transport (EnVERT E-Vehicles), Specialty Chemicals & Epoxy (REPOXISY), Solar & Rail Systems (WAGSOL)" },
+    { label: "Advisory & Capability", count: "03 Categories", desc: "Corporate Capability (ICST), Policy Research (EIPR), Strategic Advisory (Afield Advisory)" },
+    { label: "Media & Culture", count: "03 Categories", desc: "Publication & Media (Touriosity Travelmag, Pen & Ink, Glare Post), Visual Arts (Afield Gallery)" },
+    { label: "Stewardship & Living", count: "02 Categories", desc: "Social Stewardship (EnVERT Foundation), Fashion & Lifestyle (Atmaja)" },
   ],
 };
 
@@ -114,41 +114,39 @@ export const businessesData = [
   {
     id: "icst",
     num: "03",
-    name: "Corporate Training",
-    category: "Corporate Training",
-    companyName: "ICST Global",
-    companyLegalName: "Institute of Corporate Sustainability & Transition (ICST Global)",
-    brandRef: "ICST Global",
+    name: "ICST",
+    category: "Corporate Capability & Sustainable Transition",
+    companyName: "ICST",
+    companyLegalName: "ICST (International Conference on Sustainable Transition)",
+    brandRef: "ICST",
     urlSlug: "icst",
-    aliases: ["icst", "corporate-training", "training"],
+    aliases: ["icst", "corporate-training", "training", "language-engineering", "sustainable-transition"],
     logo: images.icst_logo,
     secondaryLogo: images.icst_secondary_logo,
-    tagline: "Corporate language capabilities across 20+ languages for 30+ MNCs.",
-    summary: "ICST Global (Institute of Corporate Sustainability and Transition) breaks communication barriers in an era of globalized business. With over 15 years of experience training professionals across 20+ Indian and foreign languages, ICST has served more than 30 Multinational Corporations with customized curricula that produce measurable ROI in corporate productivity.",
+    tagline: "International sustainability conferences alongside over 15 years of corporate capability and language engineering.",
+    summary: "ICST (International Conference on Sustainable Transition) convenes international sustainability conferences alongside over 15 years of corporate capability and language engineering for 30+ multinational corporations.",
     businessesUnderCategory: [
       {
-        name: "ICST Global",
-        legalName: "Institute of Corporate Sustainability and Transition",
-        role: "Corporate Training & Language Engineering",
+        name: "ICST",
+        legalName: "International Conference on Sustainable Transition",
+        role: "Corporate Capability & Sustainable Transition",
         logo: images.icst_logo,
         url: "http://www.icstglobal.com",
-        desc: "Over 15 years training 30+ MNCs in 20+ languages alongside voice & accent and executive communication."
+        desc: "ICST (International Conference on Sustainable Transition) convenes international sustainability conferences alongside over 15 years of corporate capability and language engineering for 30+ multinational corporations."
       }
     ],
     capabilities: [
-      "Corporate Language Competencies (20+ Indian & International Languages)",
-      "Voice & Accent Neutralization for Global Client-Facing Teams",
-      "Executive Leadership Communication & Multi-Tier Negotiation",
-      "Custom Curriculum Development Tailored to Industry Domains",
-      "Cross-Cultural Workplace Protocols & Expatriate Integration",
-      "Virtual and On-Premise Immersive Workshop Delivery",
-      "Organizational Human Resource Capability Audits",
-      "Measurable Productivity Benchmarks & Competency Assessments"
+      "International Conference on Sustainable Transition",
+      "20+ Language Curricula",
+      "Voice & Accent Neutralization",
+      "Executive Capability Development",
+      "30+ MNC Track Record"
     ],
     image: images.training_hero,
-    imageCaption: "Executive communication seminars and multinational corporate capability development.",
+    imageCaption: "ICST - International Conference on Sustainable Transition and corporate capability.",
     domainLink: "http://www.icstglobal.com",
-    directEmail: "admin@envertgroup.com",
+    directEmail: "icst@thetouriosity.com",
+    alternateEmail: "admin@envertgroup.com",
     directPhone: "+91 9836511995"
   },
   {
@@ -156,17 +154,17 @@ export const businessesData = [
     num: "04",
     name: "Publication & Media",
     category: "Publication & Media",
-    companyName: "Pen & Ink / The Touriosity / Glare Post",
+    companyName: "Pen & Ink / Touriosity Travelmag / Glare Post",
     brandRef: "EnVERT Media Group",
     urlSlug: "publication",
-    aliases: ["publication", "publishing", "pen-ink", "touriosity", "glarepost"],
+    aliases: ["publication", "publishing", "pen-ink", "touriosity", "touriosity-travelmag", "glarepost"],
     logo: images.pen_and_ink_logo,
     tagline: "International magazines, digital journalism, literature awards, and trade journals.",
-    summary: "EnVERT Group's Publication & Media vertical unifies our established publishing houses, globally distributed magazines, and digital news channels: The Touriosity (international heritage & eco-tourism magazine), Pen & Ink Publishers, Curiosity Kids magazine (7+ years on Amazon Paperback & Kindle), Sustainable Energy Review trade journal, and Glare Post digital journalism.",
+    summary: "EnVERT Group's Publication & Media vertical unifies our established publishing houses, globally distributed magazines, and digital news channels: Touriosity Travelmag (international heritage & eco-tourism magazine), Pen & Ink Publishers, Curiosity Kids magazine (7+ years on Amazon Paperback & Kindle), Sustainable Energy Review trade magazine, and Glare Post digital journalism.",
     // Multiple businesses under this category
     businessesUnderCategory: [
       {
-        name: "The Touriosity",
+        name: "Touriosity Travelmag",
         role: "Global Travel, Heritage & Eco-Tourism Magazine",
         logo: images.touriosity_logo,
         url: "http://www.thetouriosity.com",
@@ -188,9 +186,9 @@ export const businessesData = [
       },
       {
         name: "Sustainable Energy Review",
-        role: "Technical Clean Energy Trade Journal",
+        role: "Clean Energy & Technology Trade Magazine",
         logo: images.sustainable_energy_review_logo,
-        desc: "B2B journal dedicated to renewable technology, statutory BEE energy audit policy, and industrial efficiency standards."
+        desc: "B2B trade magazine dedicated to renewable technology, statutory BEE energy audit policy, and industrial efficiency standards."
       },
       {
         name: "Glare Post",
@@ -201,10 +199,10 @@ export const businessesData = [
       }
     ],
     capabilities: [
-      "The Touriosity Global Heritage & Eco-Tourism Magazine Publishing",
+      "Touriosity Travelmag Global Heritage & Eco-Tourism Magazine Publishing",
       "Curiosity Writing Awards (Annual International Competition)",
       "Curiosity Kids Magazine (Global Amazon Paperback & Kindle Distribution)",
-      "Sustainable Energy Review (Trade Publication on Clean Tech & Policy)",
+      "Sustainable Energy Review (Clean Energy & Technology Trade Magazine)",
       "Glare Post (Digital Investigative Journalism & Policy Debates)",
       "Anthology Curation & Worldwide Publication for Emerging Authors",
       "Trade Advertising, Space Selling & Corporate Media Partnerships",
@@ -212,7 +210,7 @@ export const businessesData = [
     ],
     publications: [
       { 
-        name: "The Touriosity", 
+        name: "Touriosity Travelmag", 
         desc: "Flagship international travel and heritage publication celebrating sustainable culture and conscious tourism.",
         logo: images.touriosity_logo,
         url: "http://www.thetouriosity.com"
@@ -224,7 +222,7 @@ export const businessesData = [
       },
       { 
         name: "Sustainable Energy Review", 
-        desc: "B2B journal dedicated to clean power, industrial efficiency, and statutory policy standards.",
+        desc: "Clean Energy & Technology Trade Magazine dedicated to clean power, industrial efficiency, and statutory policy standards.",
         logo: images.sustainable_energy_review_logo
       },
       { 
@@ -235,7 +233,7 @@ export const businessesData = [
       }
     ],
     image: images.publication_hero,
-    imageCaption: "EnVERT publishing archives, The Touriosity, and global magazine distributions.",
+    imageCaption: "EnVERT publishing archives, Touriosity Travelmag, and global magazine distributions.",
     directEmail: "curiosity@penandinkpublishers.com",
     directPhone: "+91 9836511995"
   },
@@ -275,35 +273,36 @@ export const businessesData = [
   {
     id: "afield-gallery",
     num: "06",
-    name: "Art & Culture",
-    category: "Art & Culture",
+    name: "Afield Gallery",
+    category: "Visual Arts & Contemporary Culture",
     companyName: "Afield Gallery",
     companyLegalName: "Afield Gallery",
     brandRef: "Afield Gallery",
     urlSlug: "afield-gallery",
-    aliases: ["afield-gallery", "art-gallery", "art"],
-    logo: images.afield_logo,
-    tagline: "Contemporary visual art, curated exhibitions, and fine printmaking.",
-    summary: "Afield Gallery (afieldgallery.com) is EnVERT Group's visual art initiative, presenting works from emerging and established artists. Through curated exhibitions, limited-edition printmaking, and cultural dialogues, Afield explores the nexus of nature, humanity, and contemporary artistic form.",
+    aliases: ["afield-gallery", "indian-art-and-dolls-gallery", "arts-and-dolls-gallery", "art-gallery", "gallery", "art", "visual-arts"],
+    logo: images.afield_gallery_logo,
+    tagline: "Curatorial initiative showcasing contemporary visual artists, Indian arts and dolls, printmakers, and cultural dialogues.",
+    summary: "Afield Gallery is EnVERT Group's visual arts and cultural initiative. A curatorial platform showcasing contemporary visual artists, traditional handcrafted Indian arts and dolls, fine printmakers, and cultural dialogues exploring ecological harmony and modern expression.",
     businessesUnderCategory: [
       {
         name: "Afield Gallery",
-        role: "Contemporary Visual Art & Exhibitions",
-        logo: images.afield_logo,
-        url: "https://www.afieldgallery.com",
-        desc: "Curated contemporary exhibitions, artist representation, fine art printmaking, and art advisory collections."
+        role: "Visual Arts & Contemporary Culture",
+        logo: images.afield_gallery_logo,
+        url: "/businesses/afield-gallery",
+        desc: "Curated contemporary visual artists, Indian arts and dolls, printmakers, and cultural dialogues exploring ecological harmony and modern expression."
       }
     ],
     capabilities: [
-      "Curated Contemporary Art Exhibitions & Gallery Showcases",
+      "Curatorial Contemporary Art Exhibitions & Gallery Showcases",
+      "Traditional Indian Handcrafted Arts & Dolls Gallery",
       "Artist Representation & Regional Talent Spotlights",
       "Fine Art Printmaking & Archival Reproduction",
-      "Community Art Dialogues & Cultural Public Gatherings",
-      "Corporate Art Advisory & Sustainable Collection Curation"
+      "Community Cultural Dialogues & Sustainable Form Gatherings",
+      "Corporate Art Advisory & Heritage Collection Curation"
     ],
-    image: images.afield_hero,
-    imageCaption: "Afield Gallery visual art curation and artist collections.",
-    domainLink: "https://www.afieldgallery.com",
+    image: images.afield_gallery_hero,
+    imageCaption: "Afield Gallery visual arts curation and contemporary cultural exhibitions.",
+    domainLink: "/businesses/afield-gallery",
     directEmail: "admin@envertgroup.com",
     directPhone: "+91 9836511995"
   },
@@ -356,55 +355,61 @@ export const businessesData = [
     directPhone: "+91 9836511995"
   },
   {
-    id: "envert-agro-food",
+    id: "afield-advisory",
     num: "08",
-    name: "Agro & Food",
-    category: "Agro & Food",
-    companyName: "EnVERT Agro Food",
-    companyLegalName: "EnVERT Agro Food",
-    brandRef: "EnVERT Agro Food",
-    urlSlug: "envert-agro-food",
-    aliases: ["envert-agro-food", "agro-food", "agro"],
-    logo: images.envert_agro_food_logo,
-    tagline: "Organic cultivation, solar-assisted agro processing, and fair-value supply chains.",
-    summary: "EnVERT Agro Food applies sustainable engineering principles to organic agriculture, agro-forestry, solar-assisted cold preservation and dehydration, and direct farmer-to-enterprise value chains.",
+    name: "Advisory Services",
+    category: "Advisory Services",
+    companyName: "Afield Advisory",
+    companyLegalName: "Afield Advisory (Advisory Department of EnVERT Group)",
+    brandRef: "Afield Advisory",
+    urlSlug: "afield-advisory",
+    aliases: ["afield-advisory", "advisory", "advisory-services"],
+    logo: images.afield_logo,
+    tagline: "Destination representation, tourism board advisory, brand consultancy, and strategic PR.",
+    summary: "Afield Advisory is the dedicated advisory department of EnVERT Group. We deliver strategic destination profiling, tourism board representation, brand architecture, PR communications, media interactions, and cross-border promotional partnerships.",
     businessesUnderCategory: [
       {
-        name: "EnVERT Agro Food",
-        role: "Sustainable Agro & Processing",
-        logo: images.envert_agro_food_logo,
-        desc: "Organic crop cultivation, solar-powered cold storage, bio-fertilizers, and sustainable agro supply chains."
+        name: "Afield Advisory",
+        legalName: "Afield Advisory",
+        role: "Strategic Advisory Department",
+        logo: images.afield_logo,
+        url: "https://www.envertgroup.com/afield-advisory",
+        desc: "Destination representation, brand consultancy, PR & communications, media interactions, and CSR advisory."
       }
     ],
     capabilities: [
-      "Organic Crop Cultivation & Regenerative Soil Stewardship",
-      "Solar-Powered Cold Storage & Clean Food Dehydration",
-      "Direct Farm-to-Enterprise Supply Chain Logistics",
-      "Bio-Fertilizer Formulation & Circular Agricultural Waste Utilization",
-      "Quality Assurance & Traceable Chemical-Free Food Standards"
+      "Destination Representation & Global Tourism Boards",
+      "Strategic Brand Consultancy & Corporate Architecture",
+      "Public Relations Management & Media Interactions",
+      "Marketing & Cross-Border Promotional Alliances",
+      "Creative Designing & Global Campaign Management",
+      "Event Management & International Exhibitions",
+      "Corporate Social Responsibility (CSR) Advisory"
     ],
-    image: images.agro_hero,
-    imageCaption: "Sustainable agro-processing and solar cold chain integration under EnVERT.",
+    image: images.market_advisory,
+    imageCaption: "Afield Advisory strategic destination representation, brand consultancy, and media relations.",
+    domainLink: "https://www.envertgroup.com/afield-advisory",
     directEmail: "admin@envertgroup.com",
     directPhone: "+91 9836511995"
   },
   {
     id: "eipr",
     num: "09",
-    name: "Research & Advisory",
-    category: "Research & Advisory",
+    name: "Policy Research",
+    category: "Policy Research",
     companyName: "EIPR",
-    companyLegalName: "EnVERT Institute of Professional Researches (EIPR)",
+    companyLegalName: "EnVERT Institute of Policy Research (EIPR)",
     brandRef: "EIPR",
     urlSlug: "eipr",
-    aliases: ["eipr", "research"],
+    aliases: ["eipr", "policy-research", "research"],
     logo: images.eipr_logo,
-    tagline: "Techno-commercial feasibility studies, patent landscaping, and clean-tech benchmarking.",
-    summary: "EIPR (EnVERT Institute of Professional Researches) bridges heavy industrial engineering and academic science. Conducting applied techno-commercial feasibility evaluations, energy modeling, patent landscapes, and institutional regulatory whitepapers.",
+    tagline: "Applied industrial policy research, techno-commercial evaluations, and clean energy benchmarking.",
+    summary: "EIPR (EnVERT Institute of Policy Research) bridges industrial transition, clean-tech economics, and regulatory policy research. Conducting applied techno-commercial evaluations, clean energy modeling, patent landscapes, and institutional decarbonization whitepapers.",
     businessesUnderCategory: [
       {
         name: "EIPR",
-        role: "Applied Research & Feasibility",
+        legalName: "EnVERT Institute of Policy Research",
+        role: "Policy Research & Techno-Economic Advisory",
         logo: images.eipr_logo,
         desc: "Industrial energy modeling, green campus frameworks, patent landscaping, and regulatory policy studies."
       }
@@ -417,7 +422,7 @@ export const businessesData = [
       "Statutory Regulatory Impact & Decarbonization Policy Reports"
     ],
     image: images.research_hero,
-    imageCaption: "EIPR research laboratories and techno-commercial feasibility studies.",
+    imageCaption: "EIPR policy research laboratories and techno-commercial feasibility studies.",
     directEmail: "admin@envertgroup.com",
     directPhone: "+91 9836511995"
   },
@@ -453,15 +458,145 @@ export const businessesData = [
     imageCaption: "EnVERT Wellness workplace mental health, ergonomics, and physical wellbeing.",
     directEmail: "admin@envertgroup.com",
     directPhone: "+91 9836511995"
+  },
+  {
+    id: "repoxisy",
+    num: "11",
+    name: "Specialty Chemicals & Epoxy Solutions",
+    category: "Specialty Chemicals & Epoxy Solutions",
+    companyName: "REPOXISY",
+    companyLegalName: "REPOXISY™ (A Division of Nandi Resources Generation Technology Pvt. Ltd.)",
+    brandRef: "REPOXISY",
+    urlSlug: "repoxisy",
+    aliases: ["repoxisy", "epoxy", "specialty-chemicals", "specialty-chemicals-and-epoxy-solutions", "advanced-epoxy-and-construction-chemicals", "epoxy-flooring", "construction-chemicals", "nandi-resources-repoxisy"],
+    logo: images.repoxisy_logo,
+    tagline: "Industrial & railway epoxy flooring systems, protective coatings, adhesives, and single-window turnkey application.",
+    summary: "REPOXISY™ is the specialized specialty chemicals & epoxy solutions brand of Nandi Resources Generation Technology Pvt. Ltd. (NRG India). Specializing in high-performance industrial and railway epoxy flooring systems, protective resin coatings, waterproofing chemical sealants, and structural adhesives, REPOXISY delivers complete single-window turnkey execution from substrate assessment to final quality inspection.",
+    businessesUnderCategory: [
+      {
+        name: "REPOXISY™",
+        legalName: "REPOXISY (Nandi Resources Generation Technology Pvt. Ltd.)",
+        role: "Specialty Chemicals & Epoxy Solutions",
+        logo: images.repoxisy_logo,
+        url: "/businesses/repoxisy",
+        desc: "Industrial and railway epoxy flooring systems, protective coatings, structural adhesives & resins, waterproofing chemicals, and single-window turnkey application."
+      }
+    ],
+    capabilities: [
+      "Industrial & Railway Epoxy Flooring Systems",
+      "Protective & Anti-Corrosion Industrial Epoxy Coatings",
+      "Epoxy Grout & Coloured / Glitter Epoxy Grout Formulations",
+      "Epoxy Resins, Structural Adhesives & Reactive Resin Products",
+      "Waterproofing Chemical Compositions & Building Sealants",
+      "Synthetic-Resin Paints, Primers, Sealers & Protective Topcoats",
+      "Chemical Sealants for Industrial Walls, Roofs, Floors & Tiles",
+      "High-Performance Flooring & Construction Chemical Materials",
+      "Single-Window Turnkey Epoxy Flooring Execution & Quality Control"
+    ],
+    singleWindowProcess: [
+      "Site Inspection",
+      "Substrate Assessment",
+      "Surface Preparation",
+      "Crack / Defect Treatment",
+      "Primer Application",
+      "Epoxy Application",
+      "Thickness Control",
+      "Curing",
+      "Final Quality Inspection",
+      "Technical Consultation & Material Selection"
+    ],
+    productsMatrix: [
+      { area: "Epoxy flooring", products: "Industrial and railway epoxy flooring systems" },
+      { area: "Epoxy coatings", products: "Protective and industrial epoxy coatings" },
+      { area: "Epoxy grout", products: "Epoxy grout and coloured/glitter epoxy grout" },
+      { area: "Adhesives & resins", products: "Epoxy resins, industrial adhesives and related resin products" },
+      { area: "Waterproofing", products: "Waterproofing chemical compositions and sealants" },
+      { area: "Paints & coatings", products: "Epoxy resin coatings, synthetic-resin paints, primers, sealers and related products" },
+      { area: "Construction chemicals", products: "Chemical sealants for walls, roofs, floors and tiles" },
+      { area: "Flooring/construction materials", products: "Products associated with tiles, flooring and related building applications" }
+    ],
+    image: images.repoxisy_hero,
+    imageCaption: "REPOXISY™ industrial epoxy flooring installations and specialty chemical coatings.",
+    domainLink: "/businesses/repoxisy",
+    directEmail: "admin@envertgroup.com",
+    directPhone: "+91 9836511995"
+  },
+  {
+    id: "wagsol",
+    num: "12",
+    name: "Solar, Railway Systems & Green Sanitation",
+    category: "Solar, Railway Systems & Green Sanitation",
+    companyName: "WAGSOL",
+    companyLegalName: "WAGSOL™ (A Division of Nandi Resources Generation Technology Pvt. Ltd.)",
+    brandRef: "WAGSOL",
+    urlSlug: "wagsol",
+    aliases: ["wagsol", "solar-lighting", "railway-lighting", "bio-toilets", "railway-sanitation", "bldc-fans", "nandi-resources-wagsol"],
+    logo: images.wagsol_logo,
+    tagline: "Turnkey solar lighting, railway wagon solar solutions (BVCM/BVZI), BLDC ventilation, and biological railway sanitation.",
+    summary: "WAGSOL™ is the specialized solar power, railway equipment, and biological sanitation brand of Nandi Resources Generation Technology Pvt. Ltd. (NRG India). WAGSOL engineers turnkey solar street and high-mast lighting, specialized solar systems for railway wagon applications (BVCM/BVZI), industrial solar power plants with AMC maintenance, railway coach and platform lighting, energy-efficient BLDC fans, and certified eco-friendly railway bio-toilets alongside waterless sanitary installations.",
+    businessesUnderCategory: [
+      {
+        name: "WAGSOL™",
+        legalName: "WAGSOL (Nandi Resources Generation Technology Pvt. Ltd.)",
+        role: "Solar Engineering, Railway Systems & Green Sanitation",
+        logo: images.wagsol_logo,
+        url: "/businesses/wagsol",
+        desc: "Turnkey solar lighting, railway wagon solar systems (BVCM/BVZI), LED & high-mast illumination, BLDC fans, railway bio-toilets, and waterless sanitary engineering."
+      }
+    ],
+    capabilities: [
+      "Solar Street & High-Mast Lighting Systems",
+      "Specialized Solar Solutions for Railway Wagon Applications (BVCM / BVZI)",
+      "Solar Power Equipment, PV Modules & Charge Controller Units (CCUs)",
+      "Solar-Powered Rechargeable Batteries & Industrial Energy Storage",
+      "GPS/GPRS Remote Solar Telemetry, Cloud Monitoring & Energy Metering",
+      "MW-Scale On-Grid & Off-Grid Solar Power Plant AMC Maintenance",
+      "Railway Coach, Carriage & Platform LED Lighting Installations",
+      "Industrial & Emergency Safety Illumination Systems",
+      "Energy-Efficient BLDC Ceiling, Exhaust & Air-Circulating Fans",
+      "Railway Bio-Toilets & Bio-Digestive Waste Treatment Systems",
+      "Waterless Urinals & Water-Saving Public Sanitary Installations",
+      "Heating, Cooling & Ventilation Apparatus for Transit & Institutional Facilities"
+    ],
+    productsMatrix: [
+      { area: "Solar lighting", products: "Solar street lights, solar-powered lamps and solar LED lighting installations" },
+      { area: "High-mast lighting", products: "Solar high-mast lighting systems, high-mast luminaires and tall-mast apparatus" },
+      { area: "Home lighting", products: "Solar home lighting systems and decentralized domestic solar kits" },
+      { area: "Solar charge controllers", products: "Controllers and Charge Control Units (CCUs) for solar battery systems" },
+      { area: "Solar power equipment", products: "Solar panels, photovoltaic equipment, solar cells/wafers and related balance-of-system equipment" },
+      { area: "Solar batteries", products: "Solar-powered rechargeable batteries and heavy-duty industrial solar batteries" },
+      { area: "Solar chargers", products: "Solar-powered battery chargers and high-efficiency solar charge adapters" },
+      { area: "Solar monitoring / control", products: "Energy metering, voltage/current measurement, data logging, GPS/GPRS remote monitoring and cloud/server data storage" },
+      { area: "Solar railway projects", products: "Solar solutions for BVCM/BVZI railway wagon applications and DC/off-grid transit systems" },
+      { area: "Solar plant maintenance", products: "Comprehensive Annual Maintenance Contracts (AMC) for MW-scale on-grid and off-grid solar power plants" },
+      { area: "LED lighting", products: "LED lamps, LED bulbs, LED luminaires, LED light fittings and architectural installations" },
+      { area: "Street & outdoor lighting", products: "LED street lights, roadway lights, pathway lights, area floodlights and perimeter illumination" },
+      { area: "Railway lighting", products: "Railway coach lighting, carriage lamps, compartment lighting and railway platform lighting" },
+      { area: "Industrial lighting", products: "Industrial lamps, heavy-duty luminaires, warehouse lighting and high-bay work-area lighting" },
+      { area: "Emergency & safety lighting", products: "Emergency lighting apparatus, pathway safety lighting and illuminated exit signs" },
+      { area: "Fans & ventilation", products: "Electric fans, ceiling fans, exhaust fans, industrial ventilation fans and air-circulating blowers" },
+      { area: "BLDC fans", products: "Brushless DC (BLDC) electric fans, energy-efficient BLDC ceiling fans and low-power ventilation units" },
+      { area: "Railway bio-toilets", products: "Railway bio-toilets, bio-digestive tank systems and biological waste-treatment toilet installations" },
+      { area: "Sanitary equipment", products: "Sanitary installations, sanitary apparatus, toilet fixtures and commercial washroom systems" },
+      { area: "Waterless urinals", products: "Waterless urinals, sanitary urinals and zero-water urinal installations" },
+      { area: "Water-saving sanitary products", products: "Water-saving sanitary apparatus, flow-regulated fixtures and conservation installations" },
+      { area: "Public & institutional sanitation", products: "Sanitary installations for railway stations, passenger coaches, commercial buildings and public civic facilities" },
+      { area: "Heating / cooling / ventilation", products: "Apparatus and installations for climate conditioning, cooling and ventilation across transit facilities" }
+    ],
+    image: images.wagsol_hero,
+    imageCaption: "WAGSOL™ solar installations, railway systems, and green biological sanitation engineering.",
+    domainLink: "/businesses/wagsol",
+    directEmail: "admin@envertgroup.com",
+    directPhone: "+91 9836511995"
   }
 ];
 
 export const ecosystemData = {
   pillars: [
     {
-      category: "ENGINEERING",
-      description: "Physical infrastructure, clean power generation, and commercial electric vehicles.",
-      domains: ["Energy (NRG India)", "Transport (EnVERT E-Vehicles)"],
+      category: "ENGINEERING & MATERIALS",
+      description: "Physical infrastructure, clean power generation, commercial electric vehicles, specialty chemicals, and solar railway sanitation.",
+      domains: ["Energy (NRG India)", "Transport (EnVERT E-Vehicles)", "Specialty Chemicals & Epoxy Solutions (REPOXISY)", "Solar & Railway Sanitation (WAGSOL)"],
       brands: [
         { 
           name: "NRG India", 
@@ -477,38 +612,59 @@ export const ecosystemData = {
           url: "/businesses/transport-electric", 
           logo: images.envert_group_logo,
           desc: "Design & deployment of electric cars, 3-wheelers, cycles & charging depots." 
+        },
+        { 
+          name: "REPOXISY", 
+          sector: "Specialty Chemicals & Epoxy Solutions",
+          url: "/businesses/repoxisy", 
+          logo: images.repoxisy_logo,
+          desc: "Industrial & railway epoxy flooring, protective coatings, and specialty chemicals under Nandi Resources." 
+        },
+        { 
+          name: "WAGSOL", 
+          sector: "Solar, Railway & Sanitation",
+          url: "/businesses/wagsol", 
+          logo: images.wagsol_logo,
+          desc: "Solar street & high-mast lighting, wagon applications (BVCM/BVZI), BLDC fans, and railway bio-toilets under Nandi Resources." 
         }
       ]
     },
     {
       category: "ADVISORY & CAPABILITY",
-      description: "Human capital development, corporate language proficiency, and applied research.",
-      domains: ["Corporate Training (ICST Global)", "Research & Advisory (EIPR)"],
+      description: "Human capital development, corporate capability, policy research, and strategic destination advisory.",
+      domains: ["Corporate Capability (ICST)", "Policy Research (EIPR)", "Advisory Department (Afield Advisory)"],
       brands: [
         { 
-          name: "ICST Global", 
-          sector: "Corporate Training",
+          name: "ICST", 
+          sector: "International Conference & Capability",
           url: "/businesses/icst", 
           externalUrl: "http://www.icstglobal.com",
           logo: images.icst_logo,
-          desc: "15+ years experience training 30+ MNCs in 20+ languages with measured ROI." 
+          desc: "International Conference on Sustainable Transition alongside corporate capability and language training." 
         },
         { 
           name: "EIPR", 
-          sector: "Research & Advisory",
+          sector: "Policy Research",
           url: "/businesses/eipr", 
           logo: images.eipr_logo,
-          desc: "EnVERT Institute of Professional Researches — feasibility and patent studies." 
+          desc: "EnVERT Institute of Policy Research — techno-economic policy and feasibility studies." 
+        },
+        { 
+          name: "Afield Advisory", 
+          sector: "Advisory Department",
+          url: "/businesses/afield-advisory", 
+          logo: images.afield_logo,
+          desc: "Strategic destination representation, brand consultancy, PR, and communications." 
         }
       ]
     },
     {
       category: "MEDIA, PUBLISHING & CULTURE",
       description: "International travel magazines, publishing houses, digital news, and contemporary art.",
-      domains: ["The Touriosity", "Pen & Ink Publishers", "Glare Post", "Afield Gallery"],
+      domains: ["Touriosity Travelmag", "Pen & Ink Publishers", "Glare Post", "Afield Gallery"],
       brands: [
         { 
-          name: "The Touriosity", 
+          name: "Touriosity Travelmag", 
           sector: "Publication & Media",
           url: "/businesses/publication", 
           externalUrl: "http://www.thetouriosity.com",
@@ -532,18 +688,17 @@ export const ecosystemData = {
         },
         { 
           name: "Afield Gallery", 
-          sector: "Art & Culture",
+          sector: "Visual Arts & Contemporary Culture",
           url: "/businesses/afield-gallery", 
-          externalUrl: "https://www.afieldgallery.com",
-          logo: images.afield_logo,
-          desc: "Visual art exhibitions, printmaking, and cultural dialogues." 
+          logo: images.afield_gallery_logo,
+          desc: "Visual arts, contemporary culture, and curated Indian arts & dolls gallery." 
         }
       ]
     },
     {
       category: "STEWARDSHIP & LIVING",
-      description: "Community ecology, ethical slow fashion, and sustainable agro food.",
-      domains: ["Social Stewardship (EnVERT Foundation)", "Fashion & Lifestyle (Atmaja)", "Agro & Food (EnVERT Agro Food)"],
+      description: "Community ecology and ethical slow fashion.",
+      domains: ["Social Stewardship (EnVERT Foundation)", "Fashion & Lifestyle (Atmaja)"],
       brands: [
         { 
           name: "EnVERT Foundation", 
@@ -558,13 +713,6 @@ export const ecosystemData = {
           url: "/businesses/fashion-lifestyle", 
           logo: images.atmaja_logo,
           desc: "Handloom textiles, zero-waste apparel, and conscious living curation." 
-        },
-        { 
-          name: "EnVERT Agro Food", 
-          sector: "Agro & Food",
-          url: "/businesses/envert-agro-food", 
-          logo: images.envert_agro_food_logo,
-          desc: "Regenerative farming, solar food dehydration, and farmer cooperatives." 
         }
       ]
     }
@@ -643,8 +791,8 @@ export const insightsData = [
   {
     id: "i3",
     category: "PUBLICATION & MEDIA",
-    title: "The Touriosity & Curiosity Kids: Fostering Global Heritage & Young Literature",
-    excerpt: "How EnVERT Media unifies conscious travel journalism through The Touriosity and youth creative storytelling across Amazon global distribution.",
+    title: "Touriosity Travelmag & Curiosity Kids: Fostering Global Heritage & Young Literature",
+    excerpt: "How EnVERT Media unifies conscious travel journalism through Touriosity Travelmag and youth creative storytelling across Amazon global distribution.",
     date: "July 2026",
     readTime: "5 min read",
     author: "EnVERT Media Editorial Board"
@@ -723,7 +871,7 @@ export const elevenMarketsData = [
     summary: "Strategic institutional representation, global destination profiling, public relations management, media interaction, and cross-border promotional partnerships.",
     image: images.market_advisory,
     imageCaption: "Strategic corporate communications, institutional representation, and media partnerships.",
-    route: "/businesses/icst",
+    route: "/businesses/afield-advisory",
     services: [
       "Destination Representation",
       "Tourism Board Representation",
@@ -887,7 +1035,7 @@ export const elevenMarketsData = [
     summary: "Global freight facilitation, cross-border trading operations, and supply chain logistics distributing high-value handicrafts, fashion, and technical equipment.",
     image: images.market_export_import,
     imageCaption: "Cross-border trade, intermodal freight logistics, and global supply chain fulfillment.",
-    route: "/businesses/envert-agro-food",
+    route: "/businesses/fashion-lifestyle",
     services: [
       "Apparel & Fashion",
       "Handicrafts & Gifts",
