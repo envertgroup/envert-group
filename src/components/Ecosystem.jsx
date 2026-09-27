@@ -55,7 +55,7 @@ export default function Ecosystem() {
                 <div className="w-full h-14 bg-white p-2 rounded-xs border border-charcoal/10 flex items-center justify-center mb-2.5 shadow-xs transition-transform duration-300 group-hover:scale-105">
                   <img
                     src={brand.logo}
-                    alt={brand.name}
+                    alt={`${brand.name} official corporate brand logo — EnVERT Group`}
                     className="max-h-full max-w-full object-contain"
                   />
                 </div>
@@ -156,7 +156,11 @@ export default function Ecosystem() {
                   {/* Logo */}
                   {brand.logo && (
                     <div className="mb-4 h-12 bg-white p-2 border border-charcoal/10 inline-flex items-center rounded-xs w-full max-w-[160px]">
-                      <img src={brand.logo} alt={brand.name} className="max-h-full max-w-full object-contain" />
+                      <img
+                        src={brand.logo}
+                        alt={`${brand.name} corporate entity logo — EnVERT Group`}
+                        className="max-h-full max-w-full object-contain"
+                      />
                     </div>
                   )}
 

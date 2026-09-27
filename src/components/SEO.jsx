@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
 const DEFAULT_ORIGIN = 'https://www.envertgroup.com';
-const DEFAULT_TITLE = 'EnVERT Group';
-const DEFAULT_DESCRIPTION = 'A truly multidisciplinary engineering, advisory, design, consultancy and publishing group of companies working across the twelve markets. Headquartered in Kolkata, West Bengal, India.';
+const DEFAULT_TITLE = 'EnVERT Group | Multidisciplinary Engineering, Advisory & Sustainability Conglomerate';
+const DEFAULT_DESCRIPTION = 'A truly multidisciplinary engineering, advisory, design, consultancy and publishing group of companies working across the eleven markets. Headquartered in Kolkata, West Bengal, India.';
 const DEFAULT_IMAGE = `${DEFAULT_ORIGIN}/assets/logos/envert_group_logo.png`;
 
 /**
@@ -39,10 +39,49 @@ export default function SEO({
       if (document.title !== fullTitle) {
         document.title = fullTitle;
       }
+
+      // Synchronize meta description
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', fullDescription);
+      } else {
+        metaDesc = document.createElement('meta');
+        metaDesc.name = 'description';
+        metaDesc.content = fullDescription;
+        document.head.appendChild(metaDesc);
+      }
+
+      // Synchronize canonical link
+      let canonicalEl = document.querySelector('link[rel="canonical"]');
+      if (canonicalEl) {
+        canonicalEl.setAttribute('href', fullCanonical);
+      } else {
+        canonicalEl = document.createElement('link');
+        canonicalEl.rel = 'canonical';
+        canonicalEl.href = fullCanonical;
+        document.head.appendChild(canonicalEl);
+      }
+
+      // Synchronize Open Graph tags
+      const setMetaProperty = (prop, val) => {
+        let el = document.querySelector(`meta[property="${prop}"]`);
+        if (el) el.setAttribute('content', val);
+      };
+      setMetaProperty('og:title', fullTitle);
+      setMetaProperty('og:description', fullDescription);
+      setMetaProperty('og:url', fullCanonical);
+
+      // Synchronize Twitter tags
+      const setMetaName = (name, val) => {
+        let el = document.querySelector(`meta[name="${name}"]`);
+        if (el) el.setAttribute('content', val);
+      };
+      setMetaName('twitter:title', fullTitle);
+      setMetaName('twitter:description', fullDescription);
     } catch {
       // safe fallback
     }
-  }, [fullTitle]);
+  }, [fullTitle, fullDescription, fullCanonical]);
 
   let schemaString = '';
   if (schema) {

@@ -333,7 +333,7 @@ export default function CompaniesPage({ onOpenContact }) {
                   <div className="mb-3.5 h-11 flex items-center">
                     <img
                       src={co.logo}
-                      alt={`${co.name} logo`}
+                      alt={`${co.name} official brand logo — EnVERT Group`}
                       className="max-h-full max-w-[170px] object-contain object-left"
                     />
                   </div>

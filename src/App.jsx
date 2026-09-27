@@ -1,5 +1,5 @@
 import React, { useState, Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import InquiryModal from './components/InquiryModal';
@@ -73,6 +73,8 @@ export default function App() {
                 />
               }
             />
+            {/* 301 Client-Side Canonical Redirects for Legacy /home */}
+            <Route path="/home" element={<Navigate to="/" replace />} />
             
             {/* Businesses Pages (Index + Dedicated Dynamic Slug Page) */}
             <Route
@@ -88,6 +90,8 @@ export default function App() {
             <Route path="/energy" element={<BusinessDetail forcedSlug="energy" onOpenContact={handleOpenContact} />} />
             <Route path="/nrg-india" element={<BusinessDetail forcedSlug="energy" onOpenContact={handleOpenContact} />} />
             <Route path="/publication" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
+            <Route path="/publication/career" element={<Navigate to="/careers" replace />} />
+            <Route path="/publication/careers" element={<Navigate to="/careers" replace />} />
             <Route path="/publishing" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
             <Route path="/touriosity" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
             <Route path="/thetouriosity" element={<BusinessDetail forcedSlug="publication" onOpenContact={handleOpenContact} />} />
@@ -128,7 +132,8 @@ export default function App() {
             <Route path="/india-corporate-trainers" element={<BusinessDetail forcedSlug="india-corporate-trainers" onOpenContact={handleOpenContact} />} />
             <Route path="/corporate-trainers" element={<BusinessDetail forcedSlug="india-corporate-trainers" onOpenContact={handleOpenContact} />} />
             <Route path="/corporate-training-services" element={<BusinessDetail forcedSlug="india-corporate-trainers" onOpenContact={handleOpenContact} />} />
-            <Route path="/career" element={<CareersPage onApplyJob={handleApplyJob} />} />
+            <Route path="/career" element={<Navigate to="/careers" replace />} />
+            <Route path="/jobs" element={<Navigate to="/careers" replace />} />
 
             {/* Other Dedicated Routes */}
             <Route

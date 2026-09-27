@@ -54,7 +54,7 @@ export default function Navbar({ onOpenContact }) {
             <Link to="/" className="flex items-center space-x-3 group">
               <img
                 src="/assets/logos/envert_group_logo.png"
-                alt="EnVERT Group"
+                alt="EnVERT Group Official Corporate Logo — Multidisciplinary Engineering & Advisory Conglomerate"
                 className="h-10 sm:h-11 lg:h-12 xl:h-[3.25rem] w-auto object-contain transition-transform duration-200 group-hover:scale-105"
               />
             </Link>

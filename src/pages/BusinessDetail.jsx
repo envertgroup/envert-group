@@ -251,7 +251,11 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
                   <div>
                     {sub.logo && (
                       <div className="mb-3.5 h-12 flex items-center">
-                        <img src={sub.logo} alt={sub.name} className="max-h-full max-w-[180px] object-contain object-left" />
+                        <img
+                          src={sub.logo}
+                          alt={`${sub.name} official operating brand logo — EnVERT Group`}
+                          className="max-h-full max-w-[180px] object-contain object-left"
+                        />
                       </div>
                     )}
                     <h3 className="font-heading text-xl font-bold text-forest-deep uppercase tracking-tight">
@@ -608,6 +612,472 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
         </section>
       )}
 
+      {/* EnVERT Media Group Specialized Publishing & Periodicals Section */}
+      {business.id === 'publication' && (
+        <section className="py-16 bg-paper-warm border-b border-charcoal/15">
+          <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 space-y-14">
+            
+            {/* Editorial Mandate Overview */}
+            <div className="p-8 sm:p-10 bg-paper border border-charcoal/15 rounded-xs space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-4 border-b border-charcoal/10 gap-3">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="w-1.5 h-1.5 bg-earth rounded-full"></span>
+                    <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
+                      EDITORIAL CHARTER & GLOBAL LITERARY FOOTPRINT
+                    </span>
+                  </div>
+                  <h2 className="font-heading text-2xl sm:text-4xl font-bold uppercase text-forest-deep">
+                    EnVERT Media Group: Periodicals, Publishing & Cinematic Narrative
+                  </h2>
+                </div>
+                <span className="font-mono text-xs text-charcoal/60">
+                  Global Circulation & Literary Imprints
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm text-charcoal/80 leading-relaxed font-sans">
+                <p>
+                  EnVERT Media Group represents the cultural, literary, and journalistic cornerstone of EnVERT Group. Headquartered in Kolkata, West Bengal, the publishing division unifies internationally distributed travel and heritage periodicals, prestigious book publishing imprints, peer-reviewed renewable energy journals, independent digital investigative journalism, and cinematic film production. Operating with a commitment to authentic storytelling, environmental stewardship, and academic rigor, our publications reach discerning readers, university libraries, research institutes, and cultural institutions across more than thirty countries worldwide.
+                </p>
+                <p>
+                  From grassroots scientific literacy in our youth magazine <em>Curiosity Kids</em> to global literary recognition through the annual <em>Curiosity Writing Awards</em> hosted by Pen & Ink Publishers, our publishing platforms cultivate critical thinking and cultural exchange. Each imprint operates under rigorous editorial review protocols, ethical journalism guidelines, and international ISBN cataloging standards, offering authors, researchers, journalists, and visual creators an authentic worldwide platform for meaningful expression.
+                </p>
+              </div>
+
+              {/* Publication Scope Quick Metrics */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-charcoal/10">
+                <div className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">30+</span>
+                  <span className="font-mono text-xs font-bold uppercase text-earth block mt-1">Countries Reached</span>
+                  <p className="text-[11px] text-charcoal/60 mt-0.5">International circulation & digital readers</p>
+                </div>
+                <div className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">06</span>
+                  <span className="font-mono text-xs font-bold uppercase text-earth block mt-1">Specialized Imprints</span>
+                  <p className="text-[11px] text-charcoal/60 mt-0.5">Travel, books, science, ESG & cinema</p>
+                </div>
+                <div className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">7+ Yrs</span>
+                  <span className="font-mono text-xs font-bold uppercase text-earth block mt-1">Curiosity Kids</span>
+                  <p className="text-[11px] text-charcoal/60 mt-0.5">Continuous youth science journalism</p>
+                </div>
+                <div className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">Global</span>
+                  <span className="font-mono text-xs font-bold uppercase text-earth block mt-1">Distribution Channels</span>
+                  <p className="text-[11px] text-charcoal/60 mt-0.5">Amazon Kindle, Paperback & Institutional</p>
+                </div>
+              </div>
+            </div>
+
+            {/* In-Depth Profiles of Flagship Imprints */}
+            <div className="space-y-6">
+              <div className="pb-3 border-b border-charcoal/10">
+                <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
+                  DETAILED IMPRINT DOSSIERS
+                </span>
+                <h3 className="font-heading text-2xl sm:text-3xl font-bold uppercase text-forest-deep mt-1">
+                  Operating Publications & Periodical Platforms
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                {/* Imprint 1: Touriosity Travelmag */}
+                <div className="p-7 bg-paper border border-charcoal/15 rounded-xs space-y-4 flex flex-col justify-between hover:border-forest-deep transition-colors">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">PERIODICAL 01</span>
+                      <span className="font-mono text-xs text-earth font-semibold">Print & Digital Magazine</span>
+                    </div>
+                    <h4 className="font-heading text-xl font-bold text-forest-deep">Touriosity Travelmag</h4>
+                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">International Tourism, World Heritage & Cultural Preservation</p>
+                    <p className="text-sm text-charcoal/80 leading-relaxed">
+                      <em>The Touriosity</em> is EnVERT Group’s flagship international travel publication, dedicated to responsible ecotourism, intangible cultural heritage, indigenous lifestyles, and sustainable tourism development. Featuring meticulously researched travelogues, photo essays, and interviews with conservationists and cultural custodians across Asia, Europe, Africa, and the Americas, the magazine bridges destination marketing with ecological sensitivity. Available in print circulation, digital subscriber formats, and distributed across premium travel lounges and international tourism conferences.
+                    </p>
+                  </div>
+                  <div className="pt-3 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono">
+                    <span className="text-forest font-semibold">Portal: thetouriosity.com</span>
+                    <a href="http://www.thetouriosity.com" target="_blank" rel="noreferrer" className="text-earth hover:text-forest flex items-center gap-1 font-bold">
+                      Read Online <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Imprint 2: Pen & Ink Publishers */}
+                <div className="p-7 bg-paper border border-charcoal/15 rounded-xs space-y-4 flex flex-col justify-between hover:border-forest-deep transition-colors">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">IMPRINT 02</span>
+                      <span className="font-mono text-xs text-earth font-semibold">Book Publishing & Awards</span>
+                    </div>
+                    <h4 className="font-heading text-xl font-bold text-forest-deep">Pen & Ink Publishers</h4>
+                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Global Literature Anthologies & Author Publishing</p>
+                    <p className="text-sm text-charcoal/80 leading-relaxed">
+                      Pen & Ink Publishers is an independent literary imprint established to discover, nurture, and publish emerging and established literary talent worldwide. The imprint produces high-quality multi-genre anthologies, poetry volumes, academic essays, and thematic non-fiction collections. Every title published through Pen & Ink receives international ISBN assignment, professional editorial curation, bespoke cover design, and global distribution in both paperback and Amazon Kindle digital editions, ensuring worldwide readership across continents.
+                    </p>
+                  </div>
+                  <div className="pt-3 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono">
+                    <span className="text-forest font-semibold">Kindle & Paperback Distribution</span>
+                    <span className="text-charcoal/60">Annual Anthologies</span>
+                  </div>
+                </div>
+
+                {/* Imprint 3: Curiosity Kids */}
+                <div className="p-7 bg-paper border border-charcoal/15 rounded-xs space-y-4 flex flex-col justify-between hover:border-forest-deep transition-colors">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">PERIODICAL 03</span>
+                      <span className="font-mono text-xs text-earth font-semibold">Youth Science & Literature</span>
+                    </div>
+                    <h4 className="font-heading text-xl font-bold text-forest-deep">Curiosity Kids Magazine</h4>
+                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Children's Educational Literacy & STEM Exploration</p>
+                    <p className="text-sm text-charcoal/80 leading-relaxed">
+                      For more than seven continuous years, <em>Curiosity Kids</em> has been inspiring young readers, students, and educators with accessible scientific exploration, biodiversity discovery, space sciences, and imaginative creative writing. The magazine empowers young authors by publishing their original poems, science projects, and illustrated stories alongside expert articles crafted for elementary and middle school comprehension. With active global distribution through Amazon print editions, Curiosity Kids fosters early childhood critical thinking and ecological consciousness.
+                    </p>
+                  </div>
+                  <div className="pt-3 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono">
+                    <span className="text-forest font-semibold">7+ Years of Continuous Publication</span>
+                    <span className="text-charcoal/60">Amazon Global</span>
+                  </div>
+                </div>
+
+                {/* Imprint 4: Sustainable Energy Review */}
+                <div className="p-7 bg-paper border border-charcoal/15 rounded-xs space-y-4 flex flex-col justify-between hover:border-forest-deep transition-colors">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">PERIODICAL 04</span>
+                      <span className="font-mono text-xs text-earth font-semibold">B2B Trade & Engineering Journal</span>
+                    </div>
+                    <h4 className="font-heading text-xl font-bold text-forest-deep">Sustainable Energy Review</h4>
+                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Clean Energy Transition, BEE Audits & Decarbonization Policy</p>
+                    <p className="text-sm text-charcoal/80 leading-relaxed">
+                      <em>Sustainable Energy Review</em> is our specialized technical and trade periodical addressing industrial renewable power deployments, statutory Bureau of Energy Efficiency (BEE) energy audits, commercial electric fleet integration, and corporate carbon accounting frameworks. Circulated among plant managers, chief sustainability officers, energy auditors, and regulatory consultants, the journal bridges techno-commercial engineering methodologies with ground-level industrial decarbonization case studies across heavy industries.
+                    </p>
+                  </div>
+                  <div className="pt-3 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono">
+                    <span className="text-forest font-semibold">Technical Industrial Circulation</span>
+                    <span className="text-charcoal/60">BEE & Solar Focus</span>
+                  </div>
+                </div>
+
+                {/* Imprint 5: Glare Post */}
+                <div className="p-7 bg-paper border border-charcoal/15 rounded-xs space-y-4 flex flex-col justify-between hover:border-forest-deep transition-colors">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">PORTAL 05</span>
+                      <span className="font-mono text-xs text-earth font-semibold">Digital Investigative Journalism</span>
+                    </div>
+                    <h4 className="font-heading text-xl font-bold text-forest-deep">Glare Post</h4>
+                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Independent Commentary, Climate Policy & Corporate ESG</p>
+                    <p className="text-sm text-charcoal/80 leading-relaxed">
+                      <em>Glare Post</em> delivers fearless, independent digital journalism, geopolitical economic analysis, and investigative perspectives on environmental degradation, climate justice, and corporate ESG transparency. Staffed by dedicated contributing journalists, policy analysts, and academic researchers, Glare Post scrutinizes regulatory enforcement, greenwashing in enterprise marketing, and the real-world socio-economic impact of clean energy transitions on local communities across emerging economies.
+                    </p>
+                  </div>
+                  <div className="pt-3 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono">
+                    <span className="text-forest font-semibold">Digital News Desk: glarepost.com</span>
+                    <a href="https://www.glarepost.com" target="_blank" rel="noreferrer" className="text-earth hover:text-forest flex items-center gap-1 font-bold">
+                      Visit News Desk <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Imprint 6: Glarepost Films */}
+                <div className="p-7 bg-paper border border-charcoal/15 rounded-xs space-y-4 flex flex-col justify-between hover:border-forest-deep transition-colors">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">PRODUCTION 06</span>
+                      <span className="font-mono text-xs text-earth font-semibold">Cinematic Production House</span>
+                    </div>
+                    <h4 className="font-heading text-xl font-bold text-forest-deep">Glarepost Films</h4>
+                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Documentary, Fiction Cinema, OTT Series & Commercials</p>
+                    <p className="text-sm text-charcoal/80 leading-relaxed">
+                      Glarepost Films is EnVERT Group’s visual storytelling arm, undertaking turnkey production across social-impact documentaries, narrative fiction short films, web series, television advertising commercials, and corporate documentaries. Equipped with 4K/6K digital cinematography rigs, licensed drone aerial survey suites, sound design mastering studios, and professional VFX & color grading pipelines, Glarepost Films translates complex scientific, ecological, and cultural concepts into emotionally resonant cinematic experiences.
+                    </p>
+                  </div>
+                  <div className="pt-3 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono">
+                    <span className="text-forest font-semibold">OTT & Documentary Production</span>
+                    <span className="text-charcoal/60">Pre-to-Post Turnkey</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Curiosity Writing Awards Feature Box */}
+            <div className="p-8 sm:p-10 bg-forest-deep text-paper rounded-xs border border-charcoal/20 space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-4 border-b border-paper/15 gap-3">
+                <div>
+                  <div className="flex items-center gap-2 mb-1 font-mono text-xs uppercase tracking-widest text-earth-light">
+                    <Award className="w-4 h-4 text-earth" />
+                    <span>ANNUAL LITERARY COMPETITION</span>
+                  </div>
+                  <h3 className="font-heading text-2xl sm:text-3xl font-bold uppercase text-paper">
+                    The Curiosity Writing Awards
+                  </h3>
+                </div>
+                <span className="font-mono text-xs text-paper/60">
+                  Curated by Pen & Ink Publishers
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-sm text-paper/80 leading-relaxed font-sans">
+                <div className="space-y-2">
+                  <h5 className="font-heading text-base font-bold text-earth-light">Worldwide Literary Submissions</h5>
+                  <p className="text-xs text-paper/70 leading-relaxed">
+                    Open annually to creative writers, poets, environmental essayists, and student authors worldwide. Submissions span short fiction, climate narratives, cultural memoirs, and reflective poetry evaluated by a distinguished panel of editors and authors.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-heading text-base font-bold text-earth-light">Global Anthology Publication</h5>
+                  <p className="text-xs text-paper/70 leading-relaxed">
+                    Shortlisted and winning entries are curated into professionally edited print anthologies published through Pen & Ink Publishers with international ISBN assignments, available across Amazon paperback and Kindle digital libraries globally.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-heading text-base font-bold text-earth-light">Literary Recognition & Royalties</h5>
+                  <p className="text-xs text-paper/70 leading-relaxed">
+                    Award recipients receive author honorariums, certificate credentials, public literary citations, and contributor royalties, creating a verified stepping stone for emerging writers into professional international publication.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-paper/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono">
+                <span className="text-paper/70">Manuscript submissions & editorial inquiries: curiosity@penandinkpublishers.com</span>
+                <button
+                  onClick={() => onOpenContact('Inquiry: Curiosity Writing Awards & Book Publishing (Pen & Ink)')}
+                  className="px-5 py-2.5 bg-earth hover:bg-earth-dark text-paper font-heading text-xs uppercase tracking-wider font-semibold rounded-xs transition-colors shrink-0"
+                >
+                  Submit Manuscript / Inquire
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      )}
+
+      {/* EnVERT Foundation Specialized Non-Profit Stewardship Section */}
+      {business.id === 'envert-foundation' && (
+        <section className="py-16 bg-paper-warm border-b border-charcoal/15">
+          <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 space-y-14">
+            
+            {/* Mission & Founding Charter Banner */}
+            <div className="p-8 sm:p-10 bg-paper border border-charcoal/15 rounded-xs space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-4 border-b border-charcoal/10 gap-3">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="w-1.5 h-1.5 bg-earth rounded-full"></span>
+                    <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
+                      NON-PROFIT PHILANTHROPIC CHARTER
+                    </span>
+                  </div>
+                  <h2 className="font-heading text-2xl sm:text-4xl font-bold uppercase text-forest-deep">
+                    EnVERT Foundation: Grassroots Ecology & Human Stewardship
+                  </h2>
+                </div>
+                <span className="font-mono text-xs text-charcoal/60">
+                  Community Action & Ecological Resilience
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm text-charcoal/80 leading-relaxed font-sans">
+                <p>
+                  EnVERT Foundation is the institutional non-profit and social stewardship foundation of EnVERT Group. Governed by a dedicated steering council and community advisory board, the Foundation translates sustainable engineering principles into actionable, high-impact grassroots initiatives. Focusing on ecological afforestation, experiential environmental literacy for school children, educational equity through STEM and literary scholarships, and clean drinking water advocacy in rural communities across West Bengal and Eastern India, EnVERT Foundation works hand-in-hand with local village panchayats, community schools, and environmental volunteers.
+                </p>
+                <p>
+                  Rooted in the philosophy that true sustainability cannot be achieved through commercial engineering alone, EnVERT Foundation operates strictly on a non-profit basis with zero commercial dividend extraction. Every project—from micro-afforestation clusters planting native indigenous trees to community water contamination testing camps—is executed with meticulous documentation, long-term post-plantation survivability monitoring, and transparent public reporting.
+                </p>
+              </div>
+
+              {/* Foundation Stewardship Scale Metrics */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-charcoal/10">
+                <div className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">Thousands</span>
+                  <span className="font-mono text-xs font-bold uppercase text-earth block mt-1">Native Trees Planted</span>
+                  <p className="text-[11px] text-charcoal/60 mt-0.5">Neem, Banyan, Sal & Mahua saplings</p>
+                </div>
+                <div className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">&gt;85%</span>
+                  <span className="font-mono text-xs font-bold uppercase text-earth block mt-1">Survival Rate</span>
+                  <p className="text-[11px] text-charcoal/60 mt-0.5">Community guardianship & monitoring</p>
+                </div>
+                <div className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">25+</span>
+                  <span className="font-mono text-xs font-bold uppercase text-earth block mt-1">School Workshops</span>
+                  <p className="text-[11px] text-charcoal/60 mt-0.5">Experiential climate & science literacy</p>
+                </div>
+                <div className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">100%</span>
+                  <span className="font-mono text-xs font-bold uppercase text-earth block mt-1">Non-Profit Integrity</span>
+                  <p className="text-[11px] text-charcoal/60 mt-0.5">Audited grassroots volunteer initiatives</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Four Flagship Community Initiatives (Detailed Dossiers) */}
+            <div className="space-y-6">
+              <div className="pb-3 border-b border-charcoal/10">
+                <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
+                  ACTIVE GROUND PROGRAMS
+                </span>
+                <h3 className="font-heading text-2xl sm:text-3xl font-bold uppercase text-forest-deep mt-1">
+                  Four Core Stewardship Initiatives
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                {/* Initiative 1: Afforestation Drives */}
+                <div className="p-7 bg-paper border border-charcoal/15 rounded-xs space-y-4 hover:border-forest-deep transition-colors">
+                  <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                    <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">INITIATIVE 01</span>
+                    <span className="font-mono text-xs text-earth font-semibold">Ecological Regeneration</span>
+                  </div>
+                  <h4 className="font-heading text-xl font-bold text-forest-deep">Community Afforestation & Native Tree Cultivation</h4>
+                  <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Micro-Forest Creation, Native Biodiversity & Soil Recovery</p>
+                  <p className="text-sm text-charcoal/80 leading-relaxed">
+                    EnVERT Foundation organizes large-scale native tree plantation drives across rural school campuses, degraded community lands, and riverbank embankments. Rather than planting commercial timber species, the Foundation focuses exclusively on climate-hardy native flora including Neem (<em>Azadirachta indica</em>), Banyan (<em>Ficus benghalensis</em>), Peepal (<em>Ficus religiosa</em>), Arjun, and Mahua. Crucially, every drive pairs local community guardians with systematic sapling watering and fencing protocols, achieving verified multi-year survival rates exceeding 85%.
+                  </p>
+                  <div className="p-3 bg-paper-warm border border-charcoal/10 text-xs font-mono text-charcoal/70">
+                    <span className="font-bold text-forest-deep block mb-1">Key Objectives:</span>
+                    Restoration of indigenous biodiversity, micro-climate cooling, ground water table recharge, and community shade creation.
+                  </div>
+                </div>
+
+                {/* Initiative 2: Environmental Literacy */}
+                <div className="p-7 bg-paper border border-charcoal/15 rounded-xs space-y-4 hover:border-forest-deep transition-colors">
+                  <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                    <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">INITIATIVE 02</span>
+                    <span className="font-mono text-xs text-earth font-semibold">School Curriculum Outreach</span>
+                  </div>
+                  <h4 className="font-heading text-xl font-bold text-forest-deep">Student Environmental Literacy & Green Schools</h4>
+                  <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Experiential Climate Science & Plastic-Free Living</p>
+                  <p className="text-sm text-charcoal/80 leading-relaxed">
+                    Through its Green Schools outreach initiative, Foundation volunteers deliver hands-on, activity-based environmental education to primary and secondary school children. Sessions cover scientific waste segregation, vermicomposting of organic campus waste, the lifecycle of single-use plastics, bird and pollinator identification, and practical water conservation techniques. By empowering young students with tangible environmental knowledge, the Foundation fosters lifelong conservation habits among tomorrow's leaders.
+                  </p>
+                  <div className="p-3 bg-paper-warm border border-charcoal/10 text-xs font-mono text-charcoal/70">
+                    <span className="font-bold text-forest-deep block mb-1">Key Objectives:</span>
+                    Interactive school workshops, distribution of illustrated environmental primers, school campus tree gardens, and plastic-free pledges.
+                  </div>
+                </div>
+
+                {/* Initiative 3: Scholarships & Youth Mentorship */}
+                <div className="p-7 bg-paper border border-charcoal/15 rounded-xs space-y-4 hover:border-forest-deep transition-colors">
+                  <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                    <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">INITIATIVE 03</span>
+                    <span className="font-mono text-xs text-earth font-semibold">Academic Equity</span>
+                  </div>
+                  <h4 className="font-heading text-xl font-bold text-forest-deep">Youth Creative & STEM Academic Scholarships</h4>
+                  <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Student Bursaries, Educational Kits & Literary Recognition</p>
+                  <p className="text-sm text-charcoal/80 leading-relaxed">
+                    Recognizing that academic opportunity is often constrained by socio-economic challenges, EnVERT Foundation awards annual merit-cum-means scholarships to deserving rural students excelling in STEM fields and creative arts. Working in close collaboration with Pen & Ink Publishers, the Foundation also sponsors the youth categories of the Curiosity Writing Awards, granting cash bursaries, scientific textbook kits, and certificate citations to encourage students from marginalized communities to pursue higher education.
+                  </p>
+                  <div className="p-3 bg-paper-warm border border-charcoal/10 text-xs font-mono text-charcoal/70">
+                    <span className="font-bold text-forest-deep block mb-1">Key Objectives:</span>
+                    Annual student bursaries, STEM lab supply donations, educational books distribution, and young author publishing sponsorships.
+                  </div>
+                </div>
+
+                {/* Initiative 4: Clean Water & Community Sanitation */}
+                <div className="p-7 bg-paper border border-charcoal/15 rounded-xs space-y-4 hover:border-forest-deep transition-colors">
+                  <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                    <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">INITIATIVE 04</span>
+                    <span className="font-mono text-xs text-earth font-semibold">Public Health & Sanitation</span>
+                  </div>
+                  <h4 className="font-heading text-xl font-bold text-forest-deep">Rural Clean Water Advocacy & Hygiene Camps</h4>
+                  <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Groundwater Testing, Bio-Sanitation & Community Health</p>
+                  <p className="text-sm text-charcoal/80 leading-relaxed">
+                    Access to safe drinking water and dignified sanitation remains an urgent priority across rural Bengal. EnVERT Foundation conducts periodic water quality assessment camps, testing village tubewells for arsenic, excessive iron, and bacterial pathogens. In parallel, the Foundation conducts community hygiene education and promotes biological waste treatment solutions in partnership with WAGSOL’s biological sanitation research, advocating for zero open discharge and the protection of local groundwater tables.
+                  </p>
+                  <div className="p-3 bg-paper-warm border border-charcoal/10 text-xs font-mono text-charcoal/70">
+                    <span className="font-bold text-forest-deep block mb-1">Key Objectives:</span>
+                    Arsenic and pathogen field testing, community clean water storage awareness, bio-sanitation advocacy, and personal hygiene workshops.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* UN Sustainable Development Goals (SDG) Alignment Matrix */}
+            <div className="p-8 sm:p-10 bg-forest-deep text-paper rounded-xs border border-charcoal/20 space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-4 border-b border-paper/15 gap-3">
+                <div>
+                  <div className="flex items-center gap-2 mb-1 font-mono text-xs uppercase tracking-widest text-earth-light">
+                    <Globe className="w-4 h-4 text-earth" />
+                    <span>GLOBAL SUSTAINABILITY BENCHMARK</span>
+                  </div>
+                  <h3 className="font-heading text-2xl sm:text-3xl font-bold uppercase text-paper">
+                    United Nations Sustainable Development Goals (SDGs) Alignment
+                  </h3>
+                </div>
+                <span className="font-mono text-xs text-paper/60">
+                  Targeted Impact Verification
+                </span>
+              </div>
+
+              <p className="text-sm text-paper/80 leading-relaxed max-w-4xl">
+                EnVERT Foundation aligns every philanthropic deployment with the United Nations 2030 Agenda for Sustainable Development, actively contributing measurable outcomes across five core Global Goals:
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 pt-2">
+                <div className="p-4 bg-paper/10 border border-paper/15 rounded-xs space-y-2">
+                  <span className="font-mono text-xs font-bold text-earth-light block">SDG 04</span>
+                  <h5 className="font-heading text-sm font-bold text-paper">Quality Education</h5>
+                  <p className="text-[11px] text-paper/70 leading-snug">
+                    STEM scholarships, environmental primers, and school literacy workshops for rural students.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-paper/10 border border-paper/15 rounded-xs space-y-2">
+                  <span className="font-mono text-xs font-bold text-earth-light block">SDG 06</span>
+                  <h5 className="font-heading text-sm font-bold text-paper">Clean Water & Sanitation</h5>
+                  <p className="text-[11px] text-paper/70 leading-snug">
+                    Drinking water contaminant testing, hygiene awareness, and bio-sanitation system promotion.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-paper/10 border border-paper/15 rounded-xs space-y-2">
+                  <span className="font-mono text-xs font-bold text-earth-light block">SDG 11</span>
+                  <h5 className="font-heading text-sm font-bold text-paper">Sustainable Communities</h5>
+                  <p className="text-[11px] text-paper/70 leading-snug">
+                    Rural community green spaces, shaded village centers, and ecological restoration clusters.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-paper/10 border border-paper/15 rounded-xs space-y-2">
+                  <span className="font-mono text-xs font-bold text-earth-light block">SDG 13</span>
+                  <h5 className="font-heading text-sm font-bold text-paper">Climate Action</h5>
+                  <p className="text-[11px] text-paper/70 leading-snug">
+                    Carbon sequestration through native afforestation and youth climate resilience advocacy.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-paper/10 border border-paper/15 rounded-xs space-y-2">
+                  <span className="font-mono text-xs font-bold text-earth-light block">SDG 15</span>
+                  <h5 className="font-heading text-sm font-bold text-paper">Life on Land</h5>
+                  <p className="text-[11px] text-paper/70 leading-snug">
+                    Protection of native flora, micro-habitat restoration, and biodiversity preservation.
+                  </p>
+                </div>
+              </div>
+
+              {/* Stewardship Contact & Participation Bar */}
+              <div className="pt-6 border-t border-paper/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono">
+                <span className="text-paper/70">Volunteer participation, scholarship nominations & CSR partnerships: admin@envertgroup.com</span>
+                <button
+                  onClick={() => onOpenContact('Inquiry: EnVERT Foundation (Volunteer, CSR & Stewardship)')}
+                  className="px-5 py-2.5 bg-earth hover:bg-earth-dark text-paper font-heading text-xs uppercase tracking-wider font-semibold rounded-xs transition-colors shrink-0"
+                >
+                  Partner With Foundation
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      )}
+
       {/* India Corporate Trainers Specialized Section: 5 Principal Service Areas & MNC Client Wall */}
       {business.id === 'india-corporate-trainers' && (
         <section className="py-14 bg-paper-warm border-b border-charcoal/15">
@@ -792,7 +1262,7 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
                     <div className="aspect-[4/3] bg-charcoal/5 overflow-hidden">
                       <img
                         src={item.src}
-                        alt={item.caption}
+                        alt={`${item.caption} — EnVERT Group field installation & corporate project archive`}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                       />

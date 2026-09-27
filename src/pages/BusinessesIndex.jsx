@@ -125,7 +125,11 @@ export default function BusinessesIndex({ onOpenContact }) {
                               <div className="flex items-center gap-3 mb-2">
                                 {sub.logo ? (
                                   <div className="w-10 h-10 bg-white p-1 border border-charcoal/10 rounded-xs flex items-center justify-center shrink-0">
-                                    <img src={sub.logo} alt={sub.name} className="max-h-full max-w-full object-contain" />
+                                    <img
+                                      src={sub.logo}
+                                      alt={`${sub.name} corporate entity logo — EnVERT Group`}
+                                      className="max-h-full max-w-full object-contain"
+                                    />
                                   </div>
                                 ) : (
                                   <span className="w-2.5 h-2.5 rounded-full bg-leaf shrink-0"></span>

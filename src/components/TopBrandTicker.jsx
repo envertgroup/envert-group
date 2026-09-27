@@ -147,7 +147,7 @@ export default function TopBrandTicker() {
                   <div className="h-6 w-auto px-1.5 py-0.5 bg-white/95 rounded-xs flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
                     <img
                       src={brand.logo}
-                      alt={brand.name}
+                      alt={`${brand.name} brand logo — EnVERT Group`}
                       className="max-h-full max-w-[70px] sm:max-w-[85px] object-contain"
                       loading="eager"
                     />

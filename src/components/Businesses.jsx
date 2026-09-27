@@ -246,7 +246,7 @@ export default function Businesses({ onSelectBusiness }) {
                   <div className="relative mb-5 overflow-hidden rounded-xs border border-paper/10 bg-black/40 aspect-[16/9] w-full">
                     <img
                       src={activeCategory.image}
-                      alt={activeCategory.name}
+                      alt={`${activeCategory.name} — EnVERT Group Engineering, Industry & Sustainability Solutions`}
                       loading="eager"
                       className="w-full h-full object-cover transition-opacity duration-300"
                       onError={(e) => {

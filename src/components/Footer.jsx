@@ -37,7 +37,7 @@ export default function Footer() {
             <Link to="/" onClick={scrollToTop} className="inline-block group">
               <img
                 src={siteMetadata.logo || '/assets/logos/envert_group_logo.png'}
-                alt="EnVERT Group"
+                alt="EnVERT Group Corporate Logo — Sustainable Engineering & Global Media"
                 className="h-10 sm:h-12 w-auto object-contain brightness-110 group-hover:scale-105 transition-transform duration-200"
               />
             </Link>
