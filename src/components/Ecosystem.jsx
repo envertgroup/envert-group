@@ -56,6 +56,10 @@ export default function Ecosystem() {
                   <img
                     src={brand.logo}
                     alt={`${brand.name} official corporate brand logo — EnVERT Group`}
+                    width="140"
+                    height="44"
+                    loading="lazy"
+                    decoding="async"
                     className="max-h-full max-w-full object-contain"
                   />
                 </div>
@@ -159,6 +163,10 @@ export default function Ecosystem() {
                       <img
                         src={brand.logo}
                         alt={`${brand.name} corporate entity logo — EnVERT Group`}
+                        width="160"
+                        height="48"
+                        loading="lazy"
+                        decoding="async"
                         className="max-h-full max-w-full object-contain"
                       />
                     </div>

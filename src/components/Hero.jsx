@@ -80,7 +80,7 @@ export default function Hero({ onExploreClick, onAboutClick }) {
               {/* Mosaic Collage Grid: 12 Columns, Perfectly Flush Editorial Rectangle */}
               <div className="grid grid-cols-12 gap-3 sm:gap-3.5">
                 
-                {/* 1. Main Anchor Tile: Renewable Energy (7 Columns, spans 2 rows) */}
+                {/* 1. Main Anchor Tile: Renewable Energy (7 Columns, spans 2 rows) - Critical LCP */}
                 <div
                   className="col-span-7 row-span-2 relative group overflow-hidden rounded-xs border border-charcoal/15 bg-forest-deep shadow-md aspect-[4/4.9]"
                 >
@@ -88,10 +88,14 @@ export default function Hero({ onExploreClick, onAboutClick }) {
                     src={images.heroCollage.energy}
                     alt="Clean Energy Infrastructure & Renewable Power"
                     loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    width="650"
+                    height="800"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1200&auto=format&fit=crop";
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=75&w=800&auto=format&fit=crop";
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-3 sm:p-3.5 flex items-end">
@@ -108,11 +112,14 @@ export default function Hero({ onExploreClick, onAboutClick }) {
                   <img
                     src={images.heroCollage.travel}
                     alt="Experiential Travel & Sustainable Tourism"
-                    loading="eager"
+                    loading="lazy"
+                    decoding="async"
+                    width="500"
+                    height="370"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800&auto=format&fit=crop";
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=75&w=600&auto=format&fit=crop";
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-2.5 sm:p-3 flex items-end">
@@ -129,11 +136,14 @@ export default function Hero({ onExploreClick, onAboutClick }) {
                   <img
                     src={images.heroCollage.mobility}
                     alt="Clean Mobility & Electric Transit Systems"
-                    loading="eager"
+                    loading="lazy"
+                    decoding="async"
+                    width="500"
+                    height="370"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=800&auto=format&fit=crop";
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=75&w=600&auto=format&fit=crop";
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-2.5 sm:p-3 flex items-end">
@@ -150,11 +160,14 @@ export default function Hero({ onExploreClick, onAboutClick }) {
                   <img
                     src={images.heroCollage.publishing}
                     alt="Knowledge, Periodical Publishing & Research Monographs"
-                    loading="eager"
+                    loading="lazy"
+                    decoding="async"
+                    width="1200"
+                    height="340"
                     className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1200&auto=format&fit=crop";
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=75&w=900&auto=format&fit=crop";
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-3 sm:p-3.5 flex items-end justify-between">

@@ -36,8 +36,12 @@ export default function Footer() {
           <div className="lg:col-span-5 space-y-5">
             <Link to="/" onClick={scrollToTop} className="inline-block group">
               <img
-                src={siteMetadata.logo || '/assets/logos/envert_group_logo.png'}
+                src={siteMetadata.logo || '/assets/logos/envert_group_logo.webp'}
                 alt="EnVERT Group Corporate Logo — Sustainable Engineering & Global Media"
+                width="200"
+                height="48"
+                loading="lazy"
+                decoding="async"
                 className="h-10 sm:h-12 w-auto object-contain brightness-110 group-hover:scale-105 transition-transform duration-200"
               />
             </Link>

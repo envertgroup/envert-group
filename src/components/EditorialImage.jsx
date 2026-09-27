@@ -52,6 +52,8 @@ export default function EditorialImage({
         <img
           src={src}
           alt={alt || "EnVERT Group Engineering & Industrial Installation"}
+          width="800"
+          height="500"
           loading="lazy"
           decoding="async"
           onLoad={() => setLoaded(true)}

@@ -128,6 +128,10 @@ export default function BusinessesIndex({ onOpenContact }) {
                                     <img
                                       src={sub.logo}
                                       alt={`${sub.name} corporate entity logo — EnVERT Group`}
+                                      width="40"
+                                      height="40"
+                                      loading="lazy"
+                                      decoding="async"
                                       className="max-h-full max-w-full object-contain"
                                     />
                                   </div>

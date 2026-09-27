@@ -1,0 +1,36 @@
+{
+  "name": "EnVERT Group",
+  "description": "A multidisciplinary engineering, advisory, design, consultancy and publishing group of companies working across twelve markets.",
+  "url": "https://www.envertgroup.com",
+  "contact": {
+    "email": "admin@envertgroup.com",
+    "phone": "+91-9836511995"
+  },
+  "capabilities": [
+    {
+      "name": "Clean Energy Engineering",
+      "description": "Turnkey commercial solar PV, biomass CHP, and statutory BEE audits",
+      "url": "https://www.envertgroup.com/businesses/energy"
+    },
+    {
+      "name": "Electric Mobility",
+      "description": "Commercial electric vehicles, powertrains, and fleet charging infrastructure",
+      "url": "https://www.envertgroup.com/businesses/transport-electric"
+    },
+    {
+      "name": "Sustainable Tourism Platforms",
+      "description": "International sustainable tourism conferences and hospitality consulting",
+      "url": "https://www.envertgroup.com/businesses/icst"
+    },
+    {
+      "name": "Specialty Industrial Chemicals",
+      "description": "Industrial epoxy formulations, coatings, and heavy-duty primers",
+      "url": "https://www.envertgroup.com/businesses/repoxisy"
+    },
+    {
+      "name": "Periodical & Book Publishing",
+      "description": "International travel journals, academic monographs, and literature",
+      "url": "https://www.envertgroup.com/businesses/publication"
+    }
+  ]
+}

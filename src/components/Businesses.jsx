@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ArrowRight, ChevronRight, ChevronLeft, LayoutGrid, Rows3, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ChevronRight, ChevronLeft, LayoutGrid, Rows3 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { businessesData } from '../data/siteData';
 
@@ -12,29 +12,43 @@ export default function Businesses({ onSelectBusiness }) {
   const activeIndex = categories.findIndex((c) => c.id === activeCategoryId);
   const activeCategory = categories[activeIndex] || categories[0];
 
+  // Preload next images only when hovered or during idle time
+  const preloadedRef = useRef(new Set());
+  const preloadImage = (src) => {
+    if (src && !preloadedRef.current.has(src)) {
+      preloadedRef.current.add(src);
+      const img = new Image();
+      img.src = src;
+    }
+  };
+
   useEffect(() => {
-    // Preload category hero images into browser cache so switching is instantaneous with zero flicker
-    categories.forEach((c) => {
-      if (c.image) {
-        const img = new Image();
-        img.src = c.image;
-      }
+    // Idle background preload after critical page resources have loaded
+    const idleCallback = window.requestIdleCallback || ((cb) => setTimeout(cb, 2500));
+    const handle = idleCallback(() => {
+      categories.slice(0, 4).forEach((c) => {
+        if (c.image) preloadImage(c.image);
+      });
     });
 
     return () => {
-      if (hoverTimeoutRef.current) {
-        clearTimeout(hoverTimeoutRef.current);
+      if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+      if (window.cancelIdleCallback && typeof handle === 'number') {
+        window.cancelIdleCallback(handle);
       }
     };
   }, [categories]);
 
-  const handleItemMouseEnter = (categoryId) => {
+  const handleItemMouseEnter = (category) => {
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
     }
+    // Preload image on hover
+    if (category.image) preloadImage(category.image);
+
     // 90ms debounce filters out rapid sweeps and boundary tremors without feeling sluggish
     hoverTimeoutRef.current = setTimeout(() => {
-      setActiveCategoryId(categoryId);
+      setActiveCategoryId(category.id);
     }, 90);
   };
 
@@ -188,7 +202,7 @@ export default function Businesses({ onSelectBusiness }) {
                       <button
                         key={category.id}
                         type="button"
-                        onMouseEnter={() => handleItemMouseEnter(category.id)}
+                        onMouseEnter={() => handleItemMouseEnter(category)}
                         onMouseLeave={handleItemMouseLeave}
                         onClick={() => handleItemClick(category)}
                         className={`w-full text-left px-3.5 py-2 transition-colors duration-150 flex items-center justify-between group relative border-l-2 ${
@@ -247,11 +261,14 @@ export default function Businesses({ onSelectBusiness }) {
                     <img
                       src={activeCategory.image}
                       alt={`${activeCategory.name} — EnVERT Group Engineering, Industry & Sustainability Solutions`}
-                      loading="eager"
+                      loading="lazy"
+                      decoding="async"
+                      width="800"
+                      height="450"
                       className="w-full h-full object-cover transition-opacity duration-300"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = "https://images.unsplash.com/photo-1497440001374-f26997328c1b?q=80&w=1600&auto=format&fit=crop";
+                        e.currentTarget.src = "https://images.unsplash.com/photo-1497440001374-f26997328c1b?q=75&w=1000&auto=format&fit=crop";
                       }}
                     />
                     

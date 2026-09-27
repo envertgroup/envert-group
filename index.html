@@ -40,11 +40,11 @@
   <meta property="og:url" content="https://www.envertgroup.com/" />
   <meta property="og:title" content="EnVERT Group | Multidisciplinary Engineering, Advisory & Sustainability Conglomerate" />
   <meta property="og:description" content="A truly multidisciplinary engineering, advisory, design, consultancy and publishing group of companies working across the eleven markets. Headquartered in Kolkata, West Bengal, India." />
-  <meta property="og:image" content="https://www.envertgroup.com/assets/logos/envert_group_logo.png" />
-  <meta property="og:image:secure_url" content="https://www.envertgroup.com/assets/logos/envert_group_logo.png" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:image" content="https://www.envertgroup.com/assets/logos/envert_group_logo.webp" />
+  <meta property="og:image:secure_url" content="https://www.envertgroup.com/assets/logos/envert_group_logo.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="648" />
+  <meta property="og:image:height" content="300" />
   <meta property="og:image:alt" content="EnVERT Group Corporate Logo and Emblem" />
   <meta property="og:locale" content="en_US" />
 
@@ -53,17 +53,46 @@
   <meta name="twitter:site" content="@EnvertGroup" />
   <meta name="twitter:title" content="EnVERT Group | Multidisciplinary Engineering, Advisory & Sustainability Conglomerate" />
   <meta name="twitter:description" content="A truly multidisciplinary engineering, advisory, design, consultancy and publishing group of companies working across the eleven markets. Headquartered in Kolkata, West Bengal, India." />
-  <meta name="twitter:image" content="https://www.envertgroup.com/assets/logos/envert_group_logo.png" />
+  <meta name="twitter:image" content="https://www.envertgroup.com/assets/logos/envert_group_logo.webp" />
   <meta name="twitter:image:alt" content="EnVERT Group Corporate Logo" />
 
-  <!-- Google Fonts: Manrope (Headings) & Inter (Body & UI) -->
+  <!-- Third-party Preconnects & Image CDN -->
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+  <!-- Critical LCP Hero Image Preload (Energy Anchor Tile) -->
+  <link
+    rel="preload"
+    as="image"
+    href="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?q=75&w=800&auto=format&fit=crop"
+    fetchpriority="high" />
+
+  <!-- Critical Corporate Logo WebP Preload -->
+  <link
+    rel="preload"
+    as="image"
+    href="/assets/logos/envert_group_logo.webp"
+    type="image/webp" />
+
+  <!-- Google Fonts: Manrope (Headings) & Inter (Body & UI) - Non-render blocking -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" />
+  <link
+    rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet" />
+    media="print"
+    onload="this.media='all'" />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" />
+  </noscript>
 
   <!-- Global Baseline Structured Data (JSON-LD) for Search Engines -->
   <script type="application/ld+json">
@@ -83,10 +112,10 @@
         "logo": {
           "@type": "ImageObject",
           "@id": "https://www.envertgroup.com/#logo",
-          "url": "https://www.envertgroup.com/assets/logos/envert_group_logo.png",
+          "url": "https://www.envertgroup.com/assets/logos/envert_group_logo.webp",
           "caption": "EnVERT Group Corporate Logo"
         },
-        "image": "https://www.envertgroup.com/assets/logos/envert_group_logo.png",
+        "image": "https://www.envertgroup.com/assets/logos/envert_group_logo.webp",
         "description": "A truly multidisciplinary engineering, advisory, design, consultancy and publishing group of companies working across the twelve markets.",
         "address": {
           "@type": "PostalAddress",

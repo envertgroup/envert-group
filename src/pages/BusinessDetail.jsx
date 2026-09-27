@@ -254,6 +254,10 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
                         <img
                           src={sub.logo}
                           alt={`${sub.name} official operating brand logo — EnVERT Group`}
+                          width="160"
+                          height="48"
+                          loading="lazy"
+                          decoding="async"
                           className="max-h-full max-w-[180px] object-contain object-left"
                         />
                       </div>
@@ -1263,8 +1267,11 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
                       <img
                         src={item.src}
                         alt={`${item.caption} — EnVERT Group field installation & corporate project archive`}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        width="400"
+                        height="300"
                         loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div className="p-3 bg-paper">

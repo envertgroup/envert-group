@@ -1,124 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { brandsData } from '../data/siteData';
 
 export default function TopBrandTicker() {
-  const brands = [
-    {
-      name: "EnVERT Group",
-      category: "Corporate Group",
-      logo: "/assets/logos/envert_group_logo.png",
-      url: "/about",
-      isPrimary: true
-    },
-    {
-      name: "Touriosity Travelmag",
-      category: "Travel & Heritage Magazine",
-      logo: "/assets/scraped_images/home/touriosity_logo.png",
-      url: "/businesses/publication"
-    },
-    {
-      name: "NRG India",
-      category: "Energy & BEE Audits",
-      logo: "/assets/scraped_images/energy/NRGINDIA-logo.png",
-      url: "/businesses/energy"
-    },
-    {
-      name: "REPOXISY",
-      category: "Specialty Chemicals & Epoxy Solutions",
-      logo: "/assets/repoxisy_logo.png",
-      url: "/businesses/repoxisy"
-    },
-    {
-      name: "WAGSOL",
-      category: "Solar, Railway & Sanitation",
-      logo: "/assets/wagsol_logo.png",
-      url: "/businesses/wagsol"
-    },
-    {
-      name: "ICST",
-      category: "Corporate Capability & Sustainable Transition",
-      logo: "/assets/scraped_images/home/ICST-logo.png",
-      url: "/businesses/icst"
-    },
-    {
-      name: "Glare Post",
-      category: "Digital Journalism",
-      logo: "/assets/scraped_images/home/glarepost_logo.png",
-      url: "/glarepost"
-    },
-    {
-      name: "EnVERT E-Vehicles",
-      category: "Commercial EVs",
-      logo: "/assets/logos/envert_group_logo.png",
-      url: "/businesses/transport-electric"
-    },
-    {
-      name: "Pen & Ink Publishers",
-      category: "Publishing House",
-      logo: "/assets/scraped_images/home/pen_and_ink_logo.png",
-      url: "/businesses/publication"
-    },
-    {
-      name: "Curiosity Kids",
-      category: "Children's Magazine",
-      logo: "/assets/scraped_images/home/curiosity_logo.png",
-      url: "/businesses/publication"
-    },
-    {
-      name: "Sustainable Energy Review",
-      category: "Clean Energy Trade Magazine",
-      logo: "/assets/scraped_images/home/sustainable_energy_review_logo.png",
-      url: "/businesses/publication"
-    },
-    {
-      name: "EnVERT Foundation",
-      category: "Social Ecology & Stewardship",
-      logo: "/assets/scraped_images/home/envert_foundation_logo.png",
-      url: "/businesses/envert-foundation"
-    },
-    {
-      name: "Atmaja",
-      category: "Sustainable Lifestyle & Fashion",
-      logo: "/assets/scraped_images/fashion-lifestyle/atmaja_logo.png",
-      url: "/businesses/fashion-lifestyle"
-    },
-    {
-      name: "Afield Gallery",
-      category: "Visual Arts & Contemporary Culture",
-      logo: "/assets/indian_arts_and_dolls_gallery.png",
-      url: "/businesses/afield-gallery"
-    },
-    {
-      name: "Afield Advisory",
-      category: "Advisory Department",
-      logo: "/assets/scraped_images/home/afield_logo.png",
-      url: "/businesses/afield-advisory"
-    },
-    {
-      name: "EIPR",
-      category: "Policy Research",
-      logo: "/assets/scraped_images/home/eipr_logo.png",
-      url: "/businesses/eipr"
-    },
-    {
-      name: "EnVERT Wellness",
-      category: "Corporate Healthcare & Ergonomics",
-      logo: "/assets/logos/envert_group_logo.png",
-      url: "/businesses/startup-idea-envert-wellness"
-    },
-    {
-      name: "EISREE",
-      category: "Solar Research & Energy Efficiency",
-      logo: "/assets/eisree_logo.png",
-      url: "/businesses/eisree"
-    },
-    {
-      name: "India Corporate Trainers",
-      category: "Corporate Training & Relocation",
-      logo: "/assets/india_corporate_trainers_logo.png",
-      url: "/businesses/india-corporate-trainers"
-    }
-  ];
+  const brands = brandsData.map(b => ({
+    name: b.name,
+    category: b.category,
+    logo: b.logo,
+    url: b.internalUrl || `/businesses/${b.internalSlug}`,
+    isPrimary: b.id === 'nrg-india'
+  }));
 
   // Duplicate the list to create an unbroken seamless infinite loop
   const tickerItems = [...brands, ...brands];

@@ -8,7 +8,7 @@ export const SITE_DOMAIN = 'https://www.envertgroup.com';
 export const defaultSeoMeta = {
   defaultTitle: 'EnVERT Group',
   defaultDescription: 'A truly multidisciplinary engineering, advisory, design, consultancy and publishing group of companies working across the twelve markets. Headquartered in Kolkata, West Bengal, India.',
-  corporateLogo: `${SITE_DOMAIN}/assets/logos/envert_group_logo.png`,
+  corporateLogo: `${SITE_DOMAIN}/assets/logos/envert_group_logo.webp`,
   founder: 'EnVERT Group Governance Council',
   headquarters: {
     streetAddress: 'EnVERT Group Corporate Office',

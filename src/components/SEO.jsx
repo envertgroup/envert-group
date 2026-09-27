@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 const DEFAULT_ORIGIN = 'https://www.envertgroup.com';
 const DEFAULT_TITLE = 'EnVERT Group | Multidisciplinary Engineering, Advisory & Sustainability Conglomerate';
 const DEFAULT_DESCRIPTION = 'A truly multidisciplinary engineering, advisory, design, consultancy and publishing group of companies working across the eleven markets. Headquartered in Kolkata, West Bengal, India.';
-const DEFAULT_IMAGE = `${DEFAULT_ORIGIN}/assets/logos/envert_group_logo.png`;
+const DEFAULT_IMAGE = `${DEFAULT_ORIGIN}/assets/logos/envert_group_logo.webp`;
 
 /**
  * Enterprise SEO Head & Structured Data Management Component

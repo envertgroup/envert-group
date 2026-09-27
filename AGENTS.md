@@ -34,14 +34,36 @@ This document defines the architectural rules, coding standards, and conventions
 
 ---
 
-## 3. Image Sourcing & Asset Hygiene
-- **Pre-validated URLs Only**: Whenever external stock image links (e.g. Unsplash) are added, ensure they return `HTTP 200 OK`. Broken or dead URLs (404s) must never be committed.
+## 3. Image Sourcing, Asset Hygiene & Performance Standards
+> [!IMPORTANT]
+> **Performance First**: All local assets must use modern formats, strict lazy-loading, explicit dimensions, and non-blocking delivery to maintain 95+ PageSpeed scores.
+
+### Asset Format & Sizing Rules:
+- **WebP Only for Local Assets**: All static photographic and corporate branding assets under `public/assets/` MUST use the **`.webp`** modern image format.
+  - ❌ Never commit uncompressed, multi-megabyte `.png` or raw `.bmp` files.
+  - Brand logos must be pre-scaled to high-DPI display dimensions (`max-width: 400–500px`, `max-height: 200px`) using WebP compression (`quality: 80–85`), keeping logo file sizes under **5–30 KiB**.
+- **Responsive CDN Parameters for External Imagery**: External stock image links (e.g., Unsplash) must always specify responsive size and compression parameters matching actual container displays:
+  - Small thumbnails/cards: `w=600&q=75&auto=format&fit=crop`
+  - Medium/Hero secondary tiles: `w=800&q=75&auto=format&fit=crop`
+  - Full-width hero backgrounds: `w=1000&q=75&auto=format&fit=crop`
+  - ❌ Never load uncapped or oversized `w=1600+` images for 400px containers.
+- **Pre-validated URLs Only**: Whenever external stock image links are added, verify they return `HTTP 200 OK`. Broken or dead URLs (404s) must never be committed.
+
+### Image Component & HTML Loading Standards:
+- **Explicit Width & Height Attributes**: Every `<img>` tag and `<EditorialImage>` wrapper MUST declare explicit `width` and `height` attributes (e.g., `width="160" height="44"`) to enable browser aspect-ratio computation and eliminate Cumulative Layout Shift (CLS).
+- **Lazy Loading Strategy**:
+  - **Below-the-fold images**: MUST declare `loading="lazy"` and `decoding="async"`. This applies to `Ecosystem.jsx`, `Businesses.jsx`, `Projects.jsx`, `Footer.jsx`, and internal detail pages.
+  - **Above-the-fold LCP image**: The primary Hero visual MUST declare `loading="eager"`, `fetchPriority="high"`, and `decoding="async"`.
+  - **LCP Preloading in `index.html`**: The critical Hero visual must be preloaded in `<head>` via `<link rel="preload" as="image" href="..." fetchpriority="high" />` for immediate HTML parse discovery.
+- **No Synchronous Mount Preloading**:
+  - Never execute synchronous loops preloading multiple secondary images during component `useEffect` mount.
+  - Secondary or carousel/tab images must be preloaded lazily via `requestIdleCallback` or upon user interaction (`hover`/`focus`).
 - **Import Pattern**:
   ```javascript
   // Correct
   import { images } from '../data/image.js';
   // or
-  import { elevenMarketsData } from '../data/siteData.js';
+  import { brandsData } from '../data/siteData.js';
   ```
 - **Fallback Protection**: Photographic frames should use `<EditorialImage>` or include an `onError` fallback to prevent broken browser icon displays.
 
@@ -73,5 +95,6 @@ The homepage structure is carefully arranged to ensure a logical user experience
 ## 6. Verification Checklist
 Before concluding any task:
 1. Run `npm run build` to confirm zero Vite compilation errors.
-2. Confirm that images load with valid status codes.
-3. Verify that the correct branding (**EnVERT**) is preserved across all files.
+2. Confirm that images load with valid status codes and use `.webp` format.
+3. Verify that all `<img>` tags have explicit `width`, `height`, and appropriate `loading="lazy"` / `decoding="async"` attributes.
+4. Verify that the correct branding (**EnVERT**) is preserved across all files.
