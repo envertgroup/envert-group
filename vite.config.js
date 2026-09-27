@@ -9,4 +9,23 @@ export default defineConfig({
     port: 5173,
     strictPort: false,
   },
+  build: {
+    target: 'esnext',
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
+              return 'vendor-react';
+            }
+            if (id.includes('lucide-react')) {
+              return 'vendor-icons';
+            }
+            return 'vendor-other';
+          }
+        },
+      },
+    },
+  },
 })

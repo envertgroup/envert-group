@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -6,15 +6,27 @@ import InquiryModal from './components/InquiryModal';
 import ScrollToTop from './components/ScrollToTop';
 import { Analytics } from '@vercel/analytics/react';
 
-// Pages
 import HomePage from './pages/HomePage';
-import BusinessesIndex from './pages/BusinessesIndex';
-import BusinessDetail from './pages/BusinessDetail';
-import AboutPage from './pages/AboutPage';
-import CompaniesPage from './pages/CompaniesPage';
-import ProjectsPage from './pages/ProjectsPage';
-import CareersPage from './pages/CareersPage';
-import ContactPage from './pages/ContactPage';
+
+// Sub-pages code-split for lightning-fast initial load & granular caching
+const BusinessesIndex = lazy(() => import('./pages/BusinessesIndex'));
+const BusinessDetail = lazy(() => import('./pages/BusinessDetail'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const CompaniesPage = lazy(() => import('./pages/CompaniesPage'));
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
+const CareersPage = lazy(() => import('./pages/CareersPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+
+function PageFallback() {
+  return (
+    <div className="min-h-[50vh] flex items-center justify-center bg-paper-warm">
+      <div className="flex flex-col items-center gap-3">
+        <div className="w-7 h-7 border-2 border-forest/20 border-t-forest rounded-full animate-spin" />
+        <span className="font-mono text-[11px] uppercase tracking-widest text-charcoal/50">Loading EnVERT...</span>
+      </div>
+    </div>
+  );
+}
 
 export default function App() {
   const [inquiryModalOpen, setInquiryModalOpen] = useState(false);
@@ -48,9 +60,10 @@ export default function App() {
         {/* Global Editorial Corporate Navigation with Businesses Dropdown */}
         <Navbar onOpenContact={handleOpenContact} />
 
-        {/* Dynamic Multi-Page Router */}
+        {/* Dynamic Multi-Page Router with Suspense */}
         <main id="main-content" tabIndex="-1" className="flex-grow focus:outline-none">
-          <Routes>
+          <Suspense fallback={<PageFallback />}>
+            <Routes>
             <Route
               path="/"
               element={
@@ -150,6 +163,7 @@ export default function App() {
               }
             />
           </Routes>
+          </Suspense>
         </main>
 
         {/* Global Editorial Footer */}
