@@ -104,6 +104,11 @@ export default function Footer() {
                   10. WAGSOL Solar, Rail & Sanitation
                 </Link>
               </li>
+              <li>
+                <Link to="/businesses/eisree" className="hover:text-paper hover:text-earth transition-colors">
+                  11. EISREE Solar Research & Efficiency
+                </Link>
+              </li>
             </ul>
           </div>
 

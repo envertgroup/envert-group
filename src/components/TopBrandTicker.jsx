@@ -105,6 +105,12 @@ export default function TopBrandTicker() {
       category: "Corporate Healthcare & Ergonomics",
       logo: "/assets/logos/envert_group_logo.png",
       url: "/businesses/startup-idea-envert-wellness"
+    },
+    {
+      name: "EISREE",
+      category: "Solar Research & Energy Efficiency",
+      logo: "/assets/eisree_logo.png",
+      url: "/businesses/eisree"
     }
   ];
 

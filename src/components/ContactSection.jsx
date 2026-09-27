@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
 import { siteMetadata } from '../data/siteData';
+import { submitForm } from '../services/formService';
 
 export default function ContactSection() {
   const [selectedTopics, setSelectedTopics] = useState(['Energy & Solar PV']);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [fallbackMailto, setFallbackMailto] = useState(null);
+  const [submissionMeta, setSubmissionMeta] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -34,9 +39,35 @@ export default function ContactSection() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage(null);
+    setFallbackMailto(null);
+
+    const isCareerTopic = selectedTopics.some(t => t.toLowerCase().includes('career') || t.toLowerCase().includes('recruitment'));
+
+    const res = await submitForm({
+      name: formData.name,
+      company: formData.company,
+      email: formData.email,
+      phone: formData.phone,
+      message: formData.message,
+      topics: selectedTopics,
+      domain: selectedTopics.join(', '),
+      subject: `Inquiry: ${selectedTopics.join(', ')}`,
+      isCareer: isCareerTopic
+    });
+
+    setIsSubmitting(false);
+
+    if (res.success) {
+      setSubmissionMeta(res);
+      setFormSubmitted(true);
+    } else {
+      setErrorMessage(res.error || 'Failed to dispatch inquiry to the server.');
+      setFallbackMailto(res.mailtoUrl);
+    }
   };
 
   return (
@@ -137,13 +168,21 @@ export default function ContactSection() {
           <div className="lg:col-span-7 bg-forest/30 border border-paper/15 p-6 sm:p-10 rounded-xs">
             {formSubmitted ? (
               <div className="py-12 text-center space-y-4">
-                <CheckCircle2 className="w-12 h-12 text-earth mx-auto" />
+                <CheckCircle2 className="w-12 h-12 text-earth mx-auto animate-bounce-subtle" />
                 <h3 className="font-heading text-2xl font-bold text-paper">
                   Inquiry Dispatched
                 </h3>
                 <p className="text-sm text-paper/80 max-w-md mx-auto">
-                  Thank you for reaching out to EnVERT Group. Your message has been routed to the relevant technical department in Kolkata.
+                  Thank you for reaching out to EnVERT Group. Your inquiry has been routed directly to our team at{' '}
+                  <span className="font-mono font-semibold text-earth-light">
+                    {submissionMeta?.targetEmail || 'admin@envertgroup.com'}
+                  </span>.
                 </p>
+                {submissionMeta?.activationRequired && (
+                  <div className="p-4 bg-forest/80 border border-earth/40 text-paper text-xs font-mono rounded-xs max-w-md mx-auto text-left">
+                    <strong className="text-earth">First-Time Setup:</strong> FormSubmit has sent a one-time activation link to the recipient inbox. Once clicked, future submissions arrive immediately.
+                  </div>
+                )}
                 <button
                   onClick={() => {
                     setFormSubmitted(false);
@@ -253,13 +292,48 @@ export default function ContactSection() {
                   ></textarea>
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto px-8 py-3.5 bg-earth hover:bg-earth-light text-forest-deep font-heading font-semibold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
-                >
-                  <span>Submit Inquiry</span>
-                  <Send className="w-3.5 h-3.5" />
-                </button>
+                {errorMessage && (
+                  <div className="p-4 bg-red-950/80 border border-red-500/40 text-red-200 text-xs font-mono rounded-xs space-y-2">
+                    <div className="flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
+                      <span>{errorMessage}</span>
+                    </div>
+                    {fallbackMailto && (
+                      <a
+                        href={fallbackMailto}
+                        className="inline-flex items-center gap-1.5 text-xs text-earth underline hover:text-earth-light font-bold"
+                      >
+                        <Mail className="w-3.5 h-3.5" />
+                        <span>Click here to send directly via Email Client</span>
+                      </a>
+                    )}
+                  </div>
+                )}
+
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+                  <span className="text-xs font-mono text-paper/60">
+                    Dispatched to {selectedTopics.some(t => t.toLowerCase().includes('career') || t.toLowerCase().includes('recruitment')) ? 'hr@envertgroup.com' : 'admin@envertgroup.com'}
+                  </span>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`w-full sm:w-auto px-8 py-3.5 bg-earth hover:bg-earth-light text-forest-deep font-heading font-semibold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 ${
+                      isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                    }`}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin text-forest-deep" />
+                        <span>Transmitting...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Submit Inquiry</span>
+                        <Send className="w-3.5 h-3.5" />
+                      </>
+                    )}
+                  </button>
+                </div>
               </form>
             )}
           </div>

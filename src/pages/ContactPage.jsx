@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, ShieldCheck, Loader2, AlertCircle } from 'lucide-react';
 import { siteMetadata } from '../data/siteData';
+import { submitForm } from '../services/formService';
 
 export default function ContactPage() {
   const [selectedTopics, setSelectedTopics] = useState(['Energy & Solar PV']);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [fallbackMailto, setFallbackMailto] = useState(null);
+  const [submissionMeta, setSubmissionMeta] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -34,9 +39,35 @@ export default function ContactPage() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage(null);
+    setFallbackMailto(null);
+
+    const isCareerTopic = selectedTopics.some(t => t.toLowerCase().includes('career') || t.toLowerCase().includes('recruitment'));
+
+    const res = await submitForm({
+      name: formData.name,
+      company: formData.company,
+      email: formData.email,
+      phone: formData.phone,
+      message: formData.message,
+      topics: selectedTopics,
+      domain: selectedTopics.join(', '),
+      subject: `Inquiry: ${selectedTopics.join(', ')}`,
+      isCareer: isCareerTopic
+    });
+
+    setIsSubmitting(false);
+
+    if (res.success) {
+      setSubmissionMeta(res);
+      setFormSubmitted(true);
+    } else {
+      setErrorMessage(res.error || 'Failed to dispatch inquiry to the server.');
+      setFallbackMailto(res.mailtoUrl);
+    }
   };
 
   return (
@@ -135,14 +166,22 @@ export default function ContactPage() {
           <div className="lg:col-span-7 bg-paper border border-charcoal/15 p-8 sm:p-12">
             {formSubmitted ? (
               <div className="py-16 text-center space-y-4">
-                <CheckCircle2 className="w-14 h-14 text-forest mx-auto" />
+                <CheckCircle2 className="w-14 h-14 text-forest mx-auto animate-bounce-subtle" />
                 <h3 className="font-heading text-3xl font-bold text-forest-deep">
                   Inquiry Dispatched
                 </h3>
                 <p className="text-sm text-charcoal/80 max-w-md mx-auto">
-                  Thank you for reaching out to EnVERT Group. Your message has been routed to our specialized practice desk in Kolkata. A designated engineer or department lead will follow up shortly.
+                  Thank you for reaching out to EnVERT Group. Your inquiry has been routed directly to our team at{' '}
+                  <span className="font-mono font-semibold text-forest-deep">
+                    {submissionMeta?.targetEmail || 'admin@envertgroup.com'}
+                  </span>. A designated engineer or department lead will follow up shortly.
                 </p>
-                <div className="pt-4">
+                {submissionMeta?.activationRequired && (
+                  <div className="p-4 bg-amber-50 border border-amber-200 text-amber-900 text-xs font-mono rounded-xs max-w-md mx-auto text-left">
+                    <strong>First-Time Dispatch:</strong> FormSubmit has sent a one-time activation link to the recipient inbox. Once clicked, future submissions arrive immediately.
+                  </div>
+                )}
+                <div className="pt-4 flex items-center justify-center gap-3">
                   <button
                     onClick={() => {
                       setFormSubmitted(false);
@@ -253,13 +292,48 @@ export default function ContactPage() {
                   ></textarea>
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto px-8 py-3.5 bg-forest hover:bg-forest-deep text-paper font-heading font-semibold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
-                >
-                  <span>Submit Inquiry</span>
-                  <Send className="w-3.5 h-3.5 text-earth-light" />
-                </button>
+                {errorMessage && (
+                  <div className="p-4 bg-red-50 border border-red-200 text-red-800 text-xs font-mono rounded-xs space-y-2">
+                    <div className="flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
+                      <span>{errorMessage}</span>
+                    </div>
+                    {fallbackMailto && (
+                      <a
+                        href={fallbackMailto}
+                        className="inline-flex items-center gap-1.5 text-xs text-red-900 underline hover:text-red-700 font-bold"
+                      >
+                        <Mail className="w-3.5 h-3.5" />
+                        <span>Click here to send directly via Email Client</span>
+                      </a>
+                    )}
+                  </div>
+                )}
+
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+                  <span className="text-xs font-mono text-charcoal/60">
+                    Dispatched to {selectedTopics.some(t => t.toLowerCase().includes('career') || t.toLowerCase().includes('recruitment')) ? 'hr@envertgroup.com' : 'admin@envertgroup.com'}
+                  </span>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`w-full sm:w-auto px-8 py-3.5 bg-forest hover:bg-forest-deep text-paper font-heading font-semibold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 ${
+                      isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                    }`}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin text-earth-light" />
+                        <span>Transmitting...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Submit Inquiry</span>
+                        <Send className="w-3.5 h-3.5 text-earth-light" />
+                      </>
+                    )}
+                  </button>
+                </div>
               </form>
             )}
           </div>

@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import { X, Send, CheckCircle2, ArrowRight } from 'lucide-react';
+import { X, Send, CheckCircle2, ArrowRight, Loader2, AlertCircle, Mail } from 'lucide-react';
 import { siteMetadata } from '../data/siteData';
+import { submitForm } from '../services/formService';
 
 export default function InquiryModal({ isOpen, onClose, initialSubject = '' }) {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [fallbackMailto, setFallbackMailto] = useState(null);
+  const [submissionMeta, setSubmissionMeta] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,12 +19,36 @@ export default function InquiryModal({ isOpen, onClose, initialSubject = '' }) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      // keep open for user feedback
-    }, 100);
+    setIsSubmitting(true);
+    setErrorMessage(null);
+    setFallbackMailto(null);
+
+    const isCareerApp = 
+      formData.domain.toLowerCase().includes('application') || 
+      formData.domain.toLowerCase().includes('career') ||
+      formData.domain.toLowerCase().includes('job');
+
+    const res = await submitForm({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      domain: formData.domain,
+      subject: formData.domain,
+      message: formData.message,
+      isCareer: isCareerApp
+    });
+
+    setIsSubmitting(false);
+
+    if (res.success) {
+      setSubmissionMeta(res);
+      setSubmitted(true);
+    } else {
+      setErrorMessage(res.error || 'Failed to dispatch inquiry to the server.');
+      setFallbackMailto(res.mailtoUrl);
+    }
   };
 
   const domains = [
@@ -53,18 +82,41 @@ export default function InquiryModal({ isOpen, onClose, initialSubject = '' }) {
             <h3 className="font-heading text-2xl font-bold text-forest-deep">
               Inquiry Dispatched
             </h3>
-            <p className="text-sm text-charcoal/80">
-              Thank you for contacting EnVERT Group. Your message has been routed to our corporate team in Kolkata.
+            <p className="text-sm text-charcoal/80 max-w-sm mx-auto">
+              Your inquiry has been successfully transmitted to our team at{' '}
+              <span className="font-mono font-semibold text-forest-deep">
+                {submissionMeta?.targetEmail || 'admin@envertgroup.com'}
+              </span>.
             </p>
-            <div className="pt-4">
+            {submissionMeta?.activationRequired && (
+              <div className="p-3 bg-amber-50 border border-amber-200 text-amber-900 text-xs font-mono rounded-xs max-w-md mx-auto text-left">
+                <strong>First-Time Dispatch:</strong> FormSubmit has sent a one-time activation link to the inbox. Please click that link to confirm routing. Subsequent messages deliver immediately.
+              </div>
+            )}
+            <div className="pt-4 flex items-center justify-center gap-3">
+              <button
+                onClick={() => {
+                  setSubmitted(false);
+                  setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    domain: initialSubject || 'General Inquiry',
+                    message: ''
+                  });
+                }}
+                className="px-4 py-2 border border-charcoal/20 text-charcoal font-heading text-xs uppercase tracking-wider font-semibold hover:border-forest hover:text-forest-deep transition-colors"
+              >
+                New Inquiry
+              </button>
               <button
                 onClick={() => {
                   setSubmitted(false);
                   onClose();
                 }}
-                className="px-6 py-2.5 bg-forest text-paper font-heading text-xs uppercase tracking-wider font-semibold hover:bg-forest-deep transition-colors"
+                className="px-6 py-2 bg-forest text-paper font-heading text-xs uppercase tracking-wider font-semibold hover:bg-forest-deep transition-colors"
               >
-                Close Window
+                Done
               </button>
             </div>
           </div>
@@ -156,16 +208,46 @@ export default function InquiryModal({ isOpen, onClose, initialSubject = '' }) {
                 ></textarea>
               </div>
 
+              {errorMessage && (
+                <div className="p-3 bg-red-50 border border-red-200 text-red-800 text-xs font-mono rounded-xs space-y-2">
+                  <div className="flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
+                    <span>{errorMessage}</span>
+                  </div>
+                  {fallbackMailto && (
+                    <a
+                      href={fallbackMailto}
+                      className="inline-flex items-center gap-1.5 text-xs text-red-900 underline hover:text-red-700 font-bold"
+                    >
+                      <Mail className="w-3.5 h-3.5" />
+                      <span>Click here to send directly via Email Client</span>
+                    </a>
+                  )}
+                </div>
+              )}
+
               <div className="pt-2 flex items-center justify-between">
                 <span className="text-[10px] font-mono text-charcoal/50">
-                  Kolkata, IN • admin@envertgroup.com
+                  Direct dispatch to {formData.domain?.toLowerCase().includes('application') || formData.domain?.toLowerCase().includes('career') ? 'hr@envertgroup.com' : 'admin@envertgroup.com'}
                 </span>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 bg-forest hover:bg-forest-deep text-paper font-heading text-xs uppercase tracking-wider font-semibold flex items-center gap-1.5 transition-colors"
+                  disabled={isSubmitting}
+                  className={`px-5 py-2.5 bg-forest hover:bg-forest-deep text-paper font-heading text-xs uppercase tracking-wider font-semibold flex items-center gap-1.5 transition-colors ${
+                    isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
                 >
-                  <span>Submit</span>
-                  <Send className="w-3 h-3" />
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Submit</span>
+                      <Send className="w-3 h-3" />
+                    </>
+                  )}
                 </button>
               </div>
             </form>

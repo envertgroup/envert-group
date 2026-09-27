@@ -39,7 +39,11 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
     (targetSlug?.toLowerCase() === 'railway-lighting' && b.id === 'wagsol') ||
     (targetSlug?.toLowerCase() === 'bio-toilets' && b.id === 'wagsol') ||
     (targetSlug?.toLowerCase() === 'railway-sanitation' && b.id === 'wagsol') ||
-    (targetSlug?.toLowerCase() === 'bldc-fans' && b.id === 'wagsol')
+    (targetSlug?.toLowerCase() === 'bldc-fans' && b.id === 'wagsol') ||
+    (targetSlug?.toLowerCase() === 'eisree' && b.id === 'eisree') ||
+    (targetSlug?.toLowerCase() === 'solar-research' && b.id === 'eisree') ||
+    (targetSlug?.toLowerCase() === 'energy-efficiency' && b.id === 'eisree') ||
+    (targetSlug?.toLowerCase() === 'green-campus' && b.id === 'eisree')
   );
 
   if (!business) {
@@ -447,6 +451,137 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* EISREE Specialized Section: Vision, Core Work Areas, Initiatives & Impact */}
+      {business.id === 'eisree' && (
+        <section className="py-14 bg-paper-warm border-b border-charcoal/15">
+          <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 space-y-12">
+            
+            {/* Vision Banner */}
+            <div className="p-8 bg-forest-deep text-paper rounded-xs border border-charcoal/20">
+              <div className="flex items-center gap-2 mb-2 font-mono text-xs uppercase tracking-widest text-earth-light">
+                <span className="w-2 h-2 rounded-full bg-earth animate-pulse"></span>
+                <span>INSTITUTIONAL VISION</span>
+              </div>
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold uppercase tracking-tight text-paper">
+                "To be a global leader in renewable energy research and innovation, driving sustainable development and climate resilience."
+              </h2>
+              <p className="mt-3 text-xs sm:text-sm text-paper/70 font-mono">
+                EnVERT Institute of Solar Research & Energy Efficiency • Affiliated with EnVERT Foundation
+              </p>
+            </div>
+
+            {/* Core Areas of Work (05 Tracks) */}
+            <div>
+              <div className="pb-4 mb-6 border-b border-charcoal/10 flex items-center justify-between">
+                <div>
+                  <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
+                    DISCIPLINES & PRACTICES
+                  </span>
+                  <h3 className="font-heading text-2xl font-bold uppercase text-forest-deep mt-1">
+                    Core Areas of Work
+                  </h3>
+                </div>
+                <span className="font-mono text-xs text-charcoal/60">05 Focus Tracks</span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {(business.coreAreas || [
+                  { title: "Solar Research", desc: "Developing advanced photovoltaic technologies and solar thermal systems." },
+                  { title: "Energy Efficiency", desc: "Promoting smart energy management, green building practices, and efficient appliances." },
+                  { title: "Policy & Advocacy", desc: "Supporting governments and organizations with evidence-based recommendations." },
+                  { title: "Community Outreach", desc: "Training programs, awareness campaigns, and grassroots initiatives to spread renewable adoption." },
+                  { title: "Innovation Hub", desc: "Incubating startups and fostering collaborations in clean energy technologies." }
+                ]).map((area, idx) => (
+                  <div key={idx} className="p-6 bg-paper border border-charcoal/15 rounded-xs space-y-2 hover:border-forest-deep transition-colors">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest-deep uppercase">TRACK 0{idx + 1}</span>
+                      <span className="w-2 h-2 rounded-full bg-leaf"></span>
+                    </div>
+                    <h4 className="font-heading text-lg font-bold text-forest-deep">{area.title}</h4>
+                    <p className="text-xs sm:text-sm text-charcoal/75 leading-relaxed">{area.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Key Initiatives (4 items) & Impact (4 items) Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              
+              {/* Key Initiatives */}
+              <div className="p-8 bg-paper border border-charcoal/15 rounded-xs space-y-6">
+                <div className="pb-3 border-b border-charcoal/10 flex items-center justify-between">
+                  <span className="font-mono text-xs uppercase font-bold text-forest-deep tracking-wider">
+                    STRATEGIC INITIATIVES
+                  </span>
+                  <span className="font-mono text-xs text-earth font-semibold">Active Programs</span>
+                </div>
+                <h3 className="font-heading text-xl font-bold text-forest-deep">
+                  Grassroots & Institutional Deployments
+                </h3>
+                
+                <div className="space-y-4">
+                  {(business.initiatives || [
+                    { title: "Solar for All", desc: "Expanding access to affordable solar solutions in rural and urban communities." },
+                    { title: "Green Campus Program", desc: "Partnering with educational institutions to implement energy-efficient infrastructure." },
+                    { title: "Research Collaborations", desc: "Working with universities, industry leaders, and international organizations." },
+                    { title: "Skill Development", desc: "Offering workshops and certifications in renewable energy technologies." }
+                  ]).map((init, iIdx) => (
+                    <div key={iIdx} className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
+                      <div className="flex items-center gap-2 mb-1">
+                        <CheckCircle2 className="w-4 h-4 text-forest shrink-0" />
+                        <span className="font-heading text-sm font-bold text-forest-deep">{init.title}</span>
+                      </div>
+                      <p className="text-xs text-charcoal/75 pl-6">{init.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Measurable Impact */}
+              <div className="p-8 bg-paper border border-charcoal/15 rounded-xs space-y-6">
+                <div className="pb-3 border-b border-charcoal/10 flex items-center justify-between">
+                  <span className="font-mono text-xs uppercase font-bold text-forest-deep tracking-wider">
+                    MEASURABLE IMPACT
+                  </span>
+                  <span className="font-mono text-xs text-forest font-semibold">Verified Outcomes</span>
+                </div>
+                <h3 className="font-heading text-xl font-bold text-forest-deep">
+                  Environmental & Community Abatement
+                </h3>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {(business.impactMetrics || [
+                    { label: "Carbon Abatement", desc: "Reduced carbon emissions through solar adoption projects." },
+                    { label: "Community Empowerment", desc: "Empowered local communities with sustainable energy solutions." },
+                    { label: "Published Research", desc: "Published research contributing to global renewable energy knowledge." },
+                    { label: "Green Jobs", desc: "Created employment opportunities in the green energy sector." }
+                  ]).map((imp, mIdx) => (
+                    <div key={mIdx} className="p-4 bg-forest/5 border border-forest/15 rounded-xs space-y-1">
+                      <span className="font-mono text-[11px] text-earth uppercase font-bold block">{imp.label}</span>
+                      <p className="text-xs text-charcoal/80 leading-snug">{imp.desc}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Institute Affiliation & Contact */}
+                <div className="pt-4 border-t border-charcoal/10 space-y-2 text-xs font-mono text-charcoal/70">
+                  <p className="flex items-center gap-2">
+                    <Mail className="w-3.5 h-3.5 text-earth shrink-0" />
+                    <span>Inquiries: <a href="mailto:eisree.kolkata@gmail.com" className="text-forest-deep font-semibold hover:underline">eisree.kolkata@gmail.com</a></span>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <ExternalLink className="w-3.5 h-3.5 text-forest shrink-0" />
+                    <span>Parent Stewardship: <RouterLink to="/businesses/envert-foundation" className="text-earth font-semibold hover:underline">EnVERT Foundation</RouterLink></span>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
           </div>
         </section>
       )}

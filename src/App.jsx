@@ -100,6 +100,9 @@ export default function App() {
             <Route path="/solar-lighting" element={<BusinessDetail forcedSlug="wagsol" onOpenContact={handleOpenContact} />} />
             <Route path="/railway-lighting" element={<BusinessDetail forcedSlug="wagsol" onOpenContact={handleOpenContact} />} />
             <Route path="/bio-toilets" element={<BusinessDetail forcedSlug="wagsol" onOpenContact={handleOpenContact} />} />
+            <Route path="/eisree" element={<BusinessDetail forcedSlug="eisree" onOpenContact={handleOpenContact} />} />
+            <Route path="/solar-research" element={<BusinessDetail forcedSlug="eisree" onOpenContact={handleOpenContact} />} />
+            <Route path="/energy-efficiency" element={<BusinessDetail forcedSlug="eisree" onOpenContact={handleOpenContact} />} />
             <Route path="/career" element={<CareersPage onApplyJob={handleApplyJob} />} />
 
             {/* Other Dedicated Routes */}

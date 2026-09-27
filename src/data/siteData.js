@@ -19,7 +19,7 @@ export const siteMetadata = {
     { label: "Engineering & Materials", count: "04 Categories", desc: "Energy (NRG India), Transport (EnVERT E-Vehicles), Specialty Chemicals & Epoxy (REPOXISY), Solar & Rail Systems (WAGSOL)" },
     { label: "Advisory & Capability", count: "03 Categories", desc: "Corporate Capability (ICST), Policy Research (EIPR), Strategic Advisory (Afield Advisory)" },
     { label: "Media & Culture", count: "03 Categories", desc: "Publication & Media (Touriosity Travelmag, Pen & Ink, Glare Post), Visual Arts (Afield Gallery)" },
-    { label: "Stewardship & Living", count: "02 Categories", desc: "Social Stewardship (EnVERT Foundation), Fashion & Lifestyle (Atmaja)" },
+    { label: "Stewardship & Living", count: "03 Categories", desc: "Social Stewardship (EnVERT Foundation), Fashion & Lifestyle (Atmaja), Solar Research & Efficiency (EISREE)" },
   ],
 };
 
@@ -588,6 +588,63 @@ export const businessesData = [
     domainLink: "/businesses/wagsol",
     directEmail: "admin@envertgroup.com",
     directPhone: "+91 9836511995"
+  },
+  {
+    id: "eisree",
+    num: "13",
+    name: "Solar Research & Energy Efficiency",
+    category: "Solar Research & Energy Efficiency",
+    companyName: "EISREE",
+    companyLegalName: "EnVERT Institute of Solar Research & Energy Efficiency (EISREE)",
+    brandRef: "EISREE",
+    urlSlug: "eisree",
+    aliases: ["eisree", "solar-research", "energy-efficiency", "green-campus"],
+    logo: images.eisree_logo,
+    tagline: "Advancing clean energy transition through solar research, energy efficiency, and community empowerment.",
+    summary: "The EnVERT Institute of Solar Research & Energy Efficiency (EISREE) is dedicated to advancing sustainable energy solutions through cutting-edge research, innovation, and community engagement. Our mission is to accelerate the transition toward clean energy by focusing on solar technologies and energy efficiency practices that reduce carbon footprints and empower communities.",
+    vision: "To be a global leader in renewable energy research and innovation, driving sustainable development and climate resilience.",
+    businessesUnderCategory: [
+      {
+        name: "EISREE",
+        legalName: "EnVERT Institute of Solar Research & Energy Efficiency",
+        role: "Clean Energy Research & Capability Institute",
+        logo: images.eisree_logo,
+        url: "/businesses/eisree",
+        desc: "Advancing solar technology research, Green Campus programs, energy efficiency advocacy, and community skill development."
+      }
+    ],
+    capabilities: [
+      "Solar Research: Advanced photovoltaic technologies and solar thermal systems",
+      "Energy Efficiency: Smart energy management, green building practices, and efficient appliances",
+      "Policy & Advocacy: Evidence-based clean energy recommendations for organizations and government bodies",
+      "Community Outreach: Renewable energy awareness campaigns, grassroots initiatives, and training",
+      "Innovation Hub: Startup incubation and academic-industry collaborative research in clean energy"
+    ],
+    coreAreas: [
+      { title: "Solar Research", desc: "Developing advanced photovoltaic technologies and solar thermal systems." },
+      { title: "Energy Efficiency", desc: "Promoting smart energy management, green building practices, and efficient appliances." },
+      { title: "Policy & Advocacy", desc: "Supporting governments and organizations with evidence-based recommendations." },
+      { title: "Community Outreach", desc: "Training programs, awareness campaigns, and grassroots initiatives to spread renewable adoption." },
+      { title: "Innovation Hub", desc: "Incubating startups and fostering collaborations in clean energy technologies." }
+    ],
+    initiatives: [
+      { title: "Solar for All", desc: "Expanding access to affordable solar solutions in rural and urban communities." },
+      { title: "Green Campus Program", desc: "Partnering with educational institutions to implement energy-efficient infrastructure." },
+      { title: "Research Collaborations", desc: "Working with universities, industry leaders, and international organizations." },
+      { title: "Skill Development", desc: "Offering workshops and certifications in renewable energy technologies." }
+    ],
+    impactMetrics: [
+      { label: "Carbon Abatement", desc: "Reduced carbon emissions through solar adoption projects." },
+      { label: "Community Empowerment", desc: "Empowered local communities with sustainable energy solutions." },
+      { label: "Published Research", desc: "Published research contributing to global renewable energy knowledge." },
+      { label: "Green Jobs", desc: "Created employment opportunities in the green energy sector." }
+    ],
+    image: images.eisree_hero,
+    imageCaption: "EnVERT Institute of Solar Research & Energy Efficiency (EISREE) research programs and clean energy training.",
+    domainLink: "/businesses/envert-foundation",
+    directEmail: "eisree.kolkata@gmail.com",
+    alternateEmail: "admin@envertgroup.com",
+    directPhone: "+91 9836511995"
   }
 ];
 
@@ -697,8 +754,8 @@ export const ecosystemData = {
     },
     {
       category: "STEWARDSHIP & LIVING",
-      description: "Community ecology and ethical slow fashion.",
-      domains: ["Social Stewardship (EnVERT Foundation)", "Fashion & Lifestyle (Atmaja)"],
+      description: "Community ecology, ethical slow fashion, and renewable energy research.",
+      domains: ["Social Stewardship (EnVERT Foundation)", "Fashion & Lifestyle (Atmaja)", "Solar Research & Efficiency (EISREE)"],
       brands: [
         { 
           name: "EnVERT Foundation", 
@@ -713,6 +770,13 @@ export const ecosystemData = {
           url: "/businesses/fashion-lifestyle", 
           logo: images.atmaja_logo,
           desc: "Handloom textiles, zero-waste apparel, and conscious living curation." 
+        },
+        { 
+          name: "EISREE", 
+          sector: "Solar Research & Energy Efficiency",
+          url: "/businesses/eisree", 
+          logo: images.eisree_logo,
+          desc: "Solar technologies, energy efficiency practices, Green Campus initiatives, and clean energy training." 
         }
       ]
     }

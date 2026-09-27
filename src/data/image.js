@@ -88,7 +88,8 @@ export const logos = {
   research: resolve('/assets/scraped_images/home/eipr_logo.png'),
   
   wellness: resolve('/assets/logos/envert_group_logo.png'),
-  envert_wellness: resolve('/assets/logos/envert_group_logo.png')
+  envert_wellness: resolve('/assets/logos/envert_group_logo.png'),
+  eisree: resolve('/assets/eisree_logo.png')
 };
 
 export const heroes = {
@@ -119,7 +120,8 @@ export const heroes = {
   eipr: resolve('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop'),
   repoxisy: resolve('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=1600&auto=format&fit=crop'),
   wagsol: resolve('https://images.unsplash.com/photo-1548337138-e87d889cc369?q=80&w=1600&auto=format&fit=crop'),
-  wellness: resolve('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600&auto=format&fit=crop')
+  wellness: resolve('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600&auto=format&fit=crop'),
+  eisree: resolve('https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?q=80&w=1600&auto=format&fit=crop')
 };
 
 export const heroCollage = {
@@ -273,6 +275,12 @@ const baseRegistry = {
   wagsol_hero: heroes.wagsol,
   wagsolHero: heroes.wagsol,
 
+  // EISREE - Solar Research & Energy Efficiency
+  eisree_logo: logos.eisree,
+  eisreeLogo: logos.eisree,
+  eisree_hero: heroes.eisree,
+  eisreeHero: heroes.eisree,
+
   // Wellness
   wellness_logo: logos.wellness,
   wellness_hero: heroes.wellness,
@@ -333,6 +341,8 @@ const baseRegistry = {
   'repoxisy-hero': heroes.repoxisy,
   'wagsol-logo': logos.wagsol,
   'wagsol-hero': heroes.wagsol,
+  'eisree-logo': logos.eisree,
+  'eisree-hero': heroes.eisree,
   'wellness-hero': heroes.wellness,
   'project-solar-pv': projects.solar_pv,
   'project-ev-fleet': projects.ev_fleet,

@@ -207,6 +207,19 @@ export default function CompaniesPage({ onOpenContact }) {
       email: 'admin@envertgroup.com',
       summary: 'Bridging heavy industry and policy research with energy modeling, techno-economic evaluations, decarbonization frameworks, and patent innovation studies.',
       domains: ['Industrial Policy', 'Patent Landscaping', 'Techno-Economic Feasibility', 'Regulatory Studies']
+    },
+    {
+      name: 'EISREE',
+      category: 'Solar Research & Energy Efficiency',
+      logo: '/assets/eisree_logo.png',
+      internalSlug: 'eisree',
+      portalUrl: '/businesses/eisree',
+      status: 'Research Institute',
+      headquarters: 'Kolkata, India',
+      phone: '+91 9836511995',
+      email: 'eisree.kolkata@gmail.com',
+      summary: 'EnVERT Institute of Solar Research & Energy Efficiency (EISREE) is dedicated to advancing sustainable energy solutions through cutting-edge solar research, energy efficiency practices, Green Campus initiatives, and community engagement.',
+      domains: ['Solar PV Research', 'Energy Efficiency', 'Green Campus Program', 'Solar for All', 'Skill Development', 'Innovation Hub']
     }
   ];
 

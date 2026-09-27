@@ -102,6 +102,12 @@ export default function Ecosystem() {
       sector: "Policy Research",
       logo: "/assets/scraped_images/home/eipr_logo.png",
       url: "/businesses/eipr"
+    },
+    {
+      name: "EISREE",
+      sector: "Solar Research & Energy Efficiency",
+      logo: "/assets/eisree_logo.png",
+      url: "/businesses/eisree"
     }
   ];
 
@@ -209,6 +215,15 @@ export default function Ecosystem() {
       status: 'Advisory Department',
       internalUrl: '/businesses/afield-advisory',
       tags: ['Destination Advisory', 'Tourism Boards', 'Strategic PR', 'Brand Architecture']
+    },
+    {
+      name: 'EISREE',
+      category: 'Solar Research & Energy Efficiency',
+      logo: '/assets/eisree_logo.png',
+      summary: 'EnVERT Institute of Solar Research & Energy Efficiency (EISREE) is dedicated to advancing sustainable energy solutions through cutting-edge solar research, energy efficiency practices, Green Campus initiatives, and community engagement.',
+      status: 'Research Institute',
+      internalUrl: '/businesses/eisree',
+      tags: ['Solar Research', 'Green Campus', 'Energy Efficiency', 'Skill Development']
     }
   ];
 
@@ -242,7 +257,7 @@ export default function Ecosystem() {
               OFFICIAL GROUP ENTITIES & REGISTERED TRADEMARKS
             </span>
             <span className="hidden sm:inline font-mono text-[11px] text-charcoal/50">
-              14 Operating Subsidiaries & Publications
+              Operating Subsidiaries, Institutes & Publications
             </span>
           </div>
 
