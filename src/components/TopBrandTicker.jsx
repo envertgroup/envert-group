@@ -111,6 +111,12 @@ export default function TopBrandTicker() {
       category: "Solar Research & Energy Efficiency",
       logo: "/assets/eisree_logo.png",
       url: "/businesses/eisree"
+    },
+    {
+      name: "India Corporate Trainers",
+      category: "Corporate Training & Relocation",
+      logo: "/assets/india_corporate_trainers_logo.png",
+      url: "/businesses/india-corporate-trainers"
     }
   ];
 

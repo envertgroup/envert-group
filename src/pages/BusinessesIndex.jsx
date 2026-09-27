@@ -3,10 +3,18 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Phone, Mail, ExternalLink } from 'lucide-react';
 import { businessesData } from '../data/siteData';
 import EditorialImage from '../components/EditorialImage';
+import SEO from '../components/SEO';
+import { getBusinessesIndexSchema } from '../data/seoData';
 
 export default function BusinessesIndex({ onOpenContact }) {
   return (
     <div className="bg-paper-warm min-h-screen py-16 lg:py-24">
+      <SEO
+        title="Our Businesses — 11 Operating Sectors & Specialized Divisions"
+        description="Explore EnVERT Group operating companies and technical divisions across clean energy, statutory BEE audits, commercial EV transport, corporate capability, and publishing."
+        canonical="/businesses"
+        schema={getBusinessesIndexSchema(businessesData)}
+      />
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
         
         {/* Header */}

@@ -1,0 +1,9 @@
+# robots.txt for https://www.envertgroup.com
+# EnVERT Group — Multidisciplinary Engineering, Sustainability, Mobility & Advisory
+
+User-agent: *
+Allow: /
+
+# Host & Sitemap Specifications
+Host: https://www.envertgroup.com
+Sitemap: https://www.envertgroup.com/sitemap.xml

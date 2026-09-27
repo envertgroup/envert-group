@@ -13,7 +13,6 @@ import BusinessDetail from './pages/BusinessDetail';
 import AboutPage from './pages/AboutPage';
 import CompaniesPage from './pages/CompaniesPage';
 import ProjectsPage from './pages/ProjectsPage';
-import InsightsPage from './pages/InsightsPage';
 import CareersPage from './pages/CareersPage';
 import ContactPage from './pages/ContactPage';
 
@@ -35,6 +34,14 @@ export default function App() {
     <Router>
       <div className="min-h-screen bg-paper-warm text-charcoal font-sans selection:bg-forest selection:text-paper flex flex-col justify-between">
         
+        {/* Accessible Skip Link for Accessibility & Crawlers */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-forest focus:text-paper focus:font-heading focus:text-xs focus:uppercase focus:tracking-wider focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-earth"
+        >
+          Skip to main content
+        </a>
+
         {/* Ensures route changes scroll back to top */}
         <ScrollToTop />
 
@@ -42,7 +49,7 @@ export default function App() {
         <Navbar onOpenContact={handleOpenContact} />
 
         {/* Dynamic Multi-Page Router */}
-        <main className="flex-grow">
+        <main id="main-content" tabIndex="-1" className="flex-grow focus:outline-none">
           <Routes>
             <Route
               path="/"
@@ -103,6 +110,9 @@ export default function App() {
             <Route path="/eisree" element={<BusinessDetail forcedSlug="eisree" onOpenContact={handleOpenContact} />} />
             <Route path="/solar-research" element={<BusinessDetail forcedSlug="eisree" onOpenContact={handleOpenContact} />} />
             <Route path="/energy-efficiency" element={<BusinessDetail forcedSlug="eisree" onOpenContact={handleOpenContact} />} />
+            <Route path="/india-corporate-trainers" element={<BusinessDetail forcedSlug="india-corporate-trainers" onOpenContact={handleOpenContact} />} />
+            <Route path="/corporate-trainers" element={<BusinessDetail forcedSlug="india-corporate-trainers" onOpenContact={handleOpenContact} />} />
+            <Route path="/corporate-training-services" element={<BusinessDetail forcedSlug="india-corporate-trainers" onOpenContact={handleOpenContact} />} />
             <Route path="/career" element={<CareersPage onApplyJob={handleApplyJob} />} />
 
             {/* Other Dedicated Routes */}
@@ -117,10 +127,6 @@ export default function App() {
             <Route
               path="/projects"
               element={<ProjectsPage onOpenContact={handleOpenContact} />}
-            />
-            <Route
-              path="/insights"
-              element={<InsightsPage onOpenContact={handleOpenContact} />}
             />
             <Route
               path="/careers"

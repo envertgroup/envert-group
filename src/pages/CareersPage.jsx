@@ -20,6 +20,8 @@ import {
 } from 'lucide-react';
 import { careersData } from '../data/careersData';
 import { siteMetadata } from '../data/siteData';
+import SEO from '../components/SEO';
+import { getCareersPageSchema } from '../data/seoData';
 
 export default function CareersPage({ onApplyJob }) {
   const [selectedDept, setSelectedDept] = useState('ALL');
@@ -63,6 +65,12 @@ export default function CareersPage({ onApplyJob }) {
 
   return (
     <div className="bg-paper-warm min-h-screen py-14 lg:py-20 font-sans selection:bg-forest selection:text-paper">
+      <SEO
+        title="Careers at EnVERT Group — Open Positions & Recruitment Desk"
+        description="Explore live career opportunities across Solar PV engineering, BEE certified audits, commercial EV systems, editorial journalism, HR, and corporate advisory."
+        canonical="/careers"
+        schema={getCareersPageSchema(careersData)}
+      />
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
         
         {/* Top Eyebrow & Headline Section */}

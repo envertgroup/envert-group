@@ -89,7 +89,8 @@ export const logos = {
   
   wellness: resolve('/assets/logos/envert_group_logo.png'),
   envert_wellness: resolve('/assets/logos/envert_group_logo.png'),
-  eisree: resolve('/assets/eisree_logo.png')
+  eisree: resolve('/assets/eisree_logo.png'),
+  india_corporate_trainers: resolve('/assets/india_corporate_trainers_logo.png')
 };
 
 export const heroes = {
@@ -121,7 +122,8 @@ export const heroes = {
   repoxisy: resolve('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=1600&auto=format&fit=crop'),
   wagsol: resolve('https://images.unsplash.com/photo-1548337138-e87d889cc369?q=80&w=1600&auto=format&fit=crop'),
   wellness: resolve('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600&auto=format&fit=crop'),
-  eisree: resolve('https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?q=80&w=1600&auto=format&fit=crop')
+  eisree: resolve('https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?q=80&w=1600&auto=format&fit=crop'),
+  corporate_trainers: resolve('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop')
 };
 
 export const heroCollage = {
@@ -136,7 +138,21 @@ export const projects = {
   solar_pv: resolve('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1200&auto=format&fit=crop'),
   ev_fleet: resolve('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop'),
   foundry_audit: resolve('https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop'),
-  training_program: resolve('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200&auto=format&fit=crop')
+  training_program: resolve('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200&auto=format&fit=crop'),
+  bvcm_solar: resolve('https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?q=80&w=1200&auto=format&fit=crop'),
+  wagsol_ccu: resolve('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop'),
+  railway_solar: resolve('https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=1200&auto=format&fit=crop'),
+  solar_dc: resolve('https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?q=80&w=1200&auto=format&fit=crop'),
+  bess_storage: resolve('https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?q=80&w=1200&auto=format&fit=crop'),
+  repoxisy_epoxy: resolve('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200&auto=format&fit=crop'),
+  fleet_graphics: resolve('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1200&auto=format&fit=crop'),
+  solar_om: resolve('https://images.unsplash.com/photo-1548337138-e87d889cc369?q=80&w=1200&auto=format&fit=crop'),
+  green_audit: resolve('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200&auto=format&fit=crop'),
+  carbon_advisory: resolve('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1200&auto=format&fit=crop'),
+  hydrogen_fuel: resolve('https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1200&auto=format&fit=crop'),
+  bioenergy: resolve('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop'),
+  wind_hybrid: resolve('https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1200&auto=format&fit=crop'),
+  corporate_ppa: resolve('https://images.unsplash.com/photo-1497440001374-f26997328c1b?q=80&w=1200&auto=format&fit=crop')
 };
 
 export const foundationGallery = {
@@ -281,6 +297,13 @@ const baseRegistry = {
   eisree_hero: heroes.eisree,
   eisreeHero: heroes.eisree,
 
+  // India Corporate Trainers - Corporate Training, Education, Legal & Relocation
+  india_corporate_trainers_logo: logos.india_corporate_trainers,
+  indiaCorporateTrainersLogo: logos.india_corporate_trainers,
+  india_corporate_trainers_hero: heroes.corporate_trainers,
+  corporate_trainers_hero: heroes.corporate_trainers,
+  corporateTrainersHero: heroes.corporate_trainers,
+
   // Wellness
   wellness_logo: logos.wellness,
   wellness_hero: heroes.wellness,
@@ -343,6 +366,9 @@ const baseRegistry = {
   'wagsol-hero': heroes.wagsol,
   'eisree-logo': logos.eisree,
   'eisree-hero': heroes.eisree,
+  'india-corporate-trainers-logo': logos.india_corporate_trainers,
+  'india-corporate-trainers-hero': heroes.corporate_trainers,
+  'corporate-trainers-hero': heroes.corporate_trainers,
   'wellness-hero': heroes.wellness,
   'project-solar-pv': projects.solar_pv,
   'project-ev-fleet': projects.ev_fleet,

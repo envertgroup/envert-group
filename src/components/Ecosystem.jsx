@@ -38,8 +38,8 @@ export default function Ecosystem() {
       url: "/businesses/wagsol"
     },
     {
-      name: "ICST",
-      sector: "International Conference & Corporate Capability",
+      name: "ICST Global",
+      sector: "Sustainable Tourism Conferences & Industry Platform",
       logo: "/assets/scraped_images/home/ICST-logo.png",
       url: "/businesses/icst"
     },
@@ -108,6 +108,12 @@ export default function Ecosystem() {
       sector: "Solar Research & Energy Efficiency",
       logo: "/assets/eisree_logo.png",
       url: "/businesses/eisree"
+    },
+    {
+      name: "India Corporate Trainers",
+      sector: "Corporate Training & Relocation",
+      logo: "/assets/india_corporate_trainers_logo.png",
+      url: "/businesses/india-corporate-trainers"
     }
   ];
 
@@ -151,14 +157,14 @@ export default function Ecosystem() {
       tags: ['Solar Lighting', 'High-Mast Lighting', 'BVCM/BVZI Wagons', 'BLDC Fans', 'Railway Bio-Toilets', 'Waterless Urinals']
     },
     {
-      name: 'ICST',
-      category: 'Corporate Capability & Sustainable Transition',
+      name: 'ICST Global',
+      category: 'Sustainable Tourism, Conferences & Industry Platform',
       logo: '/assets/scraped_images/home/ICST-logo.png',
-      summary: 'ICST (International Conference on Sustainable Transition) convenes international sustainability conferences alongside over 15 years of corporate capability and language engineering for 30+ multinational corporations.',
-      status: 'Conference & Capability Division',
+      summary: 'ICST Global (International Conference on Sustainable Transition) organises international conferences and exhibitions on sustainable tourism, destination development, ecotourism, tourism innovation, and policy — connecting tourism ministries, NTOs, hoteliers, airlines, tour operators, and technology companies.',
+      status: 'International Tourism Conference & Exhibition Platform',
       internalUrl: '/businesses/icst',
       externalUrl: 'http://www.icstglobal.com',
-      tags: ['Sustainable Transition', '20+ Language Curricula', 'Voice & Accent', 'Executive Capability', '30+ MNC Track Record']
+      tags: ['Sustainable Tourism', 'Destination Development', 'Ecotourism', 'Tourism Policy', 'NTO & Industry Platform']
     },
     {
       name: 'Glare Post',
@@ -224,6 +230,15 @@ export default function Ecosystem() {
       status: 'Research Institute',
       internalUrl: '/businesses/eisree',
       tags: ['Solar Research', 'Green Campus', 'Energy Efficiency', 'Skill Development']
+    },
+    {
+      name: 'India Corporate Trainers',
+      category: 'Corporate Training, Education, Legal & Relocation',
+      logo: '/assets/india_corporate_trainers_logo.png',
+      summary: 'Delivering workforce training, educational consultancy, corporate legal compliance, and turnkey corporate relocation across 10 Indian cities for global Fortune 500 corporations.',
+      status: 'Training & Advisory Division',
+      internalUrl: '/businesses/india-corporate-trainers',
+      tags: ['200+ Assignments', '10 Cities', 'Fortune 500 Clients', 'Legal & Relocation']
     }
   ];
 

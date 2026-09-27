@@ -154,13 +154,6 @@ export default function Navbar({ onOpenContact }) {
             </Link>
 
             <Link
-              to="/insights"
-              className={`hover:text-forest-deep transition-colors py-1 ${location.pathname === '/insights' ? 'text-forest-deep font-bold' : ''}`}
-            >
-              Insights
-            </Link>
-
-            <Link
               to="/careers"
               className={`hover:text-forest-deep transition-colors py-1 ${location.pathname === '/careers' ? 'text-forest-deep font-bold' : ''}`}
             >
@@ -272,14 +265,6 @@ export default function Navbar({ onOpenContact }) {
                 className="text-xl font-heading font-semibold text-forest-deep hover:text-earth transition-colors border-b border-charcoal/5 pb-2"
               >
                 Selected Work
-              </Link>
-
-              <Link
-                to="/insights"
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-xl font-heading font-semibold text-forest-deep hover:text-earth transition-colors border-b border-charcoal/5 pb-2"
-              >
-                Insights & Publishing
               </Link>
 
               <Link

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, ShieldCheck, Loader2, AlertCircle } from 'lucide-react';
 import { siteMetadata } from '../data/siteData';
 import { submitForm } from '../services/formService';
+import SEO from '../components/SEO';
+import { getContactPageSchema } from '../data/seoData';
 
 export default function ContactPage() {
   const [selectedTopics, setSelectedTopics] = useState(['Energy & Solar PV']);
@@ -72,6 +74,12 @@ export default function ContactPage() {
 
   return (
     <div className="bg-paper-warm min-h-screen py-16 lg:py-24">
+      <SEO
+        title="Contact EnVERT Group — Corporate Desks & Practice Inquiries"
+        description="Directly connect with our specialized practice desks in Kolkata for commercial clean energy, BEE statutory audits, commercial EV fleet conversion, corporate language training, or publication proposals."
+        canonical="/contact"
+        schema={getContactPageSchema(siteMetadata)}
+      />
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
         
         {/* Header */}

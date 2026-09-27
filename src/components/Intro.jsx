@@ -13,9 +13,9 @@ export default function Intro() {
     },
     {
       num: '02',
-      title: 'ADVISORY & CAPABILITY',
-      desc: 'Multinational workforce training, executive communication, techno-commercial feasibility, and ESG advisory.',
-      disciplines: ['ICST Global Corporate Training', 'Linguistic & Accent Conditioning', 'Applied Research & IP Advisory', 'Executive Curriculum Development'],
+      title: 'TOURISM & ADVISORY',
+      desc: 'International sustainable tourism conferences, destination development, ecotourism, tourism policy, and strategic advisory.',
+      disciplines: ['ICST Global — Sustainable Tourism Conferences', 'Destination & Ecotourism Development', 'Tourism Policy & NTO Engagement', 'Industry Networking & Exhibition Platform'],
       icon: ShieldCheck,
     },
     {
@@ -83,7 +83,7 @@ export default function Intro() {
                 </div>
                 <div className="flex items-start gap-2.5 text-xs text-charcoal/80">
                   <CheckCircle2 className="w-4 h-4 text-leaf shrink-0 mt-0.5" />
-                  <span><strong>Advisory & Knowledge:</strong> Strategic management consulting, corporate training, and book publishing.</span>
+                  <span><strong>Tourism & Advisory:</strong> International sustainable tourism conferences (ICST Global), strategic consulting, and book publishing.</span>
                 </div>
               </div>
 

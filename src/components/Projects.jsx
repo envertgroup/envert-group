@@ -46,6 +46,11 @@ export default function Projects({ onOpenContact }) {
 
                 {/* Details */}
                 <div className="p-6">
+                  {project.vertical && (
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-earth font-bold bg-earth/10 px-2 py-0.5 rounded-xs border border-earth/20 inline-block mb-2.5">
+                      {project.vertical}
+                    </span>
+                  )}
                   <div className="flex items-center gap-4 text-xs font-mono text-charcoal/60 mb-3">
                     <span className="flex items-center gap-1">
                       <MapPin className="w-3 h-3 text-earth" />

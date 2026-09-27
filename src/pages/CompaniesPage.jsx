@@ -1,6 +1,8 @@
 import React from 'react';
 import { ExternalLink, ArrowRight, Phone, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import { getCompaniesPageSchema } from '../data/seoData';
 
 export default function CompaniesPage({ onOpenContact }) {
   const companies = [
@@ -72,18 +74,26 @@ export default function CompaniesPage({ onOpenContact }) {
       ]
     },
     {
-      name: 'ICST',
-      category: 'Corporate Capability & Sustainable Transition',
+      name: 'ICST Global',
+      category: 'Sustainable Tourism, Conferences & Industry Platform',
       logo: '/assets/scraped_images/home/ICST-logo.png',
       portalUrl: 'http://www.icstglobal.com',
       internalSlug: 'icst',
-      status: 'Conference & Capability Division',
-      headquarters: 'Kolkata & Pan-India Corporate Campuses',
+      status: 'International Tourism Conference & Exhibition Platform',
+      headquarters: 'Kolkata, India & International',
       phone: '+91 9836511995',
       email: 'icst@thetouriosity.com',
-      summary: 'ICST (International Conference on Sustainable Transition) convenes international sustainability conferences alongside over 15 years of corporate capability and language engineering for 30+ multinational corporations.',
-      domains: ['International Conference on Sustainable Transition', '20+ Language Curricula', 'Voice & Accent Neutralization', 'Executive Capability Development', '30+ MNC Track Record']
+      summary: 'ICST Global (International Conference on Sustainable Transition) is a premier international tourism knowledge, conference, networking, and industry-platform organisation. It organises international conferences and exhibitions on sustainable tourism, destination development, ecotourism, tourism innovation, and policy — bringing together tourism ministries, NTOs, hoteliers, airlines, tour operators, and technology companies.',
+      domains: [
+        'International Sustainable Tourism Conferences & Exhibitions',
+        'Sustainable Destination Development (Ecotourism, Rural & Cultural)',
+        'Tourism Innovation, Technology & Policy Dialogue',
+        'Exhibition Platform for Tourism Ministries, NTOs & Trade Bodies',
+        'Publishing Tourism Industry News, Trends & Intelligence',
+        'Community-Sensitive & Responsible Tourism Promotion'
+      ]
     },
+
     {
       name: 'Glare Post',
       category: 'Digital Perspectives & Investigative Journalism',
@@ -220,11 +230,30 @@ export default function CompaniesPage({ onOpenContact }) {
       email: 'eisree.kolkata@gmail.com',
       summary: 'EnVERT Institute of Solar Research & Energy Efficiency (EISREE) is dedicated to advancing sustainable energy solutions through cutting-edge solar research, energy efficiency practices, Green Campus initiatives, and community engagement.',
       domains: ['Solar PV Research', 'Energy Efficiency', 'Green Campus Program', 'Solar for All', 'Skill Development', 'Innovation Hub']
+    },
+    {
+      name: 'India Corporate Trainers',
+      category: 'Corporate Training, Education, Legal & Relocation',
+      logo: '/assets/india_corporate_trainers_logo.png',
+      internalSlug: 'india-corporate-trainers',
+      portalUrl: '/businesses/india-corporate-trainers',
+      status: 'Corporate Training Division',
+      headquarters: 'Pan-India (10 Major Cities)',
+      phone: '+91 9836511995',
+      email: 'admin@envertgroup.com',
+      summary: 'Delivers corporate training, language curricula, education consultancy, corporate legal compliance, and turnkey corporate relocation. Track record of 200+ assignments across 10 Indian cities for global MNCs including Microsoft, IBM, Coca-Cola, PepsiCo, Johnson & Johnson, Citibank, ING, Cisco, GE, Thermo Fisher, Goldman Sachs and Jaguar Land Rover.',
+      domains: ['Corporate Training', 'Language Engineering', 'Education Consultancy', 'Legal Consultancy', 'Corporate Relocation', '200+ MNC Assignments']
     }
   ];
 
   return (
     <div className="bg-paper-warm min-h-screen py-16 lg:py-24">
+      <SEO
+        title="Group Companies & Operating Entities"
+        description="Directory of specialized businesses, operating companies, publishing houses, and social stewardship foundations united under EnVERT Group in Kolkata, India."
+        canonical="/companies"
+        schema={getCompaniesPageSchema(companies)}
+      />
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
         
         {/* Header */}

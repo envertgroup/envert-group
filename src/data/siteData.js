@@ -17,7 +17,7 @@ export const siteMetadata = {
   hiringAlert: "Actively hiring Solar PV Engineers, HR Officers, PR Managers, and Travel Magazine Sales Executives. Send CV to hr@envertgroup.com",
   operatingPillars: [
     { label: "Engineering & Materials", count: "04 Categories", desc: "Energy (NRG India), Transport (EnVERT E-Vehicles), Specialty Chemicals & Epoxy (REPOXISY), Solar & Rail Systems (WAGSOL)" },
-    { label: "Advisory & Capability", count: "03 Categories", desc: "Corporate Capability (ICST), Policy Research (EIPR), Strategic Advisory (Afield Advisory)" },
+    { label: "Tourism & Advisory", count: "04 Categories", desc: "Sustainable Tourism Conferences & Industry Platform (ICST Global), Corporate Training & Relocation (India Corporate Trainers), Policy Research (EIPR), Strategic Advisory (Afield Advisory)" },
     { label: "Media & Culture", count: "03 Categories", desc: "Publication & Media (Touriosity Travelmag, Pen & Ink, Glare Post), Visual Arts (Afield Gallery)" },
     { label: "Stewardship & Living", count: "03 Categories", desc: "Social Stewardship (EnVERT Foundation), Fashion & Lifestyle (Atmaja), Solar Research & Efficiency (EISREE)" },
   ],
@@ -87,7 +87,7 @@ export const businessesData = [
         legalName: "EnVERT E-Vehicles Private Limited",
         role: "Commercial EV Design & Manufacturing",
         logo: images.envert_group_logo,
-        url: "https://www.envertgroup.com/transport-electric",
+        url: "https://www.envertelectric.com/",
         desc: "Design, manufacturing, and marketing of electric commercial platforms, 3-wheelers, and charging depots."
       }
     ],
@@ -114,36 +114,59 @@ export const businessesData = [
   {
     id: "icst",
     num: "03",
-    name: "ICST",
-    category: "Corporate Capability & Sustainable Transition",
-    companyName: "ICST",
-    companyLegalName: "ICST (International Conference on Sustainable Transition)",
-    brandRef: "ICST",
+    name: "ICST Global",
+    category: "Sustainable Tourism, Conferences & Industry Platform",
+    companyName: "ICST Global",
+    companyLegalName: "ICST Global (International Conference on Sustainable Transition)",
+    brandRef: "ICST Global",
     urlSlug: "icst",
-    aliases: ["icst", "corporate-training", "training", "language-engineering", "sustainable-transition"],
+    aliases: ["icst", "corporate-training", "training", "language-engineering", "sustainable-transition", "sustainable-tourism", "icst-global"],
     logo: images.icst_logo,
     secondaryLogo: images.icst_secondary_logo,
-    tagline: "International sustainability conferences alongside over 15 years of corporate capability and language engineering.",
-    summary: "ICST (International Conference on Sustainable Transition) convenes international sustainability conferences alongside over 15 years of corporate capability and language engineering for 30+ multinational corporations.",
+    tagline: "International conferences, exhibitions, and knowledge platform for sustainable tourism, destination development, and tourism innovation.",
+    summary: "ICST Global (International Conference on Sustainable Transition) functions as a premier international tourism knowledge, conference, networking, and industry-platform organisation. It organises international conferences and exhibitions focused on sustainable tourism, innovation, and policy, bringing together tourism professionals, academics, government officials, tourism ministries, national tourism organisations (NTOs), destination developers, hoteliers, airlines, tour operators, and technology companies. ICST promotes sustainable destination development, ecotourism, rural tourism, cultural tourism, and community-based tourism, while facilitating policy dialogue and industry collaboration across the global tourism ecosystem.",
     businessesUnderCategory: [
       {
-        name: "ICST",
+        name: "ICST Global Conferences",
         legalName: "International Conference on Sustainable Transition",
-        role: "Corporate Capability & Sustainable Transition",
+        role: "International Sustainable Tourism Conferences & Exhibitions",
         logo: images.icst_logo,
         url: "http://www.icstglobal.com",
-        desc: "ICST (International Conference on Sustainable Transition) convenes international sustainability conferences alongside over 15 years of corporate capability and language engineering for 30+ multinational corporations."
+        desc: "Organises international conferences and exhibitions focused on sustainable tourism practices, destination development, tourism innovation, and policy. Brings together tourism ministries, NTOs, travel agents, tour operators, airlines, airports, hotels, resorts, cruise companies, educational institutions, and technology companies under one platform."
+      },
+      {
+        name: "Sustainable Tourism Knowledge Platform",
+        legalName: "ICST Global — Knowledge & Publishing",
+        role: "Industry News, Articles & Tourism Intelligence",
+        logo: images.icst_logo,
+        url: "http://www.icstglobal.com",
+        desc: "Publishes tourism-related industry news, destination articles, tourism initiative coverage, hospitality insights, and exhibition updates. Highlights emerging tourism trends, start-ups, new tourism experiences, sustainable benchmarking tools, and best-practice frameworks for the global tourism industry."
+      },
+      {
+        name: "Destination & Community Tourism",
+        legalName: "ICST Global — Destination Development",
+        role: "Ecotourism, Rural & Cultural Tourism Development",
+        logo: images.icst_secondary_logo,
+        url: "http://www.icstglobal.com",
+        desc: "Supports sustainable destination development across ecotourism, rural tourism, cultural tourism, heritage tourism, and community-based tourism. Promotes responsible, community-sensitive tourism including cultural sensitivity training and community museum and heritage initiatives."
       }
     ],
     capabilities: [
-      "International Conference on Sustainable Transition",
-      "20+ Language Curricula",
-      "Voice & Accent Neutralization",
-      "Executive Capability Development",
-      "30+ MNC Track Record"
+      "Organising International Sustainable Tourism Conferences",
+      "Sustainable Destination Development (Ecotourism, Rural & Cultural Tourism)",
+      "Tourism Innovation & Technology Integration",
+      "Tourism Policy, Strategy & Government Engagement",
+      "Environmental Sustainability & Renewable Energy in Tourism",
+      "Exhibition & Participation Platform for Tourism Stakeholders",
+      "Industry Networking & Partnership Facilitation",
+      "Publishing Tourism Industry News, Articles & Intelligence",
+      "Culinary, Medical, Adventure & Specialised Tourism Segments",
+      "Sustainable Tourism Benchmarking, Tools & Best Practices",
+      "Community-Sensitive & Responsible Tourism Promotion",
+      "Collaboration with NTOs, Tourism Ministries & Trade Bodies"
     ],
     image: images.training_hero,
-    imageCaption: "ICST - International Conference on Sustainable Transition and corporate capability.",
+    imageCaption: "ICST Global — International conferences and exhibitions on sustainable tourism, destination development, and tourism innovation.",
     domainLink: "http://www.icstglobal.com",
     directEmail: "icst@thetouriosity.com",
     alternateEmail: "admin@envertgroup.com",
@@ -209,24 +232,24 @@ export const businessesData = [
       "Editorial Proofreading, Curation, Formatting & Global Distribution"
     ],
     publications: [
-      { 
-        name: "Touriosity Travelmag", 
+      {
+        name: "Touriosity Travelmag",
         desc: "Flagship international travel and heritage publication celebrating sustainable culture and conscious tourism.",
         logo: images.touriosity_logo,
         url: "http://www.thetouriosity.com"
       },
-      { 
-        name: "Curiosity Kids", 
+      {
+        name: "Curiosity Kids",
         desc: "7+ years international magazine cultivating young scientific inquiry, published globally on Amazon.",
         logo: images.curiosity_logo
       },
-      { 
-        name: "Sustainable Energy Review", 
+      {
+        name: "Sustainable Energy Review",
         desc: "Clean Energy & Technology Trade Magazine dedicated to clean power, industrial efficiency, and statutory policy standards.",
         logo: images.sustainable_energy_review_logo
       },
-      { 
-        name: "Glare Post", 
+      {
+        name: "Glare Post",
         desc: "Digital perspectives and news platform covering policy, economy, sustainability, and culture.",
         logo: images.glarepost_logo,
         url: "https://www.glarepost.com"
@@ -645,6 +668,124 @@ export const businessesData = [
     directEmail: "eisree.kolkata@gmail.com",
     alternateEmail: "admin@envertgroup.com",
     directPhone: "+91 9836511995"
+  },
+  {
+    id: "india-corporate-trainers",
+    num: "14",
+    name: "Corporate Training & Professional Consultancy",
+    category: "Corporate Training, Education, Legal & Relocation",
+    companyName: "India Corporate Trainers",
+    companyLegalName: "India Corporate Trainers",
+    brandRef: "India Corporate Trainers",
+    urlSlug: "india-corporate-trainers",
+    aliases: ["india-corporate-trainers", "corporate-trainers", "ict", "corporate-training-services"],
+    logo: images.india_corporate_trainers_logo,
+    tagline: "Multinational corporate training, educational consultancy, corporate legal compliance, and turnkey corporate relocation.",
+    summary: "India Corporate Trainers delivers end-to-end corporate workforce capability, language training, higher-education consultancy, corporate legal documentation, and turnkey corporate relocation across India. Operating across 10 major metropolitan cities with 200+ completed enterprise assignments, the firm provides structured training to employees of global Fortune 500 corporations including Microsoft, IBM, Coca-Cola, PepsiCo, Johnson & Johnson, Citibank, ING, Cisco, GE Commercial Finance, Thermo Fisher Scientific, Goldman Sachs, and Jaguar Land Rover.",
+    businessesUnderCategory: [
+      {
+        name: "India Corporate Trainers",
+        legalName: "India Corporate Trainers",
+        role: "Corporate Training, Education, Legal & Relocation Services",
+        logo: images.india_corporate_trainers_logo,
+        url: "/businesses/india-corporate-trainers",
+        desc: "Enterprise employee training, institutional education consultancy, corporate legal compliance, and national/international corporate relocation services."
+      }
+    ],
+    capabilities: [
+      "Corporate & Language Training for Major Multinational Corporations",
+      "200+ Enterprise Assignments Executed Across 10 Major Cities in India",
+      "Education Consultancy, Student Counselling & Career Guidance",
+      "Curriculum Research & Development for Schools, Colleges & Institutions",
+      "Student Exchange Programmes & Master's Thesis Academic Mentoring",
+      "Company & Corporate Entity Registrations and Regulatory Filing",
+      "Drafting Legal Documents, Contracts, Agreements & Statutory Maintenance",
+      "Consultancy on Indian Corporate & Labour Laws via Professional Associates",
+      "Turnkey Domestic & International Corporate Relocation Planning",
+      "Property Transfers, Packing, Movement of Goods & Customs Clearance Support"
+    ],
+    serviceAreas: [
+      {
+        num: "01",
+        title: "Corporate Training",
+        subtitle: "Enterprise Workforce & Language Training",
+        desc: "Language training and professional corporate skill development delivered to employees of major multinational corporations. Over 200+ assignments executed by a nationwide team operating across 10 major Indian cities.",
+        points: [
+          "Language training and corporate training for enterprise employees",
+          "Training delivered to employees of major multinational corporations",
+          "200+ completed assignments across 10 major cities in India",
+          "Blue-chip track record with Microsoft, IBM, Coca-Cola, PepsiCo, Johnson & Johnson, Citibank, ING, Cisco, GE, Thermo Fisher, Goldman Sachs and Jaguar Land Rover"
+        ]
+      },
+      {
+        num: "02",
+        title: "Education Consultancy",
+        subtitle: "Academic Advisory & Institutional R&D",
+        desc: "Comprehensive educational advisory for students, schools, colleges, and higher-education institutions. Engages with higher-education councils and supports post-graduate academic research.",
+        points: [
+          "Student counselling and personalized career guidance",
+          "Training and consultancy for schools, colleges and institutions",
+          "Curriculum research and development",
+          "Student exchange programmes and cross-cultural initiatives",
+          "Academic tutoring and mentoring",
+          "Association with higher-education councils and mentoring Master's theses"
+        ]
+      },
+      {
+        num: "03",
+        title: "Legal Consultancy",
+        subtitle: "Corporate Registrations & Statutory Law",
+        desc: "End-to-end legal support covering business incorporations, statutory maintenance, and labor law compliance backed by seasoned professional legal associates.",
+        points: [
+          "Company and corporate registrations",
+          "Drafting legal documents, commercial agreements and contracts",
+          "Maintenance of statutory records and registers",
+          "Consultancy relating to corporate and labour laws",
+          "Comprehensive legal support through professional associates"
+        ]
+      },
+      {
+        num: "04",
+        title: "Corporate Relocation Services",
+        subtitle: "Domestic & International Mobility",
+        desc: "Seamless turnkey relocation services for individuals, expatriate families, and multinational corporate teams transitioning across cities or borders.",
+        points: [
+          "Assistance with relocation of individuals, families and corporate teams",
+          "Relocation planning, scheduling and documentation",
+          "Property transfers and real estate coordination",
+          "Packing and movement of goods nationally and internationally",
+          "Support involving customs clearance, transit insurance, passports and visas"
+        ]
+      },
+      {
+        num: "05",
+        title: "Language & Capability Engineering",
+        subtitle: "Executive Communication & Global Fluency",
+        desc: "Specialized language curricula, voice and accent neutralization, and cross-cultural communication frameworks preparing enterprise workforces for global multinational client engagements.",
+        points: [
+          "Voice & accent neutralization for international client interaction",
+          "Cross-cultural fluency and global business communication",
+          "Executive leadership communication coaching",
+          "Multi-tier corporate language curricula benchmarked to international standards"
+        ]
+      }
+    ],
+    clientRoster: [
+      "Microsoft", "IBM", "Coca-Cola", "PepsiCo", "Johnson & Johnson",
+      "Citibank", "ING", "Cisco", "GE Commercial Finance",
+      "Thermo Fisher Scientific", "Goldman Sachs", "Jaguar Land Rover"
+    ],
+    stats: [
+      { label: "Enterprise Assignments", value: "200+" },
+      { label: "Major Indian Cities", value: "10" },
+      { label: "Global MNC Clients", value: "12+" },
+      { label: "Principal Service Disciplines", value: "05" }
+    ],
+    image: images.corporate_trainers_hero,
+    imageCaption: "India Corporate Trainers executive capability training and professional consultancy.",
+    domainLink: "/businesses/india-corporate-trainers",
+    directEmail: "admin@envertgroup.com",
+    directPhone: "+91 9836511995"
   }
 ];
 
@@ -655,63 +796,70 @@ export const ecosystemData = {
       description: "Physical infrastructure, clean power generation, commercial electric vehicles, specialty chemicals, and solar railway sanitation.",
       domains: ["Energy (NRG India)", "Transport (EnVERT E-Vehicles)", "Specialty Chemicals & Epoxy Solutions (REPOXISY)", "Solar & Railway Sanitation (WAGSOL)"],
       brands: [
-        { 
-          name: "NRG India", 
+        {
+          name: "NRG India",
           sector: "Energy",
-          url: "/businesses/energy", 
+          url: "/businesses/energy",
           externalUrl: "http://www.nrgindia.com",
           logo: images.nrgindia_logo,
-          desc: "BEE certified audits for steel, power, pharma, foundry & NAAC green audits." 
+          desc: "BEE certified audits for steel, power, pharma, foundry & NAAC green audits."
         },
-        { 
-          name: "EnVERT E-Vehicles Pvt. Ltd.", 
+        {
+          name: "EnVERT E-Vehicles Pvt. Ltd.",
           sector: "Transport",
-          url: "/businesses/transport-electric", 
+          url: "/businesses/transport-electric",
           logo: images.envert_group_logo,
-          desc: "Design & deployment of electric cars, 3-wheelers, cycles & charging depots." 
+          desc: "Design & deployment of electric cars, 3-wheelers, cycles & charging depots."
         },
-        { 
-          name: "REPOXISY", 
+        {
+          name: "REPOXISY",
           sector: "Specialty Chemicals & Epoxy Solutions",
-          url: "/businesses/repoxisy", 
+          url: "/businesses/repoxisy",
           logo: images.repoxisy_logo,
-          desc: "Industrial & railway epoxy flooring, protective coatings, and specialty chemicals under Nandi Resources." 
+          desc: "Industrial & railway epoxy flooring, protective coatings, and specialty chemicals under Nandi Resources."
         },
-        { 
-          name: "WAGSOL", 
+        {
+          name: "WAGSOL",
           sector: "Solar, Railway & Sanitation",
-          url: "/businesses/wagsol", 
+          url: "/businesses/wagsol",
           logo: images.wagsol_logo,
-          desc: "Solar street & high-mast lighting, wagon applications (BVCM/BVZI), BLDC fans, and railway bio-toilets under Nandi Resources." 
+          desc: "Solar street & high-mast lighting, wagon applications (BVCM/BVZI), BLDC fans, and railway bio-toilets under Nandi Resources."
         }
       ]
     },
     {
-      category: "ADVISORY & CAPABILITY",
-      description: "Human capital development, corporate capability, policy research, and strategic destination advisory.",
-      domains: ["Corporate Capability (ICST)", "Policy Research (EIPR)", "Advisory Department (Afield Advisory)"],
+      category: "TOURISM & ADVISORY",
+      description: "International sustainable tourism conferences, corporate training, policy research, and strategic advisory across global and domestic markets.",
+      domains: ["Sustainable Tourism Conferences & Platform (ICST Global)", "Corporate Training & Relocation (India Corporate Trainers)", "Policy Research (EIPR)", "Advisory Department (Afield Advisory)"],
       brands: [
-        { 
-          name: "ICST", 
-          sector: "International Conference & Capability",
-          url: "/businesses/icst", 
+        {
+          name: "ICST Global",
+          sector: "Sustainable Tourism Conferences & Industry Platform",
+          url: "/businesses/icst",
           externalUrl: "http://www.icstglobal.com",
           logo: images.icst_logo,
-          desc: "International Conference on Sustainable Transition alongside corporate capability and language training." 
+          desc: "International conferences, exhibitions and knowledge platform for sustainable tourism, destination development, ecotourism, tourism policy, and industry networking."
         },
-        { 
-          name: "EIPR", 
+        {
+          name: "India Corporate Trainers",
+          sector: "Corporate Training & Relocation",
+          url: "/businesses/india-corporate-trainers",
+          logo: images.india_corporate_trainers_logo,
+          desc: "Corporate training, education consultancy, corporate legal advisory, and turnkey corporate relocation across 10 major Indian cities."
+        },
+        {
+          name: "EIPR",
           sector: "Policy Research",
-          url: "/businesses/eipr", 
+          url: "/businesses/eipr",
           logo: images.eipr_logo,
-          desc: "EnVERT Institute of Policy Research — techno-economic policy and feasibility studies." 
+          desc: "EnVERT Institute of Policy Research — techno-economic policy and feasibility studies."
         },
-        { 
-          name: "Afield Advisory", 
+        {
+          name: "Afield Advisory",
           sector: "Advisory Department",
-          url: "/businesses/afield-advisory", 
+          url: "/businesses/afield-advisory",
           logo: images.afield_logo,
-          desc: "Strategic destination representation, brand consultancy, PR, and communications." 
+          desc: "Strategic destination representation, brand consultancy, PR, and communications."
         }
       ]
     },
@@ -720,35 +868,35 @@ export const ecosystemData = {
       description: "International travel magazines, publishing houses, digital news, and contemporary art.",
       domains: ["Touriosity Travelmag", "Pen & Ink Publishers", "Glare Post", "Afield Gallery"],
       brands: [
-        { 
-          name: "Touriosity Travelmag", 
+        {
+          name: "Touriosity Travelmag",
           sector: "Publication & Media",
-          url: "/businesses/publication", 
+          url: "/businesses/publication",
           externalUrl: "http://www.thetouriosity.com",
           logo: images.touriosity_logo,
-          desc: "Flagship international travel and heritage magazine exploring conscious eco-tourism." 
+          desc: "Flagship international travel and heritage magazine exploring conscious eco-tourism."
         },
-        { 
-          name: "Pen & Ink Publishers", 
+        {
+          name: "Pen & Ink Publishers",
           sector: "Publication & Media",
-          url: "/businesses/publication", 
+          url: "/businesses/publication",
           logo: images.pen_and_ink_logo,
-          desc: "Annual Curiosity Writing Awards, Curiosity Kids Magazine, Amazon distribution." 
+          desc: "Annual Curiosity Writing Awards, Curiosity Kids Magazine, Amazon distribution."
         },
-        { 
-          name: "Glare Post", 
+        {
+          name: "Glare Post",
           sector: "Publication & Media",
-          url: "/glarepost", 
+          url: "/glarepost",
           externalUrl: "https://www.glarepost.com",
           logo: images.glarepost_logo,
-          desc: "Independent digital news, policy commentary, and clean transition features." 
+          desc: "Independent digital news, policy commentary, and clean transition features."
         },
-        { 
-          name: "Afield Gallery", 
+        {
+          name: "Afield Gallery",
           sector: "Visual Arts & Contemporary Culture",
-          url: "/businesses/afield-gallery", 
+          url: "/businesses/afield-gallery",
           logo: images.afield_gallery_logo,
-          desc: "Visual arts, contemporary culture, and curated Indian arts & dolls gallery." 
+          desc: "Visual arts, contemporary culture, and curated Indian arts & dolls gallery."
         }
       ]
     },
@@ -757,26 +905,26 @@ export const ecosystemData = {
       description: "Community ecology, ethical slow fashion, and renewable energy research.",
       domains: ["Social Stewardship (EnVERT Foundation)", "Fashion & Lifestyle (Atmaja)", "Solar Research & Efficiency (EISREE)"],
       brands: [
-        { 
-          name: "EnVERT Foundation", 
+        {
+          name: "EnVERT Foundation",
           sector: "Social Stewardship",
-          url: "/businesses/envert-foundation", 
+          url: "/businesses/envert-foundation",
           logo: images.envert_foundation_logo,
-          desc: "Grassroots ecology, tree plantation drives, student scholarships & literacy." 
+          desc: "Grassroots ecology, tree plantation drives, student scholarships & literacy."
         },
-        { 
-          name: "Atmaja", 
+        {
+          name: "Atmaja",
           sector: "Fashion & Lifestyle",
-          url: "/businesses/fashion-lifestyle", 
+          url: "/businesses/fashion-lifestyle",
           logo: images.atmaja_logo,
-          desc: "Handloom textiles, zero-waste apparel, and conscious living curation." 
+          desc: "Handloom textiles, zero-waste apparel, and conscious living curation."
         },
-        { 
-          name: "EISREE", 
+        {
+          name: "EISREE",
           sector: "Solar Research & Energy Efficiency",
-          url: "/businesses/eisree", 
+          url: "/businesses/eisree",
           logo: images.eisree_logo,
-          desc: "Solar technologies, energy efficiency practices, Green Campus initiatives, and clean energy training." 
+          desc: "Solar technologies, energy efficiency practices, Green Campus initiatives, and clean energy training."
         }
       ]
     }
@@ -788,87 +936,259 @@ export { careersData } from './careersData.js';
 
 export const projectsData = [
   {
-    id: "p1",
-    title: "Captive Industrial Solar PV & Net-Metering Integration",
-    industry: "ENERGY (NRG INDIA)",
-    location: "Kharagpur Industrial Corridor, West Bengal",
-    year: "2024",
-    client: "Heavy Engineering & Manufacturing Works",
-    scope: "Turnkey design, solar string sizing, structural load simulation, bidirectional net-metering integration, and ongoing telemetry.",
-    outcome: "42% reduction in peak grid power tariff; verified 180 MT annual CO2e abatement.",
-    image: images.project_solar_pv
+    id: "bvcm-bvzi-solar-solutions",
+    title: "BVCM / BVZI Integrated Solar & DC Power Management Systems",
+    vertical: "New & Emerging Vertical: Solar Technology",
+    category: "Solar & DC Systems",
+    industry: "SOLAR TECHNOLOGY (NANDI RESOURCES)",
+    division: "Nandi Resources Generation Technology Pvt. Ltd.",
+    client: "Specialised DC & Off-Grid Infrastructure",
+    location: "Pan-India / Off-Grid & Remote Sites",
+    year: "2025–2026",
+    scope: "Development and integration of an advanced proprietary solar power package combining solar PV, high-longevity battery storage, intelligent charge control, circuit protection, telemetry monitoring, and dedicated DC power management.",
+    outcome: "Engineered specifically for specialized off-grid and remote industrial DC applications requiring uninterrupted power reliability without DC-AC inversion losses.",
+    url: "https://www.nrgindia.com/bvcm-solar",
+    image: images.projects.bvcm_solar
   },
   {
-    id: "p2",
-    title: "EnVERT Commercial EV Fleet & Fast Charging Depot Blueprint",
+    id: "wagsol-ccu-telemetry-controls",
+    title: "WAGSOL Smart Solar Charge Controllers & Cloud CCU Systems",
+    vertical: "New & Emerging Vertical: Smart Solar Controls",
+    category: "Solar Controls & IoT",
+    industry: "SMART CONTROLS (WAGSOL / NANDI RESOURCES)",
+    division: "WAGSOL Solar Division",
+    client: "Municipal, Highway & Distributed Infrastructure",
+    location: "Eastern & Western Regional Installations",
+    year: "2024–2026",
+    scope: "Development and deployment of proprietary solar charge controllers and Central Control Units (CCU) featuring high-precision energy metering, voltage/current monitoring, internal data logging, GPS/GPRS remote telemetry, and cloud server analytics.",
+    outcome: "Delivered 24/7 autonomous remote asset telemetry, predictive fault dispatch, and cloud dashboard tracking across hundreds of field-installed systems.",
+    url: "https://www.nrgindia.com/general-8",
+    image: images.projects.wagsol_ccu
+  },
+  {
+    id: "railway-industrial-solar-applications",
+    title: "BVCM/BVZI Specialised Railway & Industrial Solar Systems",
+    vertical: "New & Emerging Vertical: Railway DC Applications",
+    category: "Railway & Industrial Solar",
+    industry: "RAILWAY SYSTEMS (NANDI RESOURCES)",
+    division: "Nandi Resources Generation Technology Pvt. Ltd.",
+    client: "Indian Railways & Heavy Industrial Complexes",
+    location: "Railway Divisions & Industrial Zones",
+    year: "2024–2025",
+    scope: "Tailored positioning and ruggedization of BVCM/BVZI solar-storage platforms for Indian Railways rolling stock, station facilities, institutions, remote switches, and specialised DC lighting setups.",
+    outcome: "Withstood high vibrational shock, mechanical stress, and ambient thermal extremes while supplying autonomous green power for rail and industrial applications.",
+    url: "https://www.nrgindia.com/bvcm-solar",
+    image: images.projects.railway_solar
+  },
+  {
+    id: "solar-dc-flexible-panel-systems",
+    title: "Solar DC Systems with Contoured Flexible Panels & Smart Controllers",
+    vertical: "New & Emerging Vertical: Solar DC",
+    category: "Solar & DC Systems",
+    industry: "SOLAR DC (NANDI RESOURCES)",
+    division: "Nandi Resources Generation Technology Pvt. Ltd.",
+    client: "Commercial Fleets, Transport Depots & Specialty Roofs",
+    location: "Kolkata & Regional Logistics Hubs",
+    year: "2025–2026",
+    scope: "Engineering dedicated solar architectures designed specifically around DC loads, batteries, and charge controllers—utilizing ultra-lightweight flexible solar panels engineered for curved and low-load structures.",
+    outcome: "Eliminated DC-AC inversion losses, delivering direct DC-to-DC charging efficiency exceeding 94% on specialized aerodynamic and curved surfaces.",
+    url: "https://www.nrgindia.com/",
+    image: images.projects.solar_dc
+  },
+  {
+    id: "solar-energy-storage-lithium-bess",
+    title: "Battery-Based Renewable Energy Storage & Lithium BESS Solutions",
+    vertical: "New & Emerging Vertical: Energy Storage",
+    category: "Energy Storage",
+    industry: "ENERGY STORAGE (NANDI RESOURCES)",
+    division: "Nandi Resources Generation Technology Pvt. Ltd.",
+    client: "Continuous Process Plants & Commercial Campuses",
+    location: "West Bengal & Jharkhand Industrial Belts",
+    year: "2024–2026",
+    scope: "Turnkey engineering and integration of battery-based renewable energy systems and stationary energy storage solutions (BESS), including high-longevity Lithium Iron Phosphate (LiFePO4) storage arrays with active thermal BMS.",
+    outcome: "Facilitated solar peak-shaving, reduced diesel generator dependence by up to 60%, and maintained uninterrupted backup during DISCOM grid outages.",
+    url: "https://www.nrgindia.com/servicesnrgindia",
+    image: images.projects.bess_storage
+  },
+  {
+    id: "repoxisy-industrial-epoxy-flooring",
+    title: "REPOXISY Polyamine Epoxy Flooring & Heavy Protective Surfaces",
+    vertical: "New & Emerging Vertical: Industrial Products",
+    category: "Specialty Chemicals",
+    industry: "SPECIALTY CHEMICALS (REPOXISY)",
+    division: "REPOXISY / Nandi Resources",
+    client: "Industrial Manufacturing, Warehouses & Railway Facilities",
+    location: "Pan-India Industrial Parks & Railway Workshops",
+    year: "2024–2026",
+    scope: "Turnkey surface preparation, multi-layer polyamine epoxy application, high-build anti-corrosive chemical coatings, anti-static ESD flooring, and heavy-load monolithic floor resurfacing.",
+    outcome: "High compressive strength, zero dust generation, resistance to harsh industrial chemicals/oils, and full adherence to railway workshop specifications.",
+    url: "https://www.nrgindia.com/general-8",
+    image: images.projects.repoxisy_epoxy
+  },
+  {
+    id: "fleet-graphics-vinyl-solutions",
+    title: "Commercial Fleet Graphics & Industrial Grade Vinyl Applications",
+    vertical: "New & Emerging Vertical: Fleet Graphics",
+    category: "Fleet Graphics",
+    industry: "GRAPHICS & BRANDING (NANDI RESOURCES)",
+    division: "Nandi Resources Generation Technology Pvt. Ltd.",
+    client: "Commercial Transport Operators, Corporate Fleets & Transit Coaches",
+    location: "Kolkata Logistics Corridor & National Routes",
+    year: "2024–2026",
+    scope: "High-durability exterior vinyl graphics, UV-stable protective laminates, reflective safety chevron markings, and precision graphic installations across commercial vans, trucks, and rail wagons.",
+    outcome: "Standardized corporate visual identity and weather-resistant surface protection rated for 5+ years of intense highway UV and weathering.",
+    url: "https://www.nrgindia.com/",
+    image: images.projects.fleet_graphics
+  },
+  {
+    id: "mw-scale-solar-om-amc",
+    title: "MW-Scale On-Grid & Off-Grid Solar Power Plant O&M / AMC",
+    vertical: "New & Emerging Vertical: Solar O&M",
+    category: "Solar O&M",
+    industry: "SOLAR EPC & O&M (NANDI RESOURCES)",
+    division: "Nandi Resources Generation Technology Pvt. Ltd.",
+    client: "Independent Power Producers (IPPs) & Industrial Captive Solar Plants",
+    location: "Eastern India Solar Parks & Rooftop Clusters",
+    year: "2023–2026",
+    scope: "Preventative and corrective Annual Maintenance Contracts (AMC) for MW-scale solar assets: IV-curve tracing, thermal drone thermography, HT switchgear servicing, inverter maintenance, SCADA monitoring, and robotic/semi-automated panel cleaning.",
+    outcome: "Maintained verified 99.4% plant uptime and prevented up to 8% generation loss typically caused by soiling and string degradation.",
+    url: "https://www.nrgindia.com/general-8",
+    image: images.projects.solar_om
+  },
+  {
+    id: "casting-industry-energy-audit",
+    title: "Statutory BEE Industrial Energy Audits & Casting Industry Optimization",
+    vertical: "New & Emerging Vertical: Energy Auditing",
+    category: "Energy & Green Audits",
+    industry: "BEE ENERGY AUDITING (NRG INDIA)",
+    division: "NRG India / Nandi Resources",
+    client: "Ferrous & Non-Ferrous Foundries, Steel Mills & Heavy Plants",
+    location: "Asansol, Durgapur & Howrah Foundry Clusters",
+    year: "2024–2025",
+    scope: "Comprehensive statutory Bureau of Energy Efficiency (BEE) certified audits: induction furnace thermal profiling, flue-gas heat recovery, compressed air leakage mapping, VFD retrofit analysis, and power factor correction.",
+    outcome: "Identified actionable specific energy consumption (SEC) reduction yielding ₹48+ Lakhs in annualized electricity and fuel savings with an average 10-month payback.",
+    url: "https://www.nrgindia.com/",
+    image: images.projects.foundry_audit
+  },
+  {
+    id: "green-environmental-audit-institutional",
+    title: "Green & Environmental Audits: Carbon Sinks, Water & Biodiversity",
+    vertical: "New & Emerging Vertical: Green Audits",
+    category: "Energy & Green Audits",
+    industry: "ENVIRONMENTAL AUDITING (NANDI RESOURCES)",
+    division: "Nandi Resources Generation Technology Pvt. Ltd.",
+    client: "Higher Education Campuses, NAAC Accredited Colleges & Industrial Zones",
+    location: "Kolkata, Howrah & Pan-Bengal Campuses",
+    year: "2024–2026",
+    scope: "Rigorous assessment of on-site carbon sinks, flora and fauna biodiversity mapping, campus water balance, rainwater harvesting potential, grey-water recycling, and renewable integration opportunities.",
+    outcome: "Helped partner institutions secure top-grade NAAC Green Audit accreditation and formulated 5-year campus ecological sustainability roadmaps.",
+    url: "https://www.nrgindia.com/green-audit?utm_source=chatgpt.com",
+    image: images.projects.green_audit
+  },
+  {
+    id: "carbon-advisory-ghg-mitigation",
+    title: "Corporate Carbon Advisory, GHG Mitigation & Carbon Portfolio Structuring",
+    vertical: "New & Emerging Vertical: Carbon Advisory",
+    category: "Carbon & Advisory",
+    industry: "CARBON ADVISORY (NANDI RESOURCES)",
+    division: "Nandi Resources Generation Technology Pvt. Ltd.",
+    client: "Export-Oriented Manufacturing & Corporate Enterprises",
+    location: "Kolkata HQ / National Portfolios",
+    year: "2025–2026",
+    scope: "Corporate Scope 1, 2, and 3 emissions baseline calculation, GHG mitigation project validation, carbon offset credit origination, and European CBAM readiness advisory for exporters.",
+    outcome: "Structured verifiable decarbonization pathways aligning industrial clients with statutory ESG compliance and international carbon trade standards.",
+    url: "https://www.nrgindia.com/servicesnrgindia",
+    image: images.projects.carbon_advisory
+  },
+  {
+    id: "renewable-hydrogen-green-fuels",
+    title: "Renewable Hydrogen & Green Alternative Fuel Transition Feasibility",
+    vertical: "New & Emerging Vertical: Green Hydrogen",
+    category: "Advanced Renewables",
+    industry: "HYDROGEN & GREEN FUELS (NANDI RESOURCES)",
+    division: "Nandi Resources Generation Technology Pvt. Ltd.",
+    client: "Chemical, Metallurgy & Energy Transition Consortiums",
+    location: "Eastern India Industrial Corridors",
+    year: "2025–2026",
+    scope: "Engineering feasibility studies on renewable hydrogen production via dedicated solar-wind electrolyzers, hydrogen blending in industrial heating, and synthetic bio-fuel alternatives.",
+    outcome: "Formulated techno-economic blueprints for pilot electrolyzer coupling, outlining realistic green hydrogen levelized cost of energy (LCOE) targets.",
+    url: "https://www.nrgindia.com/servicesnrgindia",
+    image: images.projects.hydrogen_fuel
+  },
+  {
+    id: "bioenergy-biomass-research-innovation",
+    title: "Biomass-to-Bioenergy Technology Research & Rural Agri-Energy Systems",
+    vertical: "New & Emerging Vertical: Bioenergy",
+    category: "Advanced Renewables",
+    industry: "BIOENERGY INNOVATION (NANDI RESOURCES)",
+    division: "Nandi Resources Generation Technology Pvt. Ltd.",
+    client: "Agri-Processing Hubs & Rural Decentralized Grids",
+    location: "Bengal & Eastern Agricultural Corridors",
+    year: "2024–2026",
+    scope: "Applied research across the biomass-to-bioenergy value chain: crop residue briquetting, gasification kinetics, combined heat and power (CHP) generation, and rural agricultural waste valorization.",
+    outcome: "Demonstrated workable biomass fuel pelletization models preventing agricultural field burning while producing clean process heat for rural agro-processing.",
+    url: "https://www.nrgindia.com/servicesnrgindia",
+    image: images.projects.bioenergy
+  },
+  {
+    id: "wind-solar-hybrid-microgrid-solutions",
+    title: "Wind-Solar Hybrid Renewable Solutions & Multi-Resource Storage",
+    vertical: "New & Emerging Vertical: Hybrid Renewables",
+    category: "Advanced Renewables",
+    industry: "HYBRID RENEWABLES (NANDI RESOURCES)",
+    division: "Nandi Resources Generation Technology Pvt. Ltd.",
+    client: "Industrial Parks & Coastal / Semi-Arid Microgrids",
+    location: "Eastern & Coastal Geographies",
+    year: "2024–2026",
+    scope: "Broadened renewable offering integrating small-to-medium wind generation alongside commercial solar arrays and BESS storage for complementary diurnal and seasonal power generation.",
+    outcome: "Maximized plant capacity utilization factor (CUF) from 18% (solar-only) to over 38% through hybrid wind-solar diurnal complementarity.",
+    url: "https://www.nrgindia.com/servicesnrgindia",
+    image: images.projects.wind_hybrid
+  },
+  {
+    id: "corporate-renewable-ppa-open-access",
+    title: "Corporate Renewable Power Purchase Agreements (PPA) & Open Access",
+    vertical: "New & Emerging Vertical: Corporate PPA",
+    category: "Power Contracting",
+    industry: "POWER CONTRACTING (NANDI RESOURCES)",
+    division: "Nandi Resources Generation Technology Pvt. Ltd.",
+    client: "Commercial & Industrial (C&I) Power Consumers",
+    location: "Pan-India C&I Clients",
+    year: "2024–2026",
+    scope: "End-to-end structuring of off-site Group Captive and Third-Party Open Access Solar & Hybrid PPAs: regulatory tariff modeling, DISCOM open access approvals, Wheeling & Banking agreement liaison, and long-term 15-25 year power contracts.",
+    outcome: "Delivered guaranteed 35% grid tariff savings without upfront Capex expenditure for high-demand commercial clients.",
+    url: "https://www.nrgindia.com/servicesnrgindia",
+    image: images.projects.corporate_ppa
+  },
+  {
+    id: "envert-ev-fleet-depot-blueprint",
+    title: "EnVERT Commercial EV Fleet Deployment & Charging Depot Blueprint",
+    vertical: "E-Mobility Vertical: EnVERT E-Vehicles",
+    category: "Clean Mobility",
     industry: "TRANSPORT (ENVERT E-VEHICLES)",
+    division: "EnVERT E-Vehicles Private Limited",
+    client: "Urban Transit & Commercial Logistics Consortiums",
     location: "Greater Kolkata Logistics Hub",
-    year: "2023",
-    client: "Urban Transit & Distribution Consortium",
-    scope: "Route energy profiling, EnVERT Duex-PM platform deployment, substation load sizing, and dual-gun fast-charging depot design under FAME framework.",
-    outcome: "Seamless electrification plan for 85 transit units with zero peak-grid tripping.",
-    image: images.project_ev_fleet
+    year: "2024–2026",
+    scope: "Route energy profiling, EnVERT Duex-PM platform deployment, HT substation transformer sizing, and dual-gun DC fast-charging depot design under national FAME e-mobility directives.",
+    outcome: "Seamless electrification blueprint for commercial transit vehicles with optimized charging duty-cycles and zero peak-grid tripping.",
+    url: "https://www.envertgroup.com/transport-electric",
+    image: images.projects.ev_fleet
   },
   {
-    id: "p3",
-    title: "Foundry & Iron Industrial Complex Comprehensive Energy Audit",
-    industry: "ENERGY (NRG INDIA)",
-    location: "Asansol Industrial Zone, WB",
-    year: "2024",
-    client: "Ferrous Metallurgy Plant",
-    scope: "BEE certified comprehensive energy audit: furnace heat recovery, induction motor efficiency, compressor leakage elimination, and electrical load balancing.",
-    outcome: "Identified ₹48 Lakhs annual energy savings with an average payback period of 11 months.",
-    image: images.project_foundry_audit
-  },
-  {
-    id: "p4",
-    title: "Multinational Corporate Language & Executive Communication Program",
-    industry: "CORPORATE TRAINING (ICST GLOBAL)",
-    location: "Kolkata & Pan-India Corporate Campuses",
-    year: "2023–2024",
-    client: "Global Technology & Consulting MNC",
-    scope: "Bespoke multilingual curriculum design covering business English, local language transition for expatriates, and voice/accent enhancement for 250+ personnel.",
-    outcome: "94% proficiency benchmark achievement and documented cross-border delivery acceleration.",
-    image: images.project_training
-  }
-];
-
-export const insightsData = [
-  {
-    id: "i1",
-    category: "ENERGY",
-    title: "Decentralized Solar & BEE Audits: De-Risking Indian Manufacturing Campuses",
-    excerpt: "Why energy-intensive industries in eastern India are combining captive rooftop solar with statutory BEE audits to hedge against grid tariff inflation.",
-    date: "September 2026",
-    readTime: "6 min read",
-    author: "NRG India / EnVERT Energy Division"
-  },
-  {
-    id: "i2",
-    category: "TRANSPORT",
-    title: "Commercial EV Fleets in High-Ambient Regions: Depot Sizing & Battery Longevity",
-    excerpt: "Examining practical challenges in grid interconnection, thermal conditioning, and chassis duty-cycles for commercial fleets under tropical conditions.",
-    date: "August 2026",
-    readTime: "8 min read",
-    author: "EnVERT E-Vehicles Engineering"
-  },
-  {
-    id: "i3",
-    category: "PUBLICATION & MEDIA",
-    title: "Touriosity Travelmag & Curiosity Kids: Fostering Global Heritage & Young Literature",
-    excerpt: "How EnVERT Media unifies conscious travel journalism through Touriosity Travelmag and youth creative storytelling across Amazon global distribution.",
-    date: "July 2026",
-    readTime: "5 min read",
-    author: "EnVERT Media Editorial Board"
-  },
-  {
-    id: "i4",
-    category: "PUBLICATION & MEDIA",
-    title: "Industrial Decarbonization vs. Global Competitiveness: The Indian Outlook",
-    excerpt: "An investigative overview of compliance mandates, ESG investments, and structural hurdles facing heavy industries in Eastern India.",
-    date: "September 2026",
-    readTime: "7 min read",
-    author: "Glare Post Editorial Desk"
+    id: "corporate-training-relocation-programs",
+    title: "Multilingual Corporate Training & Relocation Programs Across 10 Cities",
+    vertical: "Corporate Capability Vertical: India Corporate Trainers",
+    category: "Capability & Training",
+    industry: "CORPORATE TRAINING (ICST / ICT)",
+    division: "India Corporate Trainers / ICST",
+    client: "Multinational Technology, Energy & Consulting Enterprises",
+    location: "Kolkata, Mumbai, Bengaluru, Delhi & 6 Major Indian Hubs",
+    year: "2024–2026",
+    scope: "Bespoke corporate capability architecture: business communications, executive relocation assistance, cross-cultural onboarding, and corporate compliance training delivered across 10 major Indian commercial centres.",
+    outcome: "95%+ corporate satisfaction score and documented cross-regional executive transition acceleration across 500+ participants.",
+    url: "http://www.icstglobal.com",
+    image: images.projects.training_program
   }
 ];
 

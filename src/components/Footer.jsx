@@ -71,7 +71,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/businesses/icst" className="hover:text-paper hover:text-earth transition-colors">
-                  04. ICST (Corporate Capability & Sustainable Transition)
+                  04. ICST Global (Sustainable Tourism & Conferences)
                 </Link>
               </li>
               <li>
@@ -107,6 +107,11 @@ export default function Footer() {
               <li>
                 <Link to="/businesses/eisree" className="hover:text-paper hover:text-earth transition-colors">
                   11. EISREE Solar Research & Efficiency
+                </Link>
+              </li>
+              <li>
+                <Link to="/businesses/india-corporate-trainers" className="hover:text-paper hover:text-earth transition-colors">
+                  12. India Corporate Trainers
                 </Link>
               </li>
             </ul>
@@ -147,7 +152,7 @@ export default function Footer() {
                   rel="noreferrer"
                   className="hover:text-earth transition-colors inline-flex items-center gap-1.5"
                 >
-                  <span>ICST (Sustainable Transition)</span>
+                  <span>ICST Global (Sustainable Tourism)</span>
                   <ExternalLink className="w-2.5 h-2.5 text-paper/40" />
                 </a>
               </li>
@@ -226,7 +231,6 @@ export default function Footer() {
             <Link to="/about" className="hover:text-paper transition-colors">About & Governance</Link>
             <Link to="/companies" className="hover:text-paper transition-colors">Registered Companies</Link>
             <Link to="/projects" className="hover:text-paper transition-colors">Selected Work</Link>
-            <Link to="/insights" className="hover:text-paper transition-colors">Insights</Link>
             <Link to="/careers" className="hover:text-paper transition-colors">Careers</Link>
             <button
               onClick={scrollToTop}

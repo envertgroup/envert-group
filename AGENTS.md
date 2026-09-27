@@ -54,7 +54,6 @@ The homepage structure is carefully arranged to ensure a logical user experience
 3. **Services Charter (`Businesses.jsx`)**: **"Working Across The Eleven Markets"** interactive showcase with verified imagery and the complete charter capabilities checklist.
 4. **Group Ecosystem (`Ecosystem.jsx`)**: The 14 official operating brands and legal platform relationships.
 5. **Selected Work (`Projects.jsx`)**: Verifiable engineering installations and energy audit track records.
-6. **Insights (`Insights.jsx`)**: Articles, trade reviews, and publishing monographs.
 
 ---
 
@@ -64,9 +63,8 @@ The homepage structure is carefully arranged to ensure a logical user experience
   2. `Businesses` (`/businesses` with interactive dropdown)
   3. `Companies` (`/companies`)
   4. `Projects` (`/projects`)
-  5. `Insights` (`/insights`)
-  6. `Careers` (`/careers`)
-  7. `Contact` (`/contact`)
+  5. `Careers` (`/careers`)
+  6. `Contact` (`/contact`)
 - Internal navigation must always use React Router `<Link>` components to maintain smooth Single Page Application (SPA) client-side routing.
 - Do not re-introduce previously removed sections (e.g., sliding ticker animation, unformatted dot on careers, or duplicate logos).
 

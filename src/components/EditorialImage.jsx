@@ -51,7 +51,9 @@ export default function EditorialImage({
       {!hasError && (
         <img
           src={src}
-          alt={alt}
+          alt={alt || "EnVERT Group Engineering & Industrial Installation"}
+          loading="lazy"
+          decoding="async"
           onLoad={() => setLoaded(true)}
           onError={() => setHasError(true)}
           className={`relative z-20 w-full h-full object-cover transition-opacity duration-500 editorial-img ${

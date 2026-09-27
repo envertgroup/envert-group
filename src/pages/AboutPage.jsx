@@ -1,6 +1,8 @@
 import React from 'react';
 import { ArrowRight, Layers, ShieldCheck, Compass, CheckCircle } from 'lucide-react';
 import { siteMetadata } from '../data/siteData';
+import SEO from '../components/SEO';
+import { getAboutSchema } from '../data/seoData';
 
 export default function AboutPage({ onOpenContact }) {
   const principles = [
@@ -24,6 +26,12 @@ export default function AboutPage({ onOpenContact }) {
 
   return (
     <div className="bg-paper-warm min-h-screen py-16 lg:py-24">
+      <SEO
+        title="About EnVERT Group — Corporate Profile, Governance & Philosophy"
+        description="Learn about EnVERT Group's multidisciplinary engineering heritage, governance, corporate pillars, and leadership across clean energy, mobility, and publishing."
+        canonical="/about"
+        schema={getAboutSchema()}
+      />
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
         
         {/* Hero Section */}
@@ -37,7 +45,7 @@ export default function AboutPage({ onOpenContact }) {
             <span className="text-leaf-dark">A Shared Purpose.</span>
           </h1>
           <p className="mt-6 text-base sm:text-lg text-charcoal/80 max-w-2xl leading-relaxed">
-            EnVERT Group is a multidisciplinary corporate organisation bridging physical infrastructure engineering, statutory energy audits, commercial electric transport, multilingual corporate capability, and published academic literature.
+            EnVERT Group is a multidisciplinary corporate organisation bridging physical infrastructure engineering, statutory energy audits, commercial electric transport, sustainable tourism conferences, and published academic literature.
           </p>
         </div>
 
@@ -54,7 +62,7 @@ export default function AboutPage({ onOpenContact }) {
               EnVERT began with a clear recognition: the transition toward clean power, sustainable transport, and industrial efficiency requires both high-rigor mechanical engineering and executive human capability.
             </p>
             <p>
-              Over the past decade, EnVERT consolidated specialized operating entities—including clean power and BEE audit firm <strong>NRG India</strong>, electric vehicle manufacturer <strong>EnVERT E-Vehicles Private Limited</strong>, sustainable transition and capability platform <strong>ICST</strong> (International Conference on Sustainable Transition), and literary publisher <strong>Pen & Ink Publishers</strong>.
+              Over the past decade, EnVERT consolidated specialized operating entities—including clean power and BEE audit firm <strong>NRG India</strong>, electric vehicle manufacturer <strong>EnVERT E-Vehicles Private Limited</strong>, sustainable tourism conference and industry platform <strong>ICST Global</strong> (International Conference on Sustainable Transition), and literary publisher <strong>Pen & Ink Publishers</strong>.
             </p>
             <p>
               By housing these distinct capabilities under one structured group, we offer clients end-to-end institutional capabilities: from statutory environmental approvals and factory energy audits to customized vehicle electrification and global corporate communication.
@@ -95,13 +103,13 @@ export default function AboutPage({ onOpenContact }) {
                 <span className="font-mono text-xs text-earth font-bold">PILLAR 02</span>
                 <ShieldCheck className="w-5 h-5 text-earth" />
               </div>
-              <h3 className="font-heading text-xl font-bold text-forest-deep uppercase">Advisory & Audits</h3>
-              <p className="text-xs text-charcoal/70 mt-2 leading-relaxed">Statutory energy compliance, human capital, and corporate governance.</p>
+              <h3 className="font-heading text-xl font-bold text-forest-deep uppercase">Tourism & Advisory</h3>
+              <p className="text-xs text-charcoal/70 mt-2 leading-relaxed">International tourism conferences, statutory energy compliance, and strategic advisory.</p>
               <ul className="mt-6 space-y-2 text-xs font-mono text-charcoal/80">
                 <li className="flex items-center gap-2"><span className="text-leaf">•</span> BEE Industrial Energy Audits</li>
                 <li className="flex items-center gap-2"><span className="text-leaf">•</span> NAAC University Green Audits</li>
-                <li className="flex items-center gap-2"><span className="text-leaf">•</span> Sustainable Transition & Training (ICST)</li>
-                <li className="flex items-center gap-2"><span className="text-leaf">•</span> Executive Voice & Accent Coaching</li>
+                <li className="flex items-center gap-2"><span className="text-leaf">•</span> Sustainable Tourism Conferences (ICST Global)</li>
+                <li className="flex items-center gap-2"><span className="text-leaf">•</span> Tourism Policy & Destination Development</li>
               </ul>
             </div>
 
@@ -150,7 +158,7 @@ export default function AboutPage({ onOpenContact }) {
               Work With An Established Multidisciplinary Group
             </h3>
             <p className="text-xs text-paper/70 mt-1 max-w-xl">
-              Discuss enterprise clean energy, fleet transition, corporate training, or publishing partnerships with our leadership in Kolkata.
+              Discuss enterprise clean energy, fleet transition, sustainable tourism, or publishing partnerships with our leadership in Kolkata.
             </p>
           </div>
           <button
