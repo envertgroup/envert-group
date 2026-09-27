@@ -19,12 +19,6 @@ export default function Careers({ onApplyJob }) {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 mb-12 border-b border-charcoal/10 gap-6">
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="w-1.5 h-1.5 bg-earth inline-block rounded-xs"></span>
-              <span className="font-mono text-xs uppercase tracking-widest text-charcoal/60 font-semibold">
-                ACTIVE RECRUITMENT & TALENT
-              </span>
-            </div>
             <h2 className="font-heading text-3xl sm:text-5xl font-bold uppercase tracking-tight-editorial text-forest-deep">
               Work With Us
             </h2>

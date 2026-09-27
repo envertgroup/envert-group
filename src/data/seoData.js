@@ -6,8 +6,8 @@
 export const SITE_DOMAIN = 'https://www.envertgroup.com';
 
 export const defaultSeoMeta = {
-  defaultTitle: 'EnVERT Group — Multidisciplinary Engineering, Sustainability, Mobility & Advisory',
-  defaultDescription: 'A truly multidisciplinary engineering, advisory, design, consultancy and publishing group of companies working across the eleven markets. Headquartered in Kolkata, West Bengal, India.',
+  defaultTitle: 'EnVERT Group',
+  defaultDescription: 'A truly multidisciplinary engineering, advisory, design, consultancy and publishing group of companies working across the twelve markets. Headquartered in Kolkata, West Bengal, India.',
   corporateLogo: `${SITE_DOMAIN}/assets/logos/envert_group_logo.png`,
   founder: 'EnVERT Group Governance Council',
   headquarters: {
@@ -90,7 +90,7 @@ export function getHomeSchema() {
           },
           {
             '@type': 'ContactPoint',
-            telephone: '+91-7003942199',
+            telephone: '+91-9836511995',
             contactType: 'electric mobility division',
             email: 'envertev@gmail.com',
             areaServed: 'IN'
@@ -156,7 +156,7 @@ export function getBusinessesIndexSchema(businesses = []) {
         '@type': 'CollectionPage',
         '@id': `${SITE_DOMAIN}/businesses#webpage`,
         url: `${SITE_DOMAIN}/businesses`,
-        name: 'Our Businesses — 11 Operating Sectors & Specialized Divisions | EnVERT Group',
+        name: 'Our Businesses — 12 Operating Markets & Specialized Divisions | EnVERT Group',
         description: 'Explore EnVERT Group operating sectors across energy audits, commercial EV platforms, corporate training, publishing, materials, and advisory.',
         mainEntity: {
           '@type': 'ItemList',
@@ -337,7 +337,7 @@ export function getCareersPageSchema(jobs = []) {
         '@type': 'CollectionPage',
         '@id': `${SITE_DOMAIN}/careers#webpage`,
         url: `${SITE_DOMAIN}/careers`,
-        name: 'Work With EnVERT — Careers & Active Recruitment Desk',
+        name: 'Work With EnVERT — Careers & Opportunities',
         description: 'Explore live career opportunities across clean power engineering, industrial BEE audits, commercial EV systems, and technical publishing.',
         mainEntity: {
           '@type': 'ItemList',

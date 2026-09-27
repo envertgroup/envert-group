@@ -11,8 +11,8 @@ export default function HomePage({ onOpenContact, onApplyJob }) {
   return (
     <>
       <SEO
-        title="EnVERT Group — Multidisciplinary Engineering, Sustainability, Mobility & Advisory"
-        description="A truly multidisciplinary engineering, advisory, design, consultancy and publishing group of companies working across the eleven markets. Headquartered in Kolkata, West Bengal, India."
+        title="EnVERT Group"
+        description="A truly multidisciplinary engineering, advisory, design, consultancy and publishing group of companies working across the twelve markets. Headquartered in Kolkata, West Bengal, India."
         canonical="/"
         schema={getHomeSchema()}
       />

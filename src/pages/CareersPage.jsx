@@ -77,19 +77,8 @@ export default function CareersPage({ onApplyJob }) {
         <div className="pb-10 mb-10 border-b border-charcoal/15">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="w-2.5 h-2.5 bg-leaf rounded-full animate-pulse"></span>
-                <span className="font-mono text-xs uppercase tracking-widest text-earth font-bold">
-                  ACTIVE RECRUITMENT & TALENT DESK
-                </span>
-                <span className="text-charcoal/30">•</span>
-                <span className="font-mono text-xs uppercase tracking-wider text-charcoal/60 font-semibold">
-                  {careersData.length} Live Positions Across Group
-                </span>
-              </div>
-
-              <h1 className="font-heading text-4xl sm:text-6xl font-bold uppercase tracking-tight-editorial text-forest-deep leading-[1.02]">
-                Work With EnVERT
+              <h1 className="font-heading text-4xl sm:text-6xl font-bold tracking-tight-editorial text-forest-deep leading-[1.02]">
+                Work With <span className="normal-case">EnVERT</span>
               </h1>
               
               <p className="mt-4 text-base sm:text-lg text-charcoal/80 max-w-3xl leading-relaxed">

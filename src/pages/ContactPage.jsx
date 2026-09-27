@@ -115,19 +115,14 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Direct Telephone Desks */}
+              {/* Direct Telephone Desk */}
               <div className="flex items-start gap-4 pt-4 border-t border-charcoal/10">
                 <Phone className="w-5 h-5 text-earth shrink-0 mt-0.5" />
                 <div className="space-y-2">
-                  <p className="font-mono text-xs text-earth uppercase font-semibold">Telephone Desks</p>
+                  <p className="font-mono text-xs text-earth uppercase font-semibold">Telephone Desk</p>
                   <div>
                     <a href={`tel:${siteMetadata.phone}`} className="font-heading text-base font-bold text-forest hover:text-earth block">
                       {siteMetadata.phone} <span className="font-mono text-xs text-charcoal/50">(Corporate HQ)</span>
-                    </a>
-                  </div>
-                  <div>
-                    <a href={`tel:${siteMetadata.evPhone}`} className="font-heading text-base font-bold text-forest hover:text-earth block">
-                      {siteMetadata.evPhone} <span className="font-mono text-xs text-charcoal/50">(Electric Vehicles Desk)</span>
                     </a>
                   </div>
                 </div>

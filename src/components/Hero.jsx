@@ -17,12 +17,10 @@ export default function Hero({ onExploreClick, onAboutClick }) {
           {/* Left Column (Editorial Typography & Statement): 6 Columns on lg */}
           <div className="lg:col-span-6 flex flex-col justify-between pr-0 lg:pr-4">
             <div>
-              {/* Confident Headings as requested in PRD */}
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight-editorial text-forest-deep leading-[0.98] uppercase">
-                Engineering <br className="hidden sm:inline" />
-                Solutions For <br className="hidden sm:inline" />
-                A Changing <br className="hidden sm:inline" />
-                World.
+              {/* Elegant, spacious editorial headline */}
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-forest-deep leading-[1.08]">
+                Engineering Solutions <br className="hidden sm:inline" />
+                for a Changing World.
               </h1>
 
               {/* Supporting Copy */}
@@ -37,7 +35,7 @@ export default function Hero({ onExploreClick, onAboutClick }) {
                   onClick={onAboutClick}
                   className="group inline-flex items-center gap-2.5 px-6 py-3.5 bg-forest hover:bg-forest-deep text-paper font-heading font-semibold text-xs tracking-wider uppercase transition-all duration-150 rounded-xs shadow-sm"
                 >
-                  <span>About EnVERT</span>
+                  <span>About <span className="normal-case">EnVERT</span></span>
                   <ArrowRight className="w-4 h-4 text-earth-light transition-transform duration-200 group-hover:translate-x-1" />
                 </a>
 
@@ -55,13 +53,13 @@ export default function Hero({ onExploreClick, onAboutClick }) {
             {/* Micro-specs / Group metrics */}
             <div className="mt-12 pt-7 border-t border-charcoal/10 grid grid-cols-3 gap-4 sm:gap-6">
               <div>
-                <p className="font-mono text-2xl lg:text-3xl font-semibold text-forest-deep">11</p>
+                <p className="font-mono text-2xl lg:text-3xl font-semibold text-forest-deep">12</p>
                 <p className="font-mono text-[11px] uppercase tracking-wider text-charcoal/60 mt-1">
                   Markets
                 </p>
               </div>
               <div>
-                <p className="font-mono text-2xl lg:text-3xl font-semibold text-forest-deep">14+</p>
+                <p className="font-mono text-2xl lg:text-3xl font-semibold text-forest-deep">19</p>
                 <p className="font-mono text-[11px] uppercase tracking-wider text-charcoal/60 mt-1">
                   Operating Brands
                 </p>
@@ -164,7 +162,7 @@ export default function Hero({ onExploreClick, onAboutClick }) {
                       Publishing & Advisory
                     </span>
                     <span className="font-mono text-[10px] uppercase tracking-wider text-paper/70 hidden sm:inline">
-                      EnVERT® Disciplines
+                      <span className="normal-case">EnVERT®</span> Disciplines
                     </span>
                   </div>
                 </div>

@@ -118,7 +118,7 @@ export const heroes = {
   art: resolve('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1600&auto=format&fit=crop'),
   indian_art_and_dolls: resolve('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1600&auto=format&fit=crop'),
   indian_arts_dolls_stock: resolve('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1600&auto=format&fit=crop'),
-  foundation: resolve('/assets/scraped_images/envert-foundation/envert-foundation_img_8_8a67aa84.png'),
+  foundation: resolve('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1600&auto=format&fit=crop'),
   agro: resolve('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1600&auto=format&fit=crop'),
   research: resolve('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop'),
   eipr: resolve('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop'),

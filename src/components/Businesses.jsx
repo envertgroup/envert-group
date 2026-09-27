@@ -1,23 +1,23 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowRight, ChevronRight, ChevronLeft, LayoutGrid, Rows3, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { elevenMarketsData } from '../data/siteData';
+import { businessesData } from '../data/siteData';
 
 export default function Businesses({ onSelectBusiness }) {
-  const elevenMarkets = elevenMarketsData;
-  const [activeMarketId, setActiveMarketId] = useState(elevenMarkets[0].id);
+  const categories = businessesData;
+  const [activeCategoryId, setActiveCategoryId] = useState(categories[0].id);
   const [viewMode, setViewMode] = useState('showcase'); // 'showcase' | 'matrix'
   const hoverTimeoutRef = useRef(null);
 
-  const activeIndex = elevenMarkets.findIndex((m) => m.id === activeMarketId);
-  const activeMarket = elevenMarkets[activeIndex] || elevenMarkets[0];
+  const activeIndex = categories.findIndex((c) => c.id === activeCategoryId);
+  const activeCategory = categories[activeIndex] || categories[0];
 
   useEffect(() => {
-    // Preload market hero images into browser cache so switching is instantaneous with zero flicker
-    elevenMarkets.forEach((m) => {
-      if (m.image) {
+    // Preload category hero images into browser cache so switching is instantaneous with zero flicker
+    categories.forEach((c) => {
+      if (c.image) {
         const img = new Image();
-        img.src = m.image;
+        img.src = c.image;
       }
     });
 
@@ -26,15 +26,15 @@ export default function Businesses({ onSelectBusiness }) {
         clearTimeout(hoverTimeoutRef.current);
       }
     };
-  }, [elevenMarkets]);
+  }, [categories]);
 
-  const handleItemMouseEnter = (marketId) => {
+  const handleItemMouseEnter = (categoryId) => {
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
     }
     // 90ms debounce filters out rapid sweeps and boundary tremors without feeling sluggish
     hoverTimeoutRef.current = setTimeout(() => {
-      setActiveMarketId(marketId);
+      setActiveCategoryId(categoryId);
     }, 90);
   };
 
@@ -44,31 +44,31 @@ export default function Businesses({ onSelectBusiness }) {
     }
   };
 
-  const handleItemClick = (market) => {
+  const handleItemClick = (category) => {
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
     }
-    setActiveMarketId(market.id);
-    if (onSelectBusiness) onSelectBusiness(market);
+    setActiveCategoryId(category.id);
+    if (onSelectBusiness) onSelectBusiness(category);
   };
 
   const handlePrev = () => {
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-    const prevIndex = (activeIndex - 1 + elevenMarkets.length) % elevenMarkets.length;
-    setActiveMarketId(elevenMarkets[prevIndex].id);
+    const prevIndex = (activeIndex - 1 + categories.length) % categories.length;
+    setActiveCategoryId(categories[prevIndex].id);
   };
 
   const handleNext = () => {
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-    const nextIndex = (activeIndex + 1) % elevenMarkets.length;
-    setActiveMarketId(elevenMarkets[nextIndex].id);
+    const nextIndex = (activeIndex + 1) % categories.length;
+    setActiveCategoryId(categories[nextIndex].id);
   };
 
   return (
     <section 
       id="businesses" 
       className="py-20 lg:py-28 bg-forest-deep text-paper border-b border-charcoal/30 relative overflow-hidden scroll-mt-20"
-      aria-label="Services Charter - Working Across The Eleven Markets"
+      aria-label="Practice Categories - Working Across The Twelve Categories"
     >
       {/* Subtle ambient lighting */}
       <div className="absolute top-0 right-1/4 w-[600px] h-[400px] bg-forest/20 rounded-full blur-3xl pointer-events-none" />
@@ -82,22 +82,22 @@ export default function Businesses({ onSelectBusiness }) {
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-paper/5 border border-paper/10 rounded-full mb-3">
               <span className="w-1.5 h-1.5 bg-earth rounded-full animate-pulse" />
               <span className="font-mono text-[11px] uppercase tracking-widest text-earth-light font-semibold">
-                SERVICES CHARTER
+                PRACTICE CATEGORIES
               </span>
             </div>
             
             <h2 className="font-heading text-3xl sm:text-5xl lg:text-[3.25rem] font-bold uppercase tracking-tight-editorial text-paper leading-[1.05]">
-              Working Across The Eleven Markets
+              Working Across The Twelve Categories
             </h2>
             
             <p className="mt-4 text-sm sm:text-base text-paper/75 leading-relaxed font-normal">
-              A truly multidisciplinary engineering, advisory, design, consultancy and publishing group of companies delivering integrated solutions across core economic and societal sectors.
+              A truly multidisciplinary engineering, advisory, design, consultancy and publishing group delivering integrated solutions across twelve core practice categories.
             </p>
           </div>
 
           {/* View Mode Switcher & Navigation Link */}
           <div className="flex flex-wrap items-center gap-3 shrink-0">
-            {/* Toggle View: Showcase vs Full Charter Matrix */}
+            {/* Toggle View: Showcase vs Full Category Matrix */}
             <div className="inline-flex p-1 bg-paper/5 border border-paper/15 rounded-xs">
               <button
                 type="button"
@@ -120,10 +120,10 @@ export default function Businesses({ onSelectBusiness }) {
                     ? 'bg-earth text-forest-deep font-bold shadow-sm'
                     : 'text-paper/70 hover:text-paper hover:bg-paper/5'
                 }`}
-                title="Full Charter Directory Matrix"
+                title="Full Category Directory Matrix"
               >
                 <LayoutGrid className="w-3.5 h-3.5" />
-                <span>Full Charter Matrix</span>
+                <span>Full Directory Matrix</span>
               </button>
             </div>
 
@@ -144,20 +144,20 @@ export default function Businesses({ onSelectBusiness }) {
           <div>
             {/* Mobile Horizontal Selector Pills */}
             <div className="lg:hidden mb-6 -mx-6 px-6 overflow-x-auto no-scrollbar flex items-center gap-2 pb-2">
-              {elevenMarkets.map((market) => {
-                const isActive = market.id === activeMarketId;
+              {categories.map((category) => {
+                const isActive = category.id === activeCategoryId;
                 return (
                   <button
-                    key={market.id}
-                    onClick={() => setActiveMarketId(market.id)}
+                    key={category.id}
+                    onClick={() => setActiveCategoryId(category.id)}
                     className={`whitespace-nowrap px-3.5 py-2 text-xs font-mono font-medium rounded-xs transition-colors shrink-0 border ${
                       isActive
                         ? 'bg-earth text-forest-deep border-earth font-bold shadow-sm'
                         : 'bg-paper/5 text-paper/70 border-paper/10 hover:bg-paper/10 hover:text-paper'
                     }`}
                   >
-                    <span className="opacity-70 mr-1.5">{market.num}.</span>
-                    {market.name}
+                    <span className="opacity-70 mr-1.5">{category.num}.</span>
+                    {category.name}
                   </button>
                 );
               })}
@@ -166,32 +166,32 @@ export default function Businesses({ onSelectBusiness }) {
             {/* Desktop Split View Grid: Equal 50 / 50 Size (2 Equal Columns, items-stretch) */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
               
-              {/* Left Column (50%): 11 Markets Navigation Console */}
+              {/* Left Column (50%): 12 Categories Navigation Console */}
               <div className="hidden lg:flex flex-col justify-between bg-forest-surface/40 border border-paper/15 rounded-xs p-6 sm:p-7 shadow-2xl h-full">
                 {/* Card Header */}
                 <div className="flex items-center justify-between pb-3.5 mb-2 border-b border-paper/10">
                   <div>
                     <span className="font-mono text-xs uppercase tracking-widest text-earth font-semibold">
-                      CHARTER DIRECTORY
+                      PRACTICE DIRECTORY
                     </span>
                     <h3 className="font-heading text-lg font-bold uppercase text-paper tracking-tight mt-0.5">
-                      Eleven Operating Sectors
+                      Twelve Practice Categories
                     </h3>
                   </div>
                 </div>
 
-                {/* 11 Sector Rows: Contiguous buttons with constant padding (zero layout shifts or hover boundary jitters) */}
+                {/* 12 Category Rows: Contiguous buttons with constant padding (zero layout shifts or hover boundary jitters) */}
                 <div className="flex-1 flex flex-col justify-between divide-y divide-paper/10 border-t border-b border-paper/10 py-1">
-                  {elevenMarkets.map((market) => {
-                    const isActive = market.id === activeMarketId;
+                  {categories.map((category) => {
+                    const isActive = category.id === activeCategoryId;
                     return (
                       <button
-                        key={market.id}
+                        key={category.id}
                         type="button"
-                        onMouseEnter={() => handleItemMouseEnter(market.id)}
+                        onMouseEnter={() => handleItemMouseEnter(category.id)}
                         onMouseLeave={handleItemMouseLeave}
-                        onClick={() => handleItemClick(market)}
-                        className={`w-full text-left px-3.5 py-2.5 transition-colors duration-150 flex items-center justify-between group relative border-l-2 ${
+                        onClick={() => handleItemClick(category)}
+                        className={`w-full text-left px-3.5 py-2 transition-colors duration-150 flex items-center justify-between group relative border-l-2 ${
                           isActive
                             ? 'bg-paper/10 border-earth text-paper'
                             : 'border-transparent text-paper/70 hover:text-paper hover:bg-paper/[0.04]'
@@ -203,7 +203,7 @@ export default function Businesses({ onSelectBusiness }) {
                               isActive ? 'text-earth' : 'text-paper/40 group-hover:text-paper/70'
                             }`}
                           >
-                            {market.num}
+                            {category.num}
                           </span>
                           <div className="min-w-0 flex-1">
                             <h4
@@ -211,17 +211,17 @@ export default function Businesses({ onSelectBusiness }) {
                                 isActive ? 'text-paper' : 'text-paper/85 group-hover:text-paper'
                               }`}
                             >
-                              {market.name}
+                              {category.name}
                             </h4>
                             <p className="text-[11px] text-paper/45 truncate mt-0.5 font-normal">
-                              {market.tagline}
+                              {category.tagline}
                             </p>
                           </div>
                         </div>
 
                         <div className="flex items-center gap-2 shrink-0 ml-3">
                           <span className="font-mono text-[10px] text-paper/40 group-hover:text-paper/60 hidden xl:inline">
-                            {market.services.length} items
+                            {category.capabilities?.length || 0} items
                           </span>
                           <ChevronRight
                             className={`w-3.5 h-3.5 transition-all duration-150 ${
@@ -240,13 +240,13 @@ export default function Businesses({ onSelectBusiness }) {
               {/* Right Column (50%): Visual Stage with Verified Photography & Capabilities Checklist */}
               <div className="bg-forest-surface/40 border border-paper/15 p-6 sm:p-7 rounded-xs shadow-2xl flex flex-col justify-between h-full">
                 
-                <div key={activeMarket.id} className="animate-smooth-fade flex flex-col">
+                <div key={activeCategory.id} className="animate-smooth-fade flex flex-col">
                   
                   {/* Cinematic Image Frame with Fixed Aspect Ratio */}
                   <div className="relative mb-5 overflow-hidden rounded-xs border border-paper/10 bg-black/40 aspect-[16/9] w-full">
                     <img
-                      src={activeMarket.image}
-                      alt={activeMarket.name}
+                      src={activeCategory.image}
+                      alt={activeCategory.name}
                       loading="eager"
                       className="w-full h-full object-cover transition-opacity duration-300"
                       onError={(e) => {
@@ -258,10 +258,10 @@ export default function Businesses({ onSelectBusiness }) {
                     {/* Image Caption & Floating Badge */}
                     <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-4 flex items-end justify-between gap-4">
                       <span className="font-mono text-[11px] text-paper/90 uppercase tracking-wider truncate">
-                        {activeMarket.imageCaption}
+                        {activeCategory.imageCaption || activeCategory.tagline}
                       </span>
                       <span className="font-mono text-[10px] text-earth uppercase tracking-widest font-semibold px-2.5 py-0.5 bg-black/70 border border-paper/20 rounded-xs shrink-0">
-                        MARKET {activeMarket.num} OF {elevenMarkets.length}
+                        CATEGORY {activeCategory.num} OF {categories.length}
                       </span>
                     </div>
                   </div>
@@ -270,45 +270,47 @@ export default function Businesses({ onSelectBusiness }) {
                   <div className="pb-3.5 border-b border-paper/10 mb-3.5">
                     <div className="flex items-center justify-between gap-2 mb-1">
                       <span className="font-mono text-xs uppercase tracking-widest text-earth font-semibold">
-                        SECTOR {activeMarket.num}
+                        SECTOR: {activeCategory.sector}
                       </span>
                       <span className="font-mono text-[11px] text-paper/50 uppercase tracking-wider">
-                        {activeMarket.services.length} Specialized Deliverables
+                        {activeCategory.capabilities?.length || 0} Core Deliverables
                       </span>
                     </div>
                     <h3 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-paper uppercase">
-                      {activeMarket.name}
+                      {activeCategory.name}
                     </h3>
                     <p className="text-xs sm:text-sm font-mono text-leaf-light mt-1 font-semibold leading-relaxed">
-                      {activeMarket.tagline}
+                      {activeCategory.tagline}
                     </p>
                   </div>
 
                   {/* Summary Description */}
-                  <p className="text-xs sm:text-sm text-paper/80 leading-relaxed font-normal mb-5">
-                    {activeMarket.summary}
+                  <p className="text-xs sm:text-sm text-paper/80 leading-relaxed font-normal mb-5 line-clamp-3">
+                    {activeCategory.summary}
                   </p>
 
-                  {/* Complete Services Charter Checklist (Clean 2-Column Grid) */}
-                  <div className="pt-4 border-t border-paper/10">
-                    <div className="flex items-center justify-between mb-2.5">
-                      <p className="font-mono text-[11px] uppercase tracking-widest text-earth font-semibold">
-                        Services Charter & Scope of Delivery
-                      </p>
-                      <span className="font-mono text-[10px] text-paper/50">
-                        Official Schedule
-                      </span>
-                    </div>
+                  {/* Key Capabilities Checklist (Clean 2-Column Grid, not overloaded) */}
+                  {activeCategory.capabilities && activeCategory.capabilities.length > 0 && (
+                    <div className="pt-4 border-t border-paper/10">
+                      <div className="flex items-center justify-between mb-2.5">
+                        <p className="font-mono text-[11px] uppercase tracking-widest text-earth font-semibold">
+                          Core Practice Capabilities
+                        </p>
+                        <span className="font-mono text-[10px] text-paper/50">
+                          Operational Scope
+                        </span>
+                      </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
-                      {activeMarket.services.map((srv, idx) => (
-                        <div key={idx} className="flex items-start gap-2 text-xs text-paper/85 py-0.5">
-                          <span className="w-1.5 h-1.5 bg-earth rounded-full shrink-0 mt-1.5" />
-                          <span className="leading-snug">{srv}</span>
-                        </div>
-                      ))}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
+                        {activeCategory.capabilities.slice(0, 6).map((cap, idx) => (
+                          <div key={idx} className="flex items-start gap-2 text-xs text-paper/85 py-0.5">
+                            <span className="w-1.5 h-1.5 bg-earth rounded-full shrink-0 mt-1.5" />
+                            <span className="leading-snug">{cap}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                 </div>
 
@@ -320,19 +322,19 @@ export default function Businesses({ onSelectBusiness }) {
                       type="button"
                       onClick={handlePrev}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono bg-paper/5 hover:bg-paper/10 border border-paper/15 text-paper/80 hover:text-paper transition-colors rounded-xs"
-                      aria-label="Previous Sector"
+                      aria-label="Previous Category"
                     >
                       <ChevronLeft className="w-3.5 h-3.5" />
                       <span>Prev</span>
                     </button>
                     <span className="font-mono text-xs text-paper/50 px-1">
-                      {activeMarket.num} / {elevenMarkets.length}
+                      {activeCategory.num} / {categories.length}
                     </span>
                     <button
                       type="button"
                       onClick={handleNext}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono bg-paper/5 hover:bg-paper/10 border border-paper/15 text-paper/80 hover:text-paper transition-colors rounded-xs"
-                      aria-label="Next Sector"
+                      aria-label="Next Category"
                     >
                       <span>Next</span>
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -340,10 +342,10 @@ export default function Businesses({ onSelectBusiness }) {
                   </div>
 
                   <Link
-                    to={activeMarket.route}
+                    to={`/businesses/${activeCategory.urlSlug || activeCategory.id}`}
                     className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-earth hover:bg-earth-light text-forest-deep text-xs font-heading font-bold uppercase tracking-wider transition-all duration-150 rounded-xs shadow-md hover:shadow-lg hover:translate-x-0.5"
                   >
-                    <span>Explore {activeMarket.name} Domain</span>
+                    <span>Explore Category Page</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -355,58 +357,60 @@ export default function Businesses({ onSelectBusiness }) {
         )}
 
         {/* ============================================================ */}
-        {/* VIEW 2: FULL CHARTER DIRECTORY MATRIX (Poster Reference Layout) */}
+        {/* VIEW 2: FULL DIRECTORY MATRIX (Poster Reference Layout) */}
         {/* ============================================================ */}
         {viewMode === 'matrix' && (
           <div className="animate-smooth-fade">
             <div className="p-4 bg-paper/5 border border-paper/10 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-paper/70">
-              <span>Showing all 11 official markets and the complete services checklist from the official EnVERT® Services Charter.</span>
-              <span className="text-earth font-semibold shrink-0">11 Sectors • 85+ Capabilities</span>
+              <span>Showing all 12 practice categories and technical divisions across EnVERT Group.</span>
+              <span className="text-earth font-semibold shrink-0">12 Categories • Engineering & Advisory Solutions</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {elevenMarkets.map((market) => (
+              {categories.map((category) => (
                 <div
-                  key={market.id}
+                  key={category.id}
                   className="bg-paper/[0.03] border border-paper/15 p-6 flex flex-col justify-between hover:border-earth transition-colors duration-200 group"
                 >
                   <div>
                     {/* Header */}
                     <div className="flex items-center justify-between pb-3 border-b border-paper/10 mb-4">
                       <span className="font-mono text-xs text-earth font-bold">
-                        {market.num}
+                        CATEGORY {category.num}
                       </span>
                       <span className="font-mono text-[10px] uppercase tracking-wider text-paper/50">
-                        {market.services.length} items
+                        {category.capabilities?.length || 0} items
                       </span>
                     </div>
 
                     <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-paper group-hover:text-earth-light transition-colors">
-                      {market.name}
+                      {category.name}
                     </h3>
 
                     <p className="text-xs text-paper/60 mt-1 mb-4 leading-relaxed font-normal">
-                      {market.tagline}
+                      {category.tagline}
                     </p>
 
                     {/* Capabilities List */}
-                    <div className="pt-3 border-t border-paper/10 space-y-1.5">
-                      {market.services.map((srv, idx) => (
-                        <div key={idx} className="flex items-start gap-2 text-xs text-paper/80">
-                          <span className="w-1 h-1 bg-leaf-light rounded-full shrink-0 mt-1.5" />
-                          <span className="leading-snug">{srv}</span>
-                        </div>
-                      ))}
-                    </div>
+                    {category.capabilities && category.capabilities.length > 0 && (
+                      <div className="pt-3 border-t border-paper/10 space-y-1.5">
+                        {category.capabilities.slice(0, 4).map((cap, idx) => (
+                          <div key={idx} className="flex items-start gap-2 text-xs text-paper/80">
+                            <span className="w-1 h-1 bg-leaf-light rounded-full shrink-0 mt-1.5" />
+                            <span className="leading-snug">{cap}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                   {/* Card Footer Link */}
                   <div className="mt-6 pt-4 border-t border-paper/10 flex justify-end">
                     <Link
-                      to={market.route}
+                      to={`/businesses/${category.urlSlug || category.id}`}
                       className="inline-flex items-center gap-1.5 text-xs font-mono text-earth hover:text-earth-light font-semibold uppercase tracking-wider"
                     >
-                      <span>Explore Domain</span>
+                      <span>Explore Category</span>
                       <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>

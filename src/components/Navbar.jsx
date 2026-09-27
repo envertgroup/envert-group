@@ -116,7 +116,7 @@ export default function Navbar({ onOpenContact }) {
                             {biz.businessesUnderCategory.map((subBiz, subIdx) => (
                               <Link
                                 key={subIdx}
-                                to={`/businesses/${biz.id}`}
+                                to={subBiz.url || `/businesses/${biz.id}`}
                                 className="block text-[11.5px] font-sans text-charcoal/70 hover:text-forest-deep hover:font-medium transition-colors leading-snug truncate"
                               >
                                 {subBiz.name}
@@ -131,7 +131,7 @@ export default function Navbar({ onOpenContact }) {
                   {/* Bottom Footer Bar */}
                   <div className="mt-4 pt-3 border-t border-charcoal/10 flex items-center justify-end text-xs font-mono">
                     <div className="flex items-center gap-4">
-                      <Link to="/companies" className="text-forest font-semibold hover:text-earth text-[11.5px]">Our Brands (15 Entities) →</Link>
+                      <Link to="/companies" className="text-forest font-semibold hover:text-earth text-[11.5px]">Our Brands (19 Entities in 4 Sectors) →</Link>
                       <Link to="/contact" className="text-earth font-bold hover:underline text-[11.5px]">Inquire →</Link>
                     </div>
                   </div>
@@ -236,7 +236,7 @@ export default function Navbar({ onOpenContact }) {
                             {b.businessesUnderCategory.map((sub, sIdx) => (
                               <Link
                                 key={sIdx}
-                                to={`/businesses/${b.id}`}
+                                to={sub.url || `/businesses/${b.id}`}
                                 onClick={() => setMobileMenuOpen(false)}
                                 className="block text-[11px] font-sans text-charcoal/70 hover:text-forest-deep py-0.5"
                               >

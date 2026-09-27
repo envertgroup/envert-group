@@ -36,11 +36,11 @@ export default function Intro() {
           <div className="flex items-center gap-3">
             <span className="w-2 h-2 bg-forest-deep rounded-full"></span>
             <span className="font-mono text-xs uppercase tracking-widest text-charcoal/70 font-semibold">
-              ABOUT EnVERT GROUP
+              ABOUT <span className="normal-case">EnVERT</span> GROUP
             </span>
           </div>
           <div className="font-mono text-xs text-earth uppercase tracking-wider font-medium">
-            Kolkata, India • Truly Multidisciplinary Group Working Across 11 Markets
+            Kolkata, India • Truly Multidisciplinary Group Working Across 12 Markets
           </div>
         </div>
 
@@ -54,7 +54,7 @@ export default function Intro() {
 
             <div className="mt-8 space-y-4 text-base sm:text-lg text-charcoal/80 leading-relaxed font-normal">
               <p>
-                <strong>EnVERT® Group</strong> is an integrated corporate institution operating across the eleven essential markets of modern enterprise: from clean power grids, environmental engineering, and electric mobility to commercial architecture, advisory, manufacturing, and international publishing.
+                <strong>EnVERT® Group</strong> is an integrated corporate institution operating across the twelve essential markets of modern enterprise: from clean power grids, environmental engineering, and electric mobility to commercial architecture, advisory, manufacturing, and international publishing.
               </p>
               <p className="text-sm sm:text-base text-charcoal/70">
                 Operating directly through focused legal entities and dedicated platforms—including <strong>NRG India</strong> (Nandi Resources Generation Technology Pvt. Ltd.), <strong>EnVERT E-Vehicles Private Limited</strong>, <strong>ICST Global</strong>, and <strong>Pen & Ink Publishers</strong>—we bridge rigorous thermodynamic and electrical practice with strategic management and cultural stewardship.
@@ -100,13 +100,13 @@ export default function Intro() {
 
             <div className="mt-6 flex items-center justify-between px-2">
               <span className="font-mono text-xs uppercase tracking-wider text-earth font-medium">
-                The 11 Operating Markets
+                The 12 Operating Markets
               </span>
               <a
                 href="#businesses"
                 className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold uppercase tracking-wider text-forest-deep hover:text-earth transition-colors"
               >
-                <span>Working Across The Eleven Markets</span>
+                <span>Working Across The Twelve Markets</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>

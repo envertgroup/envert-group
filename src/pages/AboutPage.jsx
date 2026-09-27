@@ -37,7 +37,7 @@ export default function AboutPage({ onOpenContact }) {
         {/* Hero Section */}
         <div className="pb-12 mb-16 border-b border-charcoal/15">
           <span className="font-mono text-xs uppercase tracking-widest text-earth font-semibold">
-            ABOUT ENVERT GROUP
+            ABOUT <span className="normal-case">EnVERT</span> GROUP
           </span>
           <h1 className="font-heading text-4xl sm:text-6xl font-bold uppercase tracking-tight-editorial text-forest-deep mt-2 leading-[1.02]">
             Different Disciplines. <br />

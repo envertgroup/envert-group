@@ -9,14 +9,14 @@ export default function FeaturedCapability({ onInquire }) {
   const capabilities = {
     mobility: {
       tag: 'Commercial Electric Mobility',
-      title: 'ENVERT E-VEHICLES PVT. LTD.',
+      title: 'EnVERT E-Vehicles Pvt. Ltd.',
       subheading: 'Future of Transportation is Electric Vehicle.',
       description: 'Under the national FAME India framework, EnVERT E-Vehicles Private Limited engineers commercial and transit fleet solutions. We focus on electric vehicle weight reduction, powertrain cost reduction, battery technology integration, and robust charging depot infrastructure connected with regional DISCOMs.',
       image: images.transport_hero,
       stats: [
         { label: 'Fleet Viability Assessment', val: '100% Data-Driven' },
         { label: 'Vehicle Series', val: 'Mono, Duex, Trois' },
-        { label: 'Direct Technical Desk', val: '+91 7003942199' },
+        { label: 'Direct Technical Desk', val: '+91 9836511995' },
       ],
       highlights: [
         'EnVERT Mono-PN: Compact urban and personal mobility platform',
@@ -24,7 +24,7 @@ export default function FeaturedCapability({ onInquire }) {
         'EnVERT Trois-PP: Heavy-duty passenger and three-wheeler fleet series',
         'Charging depot substation sizing & DISCOM grid load coordination'
       ],
-      contactPhone: '+91 7003942199',
+      contactPhone: '+91 9836511995',
       contactEmail: 'envertev@gmail.com'
     },
     energy: {

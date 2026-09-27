@@ -119,7 +119,7 @@ export default function ContactSection() {
                 <Phone className="w-5 h-5 text-earth shrink-0 mt-0.5" />
                 <div className="space-y-1.5">
                   <p className="font-mono text-xs text-earth uppercase tracking-wider font-semibold">
-                    Telephone Desks
+                    Telephone Desk
                   </p>
                   <div>
                     <a
@@ -127,14 +127,6 @@ export default function ContactSection() {
                       className="font-heading text-base font-semibold text-paper hover:text-earth-light transition-colors block"
                     >
                       {siteMetadata.phone} <span className="font-mono text-xs text-paper/60">(Corporate HQ)</span>
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href={`tel:${siteMetadata.evPhone}`}
-                      className="font-heading text-base font-semibold text-paper hover:text-earth-light transition-colors block"
-                    >
-                      {siteMetadata.evPhone} <span className="font-mono text-xs text-paper/60">(Electric Vehicles Desk)</span>
                     </a>
                   </div>
                 </div>

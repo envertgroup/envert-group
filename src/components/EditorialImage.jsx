@@ -26,7 +26,7 @@ export default function EditorialImage({
 
         {/* Clean Top Branding */}
         <div className="relative z-10 flex items-center justify-between text-xs font-mono text-earth tracking-wider uppercase">
-          <span>EnVERT GROUP</span>
+          <span><span className="normal-case">EnVERT</span> GROUP</span>
           <span>{domain}</span>
         </div>
 

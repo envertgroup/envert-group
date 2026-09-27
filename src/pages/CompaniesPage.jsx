@@ -27,7 +27,7 @@ export default function CompaniesPage({ onOpenContact }) {
       internalSlug: 'transport-electric',
       status: 'Private Limited Entity',
       headquarters: 'Kolkata, India',
-      phone: '+91 7003942199',
+      phone: '+91 9836511995',
       email: 'envertev@gmail.com',
       summary: 'Specialized enterprise designing, engineering, and marketing battery-operated commercial electric vehicles. Aligned with the national FAME India framework with active vehicle series (Mono-PN, Duex-PM, Trois-PP).',
       domains: ['EnVERT Mono-PN', 'EnVERT Duex-PM', 'EnVERT Trois-PP', 'Charging Depot Topologies', 'Battery Thermal Diagnostics']
@@ -265,6 +265,25 @@ export default function CompaniesPage({ onOpenContact }) {
         'Production & Post-Production Services'
       ]
     },
+    {
+      name: 'EnVERT Wellness',
+      category: 'Healthcare & Corporate Wellness',
+      logo: '/assets/logos/envert_group_logo.png',
+      portalUrl: '',
+      internalSlug: 'startup-idea-envert-wellness',
+      status: 'Corporate Healthcare Initiative',
+      headquarters: 'Kolkata, India',
+      phone: '+91 9836511995',
+      email: 'admin@envertgroup.com',
+      summary: 'Corporate healthcare, occupational wellness programs, health awareness workshops, preventive health screenings, and ergonomic wellness advisory for industrial workforces.',
+      domains: [
+        'Occupational Health Programs',
+        'Corporate Wellness Workshops',
+        'Preventive Health Screenings',
+        'Industrial Workforce Health',
+        'Ergonomic Workstation Advisory'
+      ]
+    }
   ];
 
   return (
@@ -311,11 +330,11 @@ export default function CompaniesPage({ onOpenContact }) {
 
                 {/* Official Brand Logo */}
                 {co.logo && (
-                  <div className="mb-4 h-14 bg-white p-2.5 border border-charcoal/10 inline-flex items-center rounded-xs">
+                  <div className="mb-3.5 h-11 flex items-center">
                     <img
                       src={co.logo}
                       alt={`${co.name} logo`}
-                      className="max-h-full max-w-[180px] object-contain"
+                      className="max-h-full max-w-[170px] object-contain object-left"
                     />
                   </div>
                 )}
@@ -391,7 +410,7 @@ export default function CompaniesPage({ onOpenContact }) {
               GROUP ENGAGEMENT
             </span>
             <h3 className="font-heading text-2xl sm:text-3xl font-bold uppercase mt-1">
-              Connect With Any EnVERT Entity
+              Connect With Any <span className="normal-case">EnVERT</span> Entity
             </h3>
             <p className="text-xs sm:text-sm text-paper/70 mt-2 max-w-xl">
               From Bureau of Energy Efficiency statutory audits to electric fleet deployment and corporate training programs across India.

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
 const DEFAULT_ORIGIN = 'https://www.envertgroup.com';
-const DEFAULT_TITLE = 'EnVERT Group — Multidisciplinary Engineering, Sustainability, Mobility & Advisory';
-const DEFAULT_DESCRIPTION = 'A truly multidisciplinary engineering, advisory, design, consultancy and publishing group of companies working across the eleven markets. Headquartered in Kolkata, West Bengal, India.';
+const DEFAULT_TITLE = 'EnVERT Group';
+const DEFAULT_DESCRIPTION = 'A truly multidisciplinary engineering, advisory, design, consultancy and publishing group of companies working across the twelve markets. Headquartered in Kolkata, West Bengal, India.';
 const DEFAULT_IMAGE = `${DEFAULT_ORIGIN}/assets/logos/envert_group_logo.png`;
 
 /**

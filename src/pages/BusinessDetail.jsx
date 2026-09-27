@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link as RouterLink, useParams as useRouterParams } from 'react-router-dom';
 import { ArrowRight, ArrowLeft, ExternalLink, Phone, Mail, CheckCircle2, MapPin, Calendar, Clock, Layers, Award, BookOpen, Globe } from 'lucide-react';
-import { businessesData, projectsData, siteMetadata } from '../data/siteData';
+import { businessesData, brandDetailsData, projectsData, siteMetadata } from '../data/siteData';
 import EditorialImage from '../components/EditorialImage';
 import SEO from '../components/SEO';
 import { getBusinessDetailSchema } from '../data/seoData';
@@ -9,19 +9,22 @@ import { getBusinessDetailSchema } from '../data/seoData';
 export default function BusinessDetail({ onOpenContact, forcedSlug }) {
   const params = useRouterParams();
   const targetSlug = forcedSlug || params.slug;
-  const business = businessesData.find((b) => 
+  const allDetailRecords = [...businessesData, ...(brandDetailsData || [])];
+
+  const business = allDetailRecords.find((b) => 
     b.id.toLowerCase() === targetSlug?.toLowerCase() || 
     b.urlSlug?.toLowerCase() === targetSlug?.toLowerCase() ||
-    b.aliases?.includes(targetSlug?.toLowerCase()) ||
+    b.aliases?.some(a => a.toLowerCase() === targetSlug?.toLowerCase()) ||
     (targetSlug?.toLowerCase() === 'touriosity' && b.id === 'publication') ||
     (targetSlug?.toLowerCase() === 'thetouriosity' && b.id === 'publication') ||
     (targetSlug?.toLowerCase() === 'touriosity-travelmag' && b.id === 'publication') ||
     (targetSlug?.toLowerCase() === 'mobility' && b.id === 'transport-electric') ||
-    (targetSlug?.toLowerCase() === 'corporate-training' && b.id === 'icst') ||
-    (targetSlug?.toLowerCase() === 'training' && b.id === 'icst') ||
+    (targetSlug?.toLowerCase() === 'corporate-training' && b.id === 'india-corporate-trainers') ||
+    (targetSlug?.toLowerCase() === 'training' && b.id === 'india-corporate-trainers') ||
     (targetSlug?.toLowerCase() === 'publishing' && b.id === 'publication') ||
     (targetSlug?.toLowerCase() === 'pen-ink' && b.id === 'publication') ||
     (targetSlug?.toLowerCase() === 'foundation' && b.id === 'envert-foundation') ||
+    (targetSlug?.toLowerCase() === 'social-stewardship' && b.id === 'envert-foundation') ||
     (targetSlug?.toLowerCase() === 'atmaja' && b.id === 'fashion-lifestyle') ||
     (targetSlug?.toLowerCase() === 'glare-post' && b.id === 'glarepost') ||
     (targetSlug?.toLowerCase() === 'glarepost' && b.id === 'publication') ||
@@ -48,7 +51,9 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
     (targetSlug?.toLowerCase() === 'india-corporate-trainers' && b.id === 'india-corporate-trainers') ||
     (targetSlug?.toLowerCase() === 'corporate-trainers' && b.id === 'india-corporate-trainers') ||
     (targetSlug?.toLowerCase() === 'corporate-training-services' && b.id === 'india-corporate-trainers') ||
-    (targetSlug?.toLowerCase() === 'ict' && b.id === 'india-corporate-trainers')
+    (targetSlug?.toLowerCase() === 'ict' && b.id === 'india-corporate-trainers') ||
+    (targetSlug?.toLowerCase() === 'glarepost-films' && b.id === 'glarepost-films') ||
+    (targetSlug?.toLowerCase() === 'films' && b.id === 'glarepost-films')
   );
 
   if (!business) {
@@ -106,7 +111,7 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
   return (
     <div className="bg-paper-warm min-h-screen">
       <SEO
-        title={`${business.name} (${business.companyName}) — Capabilities & Solutions`}
+        title={`${business.name} — Capabilities & Solutions | EnVERT Group`}
         description={business.summary ? business.summary.slice(0, 160) : undefined}
         canonical={`/businesses/${business.urlSlug || business.id}`}
         schema={detailSchema}
@@ -135,12 +140,16 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
               <div>
                 
                 <div className="flex flex-wrap items-center gap-2 mb-2 font-mono text-xs">
+                  {business.num && (
+                    <>
+                      <span className="font-bold text-earth text-sm bg-paper px-2 py-0.5 border border-charcoal/10 rounded-xs">
+                        CATEGORY {business.num}
+                      </span>
+                      <span className="text-charcoal/30">|</span>
+                    </>
+                  )}
                   <span className="text-earth font-semibold uppercase tracking-wider">
-                    SECTOR: {business.category}
-                  </span>
-                  <span className="text-charcoal/30">•</span>
-                  <span className="text-forest font-bold uppercase tracking-wider">
-                    OPERATED BY {business.companyName}
+                    SECTOR: {business.sector || business.category}
                   </span>
                 </div>
 
@@ -228,21 +237,21 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
                   OPERATING ENTERPRISES & BRANDS
                 </span>
                 <h2 className="font-heading text-2xl sm:text-3xl font-bold uppercase text-forest-deep mt-1">
-                  Businesses Under {business.name}
+                  {business.businessesUnderCategory.length === 1 ? 'Operating Business Enterprise' : `Businesses Under ${business.name}`}
                 </h2>
               </div>
               <span className="text-xs font-mono text-charcoal/50">
-                {business.businessesUnderCategory.length} ACTIVE OPERATING {business.businessesUnderCategory.length === 1 ? 'UNIT' : 'UNITS'}
+                {business.businessesUnderCategory.length} {business.businessesUnderCategory.length === 1 ? 'ACTIVE OPERATING UNIT' : 'ACTIVE OPERATING UNITS'}
               </span>
             </div>
 
-            <div className={`grid grid-cols-1 ${business.businessesUnderCategory.length > 1 ? 'md:grid-cols-2 lg:grid-cols-3' : 'max-w-xl'} gap-6`}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {business.businessesUnderCategory.map((sub, sIdx) => (
                 <div key={sIdx} className="p-6 bg-paper-warm border border-charcoal/15 rounded-xs flex flex-col justify-between hover:border-forest-deep transition-all duration-200 shadow-xs">
                   <div>
                     {sub.logo && (
-                      <div className="mb-4 bg-white p-3 border border-charcoal/10 inline-flex items-center justify-center rounded-xs h-16 w-auto max-w-[200px]">
-                        <img src={sub.logo} alt={sub.name} className="max-h-full max-w-full object-contain" />
+                      <div className="mb-3.5 h-12 flex items-center">
+                        <img src={sub.logo} alt={sub.name} className="max-h-full max-w-[180px] object-contain object-left" />
                       </div>
                     )}
                     <h3 className="font-heading text-xl font-bold text-forest-deep uppercase tracking-tight">
@@ -257,19 +266,28 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
                   </div>
                   
                   <div className="mt-6 pt-4 border-t border-charcoal/10 flex items-center justify-between">
-                    {sub.url ? (
-                      <a
-                        href={sub.url}
-                        target={sub.url.startsWith('http') ? '_blank' : '_self'}
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase text-forest hover:text-earth transition-colors"
-                      >
-                        <span>Official Platform</span>
-                        <ExternalLink className="w-3.5 h-3.5 text-earth" />
-                      </a>
-                    ) : (
-                      <span className="text-[11px] font-mono text-charcoal/50">Operating Division</span>
-                    )}
+                    <div className="flex items-center gap-3">
+                      {sub.url && (
+                        <RouterLink
+                          to={sub.url}
+                          className="inline-flex items-center gap-1 text-xs font-mono font-bold uppercase text-forest hover:text-earth transition-colors"
+                        >
+                          <span>View Division</span>
+                          <ArrowRight className="w-3.5 h-3.5 text-earth" />
+                        </RouterLink>
+                      )}
+                      {sub.externalUrl && (
+                        <a
+                          href={sub.externalUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-mono text-charcoal/50 hover:text-forest transition-colors"
+                          title="External Portal"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5 text-earth" />
+                        </a>
+                      )}
+                    </div>
 
                     <button
                       onClick={() => onOpenContact(`Inquiry: ${sub.name} (${business.name})`)}
@@ -278,35 +296,6 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
                       Inquire →
                     </button>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Special Section for EV Models (if mobility) */}
-      {business.models && (
-        <section className="py-12 bg-paper border-b border-charcoal/15">
-          <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
-            <div className="pb-4 mb-8 border-b border-charcoal/10">
-              <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
-                COMMERCIAL FLEET HARDWARE
-              </span>
-              <h2 className="font-heading text-2xl font-bold uppercase text-forest-deep mt-1">
-                EnVERT Electric Vehicle Series
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {business.models.map((m, idx) => (
-                <div key={m.name} className="p-6 bg-paper-warm border border-charcoal/15 rounded-xs">
-                  <span className="font-mono text-xs text-earth font-bold">PLATFORM 0{idx + 1}</span>
-                  <h3 className="font-heading text-xl font-bold text-forest-deep mt-2">{m.name}</h3>
-                  <p className="text-xs font-mono text-leaf-dark mt-1 uppercase font-semibold">{m.type}</p>
-                  <p className="text-xs text-charcoal/70 mt-3 leading-relaxed">
-                    Engineered for high-ambient tropical durability, duty-cycle battery longevity, and low operating expenditure under the FAME India regulatory architecture.
-                  </p>
                 </div>
               ))}
             </div>
