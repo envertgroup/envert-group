@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import SEO from '../components/SEO';
 import { getHomeSchema } from '../data/seoData';
 import Hero from '../components/Hero';
-import Intro from '../components/Intro';
-import Businesses from '../components/Businesses';
-import Ecosystem from '../components/Ecosystem';
-import Projects from '../components/Projects';
+
+// Below-the-fold sections: code-split for minimal initial JS payload
+const Intro = lazy(() => import('../components/Intro'));
+const Businesses = lazy(() => import('../components/Businesses'));
+const Ecosystem = lazy(() => import('../components/Ecosystem'));
+const Projects = lazy(() => import('../components/Projects'));
+
+// Lightweight placeholder matching approx section height to avoid CLS
+function SectionSkeleton({ height = 'min-h-[320px]' }) {
+  return <div className={`${height} bg-paper-warm animate-pulse`} aria-hidden="true" />;
+}
 
 export default function HomePage({ onOpenContact, onApplyJob }) {
   return (
@@ -17,7 +24,7 @@ export default function HomePage({ onOpenContact, onApplyJob }) {
         schema={getHomeSchema()}
       />
 
-      {/* Section 01: Hero */}
+      {/* Section 01: Hero — eagerly rendered (LCP element, must not be lazy) */}
       <Hero
         onExploreClick={() => {
           const el = document.getElementById('businesses');
@@ -29,17 +36,25 @@ export default function HomePage({ onOpenContact, onApplyJob }) {
         }}
       />
 
-      {/* Section 02: Introduction & Structural Pillars */}
-      <Intro />
+      {/* Section 02: Introduction & Structural Pillars — below fold */}
+      <Suspense fallback={<SectionSkeleton height="min-h-[480px]" />}>
+        <Intro />
+      </Suspense>
 
-      {/* Section 03: What We Do (Businesses Interactive Showcase) */}
-      <Businesses />
+      {/* Section 03: What We Do (Businesses Interactive Showcase) — below fold */}
+      <Suspense fallback={<SectionSkeleton height="min-h-[640px]" />}>
+        <Businesses />
+      </Suspense>
 
-      {/* Section 04: The EnVERT Ecosystem */}
-      <Ecosystem />
+      {/* Section 04: The EnVERT Ecosystem — below fold */}
+      <Suspense fallback={<SectionSkeleton height="min-h-[480px]" />}>
+        <Ecosystem />
+      </Suspense>
 
-      {/* Section 05: Selected Work (Verifiable Engineering Projects) */}
-      <Projects onOpenContact={() => onOpenContact('Project Scope Inquiry')} />
+      {/* Section 05: Selected Work (Verifiable Engineering Projects) — below fold */}
+      <Suspense fallback={<SectionSkeleton height="min-h-[480px]" />}>
+        <Projects onOpenContact={() => onOpenContact('Project Scope Inquiry')} />
+      </Suspense>
     </>
   );
 }

@@ -1,7 +1,15 @@
 import React from 'react';
 import { ArrowUp, ArrowRight, ExternalLink, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { siteMetadata } from '../data/siteData';
+
+// Inlined static contact values — avoids importing the full siteData module
+// into the critical-path JS bundle. Update here if contacts change.
+const CONTACT = {
+  logo: '/assets/logos/envert_group_logo.webp',
+  phone: '+91 9836511995',
+  email: 'admin@envertgroup.com',
+  hrEmail: 'hr@envertgroup.com',
+};
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -34,28 +42,28 @@ export default function Footer() {
           
           {/* Column 1: Brand & Purpose (5 cols) */}
           <div className="lg:col-span-5 space-y-5">
-            <Link to="/" onClick={scrollToTop} className="inline-block group">
+            <Link to="/" onClick={scrollToTop} aria-label="EnVERT Group Homepage" className="inline-block group">
               <img
-                src={siteMetadata.logo || '/assets/logos/envert_group_logo.webp'}
+                src={CONTACT.logo}
                 alt="EnVERT Group Corporate Logo — Sustainable Engineering & Global Media"
-                width="200"
-                height="48"
+                width="151"
+                height="70"
                 loading="lazy"
                 decoding="async"
                 className="h-10 sm:h-12 w-auto object-contain brightness-110 group-hover:scale-105 transition-transform duration-200"
               />
             </Link>
 
-            <p className="text-sm text-paper/70 leading-relaxed max-w-md">
+            <p className="text-sm text-paper/80 leading-relaxed max-w-md">
               A multidisciplinary corporate group operating across clean power engineering, industrial BEE compliance, electric mobility, sustainable tourism, digital media, and international publishing.
             </p>
 
-            <div className="pt-2 space-y-2 text-xs text-paper/50 font-mono">
-              <div className="flex items-center gap-2 text-paper/70">
+            <div className="pt-2 space-y-2 text-xs text-paper/70 font-mono">
+              <div className="flex items-center gap-2 text-paper/90">
                 <MapPin className="w-3.5 h-3.5 text-earth shrink-0" />
                 <span>Kolkata, West Bengal, India</span>
               </div>
-              <p className="text-[11px] text-paper/40 leading-normal pl-5">
+              <p className="text-[11px] text-paper/60 leading-normal pl-5">
                 Statutory corporate credentials and compliance frameworks verifiable on formal enterprise request.
               </p>
             </div>
@@ -135,31 +143,31 @@ export default function Footer() {
                   Corporate HQ
                 </span>
                 <a
-                  href={`tel:${siteMetadata.phone}`}
+                  href={`tel:${CONTACT.phone}`}
                   className="font-mono text-paper/90 hover:text-earth transition-colors block text-sm font-medium"
                 >
-                  {siteMetadata.phone}
+                  {CONTACT.phone}
                 </a>
               </div>
 
               <div className="space-y-2 font-mono text-xs">
                 <div>
-                  <span className="text-[10px] text-paper/40 block">General Correspondence:</span>
+                  <span className="text-[10px] text-paper/70 block font-semibold">General Correspondence:</span>
                   <a
-                    href={`mailto:${siteMetadata.email}`}
-                    className="text-paper/80 hover:text-earth transition-colors truncate block"
+                    href={`mailto:${CONTACT.email}`}
+                    className="text-paper/90 hover:text-earth-light transition-colors truncate block"
                   >
-                    {siteMetadata.email}
+                    {CONTACT.email}
                   </a>
                 </div>
 
                 <div>
-                  <span className="text-[10px] text-paper/40 block">Talent & Human Capital:</span>
+                  <span className="text-[10px] text-paper/70 block font-semibold">Talent & Human Capital:</span>
                   <a
-                    href={`mailto:${siteMetadata.hrEmail}`}
-                    className="text-earth-light hover:text-paper transition-colors truncate block"
+                    href={`mailto:${CONTACT.hrEmail}`}
+                    className="text-earth-light hover:text-white transition-colors truncate block font-medium"
                   >
-                    {siteMetadata.hrEmail}
+                    {CONTACT.hrEmail}
                   </a>
                 </div>
               </div>
@@ -168,7 +176,8 @@ export default function Footer() {
                 <Link
                   to="/contact"
                   onClick={scrollToTop}
-                  className="inline-flex items-center gap-2 px-3.5 py-2 bg-earth/15 hover:bg-earth text-earth hover:text-forest-deep border border-earth/30 rounded-xs font-mono text-xs font-medium transition-all duration-200"
+                  aria-label="Initiate consultation via contact page"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 bg-earth/20 hover:bg-earth text-earth-light hover:text-forest-deep border border-earth/40 rounded-xs font-mono text-xs font-semibold transition-all duration-200"
                 >
                   <span>Initiate Consultation</span>
                   <ArrowRight className="w-3 h-3" />
@@ -180,16 +189,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom Colophon Bar */}
-        <div className="py-6 border-t border-paper/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-paper/50">
+        <div className="py-6 border-t border-paper/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-paper/70">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <span>© {new Date().getFullYear()} EnVERT® Group. All rights reserved.</span>
-            <span className="hidden sm:inline text-paper/20">|</span>
-            <span className="text-paper/40">Multidisciplinary Engineering & Advisory</span>
+            <span className="hidden sm:inline text-paper/40">|</span>
+            <span className="text-paper/70">Multidisciplinary Engineering & Advisory</span>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 text-paper/60 hover:text-earth transition-colors uppercase tracking-wider cursor-pointer self-start sm:self-auto"
+            className="inline-flex items-center gap-1.5 text-paper/80 hover:text-earth-light transition-colors uppercase tracking-wider cursor-pointer self-start sm:self-auto"
             aria-label="Back to top"
           >
             <span>Back to top</span>

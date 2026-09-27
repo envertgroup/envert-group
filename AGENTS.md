@@ -17,6 +17,8 @@ This document defines the architectural rules, coding standards, and conventions
 ## 2. Data Architecture & Static Content Rule
 > [!IMPORTANT]
 > **All static data, mock structures, metadata, and image links MUST reside under `src/data/`. Components MUST import data and images from `src/data/`, never inline mock datasets or hardcode asset paths directly.**
+>
+> **Exception**: Small, static contact strings (phone, email) may be inlined in `Footer.jsx` and `Navbar.jsx` as named `CONTACT` constants to keep `siteData.js` out of the critical-path JS bundle. Update both the constant and `siteData.js` when contacts change.
 
 ### File Responsibilities in `src/data/`:
 - **`src/data/siteData.js`**:
@@ -26,11 +28,18 @@ This document defines the architectural rules, coding standards, and conventions
   - `projectsData`: Verifiable client projects, locations, and engineering deliverables.
   - `careersData`: Live open job positions, qualifications, and department tags.
   - `insightsData`: Published articles, periodicals, and whitepapers.
+  - ⚠️ **This file is ~112 KiB. Never import it from components in the critical render path** (Navbar, Footer, Hero, App.jsx). It is deferred and loaded only by lazy-loaded page/section components.
+- **`src/data/navData.js`** *(performance-critical)*:
+  - Minimal navigation-only slice: only `id`, `num`, `name`, and `businessesUnderCategory[].{name, url}` fields.
+  - Used exclusively by `Navbar.jsx` for the businesses dropdown.
+  - **Must be kept in sync with `businessesData` in `siteData.js`** when categories are added/renamed/removed.
+  - ❌ Never add full descriptions, images, market data, or project info here.
 - **`src/data/image.js`**:
   - Central image registry for the entire application.
   - Exposes `images`, `logos`, `heroes`, and `projects`.
   - Supports both dot-property access (`images.energy_hero`) and namespace objects (`images.heroes.energy`).
   - Prepares the app for future CDN/S3 migrations by maintaining a single `resolve(path)` helper.
+  - ✅ Safe to import from Hero and other above-the-fold components (no siteData dependency).
 
 ---
 
@@ -62,7 +71,7 @@ This document defines the architectural rules, coding standards, and conventions
   ```javascript
   // Correct
   import { images } from '../data/image.js';
-  // or
+  // or (only in lazy-loaded page/section components)
   import { brandsData } from '../data/siteData.js';
   ```
 - **Fallback Protection**: Photographic frames should use `<EditorialImage>` or include an `onError` fallback to prevent broken browser icon displays.
@@ -92,9 +101,63 @@ The homepage structure is carefully arranged to ensure a logical user experience
 
 ---
 
-## 6. Verification Checklist
+## 6. JS Bundle & Code-Splitting Architecture
+> [!IMPORTANT]
+> The critical-path JS bundle (what the browser downloads and executes before first paint) must stay **lean**. The current baseline is ~60 KiB uncompressed / ~14 KiB gzip for the main `index-*.js` chunk. Do not let it grow beyond **80 KiB uncompressed**.
+
+### What MUST be eagerly loaded (critical path):
+- `App.jsx` — router, layout shell, analytics init
+- `Navbar.jsx` + `navData.js` (minimal nav slice only)
+- `Footer.jsx` (static HTML, no heavy data)
+- `Hero.jsx` + `image.js` (LCP element, must paint immediately)
+- `SEO.jsx`, `ScrollToTop.jsx` — zero-weight utilities
+
+### What MUST be lazy-loaded (`React.lazy + Suspense`):
+- **All homepage sections below the fold**: `Intro`, `Businesses`, `Ecosystem`, `Projects`
+  - Each gets its own `<Suspense fallback={<SectionSkeleton />}>` wrapper in `HomePage.jsx`
+  - `SectionSkeleton` must match approximate section height to prevent CLS
+- **All sub-pages**: `AboutPage`, `BusinessesIndex`, `BusinessDetail`, `CompaniesPage`, `ProjectsPage`, `CareersPage`, `ContactPage`
+- **All modals**: `InquiryModal` — lazy-loaded inside a conditional render (`{open && <Suspense>...`)
+
+### Third-party / analytics:
+- **`@vercel/analytics`** MUST be initialised lazily via `requestIdleCallback` (timeout: 3500ms) or `setTimeout(2000)` fallback.
+- ❌ Never add synchronous top-level `import` of analytics in `main.jsx` or `App.jsx`.
+
+### Manual chunk grouping (`vite.config.js`):
+The current `manualChunks` strategy separates:
+- `vendor-react` → React 19 core + react-dom only
+- `vendor-router` → react-router-dom
+- `vendor-icons` → lucide-react
+- `vendor-other` → all other node_modules
+- `siteData-*` → auto-split by Vite (deferred, loaded only by lazy page components)
+
+❌ Do not merge `lucide-react` or `react-router-dom` back into `vendor-react` — they are used by deferred chunks and must not bloat the eager bundle.
+
+### Critical-path import rules:
+| Component | May import `siteData.js`? | May import `image.js`? | May import `navData.js`? |
+|---|---|---|---|
+| `Navbar.jsx` | ❌ No | ❌ No | ✅ Yes |
+| `Footer.jsx` | ❌ No | ❌ No | ❌ No |
+| `Hero.jsx` | ❌ No | ✅ Yes | ❌ No |
+| `App.jsx` | ❌ No | ❌ No | ❌ No |
+| `HomePage.jsx` | ❌ No | ❌ No | ❌ No |
+| Lazy sections/pages | ✅ Yes | ✅ Yes | ❌ N/A |
+
+---
+
+## 7. Verification Checklist
 Before concluding any task:
 1. Run `npm run build` to confirm zero Vite compilation errors.
 2. Confirm that images load with valid status codes and use `.webp` format.
 3. Verify that all `<img>` tags have explicit `width`, `height`, and appropriate `loading="lazy"` / `decoding="async"` attributes.
 4. Verify that the correct branding (**EnVERT**) is preserved across all files.
+5. **Bundle gate**: After any component or data import change, check that `dist/assets/index-*.js` remains under **80 KiB** uncompressed. Run:
+   ```bash
+   ls -lh dist/assets/index-*.js
+   ```
+6. **Critical-path purity check**: Confirm `siteData.js` is NOT in the main `index-*.js` chunk:
+   ```bash
+   node -e "const c=require('fs').readFileSync(require('fs').readdirSync('dist/assets').find(f=>f.startsWith('index-')&&f.endsWith('.js')).replace(/^/,'dist/assets/'),'utf8'); console.log('siteData in critical chunk:', c.includes('projectsData')||c.includes('careersData')||c.includes('insightsData') ? 'YES ❌' : 'NO ✅');"
+   ```
+7. If you add a new category to `businessesData` in `siteData.js`, **also update `navData.js`** with the matching minimal entry.
+

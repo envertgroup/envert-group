@@ -82,7 +82,7 @@ export default function Businesses({ onSelectBusiness }) {
     <section 
       id="businesses" 
       className="py-20 lg:py-28 bg-forest-deep text-paper border-b border-charcoal/30 relative overflow-hidden scroll-mt-20"
-      aria-label="Practice Categories - Working Across The Twelve Categories"
+      aria-label="Services Charter — Working Across The Eleven Markets"
     >
       {/* Subtle ambient lighting */}
       <div className="absolute top-0 right-1/4 w-[600px] h-[400px] bg-forest/20 rounded-full blur-3xl pointer-events-none" />
@@ -96,16 +96,16 @@ export default function Businesses({ onSelectBusiness }) {
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-paper/5 border border-paper/10 rounded-full mb-3">
               <span className="w-1.5 h-1.5 bg-earth rounded-full animate-pulse" />
               <span className="font-mono text-[11px] uppercase tracking-widest text-earth-light font-semibold">
-                PRACTICE CATEGORIES
+                SERVICES CHARTER
               </span>
             </div>
             
             <h2 className="font-heading text-3xl sm:text-5xl lg:text-[3.25rem] font-bold uppercase tracking-tight-editorial text-paper leading-[1.05]">
-              Working Across The Twelve Categories
+              Working Across The Eleven Markets
             </h2>
             
             <p className="mt-4 text-sm sm:text-base text-paper/75 leading-relaxed font-normal">
-              A truly multidisciplinary engineering, advisory, design, consultancy and publishing group delivering integrated solutions across twelve core practice categories.
+              A truly multidisciplinary engineering, advisory, design, consultancy and publishing group delivering integrated solutions across the eleven official markets.
             </p>
           </div>
 
@@ -360,9 +360,10 @@ export default function Businesses({ onSelectBusiness }) {
 
                   <Link
                     to={`/businesses/${activeCategory.urlSlug || activeCategory.id}`}
+                    aria-label={`Explore ${activeCategory.name} market page`}
                     className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-earth hover:bg-earth-light text-forest-deep text-xs font-heading font-bold uppercase tracking-wider transition-all duration-150 rounded-xs shadow-md hover:shadow-lg hover:translate-x-0.5"
                   >
-                    <span>Explore Category Page</span>
+                    <span>Explore Market Page</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -378,9 +379,9 @@ export default function Businesses({ onSelectBusiness }) {
         {/* ============================================================ */}
         {viewMode === 'matrix' && (
           <div className="animate-smooth-fade">
-            <div className="p-4 bg-paper/5 border border-paper/10 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-paper/70">
-              <span>Showing all 12 practice categories and technical divisions across EnVERT Group.</span>
-              <span className="text-earth font-semibold shrink-0">12 Categories • Engineering & Advisory Solutions</span>
+            <div className="p-4 bg-paper/5 border border-paper/10 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-paper/80">
+              <span>Showing all 11 official markets and technical divisions across EnVERT Group.</span>
+              <span className="text-earth-light font-semibold shrink-0">11 Markets • Services Charter</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -392,10 +393,10 @@ export default function Businesses({ onSelectBusiness }) {
                   <div>
                     {/* Header */}
                     <div className="flex items-center justify-between pb-3 border-b border-paper/10 mb-4">
-                      <span className="font-mono text-xs text-earth font-bold">
-                        CATEGORY {category.num}
+                      <span className="font-mono text-xs text-earth-light font-bold">
+                        MARKET {category.num}
                       </span>
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-paper/50">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-paper/70">
                         {category.capabilities?.length || 0} items
                       </span>
                     </div>
@@ -404,7 +405,7 @@ export default function Businesses({ onSelectBusiness }) {
                       {category.name}
                     </h3>
 
-                    <p className="text-xs text-paper/60 mt-1 mb-4 leading-relaxed font-normal">
+                    <p className="text-xs text-paper/75 mt-1 mb-4 leading-relaxed font-normal">
                       {category.tagline}
                     </p>
 
@@ -412,7 +413,7 @@ export default function Businesses({ onSelectBusiness }) {
                     {category.capabilities && category.capabilities.length > 0 && (
                       <div className="pt-3 border-t border-paper/10 space-y-1.5">
                         {category.capabilities.slice(0, 4).map((cap, idx) => (
-                          <div key={idx} className="flex items-start gap-2 text-xs text-paper/80">
+                          <div key={idx} className="flex items-start gap-2 text-xs text-paper/85">
                             <span className="w-1 h-1 bg-leaf-light rounded-full shrink-0 mt-1.5" />
                             <span className="leading-snug">{cap}</span>
                           </div>
@@ -425,9 +426,10 @@ export default function Businesses({ onSelectBusiness }) {
                   <div className="mt-6 pt-4 border-t border-paper/10 flex justify-end">
                     <Link
                       to={`/businesses/${category.urlSlug || category.id}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-mono text-earth hover:text-earth-light font-semibold uppercase tracking-wider"
+                      aria-label={`Explore ${category.name} market`}
+                      className="inline-flex items-center gap-1.5 text-xs font-mono text-earth-light hover:text-white font-semibold uppercase tracking-wider"
                     >
-                      <span>Explore Category</span>
+                      <span>Explore Market</span>
                       <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>

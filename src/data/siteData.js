@@ -1657,8 +1657,6 @@ export const ecosystemData = {
   ]
 };
 
-export { careersData } from './careersData.js';
-
 
 export const projectsData = [
   {

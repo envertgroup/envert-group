@@ -1,14 +1,13 @@
-import React, { useState, Suspense, lazy } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import InquiryModal from './components/InquiryModal';
 import ScrollToTop from './components/ScrollToTop';
-import { Analytics } from '@vercel/analytics/react';
 
 import HomePage from './pages/HomePage';
 
-// Sub-pages code-split for lightning-fast initial load & granular caching
+// Sub-pages and modals code-split for lightning-fast initial load & zero unused JS
+const InquiryModal = lazy(() => import('./components/InquiryModal'));
 const BusinessesIndex = lazy(() => import('./pages/BusinessesIndex'));
 const BusinessDetail = lazy(() => import('./pages/BusinessDetail'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
@@ -41,6 +40,25 @@ export default function App() {
     setModalSubject(`Application: ${job.title} (${job.department})`);
     setInquiryModalOpen(true);
   };
+
+  // Initialize Vercel Analytics lazily during idle time to prevent main-thread long tasks
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const initAnalytics = () => {
+        import('@vercel/analytics')
+          .then(({ inject }) => {
+            inject();
+          })
+          .catch(() => {});
+      };
+
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(initAnalytics, { timeout: 3500 });
+      } else {
+        setTimeout(initAnalytics, 2000);
+      }
+    }
+  }, []);
 
   return (
     <Router>
@@ -174,15 +192,16 @@ export default function App() {
         {/* Global Editorial Footer */}
         <Footer />
 
-        {/* Interactive Communication Modal */}
-        <InquiryModal
-          isOpen={inquiryModalOpen}
-          onClose={() => setInquiryModalOpen(false)}
-          initialSubject={modalSubject}
-        />
-
-        {/* Vercel Web Analytics */}
-        <Analytics />
+        {/* Interactive Communication Modal - Code-split & lazy loaded on interaction */}
+        {inquiryModalOpen && (
+          <Suspense fallback={null}>
+            <InquiryModal
+              isOpen={inquiryModalOpen}
+              onClose={() => setInquiryModalOpen(false)}
+              initialSubject={modalSubject}
+            />
+          </Suspense>
+        )}
 
       </div>
     </Router>

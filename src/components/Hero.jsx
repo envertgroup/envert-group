@@ -53,20 +53,20 @@ export default function Hero({ onExploreClick, onAboutClick }) {
             {/* Micro-specs / Group metrics */}
             <div className="mt-12 pt-7 border-t border-charcoal/10 grid grid-cols-3 gap-4 sm:gap-6">
               <div>
-                <p className="font-mono text-2xl lg:text-3xl font-semibold text-forest-deep">12</p>
-                <p className="font-mono text-[11px] uppercase tracking-wider text-charcoal/60 mt-1">
+                <p className="font-mono text-2xl lg:text-3xl font-semibold text-forest-deep">11</p>
+                <p className="font-mono text-[11px] uppercase tracking-wider text-charcoal/75 mt-1 font-medium">
                   Markets
                 </p>
               </div>
               <div>
-                <p className="font-mono text-2xl lg:text-3xl font-semibold text-forest-deep">19</p>
-                <p className="font-mono text-[11px] uppercase tracking-wider text-charcoal/60 mt-1">
+                <p className="font-mono text-2xl lg:text-3xl font-semibold text-forest-deep">14+</p>
+                <p className="font-mono text-[11px] uppercase tracking-wider text-charcoal/75 mt-1 font-medium">
                   Operating Brands
                 </p>
               </div>
               <div>
                 <p className="font-mono text-2xl lg:text-3xl font-semibold text-forest-deep">HQ</p>
-                <p className="font-mono text-[11px] uppercase tracking-wider text-charcoal/60 mt-1">
+                <p className="font-mono text-[11px] uppercase tracking-wider text-charcoal/75 mt-1 font-medium">
                   Kolkata, India
                 </p>
               </div>

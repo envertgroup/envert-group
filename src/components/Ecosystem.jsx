@@ -133,9 +133,10 @@ export default function Ecosystem() {
             </div>
             <Link
               to="/companies"
+              aria-label="See all EnVERT Group operating brands and legal entities"
               className="text-xs font-mono uppercase tracking-wider text-earth font-bold hover:underline"
             >
-              See All 19 Brands →
+              See All Operating Brands →
             </Link>
           </div>
 
@@ -200,6 +201,7 @@ export default function Ecosystem() {
                 <div className="mt-6 pt-4 border-t border-charcoal/10 flex items-center justify-between">
                   <Link
                     to={brand.internalUrl || `/businesses/${brand.internalSlug}`}
+                    aria-label={`View ${brand.name} brand profile`}
                     className="text-xs font-heading font-semibold uppercase tracking-wider text-forest-deep hover:text-earth flex items-center gap-1 transition-colors"
                   >
                     <span>View Page</span>
@@ -211,7 +213,8 @@ export default function Ecosystem() {
                       href={brand.portalUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-xs font-mono text-charcoal/40 hover:text-forest transition-colors"
+                      aria-label={`Visit official external portal for ${brand.name}`}
+                      className="text-xs font-mono text-charcoal/70 hover:text-forest transition-colors p-1"
                       title="External Portal"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -228,7 +231,7 @@ export default function Ecosystem() {
               to="/companies"
               className="px-6 py-3 bg-forest hover:bg-forest-deep text-paper font-heading text-xs uppercase tracking-wider font-semibold rounded-xs transition-all duration-200 inline-flex items-center gap-2 shadow-xs hover:shadow-md hover:translate-x-0.5"
             >
-              <span>Explore All 19 Brands by Sector</span>
+              <span>Explore All Operating Brands & Companies</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

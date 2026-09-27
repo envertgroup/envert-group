@@ -15,9 +15,10 @@ export default {
           light: '#1e5441',
         },
         earth: {
-          DEFAULT: '#A68A58',
-          light: '#BA9F6E',
-          muted: '#8E7343',
+          DEFAULT: '#725422',
+          gold: '#A68A58',
+          light: '#C9A86A',
+          muted: '#5C431B',
         },
         leaf: {
           DEFAULT: '#66845A',

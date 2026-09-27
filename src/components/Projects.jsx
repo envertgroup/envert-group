@@ -94,6 +94,7 @@ export default function Projects({ onOpenContact }) {
               <div className="p-6 pt-0">
                 <button
                   onClick={onOpenContact}
+                  aria-label={`Inquire for project scope: ${project.title}`}
                   className="w-full py-2.5 border border-charcoal/20 hover:border-forest hover:bg-forest hover:text-paper text-forest-deep font-heading text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 transition-all duration-150"
                 >
                   <span>Inquire for Similar Scope</span>

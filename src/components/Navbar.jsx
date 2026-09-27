@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowRight, ChevronDown, Menu, X, Bell, ExternalLink } from 'lucide-react';
-import { businessesData, siteMetadata } from '../data/siteData';
+import { ArrowRight, ChevronDown, Menu, X, Bell } from 'lucide-react';
+import { navBusinessesData as businessesData } from '../data/navData';
 
 
 export default function Navbar({ onOpenContact }) {
@@ -51,12 +51,12 @@ export default function Navbar({ onOpenContact }) {
           
           {/* Official Registered Logo & Typography */}
           <div className="flex items-center min-w-[180px] xl:min-w-[210px]">
-            <Link to="/" className="flex items-center space-x-3 group">
+            <Link to="/" aria-label="EnVERT Group Homepage" className="flex items-center space-x-3 group">
               <img
                 src="/assets/logos/envert_group_logo.webp"
                 alt="EnVERT Group Official Corporate Logo — Multidisciplinary Engineering & Advisory Conglomerate"
-                width="216"
-                height="52"
+                width="151"
+                height="70"
                 fetchPriority="high"
                 decoding="async"
                 className="h-10 sm:h-11 lg:h-12 xl:h-[3.25rem] w-auto object-contain transition-transform duration-200 group-hover:scale-105"
@@ -135,8 +135,8 @@ export default function Navbar({ onOpenContact }) {
                   {/* Bottom Footer Bar */}
                   <div className="mt-4 pt-3 border-t border-charcoal/10 flex items-center justify-end text-xs font-mono">
                     <div className="flex items-center gap-4">
-                      <Link to="/companies" className="text-forest font-semibold hover:text-earth text-[11.5px]">Our Brands (19 Entities in 4 Sectors) →</Link>
-                      <Link to="/contact" className="text-earth font-bold hover:underline text-[11.5px]">Inquire →</Link>
+                      <Link to="/companies" className="text-forest font-semibold hover:text-earth text-[11.5px]">Our Brands (14+ Entities in 4 Sectors) →</Link>
+                      <Link to="/contact" aria-label="Inquire via contact page" className="text-earth font-bold hover:underline text-[11.5px]">Inquire →</Link>
                     </div>
                   </div>
                 </div>
@@ -147,7 +147,7 @@ export default function Navbar({ onOpenContact }) {
               to="/companies"
               className={`hover:text-forest-deep transition-colors py-1 ${location.pathname === '/companies' ? 'text-forest-deep font-bold' : ''}`}
             >
-              Our Brands
+              Companies
             </Link>
 
             <Link

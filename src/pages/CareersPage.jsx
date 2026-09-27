@@ -8,12 +8,10 @@ import {
   AlertCircle, 
   Search, 
   Briefcase, 
-  Building2, 
   CheckCircle2, 
   ChevronDown, 
   Sparkles, 
   ShieldCheck, 
-  Zap, 
   FileText,
   Share2,
   Users

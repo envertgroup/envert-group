@@ -39,8 +39,8 @@ export default function Intro() {
               ABOUT <span className="normal-case">EnVERT</span> GROUP
             </span>
           </div>
-          <div className="font-mono text-xs text-earth uppercase tracking-wider font-medium">
-            Kolkata, India • Truly Multidisciplinary Group Working Across 12 Markets
+          <div className="font-mono text-xs text-earth uppercase tracking-wider font-semibold">
+            Kolkata, India • Truly Multidisciplinary Group Working Across 11 Markets
           </div>
         </div>
 
@@ -52,11 +52,11 @@ export default function Intro() {
               A truly multidisciplinary engineering, advisory, design, consultancy and publishing group.
             </h2>
 
-            <div className="mt-8 space-y-4 text-base sm:text-lg text-charcoal/80 leading-relaxed font-normal">
+            <div className="mt-8 space-y-4 text-base sm:text-lg text-charcoal/90 leading-relaxed font-normal">
               <p>
-                <strong>EnVERT® Group</strong> is an integrated corporate institution operating across the twelve essential markets of modern enterprise: from clean power grids, environmental engineering, and electric mobility to commercial architecture, advisory, manufacturing, and international publishing.
+                <strong>EnVERT® Group</strong> is an integrated corporate institution operating across the eleven essential markets of modern enterprise: from clean power grids, environmental engineering, and electric mobility to commercial architecture, advisory, manufacturing, and international publishing.
               </p>
-              <p className="text-sm sm:text-base text-charcoal/70">
+              <p className="text-sm sm:text-base text-charcoal/80">
                 Operating directly through focused legal entities and dedicated platforms—including <strong>NRG India</strong> (Nandi Resources Generation Technology Pvt. Ltd.), <strong>EnVERT E-Vehicles Private Limited</strong>, <strong>ICST Global</strong>, and <strong>Pen & Ink Publishers</strong>—we bridge rigorous thermodynamic and electrical practice with strategic management and cultural stewardship.
               </p>
             </div>
@@ -68,20 +68,20 @@ export default function Intro() {
                 <Building2 className="w-5 h-5 text-earth" />
                 <h3 className="font-heading text-lg font-bold uppercase tracking-tight">Our Multidisciplinary Charter</h3>
               </div>
-              <p className="text-sm text-charcoal/75 leading-relaxed">
+              <p className="text-sm text-charcoal/80 leading-relaxed">
                 We combine physical systems (clean energy, electric powertrains, MEP architecture, lighting hardware) with institutional advisory, management consulting, and intellectual publishing across domestic and overseas corridors.
               </p>
               
               <div className="pt-4 border-t border-charcoal/10 space-y-2.5">
-                <div className="flex items-start gap-2.5 text-xs text-charcoal/80">
+                <div className="flex items-start gap-2.5 text-xs text-charcoal/85">
                   <CheckCircle2 className="w-4 h-4 text-leaf shrink-0 mt-0.5" />
                   <span><strong>Turnkey Physical Delivery:</strong> Solar PV, biomass CHP, energy efficiency & EV manufacturing.</span>
                 </div>
-                <div className="flex items-start gap-2.5 text-xs text-charcoal/80">
+                <div className="flex items-start gap-2.5 text-xs text-charcoal/85">
                   <CheckCircle2 className="w-4 h-4 text-leaf shrink-0 mt-0.5" />
                   <span><strong>Audits & Standards:</strong> Statutory BEE audits, NAAC campus assessments, and ECBC/MEP compliance.</span>
                 </div>
-                <div className="flex items-start gap-2.5 text-xs text-charcoal/80">
+                <div className="flex items-start gap-2.5 text-xs text-charcoal/85">
                   <CheckCircle2 className="w-4 h-4 text-leaf shrink-0 mt-0.5" />
                   <span><strong>Tourism & Advisory:</strong> International sustainable tourism conferences (ICST Global), strategic consulting, and book publishing.</span>
                 </div>
@@ -90,6 +90,7 @@ export default function Intro() {
               <div className="pt-3">
                 <Link
                   to="/about"
+                  aria-label="Read Full Corporate Profile & Governance of EnVERT Group"
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-forest hover:bg-forest-deep text-paper font-heading text-xs uppercase tracking-wider font-semibold transition-colors"
                 >
                   <span>Read Full Corporate Profile & Governance</span>
@@ -99,14 +100,15 @@ export default function Intro() {
             </div>
 
             <div className="mt-6 flex items-center justify-between px-2">
-              <span className="font-mono text-xs uppercase tracking-wider text-earth font-medium">
-                The 12 Operating Markets
+              <span className="font-mono text-xs uppercase tracking-wider text-earth font-semibold">
+                The 11 Operating Markets
               </span>
               <a
                 href="#businesses"
+                aria-label="Navigate to Working Across The Eleven Markets"
                 className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold uppercase tracking-wider text-forest-deep hover:text-earth transition-colors"
               >
-                <span>Working Across The Twelve Markets</span>
+                <span>Working Across The Eleven Markets</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
