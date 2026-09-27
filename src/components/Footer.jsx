@@ -46,8 +46,8 @@ export default function Footer() {
               <img
                 src={CONTACT.logo}
                 alt="EnVERT Group Corporate Logo — Sustainable Engineering & Global Media"
-                width="151"
-                height="70"
+                width="227"
+                height="105"
                 loading="lazy"
                 decoding="async"
                 className="h-10 sm:h-12 w-auto object-contain brightness-110 group-hover:scale-105 transition-transform duration-200"

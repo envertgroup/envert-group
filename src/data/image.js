@@ -98,7 +98,7 @@ export const logos = {
 
 export const heroes = {
   main: resolve('https://images.unsplash.com/photo-1497440001374-f26997328c1b?q=72&w=800&auto=format&fit=crop'),
-  energy: resolve('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=70&w=700&auto=format&fit=crop'),
+  energy: resolve('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=60&w=560&auto=format&fit=crop'),
   environment: resolve('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=72&w=800&auto=format&fit=crop'),
   advisory: resolve('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=72&w=800&auto=format&fit=crop'),
   buildings: resolve('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=72&w=800&auto=format&fit=crop'),
@@ -106,15 +106,15 @@ export const heroes = {
   travel: resolve('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=72&w=800&auto=format&fit=crop'),
   manufacturing: resolve('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=72&w=800&auto=format&fit=crop'),
   management: resolve('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=72&w=800&auto=format&fit=crop'),
-  transport: resolve('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=72&w=800&auto=format&fit=crop'),
+  transport: resolve('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=65&w=700&auto=format&fit=crop'),
   fashion: resolve('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=72&w=800&auto=format&fit=crop'),
   export_import: resolve('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=72&w=800&auto=format&fit=crop'),
   // Dedicated unique stock images for 11 Markets Services Charter (different from hero images)
   market_publication: resolve('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=72&w=800&auto=format&fit=crop'),
   market_transport: resolve('https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?q=72&w=800&auto=format&fit=crop'),
   market_fashion: resolve('https://images.unsplash.com/photo-1445205170230-053b83016050?q=72&w=800&auto=format&fit=crop'),
-  training: resolve('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=72&w=800&auto=format&fit=crop'),
-  icst: resolve('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=72&w=800&auto=format&fit=crop'),
+  training: resolve('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=65&w=700&auto=format&fit=crop'),
+  icst: resolve('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=65&w=700&auto=format&fit=crop'),
   art: resolve('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=72&w=800&auto=format&fit=crop'),
   indian_art_and_dolls: resolve('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=72&w=800&auto=format&fit=crop'),
   indian_arts_dolls_stock: resolve('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=72&w=800&auto=format&fit=crop'),
@@ -122,7 +122,7 @@ export const heroes = {
   agro: resolve('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=72&w=800&auto=format&fit=crop'),
   research: resolve('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=72&w=800&auto=format&fit=crop'),
   eipr: resolve('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=72&w=800&auto=format&fit=crop'),
-  repoxisy: resolve('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=72&w=800&auto=format&fit=crop'),
+  repoxisy: resolve('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=65&w=700&auto=format&fit=crop'),
   wagsol: resolve('https://images.unsplash.com/photo-1548337138-e87d889cc369?q=72&w=800&auto=format&fit=crop'),
   wellness: resolve('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=72&w=800&auto=format&fit=crop'),
   eisree: resolve('https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?q=72&w=800&auto=format&fit=crop'),
@@ -130,18 +130,18 @@ export const heroes = {
 };
 
 export const heroCollage = {
-  energy: resolve('https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?q=68&w=700&auto=format&fit=crop'),
-  travel: resolve('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=68&w=400&auto=format&fit=crop'),
-  architecture: resolve('https://images.unsplash.com/photo-1486325212027-8081e485255e?q=68&w=400&auto=format&fit=crop'),
-  mobility: resolve('https://images.unsplash.com/photo-1509749837427-ac94a2553d0e?q=68&w=400&auto=format&fit=crop'),
-  publishing: resolve('https://images.unsplash.com/photo-1512820790803-83ca734da794?q=68&w=600&auto=format&fit=crop')
+  energy: resolve('https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?q=55&w=700&auto=format&fit=crop'),
+  travel: resolve('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=60&w=300&auto=format&fit=crop'),
+  architecture: resolve('https://images.unsplash.com/photo-1486325212027-8081e485255e?q=60&w=300&auto=format&fit=crop'),
+  mobility: resolve('https://images.unsplash.com/photo-1509749837427-ac94a2553d0e?q=60&w=300&auto=format&fit=crop'),
+  publishing: resolve('https://images.unsplash.com/photo-1512820790803-83ca734da794?q=55&w=500&auto=format&fit=crop')
 };
 
 export const projects = {
-  solar_pv: resolve('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=75&w=800&auto=format&fit=crop'),
-  ev_fleet: resolve('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=75&w=800&auto=format&fit=crop'),
-  foundry_audit: resolve('https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=75&w=800&auto=format&fit=crop'),
-  training_program: resolve('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=75&w=800&auto=format&fit=crop'),
+  solar_pv: resolve('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=60&w=560&auto=format&fit=crop'),
+  ev_fleet: resolve('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=65&w=700&auto=format&fit=crop'),
+  foundry_audit: resolve('https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=65&w=700&auto=format&fit=crop'),
+  training_program: resolve('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=65&w=700&auto=format&fit=crop'),
   bvcm_solar: resolve('https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?q=75&w=800&auto=format&fit=crop'),
   wagsol_ccu: resolve('https://images.unsplash.com/photo-1518770660439-4636190af475?q=75&w=800&auto=format&fit=crop'),
   railway_solar: resolve('https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=75&w=800&auto=format&fit=crop'),

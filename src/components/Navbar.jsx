@@ -55,8 +55,8 @@ export default function Navbar({ onOpenContact }) {
               <img
                 src="/assets/logos/envert_group_logo.webp"
                 alt="EnVERT Group Official Corporate Logo — Multidisciplinary Engineering & Advisory Conglomerate"
-                width="151"
-                height="70"
+                width="227"
+                height="105"
                 fetchPriority="high"
                 decoding="async"
                 className="h-10 sm:h-11 lg:h-12 xl:h-[3.25rem] w-auto object-contain transition-transform duration-200 group-hover:scale-105"
