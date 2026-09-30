@@ -30,15 +30,25 @@ function PageFallback() {
 export default function App() {
   const [inquiryModalOpen, setInquiryModalOpen] = useState(false);
   const [modalSubject, setModalSubject] = useState('General Consultation');
+  const [modalDomain, setModalDomain] = useState(null);
 
-  const handleOpenContact = (subject = 'General Consultation') => {
+  const handleOpenContact = (subject = 'General Consultation', options = null) => {
+    let domain = null;
+    if (typeof options === 'string') {
+      domain = options;
+    } else if (options && typeof options === 'object') {
+      domain = options.domain || null;
+    }
     setModalSubject(subject);
+    setModalDomain(domain);
     setInquiryModalOpen(true);
   };
 
   const handleApplyJob = (job) => {
-    setModalSubject(`Application: ${job.title} (${job.department})`);
-    setInquiryModalOpen(true);
+    handleOpenContact(
+      `Application: ${job.title} (${job.department})`,
+      { domain: 'Careers / Recruitment' }
+    );
   };
 
   // Initialize Vercel Analytics lazily during idle time to prevent main-thread long tasks
@@ -199,6 +209,7 @@ export default function App() {
               isOpen={inquiryModalOpen}
               onClose={() => setInquiryModalOpen(false)}
               initialSubject={modalSubject}
+              initialDomain={modalDomain}
             />
           </Suspense>
         )}

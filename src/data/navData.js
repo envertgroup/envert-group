@@ -68,19 +68,26 @@ export const navBusinessesData = [
   {
     id: "publication",
     num: "08",
-    name: "Publication, Media & Film Production",
+    name: "Publication, Media",
     businessesUnderCategory: [
       { name: "Touriosity Travelmag", url: "/businesses/publication" },
       { name: "Pen & Ink Publishers", url: "/businesses/publication" },
       { name: "Curiosity Kids", url: "/businesses/publication" },
       { name: "Sustainable Energy Review", url: "/businesses/publication" },
       { name: "Glare Post", url: "/glarepost" },
+    ],
+  },
+  {
+    id: "glarepost-films",
+    num: "09",
+    name: "Film Production",
+    businessesUnderCategory: [
       { name: "Glarepost Films", url: "/businesses/glarepost-films" },
     ],
   },
   {
     id: "afield-gallery",
-    num: "09",
+    num: "10",
     name: "Visual Arts & Contemporary Culture",
     businessesUnderCategory: [
       { name: "Afield Gallery", url: "/businesses/afield-gallery" },
@@ -88,7 +95,7 @@ export const navBusinessesData = [
   },
   {
     id: "fashion-lifestyle",
-    num: "10",
+    num: "11",
     name: "Fashion & Sustainable Lifestyle",
     businessesUnderCategory: [
       { name: "Atmaja", url: "/businesses/fashion-lifestyle" },
@@ -96,7 +103,7 @@ export const navBusinessesData = [
   },
   {
     id: "envert-foundation",
-    num: "11",
+    num: "12",
     name: "Social Stewardship & Community Ecology",
     businessesUnderCategory: [
       { name: "EnVERT Foundation", url: "/businesses/envert-foundation" },
@@ -104,7 +111,7 @@ export const navBusinessesData = [
   },
   {
     id: "startup-idea-envert-wellness",
-    num: "12",
+    num: "13",
     name: "Healthcare & Corporate Wellness",
     businessesUnderCategory: [
       { name: "EnVERT Wellness", url: "/businesses/startup-idea-envert-wellness" },

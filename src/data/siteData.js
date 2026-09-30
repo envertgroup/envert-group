@@ -17,7 +17,7 @@ export const siteMetadata = {
   operatingPillars: [
     { label: "Engineering & Materials", count: "04 Categories", desc: "Energy (NRG India), Transport (EnVERT E-Vehicles), Specialty Chemicals & Epoxy (REPOXISY), Solar & Rail Systems (WAGSOL)" },
     { label: "Tourism & Advisory", count: "04 Categories", desc: "Sustainable Tourism Conferences & Industry Platform (ICST Global), Corporate Training & Relocation (India Corporate Trainers), Policy Research (EIPR), Strategic Advisory (Afield Advisory)" },
-    { label: "Media & Culture", count: "03 Categories", desc: "Publication & Media (Touriosity Travelmag, Pen & Ink, Glare Post), Visual Arts (Afield Gallery)" },
+    { label: "Media & Culture", count: "03 Categories", desc: "Publication & Media (Touriosity Travelmag, Pen & Ink, Glare Post), Film Production (Glarepost Films), Visual Arts (Afield Gallery)" },
     { label: "Stewardship & Living", count: "03 Categories", desc: "Social Stewardship (EnVERT Foundation), Fashion & Lifestyle (Atmaja), Solar Research & Efficiency (EISREE)" },
   ],
 };
@@ -320,7 +320,7 @@ export const brandsData = [
     legalName: "The Touriosity (EnVERT Media Group)",
     sectorId: "media-culture",
     sector: "Media, Publishing & Culture",
-    category: "Publication, Media & Film Production",
+    category: "Publication, Media",
     categoryId: "publication",
     status: "Flagship International Magazine",
     headquarters: "Global Circulation & Kolkata Desk",
@@ -346,7 +346,7 @@ export const brandsData = [
     legalName: "Pen & Ink Publishers (EnVERT Media Group)",
     sectorId: "media-culture",
     sector: "Media, Publishing & Culture",
-    category: "Publication, Media & Film Production",
+    category: "Publication, Media",
     categoryId: "publication",
     status: "Publishing House & Editorial Media",
     headquarters: "Kolkata, India",
@@ -371,7 +371,7 @@ export const brandsData = [
     legalName: "Curiosity Kids Magazine (Pen & Ink Publishers)",
     sectorId: "media-culture",
     sector: "Media, Publishing & Culture",
-    category: "Publication, Media & Film Production",
+    category: "Publication, Media",
     categoryId: "publication",
     status: "International Magazine Imprint",
     headquarters: "Global Distribution (Amazon)",
@@ -396,7 +396,7 @@ export const brandsData = [
     legalName: "Sustainable Energy Review (EnVERT Media Group)",
     sectorId: "media-culture",
     sector: "Media, Publishing & Culture",
-    category: "Publication, Media & Film Production",
+    category: "Publication, Media",
     categoryId: "publication",
     status: "Trade Magazine",
     headquarters: "Kolkata, India",
@@ -420,7 +420,7 @@ export const brandsData = [
     legalName: "Glare Post (EnVERT Media Group)",
     sectorId: "media-culture",
     sector: "Media, Publishing & Culture",
-    category: "Publication, Media & Film Production",
+    category: "Publication, Media",
     categoryId: "publication",
     status: "Digital News & Commentary Portal",
     headquarters: "Kolkata, India",
@@ -445,8 +445,8 @@ export const brandsData = [
     legalName: "Glarepost Films (EnVERT Media Group)",
     sectorId: "media-culture",
     sector: "Media, Publishing & Culture",
-    category: "Publication, Media & Film Production",
-    categoryId: "publication",
+    category: "Film Production",
+    categoryId: "glarepost-films",
     status: "Film & Content Production House",
     headquarters: "Kolkata, India",
     phone: "+91 9836511995",
@@ -457,12 +457,14 @@ export const brandsData = [
     logo: images.logos.glarepost_films,
     summary: "Multi-format film and content production company undertaking documentary filmmaking, feature and short fiction films, OTT and web series development, advertising and corporate TVCs, travel and heritage cinema, and social-impact cinema.",
     domains: [
-      "Documentary & Factual Filmmaking",
-      "Feature Films & Independent Cinema",
-      "OTT Web Series Development",
-      "Advertising TVCs & Branded Films",
-      "Corporate Profiles & CSR Films",
-      "Post-Production & VFX Services"
+      "Film Production",
+      "Advertising & Brand Films",
+      "Digital & OTT Content",
+      "Documentary & Factual",
+      "Post-Production & VFX",
+      "Music & Entertainment",
+      "Production Services",
+      "Original IP & Content Development"
     ]
   },
   {
@@ -1000,17 +1002,17 @@ export const businessesData = [
   {
     id: "publication",
     num: "08",
-    name: "Publication, Media & Film Production",
-    category: "Publication, Media & Film Production",
+    name: "Publication, Media",
+    category: "Publication, Media",
     sector: "Media, Publishing & Culture",
     sectorId: "media-culture",
     companyName: "EnVERT Media Group",
     brandRef: "EnVERT Media Group",
     urlSlug: "publication",
-    aliases: ["publication", "publishing", "publication-media", "touriosity", "touriosity-travelmag", "pen-ink", "curiosity", "sustainable-energy-review", "glarepost", "glarepost-films", "films", "film-production"],
+    aliases: ["publication", "publishing", "publication-media", "touriosity", "touriosity-travelmag", "pen-ink", "curiosity", "sustainable-energy-review", "glarepost"],
     logo: images.logos.pen_and_ink,
-    tagline: "International magazines, digital journalism, literature awards, trade journals, and multi-format film & OTT production.",
-    summary: "EnVERT Group's unified Publication, Media & Film vertical unifies our globally circulated periodicals, book publishing houses, digital investigative journalism, and multi-format film & content production. From Touriosity Travelmag (international heritage & eco-tourism magazine), Pen & Ink Publishers, and Curiosity Kids to Glare Post analytical journalism and Glarepost Films (documentaries, fiction, OTT series, and commercials).",
+    tagline: "International magazines, digital journalism, literature awards, and trade journals.",
+    summary: "EnVERT Group's unified Publication & Media vertical unifies our globally circulated periodicals, book publishing houses, and digital investigative journalism. From Touriosity Travelmag (international heritage & eco-tourism magazine), Pen & Ink Publishers, and Curiosity Kids to Glare Post analytical journalism and Sustainable Energy Review.",
     businessesUnderCategory: [
       {
         id: "touriosity",
@@ -1060,16 +1062,6 @@ export const businessesData = [
         url: "/glarepost",
         externalUrl: "https://www.glarepost.com",
         desc: "Independent online commentary and investigative reporting covering environmental policy, clean transition, and corporate ESG governance."
-      },
-      {
-        id: "glarepost-films",
-        name: "Glarepost Films",
-        legalName: "Glarepost Films (EnVERT Media Group)",
-        role: "Multi-Format Film & Content Production Company",
-        logo: images.logos.glarepost_films,
-        url: "/businesses/glarepost-films",
-        externalUrl: "https://www.glarepost.com",
-        desc: "Comprehensive production house undertaking documentary filmmaking, feature and short fiction films, OTT series, advertising commercials, and full post-production & VFX services."
       }
     ],
     capabilities: [
@@ -1078,12 +1070,8 @@ export const businessesData = [
       "Curiosity Kids Children's Science & Literature Magazine",
       "Sustainable Energy Review (Clean Energy Trade Magazine)",
       "Glare Post Digital Investigative Journalism & ESG Policy Analysis",
-      "Documentary & Factual Filmmaking (Social, Environmental & Corporate)",
-      "Feature & Short Fiction Cinema, OTT Series & Original Content",
-      "Advertising TVCs, Corporate Storytelling & Destination Cinema",
       "Anthology Curation & Worldwide Publication for Emerging Authors",
       "Trade Advertising, Space Selling & Corporate Media Partnerships",
-      "End-to-End Production, Editing, VFX, Colour Grading & Sound Design",
       "Editorial Proofreading, Curation, Formatting & Global Distribution"
     ],
     publications: [
@@ -1108,12 +1096,6 @@ export const businessesData = [
         desc: "Digital perspectives and news platform covering policy, economy, sustainability, and culture.",
         logo: images.logos.glarepost,
         url: "https://www.glarepost.com"
-      },
-      {
-        name: "Glarepost Films",
-        desc: "Multi-format film and content production company across documentary, fiction, OTT, corporate, and social-impact cinema.",
-        logo: images.logos.glarepost_films,
-        url: "https://www.glarepost.com"
       }
     ],
     image: images.heroes.publication,
@@ -1122,8 +1104,101 @@ export const businessesData = [
     directPhone: "+91 9836511995"
   },
   {
-    id: "afield-gallery",
+    id: "glarepost-films",
     num: "09",
+    name: "Film Production",
+    category: "Film Production",
+    sector: "Media, Publishing & Culture",
+    sectorId: "media-culture",
+    companyName: "Glarepost Films",
+    companyLegalName: "Glarepost Films (EnVERT Media Group)",
+    brandRef: "Glarepost Films",
+    urlSlug: "glarepost-films",
+    aliases: ["glarepost-films", "films", "film-production", "production-house", "documentary", "corporate-films", "cinema"],
+    logo: images.logos.glarepost_films,
+    tagline: "Comprehensive production house undertaking documentary filmmaking, feature and short fiction films, OTT series, advertising commercials, and full post-production & VFX services.",
+    summary: "Glarepost Films is the dedicated film and content production company of EnVERT Group, operating as a serious multi-format production house. It undertakes documentary and factual filmmaking, feature and short fiction films, OTT and web series development, advertising and corporate communication films, travel and heritage cinema, and social-impact productions — supported by full end-to-end production, 4K/6K cinematography, and post-production services.",
+    businessesUnderCategory: [
+      {
+        id: "glarepost-films",
+        name: "Glarepost Films",
+        legalName: "Glarepost Films (EnVERT Media Group)",
+        role: "Multi-Format Film & Content Production Company",
+        logo: images.logos.glarepost_films,
+        url: "/businesses/glarepost-films",
+        externalUrl: "https://www.glarepost.com",
+        desc: "Comprehensive production house undertaking documentary filmmaking, feature and short fiction films, OTT series, advertising commercials, and full post-production & VFX services."
+      }
+    ],
+    capabilities: [
+      "Film & Web Series Production (Feature Films, Short Films, Web Series & Original Content)",
+      "Advertising & Brand Films (TV Commercials, Digital Ads, Corporate & Product Films)",
+      "Digital & OTT Content (YouTube, Social-Media Content & Digital-First Storytelling)",
+      "Documentary & Factual (Documentaries, Social-Impact Films, Cultural & Real-Life Stories)",
+      "Post-Production & VFX (Editing, Colour Grading, Sound Design, VFX & Finishing)",
+      "Music & Entertainment (Music Videos, Artist Content & Promotional Programmes)",
+      "Production Services (Line Production, Location Management, Casting, Equipment & Crew)",
+      "Original IP & Content Development (Original Film Concepts, Series & Character IPs)"
+    ],
+    mainDivisions: [
+      {
+        num: "01",
+        title: "Film Production",
+        subtitle: "Film & Web Series Production",
+        desc: "Feature films, short films, web series and original content."
+      },
+      {
+        num: "02",
+        title: "Advertising & Brand Films",
+        subtitle: "Commercial & Corporate Films",
+        desc: "TV commercials, digital ads, corporate films, product films and campaign videos."
+      },
+      {
+        num: "03",
+        title: "Digital & OTT Content",
+        subtitle: "Streaming & Digital-First",
+        desc: "YouTube, social-media content, OTT projects and digital-first storytelling."
+      },
+      {
+        num: "04",
+        title: "Documentary & Factual",
+        subtitle: "Social Impact & Real-Life Storytelling",
+        desc: "Documentaries, social-impact films, cultural and real-life storytelling."
+      },
+      {
+        num: "05",
+        title: "Post-Production & VFX",
+        subtitle: "Editing, Colour & Finishing",
+        desc: "Editing, colour grading, sound design, VFX, motion graphics and finishing."
+      },
+      {
+        num: "06",
+        title: "Music & Entertainment",
+        subtitle: "Artist & Entertainment Content",
+        desc: "Music videos, artist content, entertainment programmes and promotional content."
+      },
+      {
+        num: "07",
+        title: "Production Services",
+        subtitle: "Turnkey Line Production",
+        desc: "Line production, location management, casting, equipment, crew and production support."
+      },
+      {
+        num: "08",
+        title: "Original IP & Content Development",
+        subtitle: "Creative IP Incubation",
+        desc: "Developing and owning original film concepts, series, characters and other intellectual properties."
+      }
+    ],
+    image: images.heroes.market_publication,
+    imageCaption: "Glarepost Films — Multi-format film and content production company.",
+    domainLink: "https://www.glarepost.com",
+    directEmail: "admin@envertgroup.com",
+    directPhone: "+91 9836511995"
+  },
+  {
+    id: "afield-gallery",
+    num: "10",
     name: "Visual Arts & Contemporary Culture",
     category: "Visual Arts & Contemporary Culture",
     sector: "Media, Publishing & Culture",
@@ -1163,7 +1238,7 @@ export const businessesData = [
   },
   {
     id: "fashion-lifestyle",
-    num: "10",
+    num: "11",
     name: "Fashion & Sustainable Lifestyle",
     category: "Fashion & Sustainable Lifestyle",
     sector: "Social Stewardship & Sustainable Living",
@@ -1201,7 +1276,7 @@ export const businessesData = [
   },
   {
     id: "envert-foundation",
-    num: "11",
+    num: "12",
     name: "Social Stewardship & Community Ecology",
     category: "Social Stewardship & Community Ecology",
     sector: "Social Stewardship & Sustainable Living",
@@ -1254,7 +1329,7 @@ export const businessesData = [
   },
   {
     id: "startup-idea-envert-wellness",
-    num: "12",
+    num: "13",
     name: "Healthcare & Corporate Wellness",
     category: "Healthcare & Corporate Wellness",
     sector: "Social Stewardship & Sustainable Living",
@@ -1298,52 +1373,6 @@ export const businessesData = [
 // while keeping pure Category indexes in BusinessesIndex.
 // ============================================================================
 export const brandDetailsData = [
-  {
-    id: "glarepost-films",
-    num: "08-B",
-    name: "Glarepost Films",
-    category: "Film & Content Production",
-    sector: "Media, Publishing & Culture",
-    companyName: "Glarepost Films",
-    companyLegalName: "Glarepost Films (EnVERT Media Group)",
-    brandRef: "Glarepost Films",
-    urlSlug: "glarepost-films",
-    aliases: ["glarepost-films", "films", "production-house", "documentary", "corporate-films", "film-production"],
-    logo: images.logos.glarepost_films,
-    tagline: "A multi-format film and content production company across documentary, fiction, OTT, corporate, travel, and social-impact cinema.",
-    summary: "Glarepost Films is the film and content production arm of EnVERT Group, operating as a serious multi-format production company. It undertakes documentary and factual filmmaking, feature and short fiction films, OTT and web series development, advertising and corporate communication films, travel and heritage cinema, and social-impact productions — supported by full end-to-end production and post-production services.",
-    businessesUnderCategory: [
-      {
-        id: "glarepost-films",
-        name: "Glarepost Films",
-        legalName: "Glarepost Films (EnVERT Media Group)",
-        role: "Multi-Format Film & Content Production Company",
-        logo: images.logos.glarepost_films,
-        url: "/businesses/glarepost-films",
-        externalUrl: "https://www.glarepost.com",
-        desc: "Comprehensive production house undertaking documentary filmmaking, feature and short fiction films, OTT series, advertising commercials, and full post-production & VFX services."
-      }
-    ],
-    capabilities: [
-      "Documentary & Factual Filmmaking (Social, Environmental, Corporate)",
-      "Feature Films, Short Films & Independent Cinema",
-      "OTT & Web Series Original Content Development",
-      "Advertising Films — TVCs, Digital Commercials & Brand Storytelling",
-      "Corporate Profiles, Institutional & CSR Films",
-      "Travel, Destination & Heritage Films",
-      "Music Videos, Artist & Entertainment Productions",
-      "Social Impact Films & Development Communication",
-      "Original IP & Script Development",
-      "End-to-End Production Services (Location, Crew, Casting)",
-      "Post-Production — Editing, Colour Grading, Sound Design & VFX",
-      "Motion Graphics & Visual Effects"
-    ],
-    image: images.heroes.market_publication,
-    imageCaption: "Glarepost Films — Multi-format film and content production company.",
-    domainLink: "https://www.glarepost.com",
-    directEmail: "admin@envertgroup.com",
-    directPhone: "+91 9836511995"
-  },
   {
     id: "wagsol",
     num: "01-B",

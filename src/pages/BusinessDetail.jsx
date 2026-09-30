@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link as RouterLink, useParams as useRouterParams } from 'react-router-dom';
-import { ArrowRight, ArrowLeft, ExternalLink, Phone, Mail, CheckCircle2, Award, Globe } from 'lucide-react';
+import { ArrowRight, ArrowLeft, ExternalLink, Phone, Mail, CheckCircle2, Award, Globe, Film, Video } from 'lucide-react';
 import { businessesData, brandDetailsData, projectsData } from '../data/siteData';
 import EditorialImage from '../components/EditorialImage';
 import SEO from '../components/SEO';
@@ -53,7 +53,8 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
     (targetSlug?.toLowerCase() === 'corporate-training-services' && b.id === 'india-corporate-trainers') ||
     (targetSlug?.toLowerCase() === 'ict' && b.id === 'india-corporate-trainers') ||
     (targetSlug?.toLowerCase() === 'glarepost-films' && b.id === 'glarepost-films') ||
-    (targetSlug?.toLowerCase() === 'films' && b.id === 'glarepost-films')
+    (targetSlug?.toLowerCase() === 'films' && b.id === 'glarepost-films') ||
+    (targetSlug?.toLowerCase() === 'film-production' && b.id === 'glarepost-films')
   );
 
   if (!business) {
@@ -189,7 +190,10 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
 
                 <div className="pt-2 flex flex-wrap items-center gap-3">
                   <button
-                    onClick={() => onOpenContact(`Inquiry: ${business.name} (${business.brandRef || 'EnVERT'})`)}
+                    onClick={() => onOpenContact(
+                      `Inquiry: ${business.name} (${business.brandRef || 'EnVERT'})`,
+                      { domain: business.category || business.name }
+                    )}
                     className="inline-flex items-center gap-2 px-5 py-2.5 bg-forest hover:bg-forest-deep text-paper font-heading text-xs uppercase tracking-wider font-semibold rounded-xs transition-colors"
                   >
                     <span>Inquire on {business.name}</span>
@@ -298,7 +302,10 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
                     </div>
 
                     <button
-                      onClick={() => onOpenContact(`Inquiry: ${sub.name} (${business.name})`)}
+                      onClick={() => onOpenContact(
+                        `Inquiry: ${sub.name} (${business.name})`,
+                        { domain: business.category || business.name }
+                      )}
                       className="text-xs font-mono text-forest-deep hover:text-earth underline decoration-dotted"
                     >
                       Inquire →
@@ -632,7 +639,7 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
                     </span>
                   </div>
                   <h2 className="font-heading text-2xl sm:text-4xl font-bold uppercase text-forest-deep">
-                    EnVERT Media Group: Periodicals, Publishing & Cinematic Narrative
+                    EnVERT Media Group: Periodicals, Publishing & Digital Journalism
                   </h2>
                 </div>
                 <span className="font-mono text-xs text-charcoal/60">
@@ -642,7 +649,7 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm text-charcoal/80 leading-relaxed font-sans">
                 <p>
-                  EnVERT Media Group represents the cultural, literary, and journalistic cornerstone of EnVERT Group. Headquartered in Kolkata, West Bengal, the publishing division unifies internationally distributed travel and heritage periodicals, prestigious book publishing imprints, peer-reviewed renewable energy journals, independent digital investigative journalism, and cinematic film production. Operating with a commitment to authentic storytelling, environmental stewardship, and academic rigor, our publications reach discerning readers, university libraries, research institutes, and cultural institutions across more than thirty countries worldwide.
+                  EnVERT Media Group represents the cultural, literary, and journalistic cornerstone of EnVERT Group. Headquartered in Kolkata, West Bengal, the publishing division unifies internationally distributed travel and heritage periodicals, prestigious book publishing imprints, peer-reviewed renewable energy journals, and independent digital investigative journalism. Operating with a commitment to authentic storytelling, environmental stewardship, and academic rigor, our publications reach discerning readers, university libraries, research institutes, and cultural institutions across more than thirty countries worldwide.
                 </p>
                 <p>
                   From grassroots scientific literacy in our youth magazine <em>Curiosity Kids</em> to global literary recognition through the annual <em>Curiosity Writing Awards</em> hosted by Pen & Ink Publishers, our publishing platforms cultivate critical thinking and cultural exchange. Each imprint operates under rigorous editorial review protocols, ethical journalism guidelines, and international ISBN cataloging standards, offering authors, researchers, journalists, and visual creators an authentic worldwide platform for meaningful expression.
@@ -657,9 +664,9 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
                   <p className="text-[11px] text-charcoal/60 mt-0.5">International circulation & digital readers</p>
                 </div>
                 <div className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
-                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">06</span>
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">05</span>
                   <span className="font-mono text-xs font-bold uppercase text-earth block mt-1">Specialized Imprints</span>
-                  <p className="text-[11px] text-charcoal/60 mt-0.5">Travel, books, science, ESG & cinema</p>
+                  <p className="text-[11px] text-charcoal/60 mt-0.5">Travel, books, science, trade & ESG</p>
                 </div>
                 <div className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
                   <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">7+ Yrs</span>
@@ -786,25 +793,6 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
                   </div>
                 </div>
 
-                {/* Imprint 6: Glarepost Films */}
-                <div className="p-7 bg-paper border border-charcoal/15 rounded-xs space-y-4 flex flex-col justify-between hover:border-forest-deep transition-colors">
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
-                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">PRODUCTION 06</span>
-                      <span className="font-mono text-xs text-earth font-semibold">Cinematic Production House</span>
-                    </div>
-                    <h4 className="font-heading text-xl font-bold text-forest-deep">Glarepost Films</h4>
-                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Documentary, Fiction Cinema, OTT Series & Commercials</p>
-                    <p className="text-sm text-charcoal/80 leading-relaxed">
-                      Glarepost Films is EnVERT Group’s visual storytelling arm, undertaking turnkey production across social-impact documentaries, narrative fiction short films, web series, television advertising commercials, and corporate documentaries. Equipped with 4K/6K digital cinematography rigs, licensed drone aerial survey suites, sound design mastering studios, and professional VFX & color grading pipelines, Glarepost Films translates complex scientific, ecological, and cultural concepts into emotionally resonant cinematic experiences.
-                    </p>
-                  </div>
-                  <div className="pt-3 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono">
-                    <span className="text-forest font-semibold">OTT & Documentary Production</span>
-                    <span className="text-charcoal/60">Pre-to-Post Turnkey</span>
-                  </div>
-                </div>
-
               </div>
             </div>
 
@@ -849,10 +837,296 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
               <div className="pt-4 border-t border-paper/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono">
                 <span className="text-paper/70">Manuscript submissions & editorial inquiries: curiosity@penandinkpublishers.com</span>
                 <button
-                  onClick={() => onOpenContact('Inquiry: Curiosity Writing Awards & Book Publishing (Pen & Ink)')}
+                  onClick={() => onOpenContact(
+                    'Inquiry: Curiosity Writing Awards & Book Publishing (Pen & Ink)',
+                    { domain: 'Publication & Media (Touriosity, Pen & Ink, Glare Post)' }
+                  )}
                   className="px-5 py-2.5 bg-earth hover:bg-earth-dark text-paper font-heading text-xs uppercase tracking-wider font-semibold rounded-xs transition-colors shrink-0"
                 >
                   Submit Manuscript / Inquire
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      )}
+
+      {/* Glarepost Films Specialized Film & Content Production Section */}
+      {business.id === 'glarepost-films' && (
+        <section className="py-16 bg-paper-warm border-b border-charcoal/15">
+          <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 space-y-14">
+            
+            {/* Cinematic Mandate Overview */}
+            <div className="p-8 sm:p-10 bg-paper border border-charcoal/15 rounded-xs space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-4 border-b border-charcoal/10 gap-3">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="w-1.5 h-1.5 bg-earth rounded-full"></span>
+                    <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
+                      MULTI-FORMAT PRODUCTION HOUSE & VFX PIPELINE
+                    </span>
+                  </div>
+                  <h2 className="font-heading text-2xl sm:text-4xl font-bold uppercase text-forest-deep">
+                    Glarepost Films: Cinematic Storytelling & Content Production
+                  </h2>
+                </div>
+                <span className="font-mono text-xs text-charcoal/60">
+                  Pre-to-Post Turnkey Filmmaking
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm text-charcoal/80 leading-relaxed font-sans">
+                <p>
+                  Glarepost Films operates as the dedicated film, documentary, and multi-format content production arm of EnVERT Group. With a focus on social impact, ecological transition, cultural geography, and investigative human stories, Glarepost Films brings complex concepts to the screen with cinematic depth and emotional resonance. Our capabilities span turnkey filmmaking—from original script development and casting to field cinematography and theatrical-grade post-production.
+                </p>
+                <p>
+                  Equipped with 4K/6K digital cinema camera packages, licensed aerial drone cinematography, sync-sound location recording, and an end-to-end post-production studio running DaVinci Resolve color suites and surround sound mastering, Glarepost Films services documentary films, feature and short fiction, OTT web series, corporate documentaries, and high-impact broadcast commercials.
+                </p>
+              </div>
+
+              {/* Film Scope Quick Metrics */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-charcoal/10">
+                <div className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">4K / 6K</span>
+                  <span className="font-mono text-xs font-bold uppercase text-earth block mt-1">Cinema Capture</span>
+                  <p className="text-[11px] text-charcoal/60 mt-0.5">High dynamic range digital cinema rigs</p>
+                </div>
+                <div className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">06</span>
+                  <span className="font-mono text-xs font-bold uppercase text-earth block mt-1">Production Tracks</span>
+                  <p className="text-[11px] text-charcoal/60 mt-0.5">Documentary, fiction, OTT, TVCs, VFX</p>
+                </div>
+                <div className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">Turnkey</span>
+                  <span className="font-mono text-xs font-bold uppercase text-earth block mt-1">End-to-End Delivery</span>
+                  <p className="text-[11px] text-charcoal/60 mt-0.5">Pre-production to final delivery master</p>
+                </div>
+                <div className="p-4 bg-paper-warm border border-charcoal/10 rounded-xs">
+                  <span className="font-heading text-2xl sm:text-3xl font-extrabold text-forest-deep block">OTT & TVC</span>
+                  <span className="font-mono text-xs font-bold uppercase text-earth block mt-1">Multi-Platform</span>
+                  <p className="text-[11px] text-charcoal/60 mt-0.5">Streaming series & broadcast commercials</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 8 Main Divisions Grid */}
+            <div className="space-y-6">
+              <div className="pb-3 border-b border-charcoal/10 flex items-center justify-between">
+                <div>
+                  <span className="font-mono text-xs text-earth uppercase font-semibold tracking-wider">
+                    GLAREPOST FILMS — MAIN DIVISIONS
+                  </span>
+                  <h3 className="font-heading text-2xl sm:text-3xl font-bold uppercase text-forest-deep mt-1">
+                    Eight Core Operating Divisions
+                  </h3>
+                </div>
+                <span className="font-mono text-xs text-charcoal/60">08 Main Divisions</span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                {/* 1. Film Production */}
+                <div className="p-6 bg-paper border border-charcoal/15 rounded-xs space-y-3 flex flex-col justify-between hover:border-forest-deep transition-colors">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">DIVISION 01</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-forest"></span>
+                    </div>
+                    <h4 className="font-heading text-lg font-bold text-forest-deep">Film Production</h4>
+                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Film & Web Series</p>
+                    <p className="text-xs text-charcoal/80 leading-relaxed">
+                      Feature films, short films, web series and original content.
+                    </p>
+                  </div>
+                  <div className="pt-2 border-t border-charcoal/10 text-[11px] font-mono text-charcoal/60">
+                    Feature & Short Slate
+                  </div>
+                </div>
+
+                {/* 2. Advertising & Brand Films */}
+                <div className="p-6 bg-paper border border-charcoal/15 rounded-xs space-y-3 flex flex-col justify-between hover:border-forest-deep transition-colors">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">DIVISION 02</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-forest"></span>
+                    </div>
+                    <h4 className="font-heading text-lg font-bold text-forest-deep">Advertising & Brand Films</h4>
+                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Commercial & Brand</p>
+                    <p className="text-xs text-charcoal/80 leading-relaxed">
+                      TV commercials, digital ads, corporate films, product films and campaign videos.
+                    </p>
+                  </div>
+                  <div className="pt-2 border-t border-charcoal/10 text-[11px] font-mono text-charcoal/60">
+                    TVCs & Campaigns
+                  </div>
+                </div>
+
+                {/* 3. Digital & OTT Content */}
+                <div className="p-6 bg-paper border border-charcoal/15 rounded-xs space-y-3 flex flex-col justify-between hover:border-forest-deep transition-colors">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">DIVISION 03</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-forest"></span>
+                    </div>
+                    <h4 className="font-heading text-lg font-bold text-forest-deep">Digital & OTT Content</h4>
+                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Digital & Streaming</p>
+                    <p className="text-xs text-charcoal/80 leading-relaxed">
+                      YouTube, social-media content, OTT projects and digital-first storytelling.
+                    </p>
+                  </div>
+                  <div className="pt-2 border-t border-charcoal/10 text-[11px] font-mono text-charcoal/60">
+                    Digital-First IP
+                  </div>
+                </div>
+
+                {/* 4. Documentary & Factual */}
+                <div className="p-6 bg-paper border border-charcoal/15 rounded-xs space-y-3 flex flex-col justify-between hover:border-forest-deep transition-colors">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">DIVISION 04</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-forest"></span>
+                    </div>
+                    <h4 className="font-heading text-lg font-bold text-forest-deep">Documentary & Factual</h4>
+                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Real-Life Storytelling</p>
+                    <p className="text-xs text-charcoal/80 leading-relaxed">
+                      Documentaries, social-impact films, cultural and real-life storytelling.
+                    </p>
+                  </div>
+                  <div className="pt-2 border-t border-charcoal/10 text-[11px] font-mono text-charcoal/60">
+                    Social & Cultural Impact
+                  </div>
+                </div>
+
+                {/* 5. Post-Production & VFX */}
+                <div className="p-6 bg-paper border border-charcoal/15 rounded-xs space-y-3 flex flex-col justify-between hover:border-forest-deep transition-colors">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">DIVISION 05</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-forest"></span>
+                    </div>
+                    <h4 className="font-heading text-lg font-bold text-forest-deep">Post-Production & VFX</h4>
+                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Finishing & Mastering</p>
+                    <p className="text-xs text-charcoal/80 leading-relaxed">
+                      Editing, colour grading, sound design, VFX, motion graphics and finishing.
+                    </p>
+                  </div>
+                  <div className="pt-2 border-t border-charcoal/10 text-[11px] font-mono text-charcoal/60">
+                    Full Studio Pipeline
+                  </div>
+                </div>
+
+                {/* 6. Music & Entertainment */}
+                <div className="p-6 bg-paper border border-charcoal/15 rounded-xs space-y-3 flex flex-col justify-between hover:border-forest-deep transition-colors">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">DIVISION 06</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-forest"></span>
+                    </div>
+                    <h4 className="font-heading text-lg font-bold text-forest-deep">Music & Entertainment</h4>
+                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Artist & Entertainment</p>
+                    <p className="text-xs text-charcoal/80 leading-relaxed">
+                      Music videos, artist content, entertainment programmes and promotional content.
+                    </p>
+                  </div>
+                  <div className="pt-2 border-t border-charcoal/10 text-[11px] font-mono text-charcoal/60">
+                    Artist & Video Media
+                  </div>
+                </div>
+
+                {/* 7. Production Services */}
+                <div className="p-6 bg-paper border border-charcoal/15 rounded-xs space-y-3 flex flex-col justify-between hover:border-forest-deep transition-colors">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">DIVISION 07</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-forest"></span>
+                    </div>
+                    <h4 className="font-heading text-lg font-bold text-forest-deep">Production Services</h4>
+                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Turnkey Line Support</p>
+                    <p className="text-xs text-charcoal/80 leading-relaxed">
+                      Line production, location management, casting, equipment, crew and production support.
+                    </p>
+                  </div>
+                  <div className="pt-2 border-t border-charcoal/10 text-[11px] font-mono text-charcoal/60">
+                    Crew & Gear Logistics
+                  </div>
+                </div>
+
+                {/* 8. Original IP & Content Development */}
+                <div className="p-6 bg-paper border border-charcoal/15 rounded-xs space-y-3 flex flex-col justify-between hover:border-forest-deep transition-colors">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between pb-2 border-b border-charcoal/10">
+                      <span className="font-mono text-xs font-bold text-forest uppercase tracking-wider">DIVISION 08</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-forest"></span>
+                    </div>
+                    <h4 className="font-heading text-lg font-bold text-forest-deep">Original IP & Content Development</h4>
+                    <p className="text-xs font-mono text-charcoal/60 font-semibold uppercase">Creative Incubation</p>
+                    <p className="text-xs text-charcoal/80 leading-relaxed">
+                      Developing and owning original film concepts, series, characters and other intellectual properties.
+                    </p>
+                  </div>
+                  <div className="pt-2 border-t border-charcoal/10 text-[11px] font-mono text-charcoal/60">
+                    Proprietary IP Assets
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Production Engagement CTA Box */}
+            <div className="p-8 sm:p-10 bg-forest-deep text-paper rounded-xs border border-charcoal/20 space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-4 border-b border-paper/15 gap-3">
+                <div>
+                  <div className="flex items-center gap-2 mb-1 font-mono text-xs uppercase tracking-widest text-earth-light">
+                    <Film className="w-4 h-4 text-earth" />
+                    <span>PRODUCTION INQUIRIES & COMMISSIONS</span>
+                  </div>
+                  <h3 className="font-heading text-2xl sm:text-3xl font-bold uppercase text-paper">
+                    Commission A Film or Production Project
+                  </h3>
+                </div>
+                <a
+                  href="https://www.glarepost.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-mono text-xs text-earth-light hover:text-paper flex items-center gap-1.5 transition-colors font-bold"
+                >
+                  <span>Visit glarepost.com</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-sm text-paper/80 leading-relaxed font-sans">
+                <div className="space-y-2">
+                  <h5 className="font-heading text-base font-bold text-earth-light">Documentary & Commercial Pitches</h5>
+                  <p className="text-xs text-paper/70 leading-relaxed">
+                    Submit treatment briefs, documentary project proposals, or corporate commercial RFPs directly to our executive production desk for feasibility evaluation and budget modeling.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-heading text-base font-bold text-earth-light">Turnkey Technical Services</h5>
+                  <p className="text-xs text-paper/70 leading-relaxed">
+                    Access specialized 4K/6K camera rigs, licensed aerial drone survey teams, sound mastering suites, or DaVinci Resolve color grading for external film and broadcast productions.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-heading text-base font-bold text-earth-light">Co-Productions & Screenplays</h5>
+                  <p className="text-xs text-paper/70 leading-relaxed">
+                    We welcome co-production partnerships with independent directors, international broadcasters, and writers with developed scripts in social impact, environment, and regional fiction.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-paper/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono">
+                <span className="text-paper/70">Production inquiries & script submissions: admin@envertgroup.com</span>
+                <button
+                  onClick={() => onOpenContact(
+                    'Inquiry: Film & Content Production (Glarepost Films)',
+                    { domain: 'Film & Content Production (Glarepost Films)' }
+                  )}
+                  className="px-5 py-2.5 bg-earth hover:bg-earth-dark text-paper font-heading text-xs uppercase tracking-wider font-semibold rounded-xs transition-colors shrink-0"
+                >
+                  Commission Film Project
                 </button>
               </div>
             </div>
@@ -1070,7 +1344,10 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
               <div className="pt-6 border-t border-paper/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono">
                 <span className="text-paper/70">Volunteer participation, scholarship nominations & CSR partnerships: admin@envertgroup.com</span>
                 <button
-                  onClick={() => onOpenContact('Inquiry: EnVERT Foundation (Volunteer, CSR & Stewardship)')}
+                  onClick={() => onOpenContact(
+                    'Inquiry: EnVERT Foundation (Volunteer, CSR & Stewardship)',
+                    { domain: 'Social Stewardship & Community Ecology (EnVERT Foundation)' }
+                  )}
                   className="px-5 py-2.5 bg-earth hover:bg-earth-dark text-paper font-heading text-xs uppercase tracking-wider font-semibold rounded-xs transition-colors shrink-0"
                 >
                   Partner With Foundation
@@ -1214,7 +1491,10 @@ export default function BusinessDetail({ onOpenContact, forcedSlug }) {
                 </div>
                 <div className="flex items-center gap-3">
                   <button
-                    onClick={() => onOpenContact('Inquiry: India Corporate Trainers (Corporate Training & Relocation)')}
+                    onClick={() => onOpenContact(
+                      'Inquiry: India Corporate Trainers (Corporate Training & Relocation)',
+                      { domain: 'Corporate Language & Cultural Training (India Corporate Trainers)' }
+                    )}
                     className="px-5 py-2.5 bg-earth hover:bg-earth-dark text-paper font-heading text-xs uppercase tracking-wider font-semibold rounded-xs transition-colors"
                   >
                     Book Corporate Consultation

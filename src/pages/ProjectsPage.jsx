@@ -149,7 +149,7 @@ export default function ProjectsPage({ onOpenContact }) {
 
               <div className="p-7 sm:p-8 pt-0 flex flex-col sm:flex-row gap-3">
                 <button
-                  onClick={() => onOpenContact(`Inquiry on Project: ${project.title}`)}
+                  onClick={() => onOpenContact(`Inquiry on Project: ${project.title}`, { domain: 'Projects & Technical Deliverables' })}
                   className="flex-1 py-3 bg-forest hover:bg-forest-deep text-paper font-heading text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 transition-all duration-150 rounded-xs"
                 >
                   <span>Inquire on Scope</span>

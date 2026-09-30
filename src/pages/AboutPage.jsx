@@ -162,7 +162,7 @@ export default function AboutPage({ onOpenContact }) {
             </p>
           </div>
           <button
-            onClick={() => onOpenContact('General Executive Consultation')}
+            onClick={() => onOpenContact('General Executive Consultation', { domain: 'General Inquiry / Corporate Consultation' })}
             className="px-6 py-3 bg-earth hover:bg-earth-light text-forest-deep font-heading text-xs uppercase tracking-wider font-semibold shrink-0 transition-colors"
           >
             Start Conversation →

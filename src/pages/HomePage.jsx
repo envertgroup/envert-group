@@ -53,7 +53,7 @@ export default function HomePage({ onOpenContact, onApplyJob }) {
 
       {/* Section 05: Selected Work (Verifiable Engineering Projects) — below fold */}
       <Suspense fallback={<SectionSkeleton height="min-h-[480px]" />}>
-        <Projects onOpenContact={() => onOpenContact('Project Scope Inquiry')} />
+        <Projects onOpenContact={() => onOpenContact('Project Scope Inquiry', { domain: 'Projects & Technical Deliverables' })} />
       </Suspense>
     </>
   );

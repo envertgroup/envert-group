@@ -24,12 +24,35 @@ export default function ContactPage() {
     'Energy & Solar PV',
     'BEE Industrial Audits',
     'Electric Vehicles (FAME)',
-    'Corporate Language Training',
-    'Publishing & Media',
+    'Film & Content Production (Glarepost Films)',
+    'Publishing & Media (Touriosity, Pen & Ink)',
+    'Corporate Language & Cultural Training',
+    'Specialty Chemicals & Polymers (REPOXISY)',
+    'Solar & Railway Lighting (WAGSOL)',
+    'Sustainable Tourism & ICST Global',
+    'Environmental Research & Policy (EIPR)',
+    'Visual Arts & Contemporary Culture (Afield Gallery)',
+    'Fashion & Sustainable Lifestyle (Atmaja)',
+    'Social Stewardship & CSR (EnVERT Foundation)',
+    'Healthcare & Corporate Wellness (EnVERT Wellness)',
     'NAAC University Green Audits',
     'Careers / Recruitment',
     'General Inquiry'
   ];
+
+  // Pre-select topic if user arrived via query parameters
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.search) {
+      const params = new URLSearchParams(window.location.search);
+      const queryTopic = params.get('topic') || params.get('domain');
+      if (queryTopic) {
+        const found = topics.find(t => t.toLowerCase().includes(queryTopic.toLowerCase()));
+        if (found) {
+          setSelectedTopics([found]);
+        }
+      }
+    }
+  }, []);
 
   const toggleTopic = (t) => {
     if (selectedTopics.includes(t)) {

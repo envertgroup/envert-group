@@ -143,7 +143,7 @@ export default function CompaniesPage({ onOpenContact }) {
             </p>
           </div>
           <button
-            onClick={() => onOpenContact('Group Company General Inquiry')}
+            onClick={() => onOpenContact('Group Company General Inquiry', { domain: 'General Inquiry / Corporate Consultation' })}
             className="px-6 py-3 bg-earth hover:bg-earth-dark text-paper font-heading text-xs uppercase tracking-wider font-semibold transition-colors shrink-0 flex items-center gap-2"
           >
             <span>Direct Inquiry</span>

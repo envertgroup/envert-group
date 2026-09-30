@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 export default function EditorialImage({
   src,
@@ -7,12 +7,46 @@ export default function EditorialImage({
   aspectRatio = 'aspect-[16/10]',
   domain = 'ENGINEERING',
   caption = '',
+  priority = false,
+  width = '800',
+  height = '500'
 }) {
   const [hasError, setHasError] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(priority);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (priority || isInView) return;
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+      setIsInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: '250px 0px' }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [priority, isInView]);
 
   return (
-    <div className={`relative overflow-hidden bg-forest-dark border border-charcoal/15 ${aspectRatio} group`}>
+    <div
+      ref={containerRef}
+      className={`relative overflow-hidden bg-forest-dark border border-charcoal/15 ${aspectRatio} group`}
+    >
       {/* Background Graphic Blueprint / Fallback */}
       <div className="absolute inset-0 bg-[#0B241C] flex flex-col justify-between p-6 overflow-hidden">
         {/* Architectural Grid Lines */}
@@ -47,14 +81,14 @@ export default function EditorialImage({
         </div>
       </div>
 
-      {/* Actual Photographic Layer if available and loads */}
-      {!hasError && (
+      {/* Actual Photographic Layer: Only mounted when in or near viewport */}
+      {isInView && !hasError && (
         <img
           src={src}
           alt={alt || "EnVERT Group Engineering & Industrial Installation"}
-          width="800"
-          height="500"
-          loading="lazy"
+          width={width}
+          height={height}
+          loading={priority ? "eager" : "lazy"}
           decoding="async"
           onLoad={() => setLoaded(true)}
           onError={() => setHasError(true)}

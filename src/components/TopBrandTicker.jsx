@@ -39,8 +39,11 @@ export default function TopBrandTicker() {
                     <img
                       src={brand.logo}
                       alt={`${brand.name} brand logo — EnVERT Group`}
+                      width="85"
+                      height="24"
+                      loading="lazy"
+                      decoding="async"
                       className="max-h-full max-w-[70px] sm:max-w-[85px] object-contain"
-                      loading="eager"
                     />
                   </div>
                 )}

@@ -1,9 +1,94 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Send, CheckCircle2, ArrowRight, Loader2, AlertCircle, Mail } from 'lucide-react';
 import { siteMetadata } from '../data/siteData';
 import { submitForm } from '../services/formService';
 
-export default function InquiryModal({ isOpen, onClose, initialSubject = '' }) {
+export const CANONICAL_DOMAINS = [
+  'Energy & Power Systems (NRG India)',
+  'Electric Mobility & Clean Transportation (EnVERT E-Vehicles)',
+  'Sustainable Tourism & Global Platforms (ICST Global)',
+  'Corporate Language & Cultural Training (India Corporate Trainers)',
+  'Specialty Chemicals & Advanced Polymers (REPOXISY)',
+  'Solar & Railway Lighting (WAGSOL)',
+  'Policy, Governance & Environmental Research (EIPR)',
+  'Publication & Media (Touriosity, Pen & Ink, Glare Post)',
+  'Film & Content Production (Glarepost Films)',
+  'Visual Arts & Contemporary Culture (Afield Gallery)',
+  'Fashion & Sustainable Lifestyle (Atmaja)',
+  'Social Stewardship & Community Ecology (EnVERT Foundation)',
+  'Healthcare & Corporate Wellness (EnVERT Wellness)',
+  'Strategic Corporate Advisory (Afield Advisory)',
+  'Projects & Technical Deliverables',
+  'Careers / Recruitment',
+  'General Inquiry / Corporate Consultation'
+];
+
+export function resolveDomain(subject = '', explicitDomain = '') {
+  if (explicitDomain && CANONICAL_DOMAINS.includes(explicitDomain)) {
+    return explicitDomain;
+  }
+
+  const raw = `${explicitDomain || ''} ${subject || ''}`.toLowerCase();
+
+  if (raw.includes('film') || raw.includes('glarepost') || raw.includes('cinema') || raw.includes('vfx') || raw.includes('ott') || raw.includes('commis')) {
+    return 'Film & Content Production (Glarepost Films)';
+  }
+  if (raw.includes('railway') || raw.includes('wagsol') || raw.includes('street light')) {
+    return 'Solar & Railway Lighting (WAGSOL)';
+  }
+  if (raw.includes('chemical') || raw.includes('epoxy') || raw.includes('repoxisy') || raw.includes('polymer') || raw.includes('resin')) {
+    return 'Specialty Chemicals & Advanced Polymers (REPOXISY)';
+  }
+  if (raw.includes('transport') || raw.includes('vehicle') || raw.includes('ev') || raw.includes('mobility') || raw.includes('fleet')) {
+    return 'Electric Mobility & Clean Transportation (EnVERT E-Vehicles)';
+  }
+  if (raw.includes('tourism') || raw.includes('icst') || raw.includes('hospitality')) {
+    return 'Sustainable Tourism & Global Platforms (ICST Global)';
+  }
+  if (raw.includes('language') || raw.includes('corporate trainer') || raw.includes('relocation') || raw.includes('training')) {
+    return 'Corporate Language & Cultural Training (India Corporate Trainers)';
+  }
+  if (raw.includes('gallery') || raw.includes('art') || raw.includes('curator') || raw.includes('dolls')) {
+    return 'Visual Arts & Contemporary Culture (Afield Gallery)';
+  }
+  if (raw.includes('fashion') || raw.includes('textile') || raw.includes('apparel') || raw.includes('atmaja')) {
+    return 'Fashion & Sustainable Lifestyle (Atmaja)';
+  }
+  if (raw.includes('foundation') || raw.includes('csr') || raw.includes('stewardship') || raw.includes('ecology') || raw.includes('volunteer')) {
+    return 'Social Stewardship & Community Ecology (EnVERT Foundation)';
+  }
+  if (raw.includes('wellness') || raw.includes('health') || raw.includes('ergonomic')) {
+    return 'Healthcare & Corporate Wellness (EnVERT Wellness)';
+  }
+  if (raw.includes('eipr') || raw.includes('policy') || raw.includes('environmental research') || raw.includes('governance')) {
+    return 'Policy, Governance & Environmental Research (EIPR)';
+  }
+  if (raw.includes('publication') || raw.includes('magazine') || raw.includes('book') || raw.includes('publisher') || raw.includes('touriosity') || raw.includes('pen & ink') || raw.includes('curiosity') || raw.includes('writing award') || raw.includes('glare post')) {
+    return 'Publication & Media (Touriosity, Pen & Ink, Glare Post)';
+  }
+  if (raw.includes('advisory') || raw.includes('strategic') || raw.includes('m&a') || raw.includes('joint venture')) {
+    return 'Strategic Corporate Advisory (Afield Advisory)';
+  }
+  if (raw.includes('energy') || raw.includes('solar') || raw.includes('nrg') || raw.includes('audit') || raw.includes('power') || raw.includes('bee')) {
+    return 'Energy & Power Systems (NRG India)';
+  }
+  if (raw.includes('project') || raw.includes('deliverable') || raw.includes('scope')) {
+    return 'Projects & Technical Deliverables';
+  }
+  if (raw.includes('career') || raw.includes('job') || raw.includes('application') || raw.includes('recruitment') || raw.includes('hiring') || raw.includes('cv')) {
+    return 'Careers / Recruitment';
+  }
+  if (explicitDomain && explicitDomain.trim()) {
+    return explicitDomain.trim();
+  }
+  if (subject && subject.trim() && !subject.toLowerCase().includes('consultation')) {
+    return subject.replace(/^inquiry:\s*/i, '').trim();
+  }
+
+  return 'General Inquiry / Corporate Consultation';
+}
+
+export default function InquiryModal({ isOpen, onClose, initialSubject = '', initialDomain = null }) {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -13,9 +98,24 @@ export default function InquiryModal({ isOpen, onClose, initialSubject = '' }) {
     name: '',
     email: '',
     phone: '',
-    domain: initialSubject || 'General Inquiry',
+    domain: resolveDomain(initialSubject, initialDomain),
     message: ''
   });
+
+  // Keep form synced whenever the modal opens or input props change
+  useEffect(() => {
+    if (isOpen) {
+      const resolved = resolveDomain(initialSubject, initialDomain);
+      setFormData(prev => ({
+        ...prev,
+        domain: resolved,
+        message: ''
+      }));
+      setSubmitted(false);
+      setErrorMessage(null);
+      setFallbackMailto(null);
+    }
+  }, [isOpen, initialSubject, initialDomain]);
 
   if (!isOpen) return null;
 
@@ -51,17 +151,9 @@ export default function InquiryModal({ isOpen, onClose, initialSubject = '' }) {
     }
   };
 
-  const domains = [
-    'Energy Systems',
-    'Environmental Compliance',
-    'Buildings & Infrastructure',
-    'Electric Mobility',
-    'Corporate Advisory',
-    'Capability Training',
-    'Publishing & Media',
-    'Careers / Recruitment',
-    'General Inquiry'
-  ];
+  const domainList = CANONICAL_DOMAINS.includes(formData.domain)
+    ? CANONICAL_DOMAINS
+    : [formData.domain, ...CANONICAL_DOMAINS];
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal/80 backdrop-blur-sm animate-fadeIn">
@@ -144,7 +236,7 @@ export default function InquiryModal({ isOpen, onClose, initialSubject = '' }) {
                   onChange={(e) => setFormData({ ...formData, domain: e.target.value })}
                   className="w-full bg-paper border border-charcoal/20 px-3 py-2 text-xs font-mono text-charcoal focus:border-forest focus:outline-none"
                 >
-                  {domains.map((d) => (
+                  {domainList.map((d) => (
                     <option key={d} value={d}>
                       {d}
                     </option>

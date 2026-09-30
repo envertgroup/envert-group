@@ -130,7 +130,7 @@ export const heroes = {
 };
 
 export const heroCollage = {
-  energy: resolve('https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?q=55&w=700&auto=format&fit=crop'),
+  energy: resolve('https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?q=68&w=700&auto=format&fit=crop'),
   travel: resolve('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=60&w=300&auto=format&fit=crop'),
   architecture: resolve('https://images.unsplash.com/photo-1486325212027-8081e485255e?q=60&w=300&auto=format&fit=crop'),
   mobility: resolve('https://images.unsplash.com/photo-1509749837427-ac94a2553d0e?q=60&w=300&auto=format&fit=crop'),

@@ -206,7 +206,7 @@ export default function BusinessesIndex({ onOpenContact }) {
                   </Link>
 
                   <button
-                    onClick={() => onOpenContact(`Inquiry: ${biz.name} (${biz.sector})`)}
+                    onClick={() => onOpenContact(`Inquiry: ${biz.name} (${biz.sector})`, { domain: biz.name })}
                     className="px-4 py-2.5 border border-charcoal/20 hover:border-forest text-xs font-mono uppercase text-forest-deep transition-colors"
                   >
                     Direct Consultation

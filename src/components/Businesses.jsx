@@ -23,21 +23,10 @@ export default function Businesses({ onSelectBusiness }) {
   };
 
   useEffect(() => {
-    // Idle background preload after critical page resources have loaded
-    const idleCallback = window.requestIdleCallback || ((cb) => setTimeout(cb, 2500));
-    const handle = idleCallback(() => {
-      categories.slice(0, 4).forEach((c) => {
-        if (c.image) preloadImage(c.image);
-      });
-    });
-
     return () => {
       if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-      if (window.cancelIdleCallback && typeof handle === 'number') {
-        window.cancelIdleCallback(handle);
-      }
     };
-  }, [categories]);
+  }, []);
 
   const handleItemMouseEnter = (category) => {
     if (hoverTimeoutRef.current) {
