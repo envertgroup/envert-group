@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { ArrowRight, Phone, Mail, ExternalLink } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import EditorialImage from './EditorialImage';
 import { images } from '../data/image.js';
 
-export default function FeaturedCapability({ onInquire }) {
+export default function FeaturedCapability({ _onInquire }) {
   const [activeTab, setActiveTab] = useState('mobility');
 
   const capabilities = {

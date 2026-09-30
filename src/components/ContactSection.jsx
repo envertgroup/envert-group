@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { siteMetadata } from '../data/siteData';
-import { submitForm } from '../services/formService';
+import { submitForm, HCAPTCHA_SITEKEY } from '../services/formService';
 
 export default function ContactSection() {
   const [selectedTopics, setSelectedTopics] = useState(['Energy & Solar PV']);
@@ -10,6 +11,8 @@ export default function ContactSection() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [fallbackMailto, setFallbackMailto] = useState(null);
   const [submissionMeta, setSubmissionMeta] = useState(null);
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const captchaRef = useRef(null);
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -45,6 +48,12 @@ export default function ContactSection() {
     setErrorMessage(null);
     setFallbackMailto(null);
 
+    if (!captchaToken) {
+      setIsSubmitting(false);
+      setErrorMessage('Please complete the hCaptcha security check to verify you are human.');
+      return;
+    }
+
     const isCareerTopic = selectedTopics.some(t => t.toLowerCase().includes('career') || t.toLowerCase().includes('recruitment'));
 
     const res = await submitForm({
@@ -56,7 +65,8 @@ export default function ContactSection() {
       topics: selectedTopics,
       domain: selectedTopics.join(', '),
       subject: `Inquiry: ${selectedTopics.join(', ')}`,
-      isCareer: isCareerTopic
+      isCareer: isCareerTopic,
+      captchaToken
     });
 
     setIsSubmitting(false);
@@ -64,9 +74,12 @@ export default function ContactSection() {
     if (res.success) {
       setSubmissionMeta(res);
       setFormSubmitted(true);
+      setCaptchaToken(null);
     } else {
       setErrorMessage(res.error || 'Failed to dispatch inquiry to the server.');
       setFallbackMailto(res.mailtoUrl);
+      setCaptchaToken(null);
+      captchaRef.current?.resetCaptcha();
     }
   };
 
@@ -282,6 +295,22 @@ export default function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full bg-forest-dark/80 border border-paper/20 p-3.5 text-sm text-paper placeholder-paper/30 focus:border-earth focus:outline-none"
                   ></textarea>
+                </div>
+
+                {/* Spam Protection (hCaptcha) */}
+                <div className="flex justify-start my-4 min-h-[78px] overflow-hidden">
+                  <HCaptcha
+                    ref={captchaRef}
+                    sitekey={HCAPTCHA_SITEKEY}
+                    reCaptchaCompat={false}
+                    theme="dark"
+                    onVerify={(token) => {
+                      setCaptchaToken(token);
+                      setErrorMessage(null);
+                    }}
+                    onExpire={() => setCaptchaToken(null)}
+                    onError={(err) => console.warn('hCaptcha error:', err)}
+                  />
                 </div>
 
                 {errorMessage && (

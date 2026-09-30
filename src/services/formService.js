@@ -1,20 +1,27 @@
 import { siteMetadata } from '../data/siteData';
 
 /**
- * Service to dispatch form submissions to FormSubmit.co via AJAX.
- * Forwards inquiries directly to admin@envertgroup.com (and hr@envertgroup.com for job applications).
- *
- * Note: FormSubmit sends a one-time activation email to the recipient on the very first
- * submission to verify ownership. Once confirmed, all future submissions arrive immediately.
+ * Service to dispatch form submissions via Web3Forms API.
+ * Protected by hCaptcha spam prevention.
+ * Routes inquiries to appropriate corporate desk:
+ * - hr@envertgroup.com for job applications & careers
+ * - eisree.kolkata@gmail.com for solar research inquiries
+ * - admin@envertgroup.com for general & engineering inquiries
  */
 
-export async function submitForm(payload = {}, options = {}) {
+export const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '';
+
+export const HCAPTCHA_SITEKEY = 
+  import.meta.env.VITE_HCAPTCHA_SITEKEY || '50b2fe65-b00b-4b9e-ad62-3ba471098be2';
+
+export async function submitForm(payload = {}, _options = {}) {
   const isJobApplication = 
     payload.isCareer || 
     Boolean(payload.domain && (
       payload.domain.toLowerCase().includes('application') ||
       payload.domain.toLowerCase().includes('career') ||
-      payload.domain.toLowerCase().includes('job')
+      payload.domain.toLowerCase().includes('job') ||
+      payload.domain.toLowerCase().includes('recruitment')
     ));
 
   const isEisree = Boolean(
@@ -22,16 +29,21 @@ export async function submitForm(payload = {}, options = {}) {
     (payload.subject && payload.subject.toLowerCase().includes('eisree'))
   );
 
-  // Determine recipient
-  const targetEmail = isJobApplication
-    ? (import.meta.env.VITE_FORMSUBMIT_HR_EMAIL || siteMetadata.hrEmail || 'hr@envertgroup.com')
-    : (isEisree 
-        ? (import.meta.env.VITE_FORMSUBMIT_EISREE_EMAIL || 'eisree.kolkata@gmail.com')
-        : (import.meta.env.VITE_FORMSUBMIT_EMAIL || siteMetadata.email || 'admin@envertgroup.com')
-      );
+  const isEipr = Boolean(
+    (payload.domain && payload.domain.toLowerCase().includes('eipr')) ||
+    (payload.subject && payload.subject.toLowerCase().includes('eipr'))
+  );
 
-  const endpoint = import.meta.env.VITE_FORMSUBMIT_ENDPOINT 
-    || `https://formsubmit.co/ajax/${encodeURIComponent(targetEmail)}`;
+  // Determine intended desk
+  const targetEmail = isJobApplication
+    ? (import.meta.env.VITE_CONTACT_HR_EMAIL || siteMetadata.hrEmail || 'hr@envertgroup.com')
+    : (isEisree 
+        ? (import.meta.env.VITE_CONTACT_EISREE_EMAIL || 'eisree.kolkata@gmail.com')
+        : (isEipr
+            ? 'eipr.kolkata@gmail.com'
+            : (import.meta.env.VITE_CONTACT_ADMIN_EMAIL || siteMetadata.email || 'admin@envertgroup.com')
+          )
+      );
 
   const subjectLine = payload.subject 
     ? `[EnVERT Group] ${payload.subject}`
@@ -40,11 +52,15 @@ export async function submitForm(payload = {}, options = {}) {
         : `[EnVERT Group] Website Contact from ${payload.name || 'Website Visitor'}`
       );
 
-  // Prepare submission body
+  // Prepare submission body for Web3Forms
   const body = {
+    access_key: WEB3FORMS_ACCESS_KEY,
+    subject: subjectLine,
+    from_name: 'EnVERT Group Portal',
     name: payload.name || 'Not provided',
     email: payload.email || 'Not provided',
     phone: payload.phone || 'Not provided',
+    ...(payload.email ? { replyto: payload.email } : {}),
     ...(payload.company ? { company: payload.company } : {}),
     ...(payload.domain ? { practice_or_domain: payload.domain } : {}),
     ...(payload.topics && payload.topics.length > 0 
@@ -52,13 +68,12 @@ export async function submitForm(payload = {}, options = {}) {
       : {}
     ),
     message: payload.message || 'No additional message provided.',
-    _subject: subjectLine,
-    _template: 'table',
-    _captcha: 'false'
+    intended_desk: targetEmail,
+    ...(payload.captchaToken ? { 'h-captcha-response': payload.captchaToken } : {})
   };
 
   try {
-    const response = await fetch(endpoint, {
+    const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -69,20 +84,16 @@ export async function submitForm(payload = {}, options = {}) {
 
     const data = await response.json().catch(() => ({}));
 
-    if (response.ok && (data.success === 'true' || data.success === true || response.status === 200)) {
-      const isActivation = typeof data.message === 'string' && data.message.toLowerCase().includes('activation');
+    if (response.ok && data.success) {
       return {
         success: true,
         message: data.message || 'Your inquiry was successfully transmitted to our practice desk.',
-        activationRequired: isActivation,
         targetEmail
       };
     } else {
-      throw new Error(data.message || `Submission server responded with status ${response.status}`);
+      throw new Error(data.message || `Submission failed with status ${response.status}`);
     }
   } catch (error) {
-    console.error('Form submission error:', error);
-    
     // Build mailto fallback URL
     const mailtoBody = encodeURIComponent(
       `Name: ${payload.name || ''}\n` +

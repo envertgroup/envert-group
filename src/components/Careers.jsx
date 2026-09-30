@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, MapPin, Mail, GraduationCap, Briefcase, Clock } from 'lucide-react';
+import { ArrowRight, MapPin, Mail, GraduationCap, Clock } from 'lucide-react';
 import { careersData, siteMetadata } from '../data/siteData';
 
 export default function Careers({ onApplyJob }) {

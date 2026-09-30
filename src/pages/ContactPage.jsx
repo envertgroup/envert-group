@@ -1,17 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, ShieldCheck, Loader2, AlertCircle } from 'lucide-react';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { siteMetadata } from '../data/siteData';
-import { submitForm } from '../services/formService';
+import { submitForm, HCAPTCHA_SITEKEY } from '../services/formService';
 import SEO from '../components/SEO';
 import { getContactPageSchema } from '../data/seoData';
 
+const TOPICS = [
+  'Energy & Solar PV',
+  'BEE Industrial Audits',
+  'Electric Vehicles (FAME)',
+  'Film & Content Production (Glarepost Films)',
+  'Publishing & Media (Touriosity, Pen & Ink)',
+  'Corporate Language & Cultural Training',
+  'Specialty Chemicals & Polymers (REPOXISY)',
+  'Solar & Railway Lighting (WAGSOL)',
+  'Sustainable Tourism & ICST Global',
+  'Environmental Research & Policy (EIPR)',
+  'Visual Arts & Contemporary Culture (Afield Gallery)',
+  'Fashion & Sustainable Lifestyle (Atmaja)',
+  'Social Stewardship & CSR (EnVERT Foundation)',
+  'Healthcare & Corporate Wellness (EnVERT Wellness)',
+  'NAAC University Green Audits',
+  'Careers / Recruitment',
+  'General Inquiry'
+];
+
 export default function ContactPage() {
-  const [selectedTopics, setSelectedTopics] = useState(['Energy & Solar PV']);
+  const [selectedTopics, setSelectedTopics] = useState(() => {
+    if (typeof window !== 'undefined' && window.location.search) {
+      const params = new URLSearchParams(window.location.search);
+      const queryTopic = params.get('topic') || params.get('domain');
+      if (queryTopic) {
+        const found = TOPICS.find((t) => t.toLowerCase().includes(queryTopic.toLowerCase()));
+        if (found) return [found];
+      }
+    }
+    return ['Energy & Solar PV'];
+  });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [fallbackMailto, setFallbackMailto] = useState(null);
   const [submissionMeta, setSubmissionMeta] = useState(null);
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const captchaRef = useRef(null);
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -20,39 +53,7 @@ export default function ContactPage() {
     message: ''
   });
 
-  const topics = [
-    'Energy & Solar PV',
-    'BEE Industrial Audits',
-    'Electric Vehicles (FAME)',
-    'Film & Content Production (Glarepost Films)',
-    'Publishing & Media (Touriosity, Pen & Ink)',
-    'Corporate Language & Cultural Training',
-    'Specialty Chemicals & Polymers (REPOXISY)',
-    'Solar & Railway Lighting (WAGSOL)',
-    'Sustainable Tourism & ICST Global',
-    'Environmental Research & Policy (EIPR)',
-    'Visual Arts & Contemporary Culture (Afield Gallery)',
-    'Fashion & Sustainable Lifestyle (Atmaja)',
-    'Social Stewardship & CSR (EnVERT Foundation)',
-    'Healthcare & Corporate Wellness (EnVERT Wellness)',
-    'NAAC University Green Audits',
-    'Careers / Recruitment',
-    'General Inquiry'
-  ];
-
-  // Pre-select topic if user arrived via query parameters
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.location.search) {
-      const params = new URLSearchParams(window.location.search);
-      const queryTopic = params.get('topic') || params.get('domain');
-      if (queryTopic) {
-        const found = topics.find(t => t.toLowerCase().includes(queryTopic.toLowerCase()));
-        if (found) {
-          setSelectedTopics([found]);
-        }
-      }
-    }
-  }, []);
+  const topics = TOPICS;
 
   const toggleTopic = (t) => {
     if (selectedTopics.includes(t)) {
@@ -70,6 +71,12 @@ export default function ContactPage() {
     setErrorMessage(null);
     setFallbackMailto(null);
 
+    if (!captchaToken) {
+      setIsSubmitting(false);
+      setErrorMessage('Please complete the hCaptcha security check to verify you are human.');
+      return;
+    }
+
     const isCareerTopic = selectedTopics.some(t => t.toLowerCase().includes('career') || t.toLowerCase().includes('recruitment'));
 
     const res = await submitForm({
@@ -81,7 +88,8 @@ export default function ContactPage() {
       topics: selectedTopics,
       domain: selectedTopics.join(', '),
       subject: `Inquiry: ${selectedTopics.join(', ')}`,
-      isCareer: isCareerTopic
+      isCareer: isCareerTopic,
+      captchaToken
     });
 
     setIsSubmitting(false);
@@ -89,9 +97,12 @@ export default function ContactPage() {
     if (res.success) {
       setSubmissionMeta(res);
       setFormSubmitted(true);
+      setCaptchaToken(null);
     } else {
       setErrorMessage(res.error || 'Failed to dispatch inquiry to the server.');
       setFallbackMailto(res.mailtoUrl);
+      setCaptchaToken(null);
+      captchaRef.current?.resetCaptcha();
     }
   };
 
@@ -316,6 +327,21 @@ export default function ContactPage() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full bg-paper-warm border border-charcoal/20 p-3.5 text-sm text-charcoal focus:border-forest focus:outline-none"
                   ></textarea>
+                </div>
+
+                {/* Spam Protection (hCaptcha) */}
+                <div className="flex justify-start my-4 min-h-[78px] overflow-hidden">
+                  <HCaptcha
+                    ref={captchaRef}
+                    sitekey={HCAPTCHA_SITEKEY}
+                    reCaptchaCompat={false}
+                    onVerify={(token) => {
+                      setCaptchaToken(token);
+                      setErrorMessage(null);
+                    }}
+                    onExpire={() => setCaptchaToken(null)}
+                    onError={(err) => console.warn('hCaptcha error:', err)}
+                  />
                 </div>
 
                 {errorMessage && (

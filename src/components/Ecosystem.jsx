@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, ExternalLink, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { brandsData, ecosystemData, sectorsData } from '../data/siteData';
+import { brandsData, ecosystemData } from '../data/siteData';
 
 export default function Ecosystem() {
   return (

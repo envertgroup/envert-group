@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Phone, Mail, ExternalLink, Filter, CheckCircle2, ChevronRight } from 'lucide-react';
+import { ArrowRight, ExternalLink, Filter, CheckCircle2, ChevronRight } from 'lucide-react';
 import { businessesData, sectorsData } from '../data/siteData';
 import EditorialImage from '../components/EditorialImage';
 import SEO from '../components/SEO';

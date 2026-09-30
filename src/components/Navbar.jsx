@@ -1,16 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowRight, ChevronDown, Menu, X, Bell } from 'lucide-react';
+import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 import { navBusinessesData as businessesData } from '../data/navData';
 
 
-export default function Navbar({ onOpenContact }) {
+export default function Navbar({ _onOpenContact }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [businessesDropdownOpen, setBusinessesDropdownOpen] = useState(false);
   const [mobileBusinessesOpen, setMobileBusinessesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const dropdownRef = useRef(null);
+
+  // Close dropdown on route change during render
+  const [prevPathname, setPrevPathname] = useState(location.pathname);
+  if (prevPathname !== location.pathname) {
+    setPrevPathname(location.pathname);
+    setBusinessesDropdownOpen(false);
+    setMobileMenuOpen(false);
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,12 +27,6 @@ export default function Navbar({ onOpenContact }) {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Close dropdown on route change
-  useEffect(() => {
-    setBusinessesDropdownOpen(false);
-    setMobileMenuOpen(false);
-  }, [location.pathname]);
 
   // Click outside listener for dropdown
   useEffect(() => {

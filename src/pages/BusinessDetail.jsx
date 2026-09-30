@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link as RouterLink, useParams as useRouterParams } from 'react-router-dom';
-import { ArrowRight, ArrowLeft, ExternalLink, Phone, Mail, CheckCircle2, Award, Globe, Film, Video } from 'lucide-react';
+import { ArrowRight, ArrowLeft, ExternalLink, Phone, Mail, CheckCircle2, Award, Globe, Film } from 'lucide-react';
 import { businessesData, brandDetailsData, projectsData } from '../data/siteData';
 import EditorialImage from '../components/EditorialImage';
 import SEO from '../components/SEO';

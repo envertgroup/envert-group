@@ -1,6 +1,5 @@
 import React from 'react';
-import { ArrowRight, Layers, ShieldCheck, Compass, CheckCircle } from 'lucide-react';
-import { siteMetadata } from '../data/siteData';
+import { Layers, ShieldCheck, Compass } from 'lucide-react';
 import SEO from '../components/SEO';
 import { getAboutSchema } from '../data/seoData';
 

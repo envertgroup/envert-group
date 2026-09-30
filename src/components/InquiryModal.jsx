@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { X, Send, CheckCircle2, ArrowRight, Loader2, AlertCircle, Mail } from 'lucide-react';
-import { siteMetadata } from '../data/siteData';
-import { submitForm } from '../services/formService';
+import React, { useState, useEffect, useRef } from 'react';
+import { X, Send, CheckCircle2, Loader2, AlertCircle, Mail } from 'lucide-react';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
+import { submitForm, HCAPTCHA_SITEKEY } from '../services/formService';
 
-export const CANONICAL_DOMAINS = [
+const CANONICAL_DOMAINS = [
   'Energy & Power Systems (NRG India)',
   'Electric Mobility & Clean Transportation (EnVERT E-Vehicles)',
   'Sustainable Tourism & Global Platforms (ICST Global)',
@@ -23,7 +23,7 @@ export const CANONICAL_DOMAINS = [
   'General Inquiry / Corporate Consultation'
 ];
 
-export function resolveDomain(subject = '', explicitDomain = '') {
+function resolveDomain(subject = '', explicitDomain = '') {
   if (explicitDomain && CANONICAL_DOMAINS.includes(explicitDomain)) {
     return explicitDomain;
   }
@@ -94,6 +94,8 @@ export default function InquiryModal({ isOpen, onClose, initialSubject = '', ini
   const [errorMessage, setErrorMessage] = useState(null);
   const [fallbackMailto, setFallbackMailto] = useState(null);
   const [submissionMeta, setSubmissionMeta] = useState(null);
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const captchaRef = useRef(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -102,18 +104,24 @@ export default function InquiryModal({ isOpen, onClose, initialSubject = '', ini
     message: ''
   });
 
-  // Keep form synced whenever the modal opens or input props change
+  const [prevProps, setPrevProps] = useState({ initialSubject, initialDomain });
+  if (prevProps.initialSubject !== initialSubject || prevProps.initialDomain !== initialDomain) {
+    setPrevProps({ initialSubject, initialDomain });
+    setFormData(prev => ({
+      ...prev,
+      domain: resolveDomain(initialSubject, initialDomain),
+      message: ''
+    }));
+    setSubmitted(false);
+    setErrorMessage(null);
+    setFallbackMailto(null);
+    setCaptchaToken(null);
+  }
+
+  // Reset captcha widget if modal opens or props change
   useEffect(() => {
     if (isOpen) {
-      const resolved = resolveDomain(initialSubject, initialDomain);
-      setFormData(prev => ({
-        ...prev,
-        domain: resolved,
-        message: ''
-      }));
-      setSubmitted(false);
-      setErrorMessage(null);
-      setFallbackMailto(null);
+      captchaRef.current?.resetCaptcha();
     }
   }, [isOpen, initialSubject, initialDomain]);
 
@@ -124,6 +132,12 @@ export default function InquiryModal({ isOpen, onClose, initialSubject = '', ini
     setIsSubmitting(true);
     setErrorMessage(null);
     setFallbackMailto(null);
+
+    if (!captchaToken) {
+      setIsSubmitting(false);
+      setErrorMessage('Please complete the hCaptcha security check to verify you are human.');
+      return;
+    }
 
     const isCareerApp = 
       formData.domain.toLowerCase().includes('application') || 
@@ -137,7 +151,8 @@ export default function InquiryModal({ isOpen, onClose, initialSubject = '', ini
       domain: formData.domain,
       subject: formData.domain,
       message: formData.message,
-      isCareer: isCareerApp
+      isCareer: isCareerApp,
+      captchaToken
     });
 
     setIsSubmitting(false);
@@ -145,9 +160,12 @@ export default function InquiryModal({ isOpen, onClose, initialSubject = '', ini
     if (res.success) {
       setSubmissionMeta(res);
       setSubmitted(true);
+      setCaptchaToken(null);
     } else {
       setErrorMessage(res.error || 'Failed to dispatch inquiry to the server.');
       setFallbackMailto(res.mailtoUrl);
+      setCaptchaToken(null);
+      captchaRef.current?.resetCaptcha();
     }
   };
 
@@ -298,6 +316,21 @@ export default function InquiryModal({ isOpen, onClose, initialSubject = '', ini
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full bg-paper border border-charcoal/20 p-2.5 text-xs text-charcoal focus:border-forest focus:outline-none"
                 ></textarea>
+              </div>
+
+              {/* Spam Protection (hCaptcha) */}
+              <div className="flex justify-center my-3 min-h-[78px] overflow-hidden">
+                <HCaptcha
+                  ref={captchaRef}
+                  sitekey={HCAPTCHA_SITEKEY}
+                  reCaptchaCompat={false}
+                  onVerify={(token) => {
+                    setCaptchaToken(token);
+                    setErrorMessage(null);
+                  }}
+                  onExpire={() => setCaptchaToken(null)}
+                  onError={(err) => console.warn('hCaptcha error:', err)}
+                />
               </div>
 
               {errorMessage && (

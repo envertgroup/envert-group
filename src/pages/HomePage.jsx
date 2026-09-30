@@ -14,7 +14,7 @@ function SectionSkeleton({ height = 'min-h-[320px]' }) {
   return <div className={`${height} bg-paper-warm animate-pulse`} aria-hidden="true" />;
 }
 
-export default function HomePage({ onOpenContact, onApplyJob }) {
+export default function HomePage({ onOpenContact, _onApplyJob }) {
   return (
     <>
       <SEO

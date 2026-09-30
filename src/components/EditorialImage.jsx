@@ -13,13 +13,14 @@ export default function EditorialImage({
 }) {
   const [hasError, setHasError] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(priority);
+  const [isInView, setIsInView] = useState(
+    () => priority || (typeof window !== 'undefined' && !('IntersectionObserver' in window))
+  );
   const containerRef = useRef(null);
 
   useEffect(() => {
     if (priority || isInView) return;
     if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
-      setIsInView(true);
       return;
     }
 
