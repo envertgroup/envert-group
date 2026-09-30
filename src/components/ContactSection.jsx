@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { siteMetadata } from '../data/siteData';
-import { submitForm, HCAPTCHA_SITEKEY } from '../services/formService';
+import { submitForm, HCAPTCHA_SITE_KEY } from '../services/formService';
 
 export default function ContactSection() {
   const [selectedTopics, setSelectedTopics] = useState(['Energy & Solar PV']);
@@ -301,7 +301,7 @@ export default function ContactSection() {
                 <div className="flex justify-start my-4 min-h-[78px] overflow-hidden">
                   <HCaptcha
                     ref={captchaRef}
-                    sitekey={HCAPTCHA_SITEKEY}
+                    sitekey={HCAPTCHA_SITE_KEY}
                     reCaptchaCompat={false}
                     theme="dark"
                     onVerify={(token) => {

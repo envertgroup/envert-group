@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, Send, CheckCircle2, Loader2, AlertCircle, Mail } from 'lucide-react';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
-import { submitForm, HCAPTCHA_SITEKEY } from '../services/formService';
+import { submitForm, HCAPTCHA_SITE_KEY } from '../services/formService';
 
 const CANONICAL_DOMAINS = [
   'Energy & Power Systems (NRG India)',
@@ -322,7 +322,7 @@ export default function InquiryModal({ isOpen, onClose, initialSubject = '', ini
               <div className="flex justify-center my-3 min-h-[78px] overflow-hidden">
                 <HCaptcha
                   ref={captchaRef}
-                  sitekey={HCAPTCHA_SITEKEY}
+                  sitekey={HCAPTCHA_SITE_KEY}
                   reCaptchaCompat={false}
                   onVerify={(token) => {
                     setCaptchaToken(token);

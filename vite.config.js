@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   plugins: [react()],
+  envPrefix: ['VITE_', 'WEB3FORMS_', 'HCAPTCHA_'],
   server: {
     host: '0.0.0.0',
     port: 5173,

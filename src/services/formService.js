@@ -9,10 +9,19 @@ import { siteMetadata } from '../data/siteData';
  * - admin@envertgroup.com for general & engineering inquiries
  */
 
-export const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '';
+export const WEB3FORMS_ACCESS_KEY = 
+  import.meta.env.WEB3FORMS_ACCESS_KEY || 
+  import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 
+  '';
 
-export const HCAPTCHA_SITEKEY = 
-  import.meta.env.VITE_HCAPTCHA_SITEKEY || '50b2fe65-b00b-4b9e-ad62-3ba471098be2';
+export const HCAPTCHA_SITE_KEY = 
+  import.meta.env.HCAPTCHA_SITE_KEY || 
+  import.meta.env.VITE_HCAPTCHA_SITE_KEY || 
+  import.meta.env.HCAPTCHA_SITEKEY || 
+  import.meta.env.VITE_HCAPTCHA_SITEKEY || 
+  '50b2fe65-b00b-4b9e-ad62-3ba471098be2';
+
+export const HCAPTCHA_SITEKEY = HCAPTCHA_SITE_KEY;
 
 export async function submitForm(payload = {}, _options = {}) {
   const isJobApplication = 
