@@ -51,21 +51,27 @@ export default function App() {
     );
   };
 
-  // Initialize Vercel Analytics lazily during idle time to prevent main-thread long tasks
+  // Initialize Vercel Analytics & Speed Insights lazily during idle time to prevent main-thread long tasks
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const initAnalytics = () => {
+      const initTelemetry = () => {
         import('@vercel/analytics')
           .then(({ inject }) => {
             inject();
           })
           .catch(() => {});
+
+        import('@vercel/speed-insights')
+          .then(({ injectSpeedInsights }) => {
+            injectSpeedInsights();
+          })
+          .catch(() => {});
       };
 
       if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(initAnalytics, { timeout: 3500 });
+        window.requestIdleCallback(initTelemetry, { timeout: 3500 });
       } else {
-        setTimeout(initAnalytics, 2000);
+        setTimeout(initTelemetry, 2000);
       }
     }
   }, []);
