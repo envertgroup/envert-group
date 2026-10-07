@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 import HomePage from './pages/HomePage';
 
@@ -51,27 +52,21 @@ export default function App() {
     );
   };
 
-  // Initialize Vercel Analytics & Speed Insights lazily during idle time to prevent main-thread long tasks
+  // Initialize Vercel Analytics lazily during idle time to prevent main-thread long tasks
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const initTelemetry = () => {
+      const initAnalytics = () => {
         import('@vercel/analytics')
           .then(({ inject }) => {
             inject();
           })
           .catch(() => {});
-
-        import('@vercel/speed-insights')
-          .then(({ injectSpeedInsights }) => {
-            injectSpeedInsights();
-          })
-          .catch(() => {});
       };
 
       if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(initTelemetry, { timeout: 3500 });
+        window.requestIdleCallback(initAnalytics, { timeout: 3500 });
       } else {
-        setTimeout(initTelemetry, 2000);
+        setTimeout(initAnalytics, 2000);
       }
     }
   }, []);
@@ -207,6 +202,9 @@ export default function App() {
 
         {/* Global Editorial Footer */}
         <Footer />
+
+        {/* Vercel Speed Insights */}
+        <SpeedInsights />
 
         {/* Interactive Communication Modal - Code-split & lazy loaded on interaction */}
         {inquiryModalOpen && (
