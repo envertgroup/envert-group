@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -51,19 +52,13 @@ export default function App() {
     );
   };
 
-  // Initialize Vercel Analytics & Speed Insights lazily during idle time to prevent main-thread long tasks
+  // Initialize Vercel Analytics lazily during idle time to prevent main-thread long tasks
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const initTelemetry = () => {
         import('@vercel/analytics')
           .then(({ inject }) => {
             inject();
-          })
-          .catch(() => {});
-
-        import('@vercel/speed-insights')
-          .then(({ injectSpeedInsights }) => {
-            injectSpeedInsights();
           })
           .catch(() => {});
       };
@@ -219,6 +214,9 @@ export default function App() {
             />
           </Suspense>
         )}
+
+        {/* Vercel Speed Insights */}
+        <SpeedInsights />
 
       </div>
     </Router>
